@@ -51,7 +51,7 @@
             display: flex;
             align-items: center;
             list-style: none;
-            gap: 8px;
+            gap: 20px;
         }
 
         .nav-item {
@@ -181,12 +181,14 @@
 <body>
 
     <!-- NAVBAR HEADER -->
+    <!-- NAVBAR HEADER -->
     <nav class="navbar">
         <div class="brand">
             <!-- Tempatkan Logo HKI UNIDA jika ada -->
             <span>SENTRA HKI UNIDA</span>
         </div>
 
+        <!-- SEMUA MENU DIGABUNG DALAM 1 TAG UL -->
         <ul class="nav-menu">
             <li class="nav-item">
                 <a class="nav-link">Home <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
@@ -194,20 +196,16 @@
                     <li><a href="#">Sejarah HKI UNIDA Gontor</a></li>
                 </ul>
             </li>
-        </ul>
 
-        <ul class="nav-menu">
             <li class="nav-item">
                 <a class="nav-link">Pengertian <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Hak Cipta</a></li>
                     <li><a href="#">Paten</a></li>
-                    <li><a hred="#">Merek</a></li> 
+                    <li><a href="#">Merek</a></li> 
                 </ul>
             </li>
-        </ul>
 
-        <ul class="nav-menu">        
             <li class="nav-item">
                 <a class="nav-link">Pendaftaran <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
@@ -215,9 +213,7 @@
                     <li><a href="#">Template Forms</a></li>
                 </ul>
             </li>
-        </ul>
 
-        <ul class="nav-menu">
             <li class="nav-item">
                 <a class="nav-link">Syarat & Ketentuan <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
@@ -227,7 +223,6 @@
                 </ul>
             </li>
         </ul>
-            
     </nav>
 
      <!-- KONTEN UTAMA HALAMAN -->
