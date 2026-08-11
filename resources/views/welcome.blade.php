@@ -209,7 +209,7 @@
             <li class="nav-item">
                 <a class="nav-link">Pendaftaran <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Form Pendaftaran</a></li>
+                    <li><a href="/pendaftaran">Form Pendaftaran</a></li>
                     <li><a href="#">Template Forms</a></li>
                 </ul>
             </li>
@@ -227,12 +227,10 @@
 
      <!-- KONTEN UTAMA HALAMAN -->
     <main class="main-content">
-        <h1 class="page-title">Formulir Pendaftaran Kekayaan Intelektual (HKI)</h1>
+        <h1 class="page-title">Senta HKI UNIDA Gontor</h1>
         
         <p class="description">
-            Silakan isi formulir daring (<em>online</em>) di bawah ini dengan data yang sebenar-benarnya. 
-            Sebelum mengisi, pastikan Bapak/Ibu sudah mengunduh berkas <em>template</em> surat pernyataan 
-            di menu Pusat Unduhan dan telah menandatanganinya.
+           ini adalah uji coba website berbasis php.
         </p>
     </main>
 
@@ -240,7 +238,6 @@
     <script>
         document.getElementById('searchBtn').addEventListener('click', function() {
             let searchQuery = prompt("Masukkan kata kunci pencarian:");
-            if(searchQuery) {
                 alert("Mencari: " + searchQuery);
             }
         });
