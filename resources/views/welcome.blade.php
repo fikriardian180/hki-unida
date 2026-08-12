@@ -240,7 +240,7 @@
             let searchQuery = prompt("Masukkan kata kunci pencarian:");
                 alert("Mencari: " + searchQuery);
             }
-        });
+        )
     </script>
 </body>
 </html>
