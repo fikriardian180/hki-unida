@@ -317,6 +317,39 @@
         </ul>
     </nav>
 
+    <main class="main-content">
+        <h1 class="page-title">Hak Cipta</h1>
+        <p><strong>1. Definisi Hak Cipta</strong></p>
+        <br>
+        <p class="description">Berdasarkan <strong>UU No. 28 Tahun 2014</strong> tentang Hak Cipta, <strong>Hak Cipta</strong> adalah hak eksklusif pencipta yang timbul secara otomatis berdasarkan prinsip deklaratif setelah suatu ciptaan diwujudkan dalam bentuk nyata tanpa mengurangi pembatasan sesuai dengan ketentuan peraturan perundang-undangan. </p>
+        <p class="description">Hak eksklusif ini terdiri atas Hak Moral (hak yang melekat abadi pada diri Pencipta untuk mencantumkan namanya) dan Hak Ekonomi (hak untuk mendapatkan manfaat ekonomi atas ciptaan tersebut).</p>
+        <br>
+        <p><strong>2. Landasan Hukum</strong></p>
+        <br>
+        <p class="description">Penyelenggaraan dan perlindungan hukum Kekayaan Intelektual di lingkungan Universitas Darussalam Gontor mengacu pada regulasi nasional adalah sebagai berikut :</p>
+        <br>
+        <ul>
+            <li><p class="description"><strong>Undang-Undang Nomor 28 Tahun 2014</strong> tentang Hak Cipta.</p></li>
+            <li><p class="description"><strong>Peraturan Pemerintah Nomor 56 Tahun 2021</strong> tentang Pengelolaan Royalti Hak Cipta Lagu dan/atau Musik (serta peraturan turunan terkait pendaftaran digital).</p></li>
+            <li><p class="description"><strong>Undang-Undang Nomor 11 Tahun 2019</strong> tentang Sistem Nasional Ilmu Pengetahuan dan Teknologi (terkait kewajiban pelindungan KI hasil riset perguruan tinggi).</p></li>
+        </ul>
+        <br>
+        <P><strong>3. Jangka Waktu Pencatatan & Perlindungan</strong></P>
+        <br>
+        <p class="description">Berbeda dengan Paten atau Merek yang harus menunggu pemeriksaan substantif berbulan-bulan, pencatatan Hak Cipta di era digital saat ini menggunakan sistem<strong> e-HakCipta</strong> yang prosesnya instan (langsung terbit surat pencatatan dalam hitungan hari setelah divalidasi).</p>
+        <br>
+        <p class="description">Masa berlaku pelindungan Hak Cipta sangat panjang, dibagi berdasarkan jenis ciptaannya :</p>
+        <ul>
+            <li><p class="description"><strong>Seumur Hidup Pencipta + 70 Tahun Setelah Meninggal Dunia :</strong> Berlaku untuk ciptaan utama seperti buku, pamflet, artikel ilmiah, tafsir, ceramah, kuliah, lagu/musik, drama, arsitektur, peta, dan karya seni rupa.</p></li>
+            <li><p class="description"><strong>50 Tahun Sejak Pertama Kali Diumumkan/Diterbitkan :</strong> Berlaku untuk karya program komputer (aplikasi/software), database, sinematografi (video/film), fotografi, dan karya modifikasi/saduran.</p></li>
+        </ul>
+        <br>
+        <p><strong>4. Kategori & Jenis Karya Hak Cipta</strong></p>
+        <br>
+        <p class="description">Berikut adalah jenis-jenis ciptaan hasil karya dosen dan mahasiswa yang dapat didaftarkan perlindungannya melalui Sentra HKI UNIDA Gontor :</p>
+        <p><strong>Nanti Mau Diisi Pake Tabel</strong></p>
+    </main>
+
     <footer class="footer">
         <div class="footer-container">
             
