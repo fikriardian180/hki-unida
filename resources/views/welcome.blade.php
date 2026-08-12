@@ -171,10 +171,105 @@
             line-height: 1.2;
         }
 
+        /* --- FOOTER STYLING --- */
+        .footer {
+            background-color: #2c5263; /* Warna sedikit lebih gelap dari navbar agar elegan */
+            color: #ffffff;
+            padding: 40px 0 20px 0;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #ffffff;
+            border-bottom: 2px solid #528ba3;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .footer-col p {
+            line-height: 1.6;
+            color: #d1d5db;
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 18px;
+            transition: opacity 0.2s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+            font-size: 13px;
+        }
+
+        .page-heading {
+            font-family: 'Slabo 18px', serif;
+            font-size: 28px;
+            color: #000; /* Added missing semicolon here */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
         .description {
             font-size: 15px;
             color: #555555;
             line-height: 1.6;
+            text-align: justify;
         }
     </style>
 </head>
@@ -191,35 +286,35 @@
         <!-- SEMUA MENU DIGABUNG DALAM 1 TAG UL -->
         <ul class="nav-menu">
             <li class="nav-item">
-                <a class="nav-link">Home <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
+                <a href="/" class="nav-link">Home <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Sejarah HKI UNIDA Gontor</a></li>
+                    <li><a href="/sejarah">Sejarah HKI UNIDA Gontor</a></li>
                 </ul>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link">Pengertian <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
+                <a href="/pengertian" class="nav-link">Pengertian <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Hak Cipta</a></li>
-                    <li><a href="#">Paten</a></li>
-                    <li><a href="#">Merek</a></li> 
+                    <li><a href="/phc">Hak Cipta</a></li>
+                    <li><a href="/pptn">Paten</a></li>
+                    <li><a href="/pmrk">Merek</a></li> 
                 </ul>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link">Pendaftaran <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="/pendaftaran" class="nav-link">Pendaftaran <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="/pendaftaran">Form Pendaftaran</a></li>
-                    <li><a href="#">Template Forms</a></li>
+                    <li><a href="/pdffm">Form Pendaftaran</a></li>
+                    <li><a href="/pdftf">Template Forms</a></li>
                 </ul>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link">Syarat & Ketentuan <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="/sk" class="nav-link">Syarat & Ketentuan <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Hak Cipta</a></li>
-                    <li><a href="#">Paten</a></li>
-                    <li><a href="#">Merek</a></li>
+                    <li><a href="/skhc">Hak Cipta</a></li>
+                    <li><a href="/skptn">Paten</a></li>
+                    <li><a href="/skmrk">Merek</a></li>
                 </ul>
             </li>
         </ul>
@@ -227,12 +322,64 @@
 
      <!-- KONTEN UTAMA HALAMAN -->
     <main class="main-content">
-        <h1 class="page-title">Senta HKI UNIDA Gontor</h1>
+        <h1 class="page-title">Sentra HKI UNIDA Gontor</h1>
+
+        <h2 class="page-heading">Selamat Datang di sistem informasi resmi Sentra HKI Universitas Darussalam Gontor</h2>
         
         <p class="description">
-           ini adalah uji coba website berbasis php.
+            Sentra Kekayaan Intelektual (HKI) Universitas Darussalam Gontor merupakan unit strategis yang berkomitmen penuh dalam memfasilitasi, melindungi, serta mengelola seluruh aset intelektual hasil kreativitas, riset, dan inovasi dari segenap civitas akademika. Kami percaya bahwa setiap karya ilmiah, buku, jurnal, aplikasi, hingga invensi teknologi yang dilahirkan oleh para dosen dan peneliti merupakan aset berharga yang wajib mendapatkan kepastian hukum serta pelindungan hak cipta yang kuat.
+        </p>
+        <br>
+        <p class="description">
+            Sebagai bentuk perwujudan Tri Dharma Perguruan Tinggi yang adaptif terhadap era digital, platform ini hadir untuk memangkas birokrasi dan menyederhanakan proses administratif. Melalui Sistem Informasi Satu Pintu ini, para dosen kini dapat melakukan pengajuan berkas HKI, mengunduh dokumen persyaratan, hingga memantau perkembangan status validasi secara mandiri dan real-time dari mana saja tanpa harus mengabaikan aktivitas pembelajaran.
+        </p>
+        <br>
+        <p class="description">
+            Mari bersama-sama kita catatkan dan amankan karya-karya terbaik kita. Pelindungan HKI yang solid tidak hanya menjaga hak moral dan ekonomi pencipta, namun juga menjadi pilar penting dalam mendongkrak klasterisasi riset, reputasi akademik, serta mengukuhkan kontribusi nyata UNIDA Gontor bagi kemajuan sains dan teknologi di tingkat nasional maupun internasional.
         </p>
     </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+        <div class="footer-container">
+            
+            <!-- Kolom 1: Profil / Deskripsi -->
+            <div class="footer-col">
+                <h3>Sentra HKI UNIDA</h3>
+                <p>Lembaga Layanan Hak Kekayaan Intelektual Universitas Darussalam Gontor.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Kolom 2: Navigasi Cepat -->
+            <div class="footer-col">
+                <h3>Tautan Cepat</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/pengertian">Pengertian HKI</a></li>
+                    <li><a href="/pendaftaran">Pendaftaran HKI</a></li>
+                    <li><a href="/sejarah">Sejarah UNIDA</a></li>
+                </ul>
+            </div>
+
+            <!-- Kolom 3: Kontak & Alamat -->
+            <div class="footer-col">
+                <h3>Kontak Kami</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Jl. Raya Siman No. Km. 5, Dusun I, Demangan, Kec. Siman, Kabupaten Ponorogo, Jawa Timur 63471</p>
+                <p><i class="fa-solid fa-envelope"></i> hki@unida.gontor.ac.id</p>
+                <p><i class="fa-solid fa-phone"></i> 0857-0858-3094</p>
+            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <!-- JAVASCRIPT UNTUK INTERAKSI PENCARIAN -->
     <script>

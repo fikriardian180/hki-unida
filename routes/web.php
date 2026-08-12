@@ -5,36 +5,51 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/pendaftaran', function () {
     return view('pendaftaran');
 });
+
 Route::get('/pdffm', function(){
     return view('pdffm');
 });
+
 Route::get('/pdftf', function(){
-    return view('pdftf')
-})
+    return view('pdftf');
+});
+
 Route::get('/pengertian', function(){
-    return view('pengertian')
-})
+    return view('pengertian');
+});
+
 Route::get('/phc', function(){
-    return view('phc')
-})
+    return view('phc');
+});
+
 Route::get('/pmrk', function(){
-    return view('pmrk')
-})
+    return view('pmrk');
+});
+
 Route::get('/pptn', function(){
-    return view('pptn')
-})
+    return view('pptn');
+});
+
 Route::get('/sejarah', function(){
-    return view('sejarah')
-})
+    return view('sejarah');
+});
+
 Route::get('/skhc', function(){
-    return view('skhc')
-})
+    return view('skhc');
+});
+
 Route::get('/skmrk', function(){
-    return view('skmrk')
-})
+    return view('skmrk');
+});
+
 Route::get('/skptn', function(){
-    return view('skptn')
-})
+    return view('skptn');
+});
+
+Route::get('/sk', function(){
+    return view('sk');
+});
