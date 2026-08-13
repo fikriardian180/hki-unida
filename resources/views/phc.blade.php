@@ -104,54 +104,6 @@
             display: block;
         }
 
-        .search-icon {
-            cursor: pointer;
-            font-size: 15px;
-            margin-left: 10px;
-        }
-
-        /* --- HERO BANNER SKew EFFECT --- */
-        .hero-banner {
-            position: relative;
-            height: 260px;
-            display: flex;
-            overflow: hidden;
-            background-color: #1a1a1a;
-        }
-
-        .banner-segment {
-            height: 100%;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Segment Kiri (Gedung Utama + Logo HKI) */
-        .segment-1 {
-            width: 65%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2021/01/Gedung-Utama-UNIDA.jpg');
-            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-            z-index: 1;
-        }
-
-        /* Segment Kanan (Gedung Samping/Asrama) */
-        .segment-2 {
-            width: 45%;
-            margin-left: -10%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2020/09/UNIDA-Gontor-1.jpg');
-            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-        }
-
-        /* Overlay Logo HKI di tengah Banner */
-        .center-logo-overlay {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 4;
-            height: 140px;
-        }
-
         /* --- CONTENT SECTION --- */
         .main-content {
             max-width: 1100px;
@@ -170,9 +122,75 @@
             line-height: 1.2;
         }
 
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            font-size: 15px;
+            color: #555555;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        /* List Styling */
+        .main-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .main-content li {
+            margin-bottom: 8px;
+        }
+
+        /* --- TABEL STYLING --- */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .custom-table th {
+            background-color: #3B6B80;
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 600;
+        }
+
+        .custom-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #4b5563;
+            vertical-align: top;
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
         /* --- FOOTER STYLING --- */
         .footer {
-            background-color: #2c5263; /* Warna sedikit lebih gelap dari navbar agar elegan */
+            background-color: #2c5263;
             color: #ffffff;
             padding: 40px 0 20px 0;
             margin-top: 60px;
@@ -253,44 +271,25 @@
             color: #9ca3af;
             font-size: 13px;
         }
-
-        .page-heading {
-            font-family: 'Slabo 18px', serif;
-            font-size: 28px;
-            color: #000; /* Added missing semicolon here */
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-
-        .description {
-            font-size: 15px;
-            color: #555555;
-            line-height: 1.6;
-            text-align: justify;
-        }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="brand">
-            <!-- Tempatkan Logo HKI UNIDA jika ada -->
             <span>SENTRA HKI UNIDA</span>
         </div>
 
-        <!-- SEMUA MENU DIGABUNG DALAM 1 TAG UL -->
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="/" class="nav-link">Home <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
+                <a href="/" class="nav-link">Home <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="/sejarah">Sejarah HKI UNIDA Gontor</a></li>
                 </ul>
             </li>
 
             <li class="nav-item">
-                <a href="/pengertian" class="nav-link">Pengertian <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
+                <a href="/pengertian" class="nav-link">Pengertian <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="/phc">Hak Cipta</a></li>
                     <li><a href="/pptn">Paten</a></li>
@@ -319,41 +318,90 @@
 
     <main class="main-content">
         <h1 class="page-title">Hak Cipta</h1>
-        <p><strong>1. Definisi Hak Cipta</strong></p>
-        <br>
-        <p class="description">Berdasarkan <strong>UU No. 28 Tahun 2014</strong> tentang Hak Cipta, <strong>Hak Cipta</strong> adalah hak eksklusif pencipta yang timbul secara otomatis berdasarkan prinsip deklaratif setelah suatu ciptaan diwujudkan dalam bentuk nyata tanpa mengurangi pembatasan sesuai dengan ketentuan peraturan perundang-undangan. </p>
-        <p class="description">Hak eksklusif ini terdiri atas Hak Moral (hak yang melekat abadi pada diri Pencipta untuk mencantumkan namanya) dan Hak Ekonomi (hak untuk mendapatkan manfaat ekonomi atas ciptaan tersebut).</p>
-        <br>
-        <p><strong>2. Landasan Hukum</strong></p>
-        <br>
-        <p class="description">Penyelenggaraan dan perlindungan hukum Kekayaan Intelektual di lingkungan Universitas Darussalam Gontor mengacu pada regulasi nasional adalah sebagai berikut :</p>
-        <br>
+        
+        <p class="section-title">1. Definisi Hak Cipta</p>
+        <p class="description">Berdasarkan <strong>UU No. 28 Tahun 2014</strong> tentang Hak Cipta, <strong>Hak Cipta</strong> adalah hak eksklusif pencipta yang timbul secara otomatis berdasarkan prinsip deklaratif setelah suatu ciptaan diwujudkan dalam bentuk nyata tanpa mengurangi pembatasan sesuai dengan ketentuan peraturan perundang-undangan.</p>
+        <p class="description">Hak eksklusif ini terdiri atas <strong>Hak Moral</strong> (hak yang melekat abadi pada diri Pencipta untuk mencantumkan namanya) dan <strong>Hak Ekonomi</strong> (hak untuk mendapatkan manfaat ekonomi atas ciptaan tersebut).</p>
+
+        <p class="section-title">2. Landasan Hukum</p>
+        <p class="description">Penyelenggaraan dan perlindungan hukum Kekayaan Intelektual di lingkungan Universitas Darussalam Gontor mengacu pada regulasi nasional sebagai berikut :</p>
         <ul>
             <li><p class="description"><strong>Undang-Undang Nomor 28 Tahun 2014</strong> tentang Hak Cipta.</p></li>
             <li><p class="description"><strong>Peraturan Pemerintah Nomor 56 Tahun 2021</strong> tentang Pengelolaan Royalti Hak Cipta Lagu dan/atau Musik (serta peraturan turunan terkait pendaftaran digital).</p></li>
             <li><p class="description"><strong>Undang-Undang Nomor 11 Tahun 2019</strong> tentang Sistem Nasional Ilmu Pengetahuan dan Teknologi (terkait kewajiban pelindungan KI hasil riset perguruan tinggi).</p></li>
         </ul>
-        <br>
-        <P><strong>3. Jangka Waktu Pencatatan & Perlindungan</strong></P>
-        <br>
-        <p class="description">Berbeda dengan Paten atau Merek yang harus menunggu pemeriksaan substantif berbulan-bulan, pencatatan Hak Cipta di era digital saat ini menggunakan sistem<strong> e-HakCipta</strong> yang prosesnya instan (langsung terbit surat pencatatan dalam hitungan hari setelah divalidasi).</p>
-        <br>
+
+        <p class="section-title">3. Jangka Waktu Pencatatan & Perlindungan</p>
+        <p class="description">Berbeda dengan Paten atau Merek yang harus menunggu pemeriksaan substantif berbulan-bulan, pencatatan Hak Cipta di era digital saat ini menggunakan sistem <strong>e-HakCipta</strong> yang prosesnya instan (langsung terbit surat pencatatan dalam hitungan hari setelah divalidasi).</p>
         <p class="description">Masa berlaku pelindungan Hak Cipta sangat panjang, dibagi berdasarkan jenis ciptaannya :</p>
         <ul>
             <li><p class="description"><strong>Seumur Hidup Pencipta + 70 Tahun Setelah Meninggal Dunia :</strong> Berlaku untuk ciptaan utama seperti buku, pamflet, artikel ilmiah, tafsir, ceramah, kuliah, lagu/musik, drama, arsitektur, peta, dan karya seni rupa.</p></li>
             <li><p class="description"><strong>50 Tahun Sejak Pertama Kali Diumumkan/Diterbitkan :</strong> Berlaku untuk karya program komputer (aplikasi/software), database, sinematografi (video/film), fotografi, dan karya modifikasi/saduran.</p></li>
         </ul>
-        <br>
-        <p><strong>4. Kategori & Jenis Karya Hak Cipta</strong></p>
-        <br>
+
+        <p class="section-title">4. Kategori & Jenis Karya Hak Cipta</p>
         <p class="description">Berikut adalah jenis-jenis ciptaan hasil karya dosen dan mahasiswa yang dapat didaftarkan perlindungannya melalui Sentra HKI UNIDA Gontor :</p>
-        <p><strong>Nanti Mau Diisi Pake Tabel</strong></p>
+        
+        <!-- TABEL KATEGORI HAK CIPTA -->
+        <div class="table-responsive">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">No</th>
+                        <th style="width: 25%;">Kategori Ciptaan</th>
+                        <th style="width: 70%;">Jenis Ciptaan Yang Dapat Didaftarkan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Karya Tulis</strong></td>
+                        <td>Buku, Monograf, Buku Panduan, Modul Ajar, Ringkasan/Resume, Artikel Ilmiah, Jurnal, Modul Praktikum, Karya Tulis Terjemahan.</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Karya Seni</strong></td>
+                        <td>Alat Peraga Pendidikan, Peta, Desain Motif Batik, Kaligrafi, Lukisan, Ilustrasi, Karya Arsitektur.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Karya Audio Visual</strong></td>
+                        <td>Video Pembelajaran, Film Pendek Dokumenter, Rekaman Kuliah, Podcast Edukasi, Aransemen Musik/Lagu Kampus.</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Komposisi Musik</strong></td>
+                        <td>Aransemen, Karya Rekaman Suara, Lagu(Musik Dengan Teks), Berbagai Jenis Musik, Musik Tanpan Teks, Musik Tradisional.</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Karya Fotografi</strong></td>
+                        <td>Karya Fotografi, Potret</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>Karya Drama & Koreografi</strong></td>
+                        <td>Drama/pertunjukan, Drama Musikal, Ketoprak, Pentas Musik, Pewayangan, Seni Pertunjukan, Sulap, Tari</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Karya Rekaman</strong></td>
+                        <td>Komik, Koreografi, Booklet, Khutbah, Banner, Brosur, Buku, Modul, Diktat, Cerita Bergambar, Pantomim, Karya Siaran, Nakah Film, Novel.</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><strong>Karya Lainnya</strong></td>
+                        <td>Komplikasi Ciptaan, Permainan Vidio, Program Komputer</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="section-title">5. Persyaratan Pencatatan</p>
+            <p class="description">Adapun persyaratan yang harus disiapkan oleh pemohon dalam pencatatan Hak Cipta adalah sebagai berikut :</p>
+        </div>
     </main>
 
     <footer class="footer">
         <div class="footer-container">
-            
-            <!-- Kolom 1: Profil / Deskripsi -->
             <div class="footer-col">
                 <h3>Sentra HKI UNIDA</h3>
                 <p>Lembaga Layanan Hak Kekayaan Intelektual Universitas Darussalam Gontor.</p>
@@ -364,7 +412,6 @@
                 </div>
             </div>
 
-            <!-- Kolom 2: Navigasi Cepat -->
             <div class="footer-col">
                 <h3>Tautan Cepat</h3>
                 <ul>
@@ -375,22 +422,18 @@
                 </ul>
             </div>
 
-            <!-- Kolom 3: Kontak & Alamat -->
             <div class="footer-col">
                 <h3>Kontak Kami</h3>
                 <p><i class="fa-solid fa-location-dot"></i> Jl. Raya Siman No. Km. 5, Dusun I, Demangan, Kec. Siman, Kabupaten Ponorogo, Jawa Timur 63471</p>
                 <p><i class="fa-solid fa-envelope"></i> hki@unida.gontor.ac.id</p>
                 <p><i class="fa-solid fa-phone"></i> 0857-0858-3094</p>
             </div>
-
         </div>
 
-        <!-- Copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved.</p>
         </div>
     </footer>
-
 
 </body>
 </html>
