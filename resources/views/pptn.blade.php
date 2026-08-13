@@ -144,6 +144,46 @@
             margin-bottom: 10px;
         }
 
+                /* --- TABEL STYLING --- */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .custom-table th {
+            background-color: #3B6B80;
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 600;
+        }
+
+        .custom-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #4b5563;
+            vertical-align: top;
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
         /* Styling List agar Rapi */
         .main-content ul {
             margin-left: 20px;
@@ -362,9 +402,120 @@
                     <li>
                         <p class="description"><strong>Hak Cipta : Terbit otomatis secara instan</strong> (dalam waktu 1–2 hari setelah didaftarkan ke sistem e-HakCipta DJKI).</p>
                     </li>
+                    <li>
+                        <p class="description"><strong>Paten :</strong> Memasuki fase pengumuman dan pemeriksaan substantif oleh DJKI pusat (membutuhkan waktu bulanan hingga tahunan).</p>
+                    </li>
                 </ul>
             </li>
         </ul>
+        <p class="section-title">B. Jangka Waktu Masa Perlindungan Produk HKI</p>
+        <p class="description">Setelah berhasil terdaftar dan mendapatkan sertifikat resmi, masing-masing jenis HKI memiliki masa berlaku perlindungan hukum yang berbeda sesuai dengan undang-undang yang berlaku:</p>
+        <p class="description"><strong>A. Paten Sederhana</strong></p>
+        <ul>
+            <li>
+                <p class="description"><strong>10 Tahun sejak Tanggal Penerimaan</strong> (Filing Date) dokumen pendaftaran oleh DJKI dan<strong> tidak dapat diperpanjang.</strong></p>
+            </li>
+        </ul>
+        <p class="description"><strong>B. Paten Biasa</strong></p>
+        <ul>
+            <li>
+                <p class="description"><strong>20 Tahun sejak Tanggal Penerimaan</strong> (Filing Date) dokumen pendaftaran oleh DJKI dan <strong>tidak dapat diperpanjang.</strong></p>
+            </li>
+        </ul>
+        <p class="section-title">6. Persyaratan Pencatatan</p>
+        <p class="description">	Adapun persyaratan yang harus disiapkan oleh pemohon dalam pencatatan Hak Cipta adalah sebagai berikut :</p>
+        <ul>
+            <li>
+                <p class="description">KTP Inventor</p>
+            </li>
+            <li>
+                <p class="description">Judul invensi dalam bahasa Indonesia</p>
+            </li>
+            <li>
+                <p class="description">Biodata Inventor</p>
+            </li>
+            <li>
+                <p class="description">Judul invensi dalam bahasa Inggris</p>
+            </li>
+            <li>
+                <p class="description">Klaim</p>
+            </li>
+            <li>
+                <p class="description">Abstrak dalam bahasa Indonesia</p>
+            </li>
+            <li>
+                <p class="description">Abstrak dalam bahasa Inggris</p>
+            </li>
+            <li>
+                <p class="description">Deskripsi invensi dalam bahasa Inggris</p>
+            </li>
+            <li>
+                <p class="description">Deskripsi invensi dalam bahasa Indonesia</p>
+            </li>
+            <li>
+                <p class="description">Gambar Invensi</p>
+            </li>
+            <li>
+                <p clss="description">Surat Pernyataan Kepemilikan</p>
+            </li>
+            <li>
+                <p class="description">Surat peralihan hak atas invensi (Jika diperlukan)</p?>
+            </li>
+            <li>
+                <p class="description">Surat keterangan UMKM atau akta pendirian lembaga berbadan hukum (Jika perlu)</p>
+            </li>
+            <li>
+                <p class="description">Surat kuasa (Jika diajukan melalui konsultan)</p>
+            </li>
+            <li>
+                <p class="description">Dokumen pendukung</p>
+            </li> 
+        </ul>
+        <p class="section-title">6. Biaya Pencatatan</p>
+        <p class="description">Berdasarkan regulasi resmi Peraturan Pemerintah (PP) RI Nomor 28 Tahun 2019 tentang Jenis dan Tarif atas Jenis Penerimaan Negara Bukan Pajak (PNBP) yang Berlaku pada Kementerian Hukum dan Hak Asasi Manusia adalah sebagai berikut :</p>
+        <p><strong>Paten Sederhana</strong></p>
+        <div class="table-responsive">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">No</th>
+                        <th style="width: 45%;">Rincian</th>
+                        <th style="width: 25%;">Lembaga Pendidikan, Penelitian, UMKM</th>
+                        <th style="width: 25%;">Umum</th> 
+                    </tr>
+                    <tr>
+                        <td>1.</td>
+                        <td>Pendaftaran Paten Sederhana</td>
+                        <td> Rp 350,000 </td>
+                        <td> Rp 950,000</td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Penelusuran Paten</td>
+                        <td>Rp 500,000</td>
+                        <td>Rp 500,000</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Penyusunan Draf Paten</td>
+                        <td>Rp 500,000</td>
+                        <td>Rp 1,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td>Pemeriksaan Substansif setelah 6 bulan pendaftaran</td>
+                        <td>Rp 500,000</td>
+                        <td>Rp 500,000</td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td>Administrasi kepengurusan (Pendaftaran) awal</td>
+                        <td> Rp                                750,000 </td>
+                        <td> Rp      750,000 </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </main>
 
     <footer class="footer">

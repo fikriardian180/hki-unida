@@ -395,8 +395,56 @@
                     </tr>
                 </tbody>
             </table>
-            <p class="section-title">5. Persyaratan Pencatatan</p>
-            <p class="description">Adapun persyaratan yang harus disiapkan oleh pemohon dalam pencatatan Hak Cipta adalah sebagai berikut :</p>
+        </div>
+        <p class="section-title">5. Persyaratan Pencatatan</p>
+        <p class="description">Adapun persyaratan yang harus disiapkan oleh pemohon dalam pencatatan Hak Cipta adalah sebagai berikut :</p>
+        <ul>
+            <li>KTP</li>
+            <li>NPWP</li>
+            <li>Karya Ciptaan </li>
+            <li>Deskripsi Ciptaan</li>
+            <li>Surat Pernyataan Kepemilikan</li>
+            <li>Surat Keterangan UMKM atau Akta pendirian lembaga berbadan hukum (Jika Perelu)</li>
+            <li>Surat Pengalihan Hak (Jika pemohon adalah lembaga berbadan Hukum)</li>
+            <li>Surat Kuasa (Jika menggunakan konsultan HKI)</li>
+            <li>Alamat email dan nomor HP</li> 
+        </ul>
+        <p class="section-title">6. Biaya Pencatatan</p>
+        <div class="table-responsive">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">No</th>
+                        <th style="width: 45%;">Rincian</th>
+                        <th style="width: 25%;">Lembaga Pendidikan, Penelitian, UMKM</th>
+                        <th style="width: 25%;">Umum</th>
+                    </tr>
+                    <tr>
+                        <td>1.</td>
+                        <td>Pendaftaran Hak Cipta berupa Karya Seni, Karya Tulis, Karya Audio Visual, Komposisi Musik, Karya Fotografi, Karya Drama & Koreografi, dan Rekaman </td>
+                        <td> Rp 300,000</td>
+                        <td> Rp 500,000 </td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Pendaftaran HAK Cipta berupa Aplikasi, Program Komputer.</td>
+                        <td> Rp 400,000 </td>
+                        <td> Rp 700,000 </td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>.
+                        <td>Administrasi</td>
+                        <td> Rp 300,000 </td>
+                        <td> Rp 300,000 </td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td>Pengalihan Hak</td>
+                        <td> Rp 200,000</td>
+                        <td> Rp 200,000 </td>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </main>
 
