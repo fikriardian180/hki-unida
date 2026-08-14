@@ -513,6 +513,96 @@
                         <td> Rp                                750,000 </td>
                         <td> Rp      750,000 </td>
                     </tr>
+                    <tr>
+                        <td>6.</td>
+                        <td>Biaya Per Klaim</td>
+                        <td> Rp                                  75,000 </td>
+                        <td> Rp        75,000 </td>
+                    </tr>
+                    <tr>
+                        <td>7.</td>
+                        <td>Penambahan deskripsi paten per lembar (Lebih dari 30 lembar)</td>
+                        <td> Rp                                  15,000 </td>
+                        <td> Rp        15,000 </td>
+                    </tr>
+                    <tr>
+                        <td>8.</td>
+                        <td>Tambahan waktu pendaftaran</td>
+                        <td> Rp                                400,000 </td>
+                        <td> Rp                                400,000</td>                        
+                    </tr>
+                    <tr>
+                        <td>9.</td>
+                        <td>Percepatan pemeriksaan subtatif</td>
+                        <td> Rp                                400,000</td>
+                        <td> Rp                                400,000 </td>                        
+                    </tr>
+                    <tr>
+                        <td>10.</td>
+                        <td>Pengajuan banding</td>
+                        <td> Rp                             3,000,000 </td>
+                        <td> Rp                             3,000,000 </td>
+                    </tr>
+                    <tr>
+                        <td>11.</td>
+                        <td>Pendaftaran perjanjian pencatatan lisensi</td>
+                        <td> Rp                             1,000,000 </td>
+                        <td> Rp   1,000,000 </td>
+                    </tr>
+                    <tr>
+                        <td>12.</td>
+                        <td>Pembatalan paten</td>
+                        <td> Rp                                500,000 </td>
+                        <td> Rp                                500,000 </td>
+                    </tr>
+                    <tr>
+                        <td>13.</td>
+                        <td>Biaya pemeliharaan tahun ke-1 - 4</td>
+                        <td>-</td>
+                        <td> Rp      3,200,000 </td>
+                    </tr>
+                    <tr>
+                        <td>14.</td>
+                        <td>Biaya pemeliharaan tahun ke-5</td>
+                        <td>-</td>
+                        <td> Rp      1,300,000 </td>
+                    </tr>
+                    <tr>
+                        <td>15.</td>
+                        <td>Biaya pemeliharaan tahun ke-6</td>
+                        <td> Rp                             1,700,000 </td>
+                        <td> Rp   1,750,000 </td>
+                    </tr>
+                    <tr>
+                        <td>16.</td>
+                        <td>Biaya pemeliharaan tahun ke-7</td>
+                        <td> Rp                             2,250,000 </td>
+                        <td> Rp   2,350,000 </td>
+                    </tr>
+                    <tr>
+                        <td>17.</td>
+                        <td>Biaya pemeliharaan tahun ke-8</td>
+                        <td> Rp                             2,800,000 </td>
+                        <td> Rp   2,850,000 </td>
+                    </tr>
+                    <tr>
+                        <td>18.</td>
+                        <td>Biaya pemeliharaan tahun ke-9</td>
+                        <td> Rp                             3,350,000 </td>
+                        <td> Rp   3,550,000 </td>
+                    </tr>
+                    <tr>
+                        <td>19.</td>
+                        <td>Biaya pemeliharaan tahun ke-10</td>
+                        <td> Rp                             3,900,000 </td>
+                        <td> Rp   4,050,000 </td>
+                    </tr>
+                    <tr>
+                        <td>20.</td>
+                        <td>Administrasi kepengurusan lanjutan</td>
+                        <td> Rp                                250,000 </td>
+                        <td> Rp                                250,000 </td>
+                    </tr>
                 </thead>
             </table>
         </div>

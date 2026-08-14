@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Slabo+27px&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
+      <style>
         * {
             margin: 0;
             padding: 0;
@@ -110,48 +110,6 @@
             margin-left: 10px;
         }
 
-        /* --- HERO BANNER SKew EFFECT --- */
-        .hero-banner {
-            position: relative;
-            height: 260px;
-            display: flex;
-            overflow: hidden;
-            background-color: #1a1a1a;
-        }
-
-        .banner-segment {
-            height: 100%;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Segment Kiri (Gedung Utama + Logo HKI) */
-        .segment-1 {
-            width: 65%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2021/01/Gedung-Utama-UNIDA.jpg');
-            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-            z-index: 1;
-        }
-
-        /* Segment Kanan (Gedung Samping/Asrama) */
-        .segment-2 {
-            width: 45%;
-            margin-left: -10%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2020/09/UNIDA-Gontor-1.jpg');
-            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-        }
-
-        /* Overlay Logo HKI di tengah Banner */
-        .center-logo-overlay {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 4;
-            height: 140px;
-        }
-
         /* --- CONTENT SECTION --- */
         .main-content {
             max-width: 1100px;
@@ -170,9 +128,75 @@
             line-height: 1.2;
         }
 
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 15px;
+            color: #555555;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+
+                /* --- TABEL STYLING --- */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .custom-table th {
+            background-color: #3B6B80;
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 600;
+        }
+
+        .custom-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #4b5563;
+            vertical-align: top;
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* Styling List agar Rapi */
+        .main-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .main-content li {
+            margin-bottom: 8px;
+        }
+
         /* --- FOOTER STYLING --- */
         .footer {
-            background-color: #2c5263; /* Warna sedikit lebih gelap dari navbar agar elegan */
+            background-color: #2c5263;
             color: #ffffff;
             padding: 40px 0 20px 0;
             margin-top: 60px;
@@ -254,21 +278,16 @@
             font-size: 13px;
         }
 
-        .page-heading {
-            font-family: 'Slabo 18px', serif;
-            font-size: 28px;
-            color: #000; /* Added missing semicolon here */
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            line-height: 1.2;
+        /* Penomoran */
+        .custom-ol {
+        margin-left: 20px;
+        margin-bottom: 20px;
         }
-
-        .description {
-            font-size: 15px;
-            color: #555555;
-            line-height: 1.6;
-            text-align: justify;
+    
+        .custom-ol li {
+        margin-bottom: 8px; /* Jarak antar nomor */
+        line-height: 1.6;
+        color: #555555;
         }
     </style>
 </head>
@@ -316,6 +335,70 @@
             </li>
         </ul>
     </nav>
+
+        <main class="main-content">
+            <h1 class="page-title">Syarat & Ketentuan Pendaftaran Merek</h1>
+            <h2 class="description">Setiap pemohon (Pemilik Merek/Dosen/Unit Usaha) yang mengajukan permohonan fasilitasi pendaftaran Merek melalui Sentra HKI Universitas Darussalam Gontor wajib memahami dan menyetujui ketentuan khusus di bawah ini :</h2>
+
+    <ol class="custom-ol">
+        <li>
+            <strong>Kriteria Merek yang Dapat Didaftarkan</strong>
+            <p class="description">Sentra HKI UNIDA Gontor hanya memproses pengajuan merek yang memiliki daya pembeda yang cukup serta wujud visual berupa logo, nama, kata, huruf, angka, susunan warna, atau kombinasinya sesuai dengan undang-undang yang berlaku. Merek yang diajukan wajib digunakan untuk mengidentifikasi barang dan/atau jasa yang dihasilkan oleh unit usaha, riset terapan, atau produk kewirausahaan di lingkungan Universitas Darussalam Gontor.</p>
+        </li>
+
+        <li>
+            <strong>Syarat Daya Pembeda & Larangan Kemiripan (Penelusuran Awal)</strong>
+            <p class="description">
+                <strong>Kewajiban Penelusuran (Pangkalan Data DJKI):</strong> Sebelum berkas didaftarkan, Pemohon wajib melakukan penelusuran mandiri atau bersama tim Sentra HKI pada pangkalan data DJKI untuk memastikan nama/logo Merek belum pernah terdaftar atau diajukan oleh pihak lain dalam kelas barang/jasa yang sama.
+            </p>
+            <p class="description">
+                <strong>Risiko Penolakan:</strong> Merek yang memiliki persamaan pada pokoknya atau keseluruhannya dengan Merek milik pihak lain yang sudah terdaftar, menggunakan kata-kata umum/keterangan produk (misal: kata "Kopi Enak" untuk produk kopi), atau bertentangan dengan ideologi negara, moralitas, dan agama akan ditolak oleh DJKI. Sentra HKI UNIDA Gontor tidak bertanggung jawab atas penolakan pendaftaran akibat kelalaian Pemohon dalam melakukan penelusuran Merek awal.
+            </p>
+        </li>
+
+        <li>
+            <strong>Kepemilikan Merek & Pengalihan Hak</strong>
+            <p class="description">
+                Sesuai dengan regulasi internal universitas dan UU Merek yang berlaku:
+            </p>
+            <ul>
+                <li>
+                    <p class="description">
+                        <strong>Pemegang Merek (Hak Ekonomi Institusi):</strong> Merek komersial produk hasil riset, unit usaha kampus, atau inkubasi bisnis berbasis institusi wajib didaftarkan atas nama Universitas Darussalam Gontor sebagai Pemegang Hak atas Merek resmi demi kepentingan pemeringkatan dan akreditasi institusi.
+                    </p>
+                </li>
+                <li>
+                    <p class="description">
+                        <strong>Pengalihan & Perjanjian:</strong> Pemohon/Inkubator bisnis wajib menandatangani Surat Perjanjian Pengalihan Hak atau Kesepakatan Bagi Hasil Komersialisasi bermaterei Rp 10.000 dengan pihak universitas sesuai ketentuan Lembaga Pengembangan Kewirausahaan/LPPM yang berlaku.
+                    </p>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <strong>Standarisasi Berkas & Etiket Logo Merek</strong>
+            <p class="description">
+                Pemohon bertanggung jawab penuh menyediakan dan melengkapi dokumen pendaftaran secara mandiri sesuai dengan template resmi yang disediakan di Pusat Unduhan.
+            </p>
+            <p class="description">
+                Dokumen wajib memuat: Contoh Etiket/Logo Merek berformat HD (resolusi tinggi), Deskripsi Arti/Makna Merek, Penentuan Kelas Barang/Jasa (Sistem Klasifikasi Nice), Tanda Tangan Pemohon, dan Surat Pernyataan Kepemilikan Merek di atas materei Rp 10.000 yang menyatakan bahwa Merek tersebut adalah murni buatan sendiri dan tidak meniru karya orang lain.
+            </p>
+        </li>
+
+        <li>
+            <strong>Durasi Proses, Masa Pengumuman, dan Perlindungan 10 Tahun</strong>
+            <p class="description">
+                <strong>Fase Pemeriksaan Substantif:</strong> Proses pendaftaran Merek oleh DJKI membutuhkan waktu kurang lebih 5 hingga 12 bulan, yang meliputi fase Pemeriksaan Formalitas, Masa Pengumuman Publik (Masa Sanggahan Masyarakat selama 2 bulan), dan Pemeriksaan Substantif.
+            </p>
+            <p class="description">
+                <strong>Kooperatif Menjawab Sanggahan/Oposisi:</strong> Apabila selama masa pengumuman atau pemeriksaan terdapat keberatan/sanggahan dari pihak luar atau Surat Usulan Penolakan dari Examiner DJKI, Pemohon wajib bersedia bekerja sama secara aktif dengan Sentra HKI untuk menyusun Tanggapan/Surat Keberatan (Sanggahan) dalam batas waktu yang ditentukan negara.
+            </p>
+            <p class="description">
+                <strong>Masa Perlindungan & Perpanjangan:</strong> Sertifikat Merek berlaku selama 10 (sepuluh) tahun sejak Tanggal Penerimaan dan dapat diperpanjang untuk jangka waktu yang sama. Perpanjangan merek wajib diajukan paling cepat 6 bulan sebelum masa berlaku sertifikat berakhir.
+            </p>
+        </li>
+    </ol>
+    </main>
 
     <footer class="footer">
         <div class="footer-container">

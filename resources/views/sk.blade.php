@@ -110,48 +110,6 @@
             margin-left: 10px;
         }
 
-        /* --- HERO BANNER SKew EFFECT --- */
-        .hero-banner {
-            position: relative;
-            height: 260px;
-            display: flex;
-            overflow: hidden;
-            background-color: #1a1a1a;
-        }
-
-        .banner-segment {
-            height: 100%;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Segment Kiri (Gedung Utama + Logo HKI) */
-        .segment-1 {
-            width: 65%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2021/01/Gedung-Utama-UNIDA.jpg');
-            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-            z-index: 1;
-        }
-
-        /* Segment Kanan (Gedung Samping/Asrama) */
-        .segment-2 {
-            width: 45%;
-            margin-left: -10%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2020/09/UNIDA-Gontor-1.jpg');
-            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-        }
-
-        /* Overlay Logo HKI di tengah Banner */
-        .center-logo-overlay {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 4;
-            height: 140px;
-        }
-
         /* --- CONTENT SECTION --- */
         .main-content {
             max-width: 1100px;
@@ -170,9 +128,75 @@
             line-height: 1.2;
         }
 
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 15px;
+            color: #555555;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+
+                /* --- TABEL STYLING --- */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .custom-table th {
+            background-color: #3B6B80;
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 600;
+        }
+
+        .custom-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #4b5563;
+            vertical-align: top;
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* Styling List agar Rapi */
+        .main-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .main-content li {
+            margin-bottom: 8px;
+        }
+
         /* --- FOOTER STYLING --- */
         .footer {
-            background-color: #2c5263; /* Warna sedikit lebih gelap dari navbar agar elegan */
+            background-color: #2c5263;
             color: #ffffff;
             padding: 40px 0 20px 0;
             margin-top: 60px;
@@ -254,21 +278,16 @@
             font-size: 13px;
         }
 
-        .page-heading {
-            font-family: 'Slabo 18px', serif;
-            font-size: 28px;
-            color: #000; /* Added missing semicolon here */
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            line-height: 1.2;
+        /* Penomoran */
+        .custom-ol {
+        margin-left: 20px;
+        margin-bottom: 20px;
         }
-
-        .description {
-            font-size: 15px;
-            color: #555555;
-            line-height: 1.6;
-            text-align: justify;
+    
+        .custom-ol li {
+        margin-bottom: 8px; /* Jarak antar nomor */
+        line-height: 1.6;
+        color: #555555;
         }
     </style>
 </head>
@@ -317,6 +336,43 @@
         </ul>
     </nav>
 
+    <main class="main-content">
+        <h1 class="page-title">Syarat & Ketentuan</h1>
+        <h2 class="description">Selamat datang di platform Pusat Informasi Digital Sentra Kekayaan Intelektual (Sentra HKI) Universitas Darussalam Gontor. Seluruh civitas akademika (Dosen, Tenaga Kependidikan, Mahasiswa) maupun pengguna umum yang menggunakan layanan fasilitasi pendaftaran HKI di unit kami <strong>wajib mematuhi ketentuan di bawah ini :</strong></h2>
+        <ol class="custom-ol">
+            <li class="description"><strong>Status Kepemilikan & Orisinalitas Karya</strong></li>
+            <ul>
+                <li class="description"><strong>Penjaminan Keaslian :</strong> Pemohon (Inventor/Pencipta) menjamin penuh bahwa karya, invensi, desain, atau merek yang diajukan merupakan hasil karya orisinal, tidak mengandung unsur plagiasi, dan tidak melanggar hak kekayaan intelektual milik pihak lain.</li>
+                <li class="description"><strong>Tanggung Jawab Hukum :</strong> Sentra HKI UNIDA Gontor bertindak murni sebagai fasilitator administratif dan teknis pendaftaran. Segala bentuk tuntutan hukum, gugatan, atau sengketa dari pihak ketiga di kemudian hari terkait keaslian karya sepenuhnya menjadi tanggung jawab mutlak pemohon.</li>
+            </ul>
+            <li class="description"><strong>Aturan Afiliasi & Kepemilikan Hak (Khusus Civitas UNIDA)</strong></li>
+            <ul>
+                <li class="description"><strong>Pencantuman Institusi :</strong> Untuk kepentingan klasterisasi riset, pemeringkatan, dan akreditasi universitas, setiap pendaftaran HKI yang didanai oleh kampus atau menggunakan fasilitas laboratorium/sarana UNIDA Gontor wajib mencantumkan Universitas Darussalam Gontor sebagai Pemegang Hak / Pemilik Paten.</li>
+                <li class="description"><strong>Hak Moral :</strong> Nama dosen, mahasiswa, atau peneliti yang terlibat akan tetap tercantum selamanya sebagai Pencipta / Inventor yang sah di dalam sertifikat resmi negara (Hak Moral tidak dapat dihilangkan).</li>
+            </ul>
+            <li class="description"><strong>Validasi & Kelayakan Berkas</strong></li>
+            <ul>
+                <li class="description">Sentra HKI berhak menolak atau mengembalikan berkas permohonan pendaftaran jika :</li>
+                <ol>
+                    <li class="description">Dokumen administrasi tidak lengkap atau tidak menggunakan template resmi bermaterei yang disediakan di Pusat Unduhan.</li>
+                    <li class="description">Draf deskripsi paten tidak sesuai dengan standar penulisan teknik DJKI.</li>
+                    <li class="description">Karya dinilai mengandung unsur yang bertentangan dengan norma agama, susila, ketertiban umum, atau nilai-nilai kepesantrenan UNIDA Gontor.</li>
+                </ol>
+            </ul>
+            <li class="description"><strong>Batasan Waktu & Komunikasi</strong></li>
+            <ul>
+                <li class="description"><strong>Estimasi Proses :</strong> Jangka waktu pemrosesan berkas di tingkat internal berkisar antara 1 hingga 3 hari kerja sejak berkas dinyatakan lengkap oleh admin.</li>
+                <li class="description"><strong>Kecepatan Revisi :</strong> Jika admin memberikan catatan perbaikan/revisi pada berkas, pemohon wajib merespons dan melengkapinya dalam kurun waktu maksimal 3 hari kerja. Keterlambatan respons akan membuat antrean berkas digeser ke urutan paling belakang.</li>
+            </ul>
+            <li class="description"><strong>Keputusan Final dari DJKI Kemenkumham</strong></li>
+            <ul>
+                <li>Pemohon memahami bahwa Sentra HKI UNIDA Gontor <strong>tidak memiliki wewenang</strong> untuk menerbitkan atau meluluskan sebuah hak kekayaan intelektual.</li>
+                <li>Keputusan akhir mengenai dikabulkannya pendaftaran Hak Cipta, Merek, maupun pemberian Paten (Granted) merupakan <strong>wewenang mutlak dan penuh</strong> dari Direktorat Jenderal Kekayaan Intelektual (DJKI) Kementerian Hukum dan HAM RI.</li>
+            </ul>
+        </ol>
+        
+    </main>
+
     <footer class="footer">
         <div class="footer-container">
             
@@ -351,7 +407,7 @@
             </div>
 
         </div>
-
+       
         <!-- Copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved.</p>

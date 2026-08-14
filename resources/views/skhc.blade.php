@@ -110,48 +110,6 @@
             margin-left: 10px;
         }
 
-        /* --- HERO BANNER SKew EFFECT --- */
-        .hero-banner {
-            position: relative;
-            height: 260px;
-            display: flex;
-            overflow: hidden;
-            background-color: #1a1a1a;
-        }
-
-        .banner-segment {
-            height: 100%;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Segment Kiri (Gedung Utama + Logo HKI) */
-        .segment-1 {
-            width: 65%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2021/01/Gedung-Utama-UNIDA.jpg');
-            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-            z-index: 1;
-        }
-
-        /* Segment Kanan (Gedung Samping/Asrama) */
-        .segment-2 {
-            width: 45%;
-            margin-left: -10%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2020/09/UNIDA-Gontor-1.jpg');
-            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-        }
-
-        /* Overlay Logo HKI di tengah Banner */
-        .center-logo-overlay {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 4;
-            height: 140px;
-        }
-
         /* --- CONTENT SECTION --- */
         .main-content {
             max-width: 1100px;
@@ -170,9 +128,75 @@
             line-height: 1.2;
         }
 
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 15px;
+            color: #555555;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+
+                /* --- TABEL STYLING --- */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .custom-table th {
+            background-color: #3B6B80;
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 600;
+        }
+
+        .custom-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #4b5563;
+            vertical-align: top;
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* Styling List agar Rapi */
+        .main-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .main-content li {
+            margin-bottom: 8px;
+        }
+
         /* --- FOOTER STYLING --- */
         .footer {
-            background-color: #2c5263; /* Warna sedikit lebih gelap dari navbar agar elegan */
+            background-color: #2c5263;
             color: #ffffff;
             padding: 40px 0 20px 0;
             margin-top: 60px;
@@ -254,21 +278,16 @@
             font-size: 13px;
         }
 
-        .page-heading {
-            font-family: 'Slabo 18px', serif;
-            font-size: 28px;
-            color: #000; /* Added missing semicolon here */
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            line-height: 1.2;
+        /* Penomoran */
+        .custom-ol {
+        margin-left: 20px;
+        margin-bottom: 20px;
         }
-
-        .description {
-            font-size: 15px;
-            color: #555555;
-            line-height: 1.6;
-            text-align: justify;
+    
+        .custom-ol li {
+        margin-bottom: 8px; /* Jarak antar nomor */
+        line-height: 1.6;
+        color: #555555;
         }
     </style>
 </head>
@@ -316,6 +335,42 @@
             </li>
         </ul>
     </nav>
+    <main class="main-content">
+        <h1 class="page-title">Syarat & Ketentuan Pendaftaran Hak Cipta</h1>
+        <h2 class="description">Setiap pemohon (Pencipta) yang mengajukan permohonan fasilitasi pendaftaran Hak Cipta melalui Sentra HKI Universitas Darussalam Gontor wajib memahami dan menyetujui ketentuan khusus di bawah ini : </h2>
+        <ol class="costum-ol">
+            <li class="description"><strong>Ruang Lingkup Karya yang Dapat Diajukan</strong></li>
+            <p class="description">Sentra HKI UNIDA Gontor memfasilitasi pendaftaran Hak Cipta di bidang ilmu pengetahuan, seni, dan sastra yang dihasilkan oleh civitas akademika, yang meliputi namun tidak terbatas pada :</p>
+            <ul>
+                <li class="description"><strong>Karya Tulis :</strong> Buku, monograf, modul perkuliahan, jurnal ilmiah, artikel, draf kuliah, novel, dan booklet.</li>
+                <li class="description"><strong>Karya Seni :</strong> Kaligrafi, lukisan, seni batik, seni dekoratif, gambar, dan desain grafis/logo.</li></li>
+                <li class="description"><strong>Karya Audio Visual & Musik :</strong> Video pembelajaran, film dokumenter (sinematografi), aransemen musik, dan lagu.</li>
+                <li class="description"><strong>Karya Berbasis Teknologi :</strong> Program komputer (software/aplikasi), database, dan sistem digital.</li>
+            </ul>
+            <li class="description"> <strong>Jaminan Orisinalitas & Larangan Plagiasi</strong></li>
+            <ul>
+                <li class="description">Pemohon menjamin sepenuhnya bahwa karya yang dideklarasikan adalah <strong>karya asli hasil kreativitas mandiri</strong>, bukan merupakan plagiasi, saduran ilegal, atau tiruan dari karya milik orang lain.</li>
+                <li class="description">Jika karya merupakan hasil adaptasi, penerjemahan, atau pengembangan dari karya yang sudah ada, pemohon wajib <strong>menyertakan bukti izin tertulis atau lisensi dari pemegang hak cipta karya asli tersebut.</strong></li>
+            </ul>
+            <li class="description"><strong>Kepemilikan Hak (Hak Moral vs Hak Ekonomi)</strong></li>
+            <p class="description">Sesuai dengan regulasi internal universitas dan UU Hak Cipta yang berlaku :</p>
+            <ul>
+                <li class="description"><strong>Hak Moral :</strong> Nama pencipta (Dosen/Mahasiswa/Peneliti) akan tetap melekat selamanya pada karya tersebut dan tercantum di dalam Sertifikat resmi DJKI. Hak moral tidak dapat dialihkan atau dihapus.</li>
+                <li class="description"><strong>Hak Ekonomi (Khusus Karya Afiliasi Kampus) :</strong> Untuk karya riset yang didanai oleh internal/eksternal universitas, dibuat menggunakan fasilitas laboratorium kampus, atau ditujukan untuk kepentingan akreditasi institusi, Hak Ekonomi dialihkan kepada Universitas Darussalam Gontor. Pemohon wajib menandatangani Surat Pengalihan Hak Cipta di atas meterai Rp 10.000.</li>
+            </ul>
+            <li class="description"><strong>Ketentuan Pengiriman Berkas & Contoh Ciptaan</strong></li>
+            <ul>
+                <li class="description">Pemohon wajib mengunggah contoh ciptaan (file karya asli) dengan kualitas digital yang bersih dan jelas (tidak buram/rusak) sesuai dengan format yang diminta pada sistem pendaftaran online.</li>
+                <li class="description">Untuk karya buku/modul, pemohon wajib menyertakan halaman cover, kata pengantar, daftar isi, dan isi naskah yang utuh dalam format PDF tunggal.</li>
+                <li class="description">Untuk program komputer, pemohon wajib melampirkan draf source code (kode sumber) beserta manual penggunaan (user manual) aplikasi tersebut dalam format PDF/RAR.</li>
+            </ul>
+            <li class="description"><strong> Proses Perlindungan Hukum & Penerbitan Sertifikat</strong></li>
+            <ul>
+                <li class="description">Sistem pendaftaran Hak Cipta nasional menggunakan skema deklaratif (e-HakCipta). Sentra HKI UNIDA Gontor akan mendaftarkan berkas yang telah lolos verifikasi internal ke sistem resmi Direktorat Jenderal Kekayaan Intelektual (DJKI) Kemenkumham RI.</li>
+                <li class="description">Pelindungan Hak Cipta resmi timbul secara otomatis sejak ciptaan tersebut diwujudkan secara nyata dan dideklarasikan ke dalam sistem kenegaraan. Surat Pencatatan Ciptaan biasanya akan terbit dalam waktu 1-2 hari kerja setelah admin melakukan pendaftaran dan pembayaran PNBP, sepanjang tidak ada sanggahan atau kendala teknis pada sistem pusat DJKI.</li>
+            </ul>
+        </ol>
+    </main>
 
     <footer class="footer">
         <div class="footer-container">

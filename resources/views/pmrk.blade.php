@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Slabo+27px&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
+   <style>
         * {
             margin: 0;
             padding: 0;
@@ -110,48 +110,6 @@
             margin-left: 10px;
         }
 
-        /* --- HERO BANNER SKew EFFECT --- */
-        .hero-banner {
-            position: relative;
-            height: 260px;
-            display: flex;
-            overflow: hidden;
-            background-color: #1a1a1a;
-        }
-
-        .banner-segment {
-            height: 100%;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Segment Kiri (Gedung Utama + Logo HKI) */
-        .segment-1 {
-            width: 65%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2021/01/Gedung-Utama-UNIDA.jpg');
-            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-            z-index: 1;
-        }
-
-        /* Segment Kanan (Gedung Samping/Asrama) */
-        .segment-2 {
-            width: 45%;
-            margin-left: -10%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2020/09/UNIDA-Gontor-1.jpg');
-            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-        }
-
-        /* Overlay Logo HKI di tengah Banner */
-        .center-logo-overlay {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 4;
-            height: 140px;
-        }
-
         /* --- CONTENT SECTION --- */
         .main-content {
             max-width: 1100px;
@@ -170,9 +128,75 @@
             line-height: 1.2;
         }
 
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 15px;
+            color: #555555;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+
+                /* --- TABEL STYLING --- */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .custom-table th {
+            background-color: #3B6B80;
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 600;
+        }
+
+        .custom-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #4b5563;
+            vertical-align: top;
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* Styling List agar Rapi */
+        .main-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .main-content li {
+            margin-bottom: 8px;
+        }
+
         /* --- FOOTER STYLING --- */
         .footer {
-            background-color: #2c5263; /* Warna sedikit lebih gelap dari navbar agar elegan */
+            background-color: #2c5263;
             color: #ffffff;
             padding: 40px 0 20px 0;
             margin-top: 60px;
@@ -254,21 +278,16 @@
             font-size: 13px;
         }
 
-        .page-heading {
-            font-family: 'Slabo 18px', serif;
-            font-size: 28px;
-            color: #000; /* Added missing semicolon here */
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            line-height: 1.2;
+        /* Penomoran */
+        .custom-ol {
+        margin-left: 20px;
+        margin-bottom: 20px;
         }
-
-        .description {
-            font-size: 15px;
-            color: #555555;
-            line-height: 1.6;
-            text-align: justify;
+    
+        .custom-ol li {
+        margin-bottom: 8px; /* Jarak antar nomor */
+        line-height: 1.6;
+        color: #555555;
         }
     </style>
 </head>
@@ -316,6 +335,130 @@
             </li>
         </ul>
     </nav>
+    
+    <main class="main-content">
+        <h1 class="page-title">Merek</h1>
+        <p class="section-title">1. Definisi Merek</p>
+        <p class="description">Berdasarkan <strong>UU No. 20 Tahun 2016 tentang Merek dan Indikasi Geografis,</strong> Merek adalah tanda yang dapat ditampilkan secara grafis berupa gambar, logo, nama, kata, huruf, angka, susunan warna, dalam bentuk 2 dimensi dan/atau 3 dimensi, suara, hologram, atau kombinasi dari 2 atau lebih unsur tersebut untuk membedakan barang dan/atau jasa yang diproduksi oleh orang atau badan hukum dalam kegiatan perdagangan barang dan/atau jasa. </p>
+        <p class="section-title">2. Landasan Hukum</p>
+        <p class="description">Perlindungan hukum dan tata cara pendaftaran merek di lingkungan Universitas Darussalam Gontor mengacu pada regulasi nasional berikut :</p>
+        <ul>
+            <li><strong>Undang-Undang Nomor 20 Tahun 2016</strong> tentang Merek dan Indikasi Geografis.</li>
+        </ul>
+        <ul>
+            <li><strong>Undang-Undang Nomor 6 Tahun 2023</strong> tentang Penetapan Perpu Cipta Kerja Menjadi Undang-Undang (terkait kluster penyederhanaan proses dan waktu pengumuman merek).</li>
+        </ul>   
+        <p class="section-title">3. Jangka Waktu & Perlindungan Merek</p>
+        <p class="description">Merek menggunakan sistem <strong>First-to-File</strong> (siapa yang mendaftar pertama kali, dia yang berhak atas merek tersebut).</p>
+        <ul>
+            <li><p class="description"><strong>Masa Perlindungan :</strong> Merek terdaftar mendapatkan perlindungan hukum selama <strong>10 tahun</strong> sejak Tanggal Penerimaan (Filing Date).</li></p>
+        </ul>
+        <ul>
+            <li><P class="description"><strong>Dapat Diperpanjang :</strong> Berbeda dengan Paten dan Hak Cipta yang memiliki batas waktu mutlak, hak atas Merek <strong>dapat diperpanjang setiap 10 tahun sekali</strong> secara terus-menerus selama merek tersebut masih digunakan dalam perdagangan.</li></P>
+        </ul>
+        <p class="section-title">4. Jenis-Jenis Merek</p>
+        <p class="description">Berdasarkan penggunaannya, merek yang didaftarkan dibagi menjadi 3 jenis utama :</p>
+        <ol class="custom-ol">
+            <li><strong>Merek Dagang :</strong> Merek yang digunakan pada barang yang diperdagangkan oleh seseorang atau beberapa orang secara bersama-sama atau badan hukum untuk membedakan dengan barang sejenis lainnya. (Contoh di kampus : Produk air mineral UNIDA, produk herbal, atau roti buatan laboratorium kampus).</li>
+            <li><strong>Merek Jasa :</strong> Merek yang digunakan pada jasa yang diperdagangkan oleh seseorang atau badan hukum untuk membedakan dengan jasa sejenis lainnya. (Contoh di kampus: Jasa pelatihan bahasa, jasa laboratorium pengujian, atau jasa konsultan bisnis).</li>
+            <li><strong>Merek Kolektif :</strong> Merek yang digunakan pada barang dan/atau jasa dengan karakteristik yang sama mengenai sifat, ciri umum, dan mutu barang atau jasa serta pengawasannya yang akan diperdagangkan secara bersama-sama.</li>
+        </ol>
+        <p class="section-title">5. Kelas Merek (Klasifikasi Nice)</p>
+        <p class="description">Saat mendaftarkan merek, pemohon wajib memilih Kelas Merek yang sesuai dengan jenis bidang usaha atau produknya berdasarkan Klasifikasi Internasional (Nice Classification). Secara total terdapat 45 Kelas Merek :</p>
+        <ul>
+            <li><p class="description"><strong>Kelas 1 sampai 34 :</strong> Digunakan untuk kategori Barang/Produk fisik (misalnya: Kelas 5 untuk obat-obatan/herbal, Kelas 30 untuk produk kopi/roti, Kelas 32 untuk minuman non-alkohol/air mineral).</li></p>
+        </ul>
+        <ul>
+            <li><p class="description"><strong>Kelas 35 sampai 45 :</strong> Digunakan untuk kategori Jasa/Layanan (misalnya: Kelas 41 untuk jasa pendidikan/pelatihan, Kelas 42 untuk jasa riset/pengembangan teknologi).</p></li>
+        </ul>
+        <p class="section-title">6. Manfaat Pendaftaran Merek bagi Civitas Academica</p>
+        <p class="description">Mengapa produk inovasi, inkubator bisnis, maupun unit usaha di bawah UNIDA Gontor wajib mendaftarkan mereknya?</p>
+        <ul>
+            <li><p class="description"><strong>Alat Bukti Kepemilikan Mutlak :</strong> Menjadi bukti sah satu-satunya bahwa universitas/penemu adalah pemilik sah merek tersebut di mata hukum.</li></p>
+        </ul>
+        <ul>
+            <li><p class="description"><strong>Mencegah Plagiasi & Peniruan :</strong> Pemilik merek berhak melarang pihak lain menggunakan merek yang sama atau mirip untuk jenis barang/jasa yang sejenis di pasar.</p></li>
+        </ul>
+        <ul>
+            <li><p class="description"><strong>Aset Komersial & Nilai Jual (Intangible Asset) :</strong> Merek terdaftar meningkatkan kepercayaan konsumen (brand awareness) dan dapat dilisensikan atau diwariskan untuk menghasilkan royalti bagi kampus dan penemu.</p></li>
+        </ul>
+        <ul>
+            <li><p class="description"><strong>Syarat Komersialisasi Hasil Riset :</strong> Memudahkan produk hasil hilirisasi riset dosen untuk masuk ke pasar industri, pengujian BPOM, maupun sertifikasi Halal secara resmi.</p></li>
+        </ul>
+        <p class="section-title">7. Biaya Pendaftaran dan Perpanjangan</p>
+        <div class="table-responsive">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">No</th>
+                        <th style="width: 45%;">Rincian</th>
+                        <th style="width: 25%;"> Lembaga Pendidikan, UMKM, dan Penelitian</th>
+                        <th style="width: 25%;">Umum</th>
+                    </tr>
+                    <tr>
+                        <td>1.</td>
+                        <td>Pendaftaran Etiket Merek</td>
+                        <td> Rp                    650,000 </td>
+                        <td> Rp     1,950,000 </td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Penelusuran Kelas Merek</td>
+                        <td> Rp                    250,000 </td>
+                        <td> Rp                    250,000 </td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Administrasi kepengurusan (Pendaftaran) awal</td>
+                        <td> Rp                    500,000 </td>
+                        <td> Rp        750,000 </td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td>Perpanjangan sebelum berakhir masa perlindungan merek</td>
+                        <td> Rp                 1,000,000 </td>
+                        <td> Rp     2,250,000 </td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td>Perpanjangan merek setelah berakhir masa perlindungan merek</td>
+                        <td> Rp                 2,000,000 </td>
+                        <td> Rp     4,500,000 </td>
+                    </tr>
+                    <tr>
+                        <td>6.</td>
+                        <td>Permohonan banding Merek</td>
+                        <td> Rp                 3,000,000 </td>
+                        <td> Rp                 3,000,000 </td>
+                    </tr>
+                    <tr>
+                        <td>7.</td>
+                        <td>Pengalihan hak atas Merek</td>
+                        <td> Rp                    700,000 </td>
+                        <td> Rp                    700,000 </td>
+                    </tr>
+                    <tr>
+                        <td>8.</td>
+                        <td>Penghapusan pendaftaran merek</td>
+                        <td> Rp                    200,000 </td>
+                        <td> Rp                    200,000 </td>
+                    </tr>
+                    <tr>
+                        <td>9.</td>
+                        <td>Pengajuan keberatan atas merek</td>
+                        <td> Rp                 1,000,000 </td>
+                        <td> Rp                 1,000,000 </td>
+                    </tr>
+                    <tr>
+                        <td>10.</td>
+                        <td>Administrasi kepengurusan lanjutan</td>
+                        <td> Rp                    250,000 </td>
+                        <td> Rp                    250,000 </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </main>
 
     <footer class="footer">
         <div class="footer-container">

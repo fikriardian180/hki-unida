@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Slabo+27px&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
+   <style>
         * {
             margin: 0;
             padding: 0;
@@ -110,48 +110,6 @@
             margin-left: 10px;
         }
 
-        /* --- HERO BANNER SKew EFFECT --- */
-        .hero-banner {
-            position: relative;
-            height: 260px;
-            display: flex;
-            overflow: hidden;
-            background-color: #1a1a1a;
-        }
-
-        .banner-segment {
-            height: 100%;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Segment Kiri (Gedung Utama + Logo HKI) */
-        .segment-1 {
-            width: 65%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2021/01/Gedung-Utama-UNIDA.jpg');
-            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-            z-index: 1;
-        }
-
-        /* Segment Kanan (Gedung Samping/Asrama) */
-        .segment-2 {
-            width: 45%;
-            margin-left: -10%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2020/09/UNIDA-Gontor-1.jpg');
-            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-        }
-
-        /* Overlay Logo HKI di tengah Banner */
-        .center-logo-overlay {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 4;
-            height: 140px;
-        }
-
         /* --- CONTENT SECTION --- */
         .main-content {
             max-width: 1100px;
@@ -170,9 +128,75 @@
             line-height: 1.2;
         }
 
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 15px;
+            color: #555555;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+
+                /* --- TABEL STYLING --- */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .custom-table th {
+            background-color: #3B6B80;
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 600;
+        }
+
+        .custom-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #4b5563;
+            vertical-align: top;
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* Styling List agar Rapi */
+        .main-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .main-content li {
+            margin-bottom: 8px;
+        }
+
         /* --- FOOTER STYLING --- */
         .footer {
-            background-color: #2c5263; /* Warna sedikit lebih gelap dari navbar agar elegan */
+            background-color: #2c5263;
             color: #ffffff;
             padding: 40px 0 20px 0;
             margin-top: 60px;
@@ -254,21 +278,16 @@
             font-size: 13px;
         }
 
-        .page-heading {
-            font-family: 'Slabo 18px', serif;
-            font-size: 28px;
-            color: #000; /* Added missing semicolon here */
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            line-height: 1.2;
+        /* Penomoran */
+        .custom-ol {
+        margin-left: 20px;
+        margin-bottom: 20px;
         }
-
-        .description {
-            font-size: 15px;
-            color: #555555;
-            line-height: 1.6;
-            text-align: justify;
+    
+        .custom-ol li {
+        margin-bottom: 8px; /* Jarak antar nomor */
+        line-height: 1.6;
+        color: #555555;
         }
     </style>
 </head>
@@ -316,6 +335,42 @@
             </li>
         </ul>
     </nav>
+
+    <main class="main-content">
+        <h1 class="page-title">Syarat & Ketentuan Pendaftaran Paten</h1>
+        <h2 class="description">Setiap pemohon (Pencipta) yang mengajukan permohonan fasilitasi pendaftaran Paten melalui Sentra HKI Universitas Darussalam Gontor wajib memahami dan menyetujui ketentuan khusus di bawah ini : </h2>
+        <ol class="costum-ol">
+            <li class="description"><strong>Kriteria Invensi yang Dapat Dipatenkan</strong></li>
+            <p class="description">Sentra HKI UNIDA Gontor hanya memproses invensi yang memenuhi syarat materil perlindungan paten sesuai undang-undang yang berlaku, yaitu:</p>
+            <ul>
+                <li class="description"><strong>Paten Sederhana :</strong> Invensi berupa produk atau alat baru, varian baru, proses, atau pengembangan dari produk/proses yang sudah ada, yang memiliki kegunaan praktis (alat tepat guna) dan mengandung unsur kebaruan.</li>
+                <li class="description"><strong>Paten Biasa :</strong> Invensi teknologi tingkat tinggi yang mengandung langkah inventif (tidak terduga oleh ahli di bidangnya), baru secara global, dan dapat diterapkan dalam industri.</li></li>
+            </ul>
+            <li class="description"> <strong>Syarat Mutlak Kebaruan (Novelty) & Larangan Publikasi Dini</strong></li>
+            <ul>
+                <li class="description"><strong>Belum Pernah Dipublikasikan :</strong> Invensi yang diajukan wajib belum pernah diumumkan, dipamerkan, dijual, atau dipublikasikan dalam bentuk apa pun (termasuk draf jurnal ilmiah, prosiding seminar, skripsi/tesis mahasiswa, media massa, atau unggahan media sosial) di mana pun secara global sebelum mendapatkan Tanggal Penerimaan (Filing Date) dari DJKI.</li>
+                <li class="description"><strong>Risiko Penolakan :</strong> Segala bentuk publikasi ilmiah atau pengenalan produk ke publik sebelum pendaftaran resmi dilakukan dapat menggugurkan syarat kebaruan, sehingga paten berisiko tinggi ditolak oleh Pemeriksa Paten (Examiner). Sentra HKI UNIDA Gontor tidak bertanggung jawab atas penolakan paten akibat kelalaian publikasi dini oleh pihak Inventor.</strong></li>
+            </ul>
+            <li class="description"><strong> Kepemilikan Paten & Pengalihan Hak</strong></li>
+            <p class="description">Sesuai dengan regulasi internal universitas dan UU Paten yang berlaku :</p>
+            <ul>
+                <li class="description"><strong>Hak Inventor (Hak Moral) :</strong> Nama para peneliti/dosen akan tetap tercantum selamanya di dalam sertifikat negara sebagai Inventor (Penemu) yang sah. Hak ini tidak dapat dialihkan atau dihapus.</li>
+                <li class="description"><strong>Pemegang Paten (Hak Ekonomi) :</strong> Seluruh invensi hasil riset yang menggunakan dana universitas, dana hibah eksternal atas nama institusi, atau menggunakan fasilitas laboratorium/sarana UNIDA Gontor, hak ekonominya wajib dialihkan kepada Universitas Darussalam Gontor sebagai institusi Pemegang Paten resmi demi kepentingan pemeringkatan dan akreditasi. Inventor wajib menandatangani Surat Pengalihan Hak atas Invensi bermaterei Rp 10.000.</li>
+            </ul>
+            <li class="description"><strong>Standarisasi Dokumen Deskripsi (Spesifikasi) Paten</strong></li>
+            <ul>
+                <li class="description">Inventor bertanggung jawab penuh menyusun dokumen Deskripsi Paten secara mandiri menggunakan bahasa Indonesia yang baik, benar, dan teknis sesuai dengan template resmi yang disediakan di Pusat Unduhan.</li>
+                <li class="description">Dokumen Deskripsi Paten wajib memuat bagian: Judul Invensi, Bidang Teknik Invensi, Latar Belakang Invensi, Ringkasan Invensi, Uraian Singkat Gambar (jika ada), Uraian Lengkap Invensi, Klaim, dan Abstrak.</li>
+                <li class="description">Tim Sentra HKI berhak mengembalikan berkas pendaftaran ke pihak Inventor jika struktur penulisan deskripsi, batasan klaim hukum, atau gambar teknik belum memenuhi standar minimal yang ditetapkan oleh Direktorat Jenderal Kekayaan Intelektual (DJKI).</li>
+            </ul>
+            <li class="description"><strong>  Durasi Proses, Pemeriksaan Substantif, dan Biaya Pemeliharaan</strong></li>
+            <ul>
+                <li class="description">Proses Jangka Panjang : Berbeda dengan Hak Cipta yang instan, proses pemeriksaan Paten oleh DJKI membutuhkan waktu berbulan-bulan (untuk Paten Sederhana) hingga bertahun-tahun (untuk Paten Biasa) melalui fase Pengumuman dan Pemeriksaan Substantif.</li>
+                <li class="description">Kooperatif Menjawab Sanggahan : Selama masa pemeriksaan substantif, apabila terdapat Injunction (permintaan perbaikan/sanggahan) dari Examiner DJKI, Inventor wajib bersedia bekerja sama secara aktif dengan Sentra HKI untuk menyusun tanggapan substantif dalam batas waktu yang ditentukan negara.</li>
+                <li class="description">Biaya Pemeliharaan Tahunan : Setelah Paten disetujui (Granted), pemilik Paten wajib membayar biaya tahunan pemeliharaan agar paten tetap aktif. Skema biaya akan dikoordinasikan lebih lanjut antara pihak Universitas (Pemegang Paten) dan Inventor sesuai dengan kontrak komersialisasi/kebijakan LPPM yang berlaku.</li>
+            </ul>
+        </ol>
+    </main>
 
     <footer class="footer">
         <div class="footer-container">
