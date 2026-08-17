@@ -53,3 +53,15 @@ Route::get('/skptn', function(){
 Route::get('/sk', function(){
     return view('sk');
 });
+
+Route::get('/formulir-hak-cipta', function(){
+    return view('formulir-hak-cipta');
+});
+
+Route::get('/formulir-paten', function(){
+    return view('formulir-paten');
+});
+
+Route::get('/formulir-merek', function(){
+    return view('formulir-merek');
+});

@@ -3,12 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pusat Unduhan Berkas</title>
-    <!-- Google Font & FontAwesome untuk icon pencarian -->
+    <title>Formulir Hak Cipta</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Slabo+27px&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CONTAINER FORMULIR --- */
+        .form-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px 40px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #3B6B80; /* Garis aksen atas */
+        }
 
-     <style>
+        .form-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3B6B80;
+            margin-bottom: 8px;
+        }
+
+        .form-subtitle {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        /* --- GROUPING ELEMEN FORM --- */
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.two-cols {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-group.two-cols .form-control-wrap {
+            flex: 1;
+        }
+
+        /* --- LABEL --- */
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .form-label .required {
+            color: #e74c3c; /* Tanda bintang merah untuk wajib diisi */
+        }
+
+        /* --- INPUT, SELECT, & TEXTAREA --- */
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 14px;
+            color: #333333;
+            background-color: #f9fafb;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            transition: all 0.2s ease-in-out;
+            outline: none;
+        }
+
+        .form-control:focus {
+            background-color: #ffffff;
+            border-color: #3B6B80;
+            box-shadow: 0 0 0 3px rgba(59, 107, 128, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* --- FILE UPLOAD CUSTOM --- */
+        .file-upload-wrap {
+            position: relative;
+            border: 2px dashed #cbd5e1;
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+            background-color: #f8fafc;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .file-upload-wrap:hover {
+            border-color: #3B6B80;
+            background-color: #f1f5f9;
+        }
+
+        .file-upload-wrap input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-upload-text {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .file-upload-text i {
+            font-size: 24px;
+            color: #3B6B80;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* --- TOMBOL SUBMIT --- */
+        .btn-submit {
+            width: 100%;
+            background-color: #3B6B80;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #2c5263;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.99);
+        }
+
+        /* --- RESPONSIF UNTUK HP --- */
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px 15px;
+                margin: 20px 10px;
+            }
+
+            .form-group.two-cols {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
         * {
             margin: 0;
             padding: 0;
@@ -289,90 +442,9 @@
         line-height: 1.6;
         color: #555555;
         }
-
-        /* Container utama 3 kolom */
-        .download-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 25px;
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        /* Kartu per elemen */
-        .download-card {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            text-align: center;
-            padding: 20px 10px;
-            background-color: #ffffff;
-        }
-
-        /* Judul di atas ikon */
-        .download-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #2c3e50;
-            min-height: 50px; /* Menjaga tinggi seimbang */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        /* Bagian Ikon */
-        .download-icon {
-            font-size: 38px;
-            color: #3B6B80; /* Warna disesuaikan dengan tema Sentra HKI */
-            margin-bottom: 25px;
-        }
-
-        /* Styling Button "Click Here" */
-        .btn-download {
-            width: 100%;
-            display: inline-block;
-            background-color: #3B6B80; /* Warna biru-abu khas navbar */
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 10px 0;
-            border-radius: 3px;
-            text-align: center;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* Efek Hover saat kursor mengarah ke tombol */
-        .btn-download:hover {
-            background-color: #2c5263;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-        }
-
-        .btn-download:active {
-            transform: scale(0.98);
-        }
-
-        /* Responsif untuk tampilan layar HP */
-        @media (max-width: 768px) {
-            .download-container {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .download-title {
-                min-height: auto;
-            }
-        }
     </style>
 </head>
-
 <body>
-
     <nav class="navbar">
         <div class="brand">
             <!-- Tempatkan Logo HKI UNIDA jika ada -->
@@ -416,36 +488,72 @@
         </ul>
     </nav>
 
-   
-
     <main class="main-content">
-        <h1 class="page-title">Pusat Unduhan Berkas</h1>
-        <h2>Selamat datang di Pusat Unduhan Sentra HKI UNIDA Gontor. Silakan unduh dokumen template (formulir/surat pernyataan) di bawah ini sesuai dengan jenis Kekayaan Intelektual yang akan Anda ajukan.</h2>
-        <div class="download-container">
-            <div class="download-card">
-                <h3 class="download-title">Contoh Dokumen Persyaratan</h3>
-                <div class="download-icon">
-                    <i class="fa-solid fa-file-arrow-down"></i>
-                </div>
-                <a href='https://drive.google.com/drive/folders/1SnaJ4_LmIZUvsgLH-P3L1lFF01epRBZn' class="btn-download">Click Here</a>
+    <h1 class="page-title">Formulir Pendaftaran Paten</h1>
+    <div class="form-container">
+    <div class="form-header">
+        <h2 class="form-title">Formulir Pendaftaran Paten</h2>
+        <p class="form-subtitle">Isi data di bawah ini dengan benar untuk mengajukan permohonan pendaftaran HKI.</p>
+    </div>
+
+    <form action="#" method="POST" enctype="multipart/form-data">
+        
+        <!-- Input Nama & NIDN dalam 2 Kolom -->
+        <div class="form-group two-cols">
+            <div class="form-control-wrap">
+                <label class="form-label">Nama Lengkap Inventor <span class="required">*</span></label>
+                <input type="text" class="form-control" placeholder="Nama beserta gelar" required>
             </div>
-            <div class="download-card">
-                <h3 class="download-title">Download Template Dokumen</h3>
-                <div class="download-icon">
-                    <i class="fa-solid fa-file-arrow-down"></i>
-                </div>
-                <a href='https://drive.google.com/drive/folders/1HL-j-V00K6AgSrmm2Gd191fsG1Rq1swQ' class="btn-download">Click Here</a>
-            </div>
-            <div class="download-card">
-                <h3 class="download-title">Download Alur Pendaftaran</h3>
-                <div class="download-icon">
-                    <i class="fa-solid fa-file-arrow-down"></i>
-                </div>
-                <a href='https://drive.google.com/drive/folders/1pDh44PED2HKpFqiBCAJDhuX3KMhPtaXu' class="btn-download">Click Here</a>
+            <div class="form-control-wrap">
+                <label class="form-label">NIDN / NIM <span class="required">*</span></label>
+                <input type="text" class="form-control" placeholder="Masukkan NIDN / NIM" required>
             </div>
         </div>
-    </main>
 
+        <!-- Select Dropdown Kategori -->
+        <div class="form-group">
+            <label class="form-label">Jenis Ciptaan <span class="required">*</span></label>
+            <select class="form-control" required>
+                <option value="" disabled selected>-- Pilih Jenis Ciptaan --</option>
+                <option value="buku">Buku / Modul Ajar</option>
+                <option value="program">Program Komputer / Aplikasi</option>
+                <option value="jurnal">Artikel Jurnal / Karya Tulis</option>
+                <option value="sinematografi">Video / Film Pembelajaran</option>
+            </select>
+        </div>
+
+        <!-- Input Judul Ciptaan -->
+        <div class="form-group">
+            <label class="form-label">Judul Ciptaan <span class="required">*</span></label>
+            <input type="text" class="form-control" placeholder="Masukkan judul lengkap karya" required>
+        </div>
+
+        <!-- Textarea Deskripsi Ringkas -->
+        <div class="form-group">
+            <label class="form-label">Uraian Ringkas Ciptaan</label>
+            <textarea class="form-control" placeholder="Jelaskan secara singkat mengenai karya yang didaftarkan..."></textarea>
+        </div>
+
+        <!-- Custom Upload File -->
+        <div class="form-group">
+            <label class="form-label">Unggah Draf Karya (PDF) <span class="required">*</span></label>
+            <div class="file-upload-wrap">
+                <input type="file" accept=".pdf" required>
+                <div class="file-upload-text">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tombol Kirim -->
+        <button type="submit" class="btn-submit">
+            <i class="fa-solid fa-paper-plane"></i> Kirim Permohonan
+        </button>
+
+    </form>
+    </div>
+    </main>
     <footer class="footer">
         <div class="footer-container">
             
@@ -486,7 +594,5 @@
             <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved.</p>
         </div>
     </footer>
-
-
 </body>
 </html>

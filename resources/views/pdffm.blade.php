@@ -110,48 +110,6 @@
             margin-left: 10px;
         }
 
-        /* --- HERO BANNER SKew EFFECT --- */
-        .hero-banner {
-            position: relative;
-            height: 260px;
-            display: flex;
-            overflow: hidden;
-            background-color: #1a1a1a;
-        }
-
-        .banner-segment {
-            height: 100%;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Segment Kiri (Gedung Utama + Logo HKI) */
-        .segment-1 {
-            width: 65%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2021/01/Gedung-Utama-UNIDA.jpg');
-            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-            z-index: 1;
-        }
-
-        /* Segment Kanan (Gedung Samping/Asrama) */
-        .segment-2 {
-            width: 45%;
-            margin-left: -10%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2020/09/UNIDA-Gontor-1.jpg');
-            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-        }
-
-        /* Overlay Logo HKI di tengah Banner */
-        .center-logo-overlay {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 4;
-            height: 140px;
-        }
-
         /* --- CONTENT SECTION --- */
         .main-content {
             max-width: 1100px;
@@ -170,9 +128,75 @@
             line-height: 1.2;
         }
 
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 15px;
+            color: #555555;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+
+                /* --- TABEL STYLING --- */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .custom-table th {
+            background-color: #3B6B80;
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 600;
+        }
+
+        .custom-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            color: #4b5563;
+            vertical-align: top;
+        }
+
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .custom-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* Styling List agar Rapi */
+        .main-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .main-content li {
+            margin-bottom: 8px;
+        }
+
         /* --- FOOTER STYLING --- */
         .footer {
-            background-color: #2c5263; /* Warna sedikit lebih gelap dari navbar agar elegan */
+            background-color: #2c5263;
             color: #ffffff;
             padding: 40px 0 20px 0;
             margin-top: 60px;
@@ -254,21 +278,95 @@
             font-size: 13px;
         }
 
-        .page-heading {
-            font-family: 'Slabo 18px', serif;
-            font-size: 28px;
-            color: #000; /* Added missing semicolon here */
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            line-height: 1.2;
+        /* Penomoran */
+        .custom-ol {
+        margin-left: 20px;
+        margin-bottom: 20px;
+        }
+    
+        .custom-ol li {
+        margin-bottom: 8px; /* Jarak antar nomor */
+        line-height: 1.6;
+        color: #555555;
         }
 
-        .description {
-            font-size: 15px;
-            color: #555555;
-            line-height: 1.6;
-            text-align: justify;
+        /* Container utama 3 kolom */
+        .download-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Kartu per elemen */
+        .download-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            padding: 20px 10px;
+            background-color: #ffffff;
+        }
+
+        /* Judul di atas ikon */
+        .download-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            min-height: 50px; /* Menjaga tinggi seimbang */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* Bagian Ikon */
+        .download-icon {
+            font-size: 38px;
+            color: #3B6B80; /* Warna disesuaikan dengan tema Sentra HKI */
+            margin-bottom: 25px;
+        }
+
+        /* Styling Button "Click Here" */
+        .btn-download {
+            width: 100%;
+            display: inline-block;
+            background-color: #3B6B80; /* Warna biru-abu khas navbar */
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 0;
+            border-radius: 3px;
+            text-align: center;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Efek Hover saat kursor mengarah ke tombol */
+        .btn-download:hover {
+            background-color: #2c5263;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+
+        .btn-download:active {
+            transform: scale(0.98);
+        }
+
+        /* Responsif untuk tampilan layar HP */
+        @media (max-width: 768px) {
+            .download-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .download-title {
+                min-height: auto;
+            }
         }
     </style>
 </head>
@@ -316,6 +414,64 @@
             </li>
         </ul>
     </nav>
+
+    <main class="main-content">
+        <h1 class="page-title">Formulir Pendaftaran</h1>
+        <p class="description">Silakan isi formulir daring (online) di bawah ini dengan data yang sebenar-benarnya. Sebelum mengisi, pastikan Bapak/Ibu sudah mengunduh berkas template surat pernyataan di menu Pusat Unduhan dan telah menandatanganinya di atas meterai Rp 10.000.</p>
+        <p class="description"><strong>Struktur Data yang Perlu Disiapkan (Panduan Pengisian Form)</strong></p>
+        <p class="description">Formulir pendaftaran di bawah ini (Google Form) akan meminta Anda untuk mengisi dan mengunggah beberapa informasi penting berikut :</p>
+        <ol class="custom-ol">
+            <li><strong>Data Pemohon (Koordinator) :</strong></li>
+                <ul>
+                    <li>Nama Lengkap (beserta gelar).</li>
+                    <li>NIDN / NIU (Nomor Induk Utama).</li>
+                    <li>Fakultas / Program Studi di UNIDA Gontor.</li>
+                    <li>Nomor WhatsApp aktif (untuk koordinasi revisi berkas).</li>
+                    <li>Email institusi (@unida.gontor.ac.id).</li>
+                </ul>
+            <li><strong>Data Karya / Invensi :</strong></li>
+                <ul>
+                    <li>Jenis HKI: (Pilih: Hak Cipta, Paten Sederhana, Paten Biasa, atau Merek).</li>
+                    <li>Judul Karya/Invensi: Ditulis lengkap sesuai dengan yang tertera pada dokumen asli (Gunakan Sentence case / Huruf kapital di awal kata saja).</li>
+                    <li>Nama Anggota/Inventor Lain: Tuliskan nama seluruh tim yang terlibat (jika karya kelompok) secara berurutan sesuai prioritas kontribusi.</li>
+                </ul>
+            <li><strong>Unggah Berkas (Upload Files):</strong></li>
+                <ul>
+                    <li>Scan KTP seluruh tim (digabung menjadi 1 file PDF).</li>
+                    <li>Surat Pernyataan Kepemilikan Karya (Format PDF, bertanda tangan meterai Rp 10.000).</li>
+                    <li>Surat Pengalihan Hak ke Universitas (Format PDF, bertanda tangan meterai Rp 10.000).</li>
+                    <li><strong>File Dokumen Utama :</strong></li>
+                    <ul>
+                        <li>Untuk Hak Cipta: File utuh buku/modul/naskah atau source code aplikasi (PDF).</li>
+                        <li>Untuk Paten: Dokumen Deskripsi Paten lengkap sesuai draf Word (PDF).</li>
+                        <li>Untuk Merek: File logo/etiket merek dengan resolusi tinggi (JPG/PNG/PDF).</li>
+                    </ul>
+                </ul>
+        </ol>
+        <div class="download-container">
+            <div class="download-card">
+                <h3 class="download-title">Hak Cipta</h3>
+                <div class="download-icon">
+                    <i class="fa-solid fa-file-pen"></i></i>
+                </div>
+                <a href='/formulir-hak-cipta' class="btn-download">Click Here</a>
+            </div>
+            <div class="download-card">
+                <h3 class="download-title">Merek</h3>
+                <div class="download-icon">
+                    <i class="fa-solid fa-file-pen"></i></i>
+                </div>
+                <a href='formulir-merek' class="btn-download">Click Here</a>
+            </div>
+            <div class="download-card">
+                <h3 class="download-title">Paten</h3>
+                <div class="download-icon">
+                    <i class="fa-solid fa-file-pen"></i></i>
+                </div>
+                <a href='/formulir-paten' class="btn-download">Click Here</a>
+            </div>
+        </div>
+    </main>
 
     <footer class="footer">
         <div class="footer-container">
