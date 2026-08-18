@@ -150,6 +150,14 @@
             transform: scale(0.99);
         }
 
+        /* Teks penanda bidang opsional */
+        .form-label .optional {
+            font-size: 12px;
+            font-weight: normal;
+            color: #888888;
+            margin-left: 4px;
+        }
+
         /* --- RESPONSIF UNTUK HP --- */
         @media (max-width: 600px) {
             .form-container {
@@ -501,38 +509,69 @@
         <!-- Input Nama & NIDN dalam 2 Kolom -->
         <div class="form-group two-cols">
             <div class="form-control-wrap">
-                <label class="form-label">Nama Lengkap Inventor <span class="required">*</span></label>
-                <input type="text" class="form-control" placeholder="Nama beserta gelar" required>
-            </div>
-            <div class="form-control-wrap">
-                <label class="form-label">NIDN / NIM <span class="required">*</span></label>
-                <input type="text" class="form-control" placeholder="Masukkan NIDN / NIM" required>
+                <label class="form-label">Email <span class="required">*</span></label>
+                <input type="text" class="form-control" placeholder="Masukan alamat email anda" required>
             </div>
         </div>
+         <div class="form-group">
+            <label class="form-label">Kategori Pemohon <span class="required">*</span></label>
+            <select class="form-control" required>
+                <option value="" disabled selected>-- Pilih Jenis Kategori --</option>
+                <option value="umum">Umum</option>
+                <option value="umkm">UMKM</option>
+                <option value="lpd">Lembaga Pendidikan</option>
+                <option value="lpi">Lembaga Penelitian</option>
+            </select>
+        </div>
+        
 
         <!-- Select Dropdown Kategori -->
         <div class="form-group">
-            <label class="form-label">Jenis Ciptaan <span class="required">*</span></label>
+            <label class="form-label">Hasil Program <span class="required">*</span></label>
             <select class="form-control" required>
-                <option value="" disabled selected>-- Pilih Jenis Ciptaan --</option>
-                <option value="buku">Buku / Modul Ajar</option>
-                <option value="program">Program Komputer / Aplikasi</option>
-                <option value="jurnal">Artikel Jurnal / Karya Tulis</option>
-                <option value="sinematografi">Video / Film Pembelajaran</option>
+                <option value="" disabled selected>-- Pilih Jenis Hasil Program --</option>
+                <option value="kkn">KKN</option>
+                <option value="pkm">PKM</option>
+                <option value="pengabdian">Pengabdian</option>
+                <option value="ta">Tugas Akhir (Skripsi/Thesis/Sidang)</option>
+                <option value="km">Karya Mandiri</option>
+                <option value="pl">Penelitian Lainnya</option>
             </select>
         </div>
 
         <!-- Input Judul Ciptaan -->
         <div class="form-group">
-            <label class="form-label">Judul Ciptaan <span class="required">*</span></label>
-            <input type="text" class="form-control" placeholder="Masukkan judul lengkap karya" required>
+            <label class="form-label">Pemohon 1 <span class="optional">(Opsional)</span></label>
+            <input type="text" class="form-control" placeholder="Masukan Nama Pemohon" required>
         </div>
 
         <!-- Textarea Deskripsi Ringkas -->
         <div class="form-group">
-            <label class="form-label">Uraian Ringkas Ciptaan</label>
-            <textarea class="form-control" placeholder="Jelaskan secara singkat mengenai karya yang didaftarkan..."></textarea>
+            <label class="form-label">NIK Pemohon<span class="required">*</span></label>
+            <textarea class="form-control" placeholder="Masukan NIK Pemohon"></textarea>
         </div>
+
+        <div class="form-group">
+            <label class="form-label">Nama Lengkap Pemohon<span class="required">*</span></label>
+            <textarea class="form-control" placeholder="Masukan Nama Lengkap Pemohon"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Alamat pemohon (cantumkan jalan, desa/kelurahan, Kecamatan, Kab/kota, Provinsi)<span class="required">*</span></label>
+            <textarea class="form-control" placeholder="Masukan Alamat Lengkap"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Kode pos<span class="required">*</span></label>
+            <textarea class="form-control" placeholder="Masukan Kode Pos"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Email Pemohon<span class="required">*</span></label>
+            <textarea class="form-control" placeholder="Masukan Email Yang Aktif"></textarea>
+        </div>
+
+        
 
         <!-- Custom Upload File -->
         <div class="form-group">
