@@ -571,6 +571,55 @@
             <textarea class="form-control" placeholder="Masukan Email Yang Aktif"></textarea>
         </div>
 
+        <div class="form-group">
+            <label class="form-label">Nomor Telepon / HP<spam class="required">*</spam></label>
+            <textarea class="form-control" placeholder="Masukan No HP"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Nomor NPWP Pemohon<spam class="required">*</spam></label>
+            <textarea class="form-control" placeholder="gunakan tanda - jika belum mempunyai NPWP"></textarea>
+        </div>
+
+    <div class="form-group">
+        <label class="form-label">Prodi/Instansi <span class="required">*</span></label>
+        
+        <!-- Dropdown Utama -->
+        <select class="form-control" id="prodi" onchange="toggleOtherInput()" required>
+            <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
+            <option value="PAI">S1 PAI</option>
+            <option value="PBA">S1 PBA</option>
+            <option value="TBI">SI TBI</option>
+            <option value="MJN">S1 MNJ</option>
+            <option value="EI">S1 EI</option>
+            <option value="AGRO">S1 AGRO</option>
+            <option value="TIP">S1 TIP</option>
+            <option value="TI">S1 TI</option>
+            <option value="KKK">S1 KKK</option>
+            <option value="GZ">S1 GIZI</option>
+            <option value="FARM">S1 FARMASI</option>
+            <option value="HI">S1 HI</option>
+            <option value="IKOM">S1 ILKOM</option>
+            <option value="HES">S1 HES</option>
+            <option value="PM">S1 PM</option>
+            <option value="IQT">S1 IQT</option>
+            <option value="AFI">S1 AFI</option>
+            <option value="SAA">SI SAA</option>
+            <option value="KDR">S1 KEDOKTERAN</option>
+            <option value="2AFI">S2 AFI</option>
+            <option value="2PBA">S2 PBA</option>
+            <option value="2HES">S2 HES</option>
+            <option value="3AFI">S3 AFI</option>
+            <option value="IU">Instansi Umum</option>
+            <option value="other">Lainnya...</option>
+        </select>
+    </div>
+
+    <!-- Kolom Input Teks Tambahan (Sembunyi secara default) -->
+    <div class="form-group" id="otherInputGroup" style="display: none;">
+        <label class="form-label">Masukan Prodi/Instansi Anda <span class="required">*</span></label>
+        <input type="text" class="form-control" id="otherInput" placeholder="Masukkan Prodi/instansi">
+    </div>
         
 
         <!-- Custom Upload File -->
@@ -634,4 +683,23 @@
         </div>
     </footer>
 </body>
+
+<script>
+function toggleOtherInput() {
+    const selectElement = document.getElementById('prodi');
+    const otherGroup = document.getElementById('otherInputGroup');
+    const otherInput = document.getElementById('otherInput');
+
+    // Jika pengguna memilih "other" (Lainnya...)
+    if (selectElement.value === 'other') {
+        otherGroup.style.display = 'flex'; // Tampilkan input teks
+        otherInput.setAttribute('required', 'required'); // Buat wajib diisi
+    } else {
+        otherGroup.style.display = 'none'; // Sembunyikan input teks
+        otherInput.removeAttribute('required'); // Hapus status wajib diisi
+        otherInput.value = ''; // Kosongkan nilainya kembali
+    }
+}
+</script>
+
 </html>
