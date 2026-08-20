@@ -1,175 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulir Hak Cipta</title>
+
+    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Slabo+27px&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* --- CONTAINER FORMULIR --- */
-        .form-container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px 40px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            border-top: 5px solid #3B6B80; /* Garis aksen atas */
-        }
-
-        .form-header {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .form-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #3B6B80;
-            margin-bottom: 8px;
-        }
-
-        .form-subtitle {
-            font-size: 14px;
-            color: #666666;
-            line-height: 1.5;
-        }
-
-        /* --- GROUPING ELEMEN FORM --- */
-        .form-group {
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group.two-cols {
-            display: flex;
-            gap: 20px;
-        }
-
-        .form-group.two-cols .form-control-wrap {
-            flex: 1;
-        }
-
-        /* --- LABEL --- */
-        .form-label {
-            font-size: 14px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-        }
-
-        .form-label .required {
-            color: #e74c3c; /* Tanda bintang merah untuk wajib diisi */
-        }
-
-        /* --- INPUT, SELECT, & TEXTAREA --- */
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            font-size: 14px;
-            color: #333333;
-            background-color: #f9fafb;
-            border: 1px solid #d1d5db;
-            border-radius: 5px;
-            transition: all 0.2s ease-in-out;
-            outline: none;
-        }
-
-        .form-control:focus {
-            background-color: #ffffff;
-            border-color: #3B6B80;
-            box-shadow: 0 0 0 3px rgba(59, 107, 128, 0.15);
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        /* --- FILE UPLOAD CUSTOM --- */
-        .file-upload-wrap {
-            position: relative;
-            border: 2px dashed #cbd5e1;
-            padding: 20px;
-            text-align: center;
-            border-radius: 6px;
-            background-color: #f8fafc;
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-
-        .file-upload-wrap:hover {
-            border-color: #3B6B80;
-            background-color: #f1f5f9;
-        }
-
-        .file-upload-wrap input[type="file"] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .file-upload-text {
-            font-size: 13px;
-            color: #64748b;
-        }
-
-        .file-upload-text i {
-            font-size: 24px;
-            color: #3B6B80;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        /* --- TOMBOL SUBMIT --- */
-        .btn-submit {
-            width: 100%;
-            background-color: #3B6B80;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 14px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
-            margin-top: 10px;
-        }
-
-        .btn-submit:hover {
-            background-color: #2c5263;
-        }
-
-        .btn-submit:active {
-            transform: scale(0.99);
-        }
-
-        /* Teks penanda bidang opsional */
-        .form-label .optional {
-            font-size: 12px;
-            font-weight: normal;
-            color: #888888;
-            margin-left: 4px;
-        }
-
-        /* --- RESPONSIF UNTUK HP --- */
-        @media (max-width: 600px) {
-            .form-container {
-                padding: 20px 15px;
-                margin: 20px 10px;
-            }
-
-            .form-group.two-cols {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
         * {
             margin: 0;
             padding: 0;
@@ -184,7 +24,7 @@
 
         /* --- NAVBAR --- */
         .navbar {
-            background-color: #3B6B80; /* Warna biru-abu khas Sentra HKI UNIDA */
+            background-color: #3B6B80;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -201,10 +41,6 @@
             font-size: 20px;
             font-weight: 700;
             letter-spacing: 0.5px;
-        }
-
-        .brand img {
-            height: 35px;
         }
 
         .nav-menu {
@@ -265,13 +101,7 @@
             display: block;
         }
 
-        .search-icon {
-            cursor: pointer;
-            font-size: 15px;
-            margin-left: 10px;
-        }
-
-        /* --- CONTENT SECTION --- */
+        /* --- MAIN CONTENT & FORM CONTAINER --- */
         .main-content {
             max-width: 1100px;
             margin: 40px auto;
@@ -289,73 +119,164 @@
             line-height: 1.2;
         }
 
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
-        .description {
-            font-size: 15px;
-            color: #555555;
-            line-height: 1.6;
-            text-align: justify;
-            margin-bottom: 10px;
-        }
-
-                /* --- TABEL STYLING --- */
-        .table-responsive {
-            overflow-x: auto;
-            margin-top: 15px;
-            margin-bottom: 30px;
-        }
-
-        .custom-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-            text-align: left;
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 40px;
             background-color: #ffffff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            border-radius: 6px;
-            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #3B6B80;
         }
 
-        .custom-table th {
-            background-color: #3B6B80;
-            color: #ffffff;
-            padding: 12px 16px;
-            font-weight: 600;
+        .form-header {
+            margin-bottom: 30px;
+            text-align: center;
         }
 
-        .custom-table td {
-            padding: 12px 16px;
-            border-bottom: 1px solid #e5e7eb;
-            color: #4b5563;
-            vertical-align: top;
-        }
-
-        .custom-table tbody tr:nth-child(even) {
-            background-color: #f9fafb;
-        }
-
-        .custom-table tbody tr:hover {
-            background-color: #f1f5f9;
-        }
-
-        /* Styling List agar Rapi */
-        .main-content ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        .main-content li {
+        .form-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3B6B80;
             margin-bottom: 8px;
         }
 
-        /* --- FOOTER STYLING --- */
+        .form-subtitle {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        /* --- FORM ELEMENTS --- */
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.two-cols {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .form-group.two-cols .form-control-wrap {
+            flex: 1;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .form-label .required {
+            color: #e74c3c;
+        }
+
+        .form-label .optional {
+            font-size: 12px;
+            font-weight: normal;
+            color: #888888;
+            margin-left: 4px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 14px;
+            color: #333333;
+            background-color: #f9fafb;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            transition: all 0.2s ease-in-out;
+            outline: none;
+        }
+
+        .form-control:focus {
+            background-color: #ffffff;
+            border-color: #3B6B80;
+            box-shadow: 0 0 0 3px rgba(59, 107, 128, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* Styling Container Pemohon 3 saat ditampilkan */
+        #groupPemohon3 {
+            border: 1px dashed #3B6B80;
+            padding: 20px;
+            border-radius: 6px;
+            background-color: #f8fafc;
+            margin-bottom: 25px;
+        }
+
+        /* --- FILE UPLOAD --- */
+        .file-upload-wrap {
+            position: relative;
+            border: 2px dashed #cbd5e1;
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+            background-color: #f8fafc;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .file-upload-wrap:hover {
+            border-color: #3B6B80;
+            background-color: #f1f5f9;
+        }
+
+        .file-upload-wrap input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-upload-text {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .file-upload-text i {
+            font-size: 24px;
+            color: #3B6B80;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* --- SUBMIT BUTTON --- */
+        .btn-submit {
+            width: 100%;
+            background-color: #3B6B80;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #2c5263;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.99);
+        }
+
+        /* --- FOOTER --- */
         .footer {
             background-color: #2c5263;
             color: #ffffff;
@@ -439,37 +360,36 @@
             font-size: 13px;
         }
 
-        /* Penomoran */
-        .custom-ol {
-        margin-left: 20px;
-        margin-bottom: 20px;
-        }
-    
-        .custom-ol li {
-        margin-bottom: 8px; /* Jarak antar nomor */
-        line-height: 1.6;
-        color: #555555;
+        /* RESPONSIF MOBILE */
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px 15px;
+            }
+
+            .form-group.two-cols {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
+
     <nav class="navbar">
         <div class="brand">
-            <!-- Tempatkan Logo HKI UNIDA jika ada -->
             <span>SENTRA HKI UNIDA</span>
         </div>
 
-        <!-- SEMUA MENU DIGABUNG DALAM 1 TAG UL -->
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="/" class="nav-link">Home <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
+                <a href="/" class="nav-link">Home <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="/sejarah">Sejarah HKI UNIDA Gontor</a></li>
                 </ul>
             </li>
 
             <li class="nav-item">
-                <a href="/pengertian" class="nav-link">Pengertian <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
+                <a href="/pengertian" class="nav-link">Pengertian <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="/phc">Hak Cipta</a></li>
                     <li><a href="/pptn">Paten</a></li>
@@ -497,155 +417,319 @@
     </nav>
 
     <main class="main-content">
-    <h1 class="page-title">Formulir Pendaftaran Hak Cipta</h1>
-    <div class="form-container">
-    <div class="form-header">
-        <h2 class="form-title">Formulir Pendaftaran Hak Cipta</h2>
-        <p class="form-subtitle">Isi data di bawah ini dengan benar untuk mengajukan permohonan pendaftaran HKI.</p>
-    </div>
-
-    <form action="#" method="POST" enctype="multipart/form-data">
+        <h1 class="page-title">Formulir Pendaftaran Hak Cipta</h1>
         
-        <!-- Input Nama & NIDN dalam 2 Kolom -->
-        <div class="form-group two-cols">
-            <div class="form-control-wrap">
-                <label class="form-label">Email <span class="required">*</span></label>
-                <input type="text" class="form-control" placeholder="Masukan alamat email anda" required>
+        <div class="form-container">
+            <div class="form-header">
+                <h2 class="form-title">Formulir Pendaftaran Hak Cipta</h2>
+                <p class="form-subtitle">Isi data di bawah ini dengan benar untuk mengajukan permohonan pendaftaran HKI.</p>
             </div>
-        </div>
-         <div class="form-group">
-            <label class="form-label">Kategori Pemohon <span class="required">*</span></label>
-            <select class="form-control" required>
-                <option value="" disabled selected>-- Pilih Jenis Kategori --</option>
-                <option value="umum">Umum</option>
-                <option value="umkm">UMKM</option>
-                <option value="lpd">Lembaga Pendidikan</option>
-                <option value="lpi">Lembaga Penelitian</option>
-            </select>
-        </div>
-        
 
-        <!-- Select Dropdown Kategori -->
-        <div class="form-group">
-            <label class="form-label">Hasil Program <span class="required">*</span></label>
-            <select class="form-control" required>
-                <option value="" disabled selected>-- Pilih Jenis Hasil Program --</option>
-                <option value="kkn">KKN</option>
-                <option value="pkm">PKM</option>
-                <option value="pengabdian">Pengabdian</option>
-                <option value="ta">Tugas Akhir (Skripsi/Thesis/Sidang)</option>
-                <option value="km">Karya Mandiri</option>
-                <option value="pl">Penelitian Lainnya</option>
-            </select>
-        </div>
-
-        <!-- Input Judul Ciptaan -->
-        <div class="form-group">
-            <label class="form-label">Pemohon 1 <span class="optional">(Opsional)</span></label>
-            <input type="text" class="form-control" placeholder="Masukan Nama Pemohon" required>
-        </div>
-
-        <!-- Textarea Deskripsi Ringkas -->
-        <div class="form-group">
-            <label class="form-label">NIK Pemohon<span class="required">*</span></label>
-            <textarea class="form-control" placeholder="Masukan NIK Pemohon"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Nama Lengkap Pemohon<span class="required">*</span></label>
-            <textarea class="form-control" placeholder="Masukan Nama Lengkap Pemohon"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Alamat pemohon (cantumkan jalan, desa/kelurahan, Kecamatan, Kab/kota, Provinsi)<span class="required">*</span></label>
-            <textarea class="form-control" placeholder="Masukan Alamat Lengkap"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Kode pos<span class="required">*</span></label>
-            <textarea class="form-control" placeholder="Masukan Kode Pos"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Email Pemohon<span class="required">*</span></label>
-            <textarea class="form-control" placeholder="Masukan Email Yang Aktif"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Nomor Telepon / HP<spam class="required">*</spam></label>
-            <textarea class="form-control" placeholder="Masukan No HP"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Nomor NPWP Pemohon<spam class="required">*</spam></label>
-            <textarea class="form-control" placeholder="gunakan tanda - jika belum mempunyai NPWP"></textarea>
-        </div>
-
-    <div class="form-group">
-        <label class="form-label">Prodi/Instansi <span class="required">*</span></label>
-        
-        <!-- Dropdown Utama -->
-        <select class="form-control" id="prodi" onchange="toggleOtherInput()" required>
-            <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
-            <option value="PAI">S1 PAI</option>
-            <option value="PBA">S1 PBA</option>
-            <option value="TBI">SI TBI</option>
-            <option value="MJN">S1 MNJ</option>
-            <option value="EI">S1 EI</option>
-            <option value="AGRO">S1 AGRO</option>
-            <option value="TIP">S1 TIP</option>
-            <option value="TI">S1 TI</option>
-            <option value="KKK">S1 KKK</option>
-            <option value="GZ">S1 GIZI</option>
-            <option value="FARM">S1 FARMASI</option>
-            <option value="HI">S1 HI</option>
-            <option value="IKOM">S1 ILKOM</option>
-            <option value="HES">S1 HES</option>
-            <option value="PM">S1 PM</option>
-            <option value="IQT">S1 IQT</option>
-            <option value="AFI">S1 AFI</option>
-            <option value="SAA">SI SAA</option>
-            <option value="KDR">S1 KEDOKTERAN</option>
-            <option value="2AFI">S2 AFI</option>
-            <option value="2PBA">S2 PBA</option>
-            <option value="2HES">S2 HES</option>
-            <option value="3AFI">S3 AFI</option>
-            <option value="IU">Instansi Umum</option>
-            <option value="other">Lainnya...</option>
-        </select>
-    </div>
-
-    <!-- Kolom Input Teks Tambahan (Sembunyi secara default) -->
-    <div class="form-group" id="otherInputGroup" style="display: none;">
-        <label class="form-label">Masukan Prodi/Instansi Anda <span class="required">*</span></label>
-        <input type="text" class="form-control" id="otherInput" placeholder="Masukkan Prodi/instansi">
-    </div>
-        
-
-        <!-- Custom Upload File -->
-        <div class="form-group">
-            <label class="form-label">Unggah Draf Karya (PDF) <span class="required">*</span></label>
-            <div class="file-upload-wrap">
-                <input type="file" accept=".pdf" required>
-                <div class="file-upload-text">
-                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                    <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
+            <form action="#" method="POST" enctype="multipart/form-data">
+                
+                <!-- Email Pemohon -->
+                <div class="form-group">
+                    <label class="form-label">Email Penanggung Jawab <span class="required">*</span></label>
+                    <input type="email" class="form-control" placeholder="Masukkan alamat email anda" required>
                 </div>
-            </div>
+
+                <!-- Kategori Pemohon -->
+                <div class="form-group">
+                    <label class="form-label">Kategori Pemohon <span class="required">*</span></label>
+                    <select class="form-control" required>
+                        <option value="" disabled selected>-- Pilih Jenis Kategori --</option>
+                        <option value="umum">Umum</option>
+                        <option value="umkm">UMKM</option>
+                        <option value="lpd">Lembaga Pendidikan</option>
+                        <option value="lpi">Lembaga Penelitian</option>
+                    </select>
+                </div>
+
+                <!-- Hasil Program -->
+                <div class="form-group">
+                    <label class="form-label">Hasil Program <span class="required">*</span></label>
+                    <select class="form-control" required>
+                        <option value="" disabled selected>-- Pilih Jenis Hasil Program --</option>
+                        <option value="kkn">KKN</option>
+                        <option value="pkm">PKM</option>
+                        <option value="pengabdian">Pengabdian</option>
+                        <option value="ta">Tugas Akhir (Skripsi/Thesis/Sidang)</option>
+                        <option value="km">Karya Mandiri</option>
+                        <option value="pl">Penelitian Lainnya</option>
+                    </select>
+                </div>
+
+                <!-- DATA PEMOHON 1 -->
+                <h3 style="color: #3B6B80; margin-top: 25px; margin-bottom: 15px; font-size: 18px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">Data Pemohon 1</h3>
+
+                <div class="form-group">
+                    <label class="form-label">Nama Pemohon 1 <span class="required">*</span></label>
+                    <input type="text" class="form-control" placeholder="Masukkan Nama Pemohon 1" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">NIK Pemohon 1 <span class="required">*</span></label>
+                    <input type="text" class="form-control" placeholder="Masukkan NIK Pemohon 1" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Alamat Pemohon 1 <span class="required">*</span></label>
+                    <textarea class="form-control" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi" required></textarea>
+                </div>
+
+                <div class="form-group two-cols">
+                    <div class="form-control-wrap">
+                        <label class="form-label">Kode Pos <span class="required">*</span></label>
+                        <input type="text" class="form-control" placeholder="Masukkan Kode Pos" required>
+                    </div>
+                    <div class="form-control-wrap">
+                        <label class="form-label">Nomor Telepon / HP <span class="required">*</span></label>
+                        <input type="tel" class="form-control" placeholder="Masukkan No HP" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email Pemohon 1 <span class="required">*</span></label>
+                    <input type="email" class="form-control" placeholder="Masukkan Email Yang Aktif" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Nomor NPWP Pemohon 1 <span class="required">*</span></label>
+                    <input type="text" class="form-control" placeholder="Gunakan tanda - jika belum mempunyai NPWP" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Prodi / Instansi Pemohon 1 <span class="required">*</span></label>
+                    <select class="form-control" id="prodi1" onchange="toggleOtherInput('prodi1', 'otherInputGroup1', 'otherInput1')" required>
+                        <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
+                        <option value="PAI">S1 PAI</option>
+                        <option value="PBA">S1 PBA</option>
+                        <option value="TBI">S1 TBI</option>
+                        <option value="MJN">S1 MNJ</option>
+                        <option value="EI">S1 EI</option>
+                        <option value="AGRO">S1 AGRO</option>
+                        <option value="TIP">S1 TIP</option>
+                        <option value="TI">S1 TI</option>
+                        <option value="KKK">S1 KKK</option>
+                        <option value="GZ">S1 GIZI</option>
+                        <option value="FARM">S1 FARMASI</option>
+                        <option value="HI">S1 HI</option>
+                        <option value="IKOM">S1 ILKOM</option>
+                        <option value="HES">S1 HES</option>
+                        <option value="PM">S1 PM</option>
+                        <option value="IQT">S1 IQT</option>
+                        <option value="AFI">S1 AFI</option>
+                        <option value="SAA">S1 SAA</option>
+                        <option value="KDR">S1 KEDOKTERAN</option>
+                        <option value="2AFI">S2 AFI</option>
+                        <option value="2PBA">S2 PBA</option>
+                        <option value="2HES">S2 HES</option>
+                        <option value="3AFI">S3 AFI</option>
+                        <option value="IU">Instansi Umum</option>
+                        <option value="other">Lainnya...</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="otherInputGroup1" style="display: none;">
+                    <label class="form-label">Sebutkan Prodi/Instansi Pemohon 1 <span class="required">*</span></label>
+                    <input type="text" class="form-control" id="otherInput1" placeholder="Masukkan Prodi/instansi">
+                </div>
+
+                <!-- CHECKBOX PEMOHON KEDUA -->
+                <div class="form-group" style="margin-top: 30px; margin-bottom: 20px;">
+                    <label style="font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 15px;">
+                        <input type="checkbox" id="checkPemohon2" onchange="togglePemohon2()" style="width: 18px; height: 18px; cursor: pointer;">
+                        Tambah Pemohon Kedua
+                    </label>
+                </div>
+
+                <!-- WADAH DATA PEMOHON 3 (HIDDEN SECARA DEFAULT) -->
+                <div id="groupPemohon2" style="display: none;">
+                    <h3 style="color: #3B6B80; margin-bottom: 15px; font-size: 18px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">Data Pemohon 2</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Nama Pemohon 2 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-2" placeholder="Masukkan Nama Pemohon 2">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">NIK Pemohon 2 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-2" placeholder="Masukkan NIK Pemohon 3">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Alamat Pemohon 2 <span class="required">*</span></label>
+                        <textarea class="form-control input-pemohon-2" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi"></textarea>
+                    </div>
+
+                    <div class="form-group two-cols">
+                        <div class="form-control-wrap">
+                            <label class="form-label">Kode Pos <span class="required">*</span></label>
+                            <input type="text" class="form-control input-pemohon-2" placeholder="Masukkan Kode Pos">
+                        </div>
+                        <div class="form-control-wrap">
+                            <label class="form-label">Nomor Telepon / HP <span class="required">*</span></label>
+                            <input type="tel" class="form-control input-pemohon-2" placeholder="Masukkan No HP">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Pemohon 2 <span class="required">*</span></label>
+                        <input type="email" class="form-control input-pemohon-2" placeholder="Masukkan Email Yang Aktif">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Nomor NPWP Pemohon 2 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-2" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Prodi / Instansi Pemohon 2 <span class="required">*</span></label>
+                        <select class="form-control input-pemohon-2" id="prodi3" onchange="toggleOtherInput('prodi3', 'otherInputGroup3', 'otherInput3')">
+                            <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
+                            <option value="PAI">S1 PAI</option>
+                            <option value="PBA">S1 PBA</option>
+                            <option value="TBI">S1 TBI</option>
+                            <option value="MJN">S1 MNJ</option>
+                            <option value="EI">S1 EI</option>
+                            <option value="AGRO">S1 AGRO</option>
+                            <option value="TIP">S1 TIP</option>
+                            <option value="TI">S1 TI</option>
+                            <option value="KKK">S1 KKK</option>
+                            <option value="GZ">S1 GIZI</option>
+                            <option value="FARM">S1 FARMASI</option>
+                            <option value="HI">S1 HI</option>
+                            <option value="IKOM">S1 ILKOM</option>
+                            <option value="HES">S1 HES</option>
+                            <option value="PM">S1 PM</option>
+                            <option value="IQT">S1 IQT</option>
+                            <option value="AFI">S1 AFI</option>
+                            <option value="SAA">S1 SAA</option>
+                            <option value="KDR">S1 KEDOKTERAN</option>
+                            <option value="2AFI">S2 AFI</option>
+                            <option value="2PBA">S2 PBA</option>
+                            <option value="2HES">S2 HES</option>
+                            <option value="3AFI">S3 AFI</option>
+                            <option value="IU">Instansi Umum</option>
+                            <option value="other">Lainnya...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="otherInputGroup2" style="display: none;">
+                        <label class="form-label">Sebutkan Prodi/Instansi Pemohon 2 <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="otherInput2" placeholder="Masukkan Prodi/instansi">
+                    </div>
+                </div>
+
+                  <!-- CHECKBOX PEMOHON KETIGA -->
+                <div class="form-group" style="margin-top: 30px; margin-bottom: 20px;">
+                    <label style="font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 15px;">
+                        <input type="checkbox" id="checkPemohon3" onchange="togglePemohon3()" style="width: 18px; height: 18px; cursor: pointer;">
+                        Tambah Pemohon Ketiga
+                    </label>
+                </div>
+
+                <!-- WADAH DATA PEMOHON 3 (HIDDEN SECARA DEFAULT) -->
+                <div id="groupPemohon3" style="display: none;">
+                    <h3 style="color: #3B6B80; margin-bottom: 15px; font-size: 18px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">Data Pemohon 3</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Nama Pemohon 3 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-3" placeholder="Masukkan Nama Pemohon 3">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">NIK Pemohon 3 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-3" placeholder="Masukkan NIK Pemohon 3">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Alamat Pemohon 3 <span class="required">*</span></label>
+                        <textarea class="form-control input-pemohon-3" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi"></textarea>
+                    </div>
+
+                    <div class="form-group two-cols">
+                        <div class="form-control-wrap">
+                            <label class="form-label">Kode Pos <span class="required">*</span></label>
+                            <input type="text" class="form-control input-pemohon-3" placeholder="Masukkan Kode Pos">
+                        </div>
+                        <div class="form-control-wrap">
+                            <label class="form-label">Nomor Telepon / HP <span class="required">*</span></label>
+                            <input type="tel" class="form-control input-pemohon-3" placeholder="Masukkan No HP">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Pemohon 3 <span class="required">*</span></label>
+                        <input type="email" class="form-control input-pemohon-3" placeholder="Masukkan Email Yang Aktif">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Nomor NPWP Pemohon 3 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-3" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Prodi / Instansi Pemohon 3 <span class="required">*</span></label>
+                        <select class="form-control input-pemohon-3" id="prodi3" onchange="toggleOtherInput('prodi3', 'otherInputGroup3', 'otherInput3')">
+                            <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
+                            <option value="PAI">S1 PAI</option>
+                            <option value="PBA">S1 PBA</option>
+                            <option value="TBI">S1 TBI</option>
+                            <option value="MJN">S1 MNJ</option>
+                            <option value="EI">S1 EI</option>
+                            <option value="AGRO">S1 AGRO</option>
+                            <option value="TIP">S1 TIP</option>
+                            <option value="TI">S1 TI</option>
+                            <option value="KKK">S1 KKK</option>
+                            <option value="GZ">S1 GIZI</option>
+                            <option value="FARM">S1 FARMASI</option>
+                            <option value="HI">S1 HI</option>
+                            <option value="IKOM">S1 ILKOM</option>
+                            <option value="HES">S1 HES</option>
+                            <option value="PM">S1 PM</option>
+                            <option value="IQT">S1 IQT</option>
+                            <option value="AFI">S1 AFI</option>
+                            <option value="SAA">S1 SAA</option>
+                            <option value="KDR">S1 KEDOKTERAN</option>
+                            <option value="2AFI">S2 AFI</option>
+                            <option value="2PBA">S2 PBA</option>
+                            <option value="2HES">S2 HES</option>
+                            <option value="3AFI">S3 AFI</option>
+                            <option value="IU">Instansi Umum</option>
+                            <option value="other">Lainnya...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="otherInputGroup3" style="display: none;">
+                        <label class="form-label">Sebutkan Prodi/Instansi Pemohon 3 <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="otherInput3" placeholder="Masukkan Prodi/instansi">
+                    </div>
+                </div>
+
+                <!-- Custom Upload File -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label class="form-label">Unggah Draf Karya (PDF) <span class="required">*</span></label>
+                    <div class="file-upload-wrap">
+                        <input type="file" accept=".pdf" required>
+                        <div class="file-upload-text">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol Kirim -->
+                <button type="submit" class="btn-submit">
+                    <i class="fa-solid fa-paper-plane"></i> Kirim Permohonan
+                </button>
+
+            </form>
         </div>
-
-        <!-- Tombol Kirim -->
-        <button type="submit" class="btn-submit">
-            <i class="fa-solid fa-paper-plane"></i> Kirim Permohonan
-        </button>
-
-    </form>
-    </div>
     </main>
+
     <footer class="footer">
         <div class="footer-container">
-            
-            <!-- Kolom 1: Profil / Deskripsi -->
             <div class="footer-col">
                 <h3>Sentra HKI UNIDA</h3>
                 <p>Lembaga Layanan Hak Kekayaan Intelektual Universitas Darussalam Gontor.</p>
@@ -656,7 +740,6 @@
                 </div>
             </div>
 
-            <!-- Kolom 2: Navigasi Cepat -->
             <div class="footer-col">
                 <h3>Tautan Cepat</h3>
                 <ul>
@@ -667,39 +750,93 @@
                 </ul>
             </div>
 
-            <!-- Kolom 3: Kontak & Alamat -->
             <div class="footer-col">
                 <h3>Kontak Kami</h3>
                 <p><i class="fa-solid fa-location-dot"></i> Jl. Raya Siman No. Km. 5, Dusun I, Demangan, Kec. Siman, Kabupaten Ponorogo, Jawa Timur 63471</p>
                 <p><i class="fa-solid fa-envelope"></i> hki@unida.gontor.ac.id</p>
                 <p><i class="fa-solid fa-phone"></i> 0857-0858-3094</p>
             </div>
-
         </div>
 
-        <!-- Copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Fungsi Dinamis untuk Menampilkan Input Teks Tambahan Dropdown "Lainnya..."
+        function toggleOtherInput(selectId, groupContainerId, inputId) {
+            const selectElement = document.getElementById(selectId);
+            const otherGroup = document.getElementById(groupContainerId);
+            const otherInput = document.getElementById(inputId);
+
+            if (selectElement && selectElement.value === 'other') {
+                otherGroup.style.display = 'flex';
+                otherInput.setAttribute('required', 'required');
+            } else if (otherGroup && otherInput) {
+                otherGroup.style.display = 'none';
+                otherInput.removeAttribute('required');
+                otherInput.value = '';
+            }
+        }
+
+        // Fungsi Menampilkan / Menyembunyikan Pemohon Kedua
+        function togglePemohon2() {
+            const checkBox = document.getElementById('checkPemohon2');
+            const groupPemohon2 = document.getElementById('groupPemohon2');
+            const inputsPemohon2 = document.querySelectorAll('.input-pemohon-2');
+
+            if (checkBox.checked) {
+                groupPemohon2.style.display = 'block';
+                inputsPemohon2.forEach(input => {
+                    input.setAttribute('required', 'required');
+                });
+            } else {
+                groupPemohon2.style.display = 'none';
+                inputsPemohon2.forEach(input => {
+                    input.removeAttribute('required');
+                    input.value = '';
+                });
+                
+                // Sembunyikan input "Lainnya" jika sebelumnya terpilih di pemohon 2
+                const otherGroup2 = document.getElementById('otherInputGroup2');
+                const otherInput2 = document.getElementById('otherInput2');
+                if (otherGroup2 && otherInput2) {
+                    otherGroup2.style.display = 'none';
+                    otherInput2.removeAttribute('required');
+                    otherInput2.value = '';
+                }
+            }
+        }
+            // Fungsi Menampilkan / Menyembunyikan Pemohon Ketiga
+            function togglePemohon3() {
+            const checkBox = document.getElementById('checkPemohon3');
+            const groupPemohon3 = document.getElementById('groupPemohon3');
+            const inputsPemohon3 = document.querySelectorAll('.input-pemohon-3');
+
+            if (checkBox.checked) {
+                groupPemohon3.style.display = 'block';
+                inputsPemohon3.forEach(input => {
+                    input.setAttribute('required', 'required');
+                });
+            } else {
+                groupPemohon3.style.display = 'none';
+                inputsPemohon3.forEach(input => {
+                    input.removeAttribute('required');
+                    input.value = '';
+                });
+                
+                // Sembunyikan input "Lainnya" jika sebelumnya terpilih di pemohon 3
+                const otherGroup3 = document.getElementById('otherInputGroup3');
+                const otherInput3 = document.getElementById('otherInput3');
+                if (otherGroup3 && otherInput3) {
+                    otherGroup3.style.display = 'none';
+                    otherInput3.removeAttribute('required');
+                    otherInput3.value = '';
+                }
+            }
+        }
+    </script>
 </body>
-
-<script>
-function toggleOtherInput() {
-    const selectElement = document.getElementById('prodi');
-    const otherGroup = document.getElementById('otherInputGroup');
-    const otherInput = document.getElementById('otherInput');
-
-    // Jika pengguna memilih "other" (Lainnya...)
-    if (selectElement.value === 'other') {
-        otherGroup.style.display = 'flex'; // Tampilkan input teks
-        otherInput.setAttribute('required', 'required'); // Buat wajib diisi
-    } else {
-        otherGroup.style.display = 'none'; // Sembunyikan input teks
-        otherInput.removeAttribute('required'); // Hapus status wajib diisi
-        otherInput.value = ''; // Kosongkan nilainya kembali
-    }
-}
-</script>
-
 </html>
