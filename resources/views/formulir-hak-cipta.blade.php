@@ -371,6 +371,18 @@
                 gap: 20px;
             }
         }
+
+        /* TEXTAREA */
+        textarea.form-control {
+        resize: none; /* Menghilangkan handle resize manual di pojok kanan bawah */
+        overflow-y: hidden; /* Menghilangkan scrollbar vertikal */
+        min-height: 45px; /* Tinggi awal textarea */
+        box-sizing: border-box;
+    }
+        /* TANGGAL */
+        input[type="date"].form-control {
+        cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -543,7 +555,7 @@
                     </label>
                 </div>
 
-                <!-- WADAH DATA PEMOHON 3 (HIDDEN SECARA DEFAULT) -->
+                <!-- WADAH DATA PEMOHON 2 -->
                 <div id="groupPemohon2" style="display: none;">
                     <h3 style="color: #3B6B80; margin-bottom: 15px; font-size: 18px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">Data Pemohon 2</h3>
 
@@ -554,7 +566,7 @@
 
                     <div class="form-group">
                         <label class="form-label">NIK Pemohon 2 <span class="required">*</span></label>
-                        <input type="text" class="form-control input-pemohon-2" placeholder="Masukkan NIK Pemohon 3">
+                        <input type="text" class="form-control input-pemohon-2" placeholder="Masukkan NIK Pemohon 2">
                     </div>
 
                     <div class="form-group">
@@ -585,7 +597,7 @@
 
                     <div class="form-group">
                         <label class="form-label">Prodi / Instansi Pemohon 2 <span class="required">*</span></label>
-                        <select class="form-control input-pemohon-2" id="prodi3" onchange="toggleOtherInput('prodi3', 'otherInputGroup3', 'otherInput3')">
+                        <select class="form-control input-pemohon-2" id="prodi2" onchange="toggleOtherInput('prodi2', 'otherInputGroup2', 'otherInput2')">
                             <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
                             <option value="PAI">S1 PAI</option>
                             <option value="PBA">S1 PBA</option>
@@ -621,7 +633,7 @@
                     </div>
                 </div>
 
-                  <!-- CHECKBOX PEMOHON KETIGA -->
+                <!-- CHECKBOX PEMOHON KETIGA -->
                 <div class="form-group" style="margin-top: 30px; margin-bottom: 20px;">
                     <label style="font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 15px;">
                         <input type="checkbox" id="checkPemohon3" onchange="togglePemohon3()" style="width: 18px; height: 18px; cursor: pointer;">
@@ -629,7 +641,7 @@
                     </label>
                 </div>
 
-                <!-- WADAH DATA PEMOHON 3 (HIDDEN SECARA DEFAULT) -->
+                <!-- WADAH DATA PEMOHON 3 -->
                 <div id="groupPemohon3" style="display: none;">
                     <h3 style="color: #3B6B80; margin-bottom: 15px; font-size: 18px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">Data Pemohon 3</h3>
 
@@ -707,9 +719,286 @@
                     </div>
                 </div>
 
-                <!-- Custom Upload File -->
+                <!-- CHECKBOX PEMOHON KEEMPAT -->
+                <div class="form-group" style="margin-top: 30px; margin-bottom: 20px;">
+                    <label style="font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 15px;">
+                        <input type="checkbox" id="checkPemohon4" onchange="togglePemohon4()" style="width: 18px; height: 18px; cursor: pointer;">
+                        Tambah Pemohon Keempat
+                    </label>
+                </div>
+
+                <!-- WADAH DATA PEMOHON 4 -->
+                <div id="groupPemohon4" style="display: none;">
+                    <h3 style="color: #3B6B80; margin-bottom: 15px; font-size: 18px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">Data Pemohon 4</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Nama Pemohon 4 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-4" placeholder="Masukkan Nama Pemohon 4">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">NIK Pemohon 4 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-4" placeholder="Masukkan NIK Pemohon 4">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Alamat Pemohon 4 <span class="required">*</span></label>
+                        <textarea class="form-control input-pemohon-4" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi"></textarea>
+                    </div>
+
+                    <div class="form-group two-cols">
+                        <div class="form-control-wrap">
+                            <label class="form-label">Kode Pos <span class="required">*</span></label>
+                            <input type="text" class="form-control input-pemohon-4" placeholder="Masukkan Kode Pos">
+                        </div>
+                        <div class="form-control-wrap">
+                            <label class="form-label">Nomor Telepon / HP <span class="required">*</span></label>
+                            <input type="tel" class="form-control input-pemohon-4" placeholder="Masukkan No HP">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Pemohon 4 <span class="required">*</span></label>
+                        <input type="email" class="form-control input-pemohon-4" placeholder="Masukkan Email Yang Aktif">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Nomor NPWP Pemohon 4 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-4" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Prodi / Instansi Pemohon 4 <span class="required">*</span></label>
+                        <select class="form-control input-pemohon-4" id="prodi4" onchange="toggleOtherInput('prodi4', 'otherInputGroup4', 'otherInput4')">
+                            <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
+                            <option value="PAI">S1 PAI</option>
+                            <option value="PBA">S1 PBA</option>
+                            <option value="TBI">S1 TBI</option>
+                            <option value="MJN">S1 MNJ</option>
+                            <option value="EI">S1 EI</option>
+                            <option value="AGRO">S1 AGRO</option>
+                            <option value="TIP">S1 TIP</option>
+                            <option value="TI">S1 TI</option>
+                            <option value="KKK">S1 KKK</option>
+                            <option value="GZ">S1 GIZI</option>
+                            <option value="FARM">S1 FARMASI</option>
+                            <option value="HI">S1 HI</option>
+                            <option value="IKOM">S1 ILKOM</option>
+                            <option value="HES">S1 HES</option>
+                            <option value="PM">S1 PM</option>
+                            <option value="IQT">S1 IQT</option>
+                            <option value="AFI">S1 AFI</option>
+                            <option value="SAA">S1 SAA</option>
+                            <option value="KDR">S1 KEDOKTERAN</option>
+                            <option value="2AFI">S2 AFI</option>
+                            <option value="2PBA">S2 PBA</option>
+                            <option value="2HES">S2 HES</option>
+                            <option value="3AFI">S3 AFI</option>
+                            <option value="IU">Instansi Umum</option>
+                            <option value="other">Lainnya...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="otherInputGroup4" style="display: none;">
+                        <label class="form-label">Sebutkan Prodi/Instansi Pemohon 4 <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="otherInput4" placeholder="Masukkan Prodi/instansi">
+                    </div>
+                </div>
+
+                <!-- CHECKBOX PEMOHON KELIMA -->
+                <div class="form-group" style="margin-top: 30px; margin-bottom: 20px;">
+                    <label style="font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 15px;">
+                        <input type="checkbox" id="checkPemohon5" onchange="togglePemohon5()" style="width: 18px; height: 18px; cursor: pointer;">
+                        Tambah Pemohon Kelima
+                    </label>
+                </div>
+
+                <!-- WADAH DATA PEMOHON 5 -->
+                <div id="groupPemohon5" style="display: none;">
+                    <h3 style="color: #3B6B80; margin-bottom: 15px; font-size: 18px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">Data Pemohon 5</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Nama Pemohon 5 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-5" placeholder="Masukkan Nama Pemohon 5">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">NIK Pemohon 5 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-5" placeholder="Masukkan NIK Pemohon 5">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Alamat Pemohon 5 <span class="required">*</span></label>
+                        <textarea class="form-control input-pemohon-5" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi"></textarea>
+                    </div>
+
+                    <div class="form-group two-cols">
+                        <div class="form-control-wrap">
+                            <label class="form-label">Kode Pos <span class="required">*</span></label>
+                            <input type="text" class="form-control input-pemohon-5" placeholder="Masukkan Kode Pos">
+                        </div>
+                        <div class="form-control-wrap">
+                            <label class="form-label">Nomor Telepon / HP <span class="required">*</span></label>
+                            <input type="tel" class="form-control input-pemohon-5" placeholder="Masukkan No HP">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Pemohon 5 <span class="required">*</span></label>
+                        <input type="email" class="form-control input-pemohon-5" placeholder="Masukkan Email Yang Aktif">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Nomor NPWP Pemohon 5 <span class="required">*</span></label>
+                        <input type="text" class="form-control input-pemohon-5" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Prodi / Instansi Pemohon 5 <span class="required">*</span></label>
+                        <select class="form-control input-pemohon-5" id="prodi5" onchange="toggleOtherInput('prodi5', 'otherInputGroup5', 'otherInput5')">
+                            <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
+                            <option value="PAI">S1 PAI</option>
+                            <option value="PBA">S1 PBA</option>
+                            <option value="TBI">S1 TBI</option>
+                            <option value="MJN">S1 MNJ</option>
+                            <option value="EI">S1 EI</option>
+                            <option value="AGRO">S1 AGRO</option>
+                            <option value="TIP">S1 TIP</option>
+                            <option value="TI">S1 TI</option>
+                            <option value="KKK">S1 KKK</option>
+                            <option value="GZ">S1 GIZI</option>
+                            <option value="FARM">S1 FARMASI</option>
+                            <option value="HI">S1 HI</option>
+                            <option value="IKOM">S1 ILKOM</option>
+                            <option value="HES">S1 HES</option>
+                            <option value="PM">S1 PM</option>
+                            <option value="IQT">S1 IQT</option>
+                            <option value="AFI">S1 AFI</option>
+                            <option value="SAA">S1 SAA</option>
+                            <option value="KDR">S1 KEDOKTERAN</option>
+                            <option value="2AFI">S2 AFI</option>
+                            <option value="2PBA">S2 PBA</option>
+                            <option value="2HES">S2 HES</option>
+                            <option value="3AFI">S3 AFI</option>
+                            <option value="IU">Instansi Umum</option>
+                            <option value="other">Lainnya...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="otherInputGroup5" style="display: none;">
+                        <label class="form-label">Sebutkan Prodi/Instansi Pemohon 5 <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="otherInput5" placeholder="Masukkan Prodi/instansi">
+                    </div>
+                </div>
+
+                <!-- data pencipta lengka -->
+                 <div class="form-group" style="margin-top: 20px;">
+                    <label class="form-label">Data Pencipta Lengkap (jika pencipta lebih dari 5 pemohon, harap mengirimkan data email, no HP, alamat, dan kode pos dalam bentuk .doc (format : Data Pencipta-Nama Pemohon)</label>
+                    <div class="file-upload-wrap">
+                        <input type="file" accept=".docs" required>
+                        <div class="file-upload-text">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Klik atau seret file Docs ke sini untuk mengunggah</span>
+                        </div>
+                    </div>
+                 </div>
+
+                <!-- DATA KARYA -->
+                <div class="form-group">
+                    <label class="form-label">Data Karya <span class="required">*</span></label>
+                    <textarea class="form-control" placeholder="Masukkan deskripsi tentang karya anda" required oninput="autoResize(this)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Judul Karya<span class="required">*</span></label>
+                    <textarea class="form-control" placeholder="Masukan Judul Karya Anda" required oninput="autoResize(this)"></textarea>
+                </div>
+
+                <div class="form-label">
+                    <label class="form-label">Jenis Hak Cipta<span class="required">*</span></label>
+                    <textarea class="form-control" placeholder="Masukan jenis Hak Cipta anda (contoh: Buku Ajar, Poster, Vidio, Program Komputer, Alat Peraga, Modul, Buku Panduan, Dll)" required oninput="autoResize(this)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Tanggal Ciptaan Pertama Kali Diumumkan <span class="required">*</span></label>
+                    <input type="date" class="form-control" required>
+                </div>
+
+                <!-- KTP -->
                 <div class="form-group" style="margin-top: 20px;">
-                    <label class="form-label">Unggah Draf Karya (PDF) <span class="required">*</span></label>
+                    <label class="form-label">Unggah KTP Pencipta (Jika pemohon lebih dari satu orang dijadikan dalam satu file PDF) <span class="required">*</span></label>
+                    <div class="file-upload-wrap">
+                        <input type="file" accept=".pdf" required>
+                        <div class="file-upload-text">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NPWP -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label class="form-label">Unggah NPWP Pencipta/Pemohon <span class="required">*</span></label>
+                    <div class="file-upload-wrap">
+                        <input type="file" accept=".pdf" required>
+                        <div class="file-upload-text">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deskripsi Karya -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label class="form-label">Unggah Deskripsi Karya Anda (Minimal 1 Paragraft) <span class="required">*</span></label>
+                    <div class="file-upload-wrap">
+                        <input type="file" accept=".pdf" required>
+                        <div class="file-upload-text">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Karya Ciptaan -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label class="form-label">Unggah Karya Ciptaan <span class="required">*</span></label>
+                    <div class="file-upload-wrap">
+                        <input type="file" accept=".pdf" required>
+                        <div class="file-upload-text">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Surat Pernyataan -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label class="form-label">Unggah Surat Pernyataan (Dengan Materai) <span class="required">*</span></label>
+                    <div class="file-upload-wrap">
+                        <input type="file" accept=".pdf" required>
+                        <div class="file-upload-text">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Surat Pengalihan Hak Cipta -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label class="form-label">Unggah Surat Pengalihan Hak Cipta (Bermaterai) <span class="required">*</span></label>
+                    <div class="file-upload-wrap">
+                        <input type="file" accept=".pdf" required>
+                        <div class="file-upload-text">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Akte Pendirian -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label class="form-label">Unggah Akte Pendirian Berbadan Hukum (Opsional) </label>
                     <div class="file-upload-wrap">
                         <input type="file" accept=".pdf" required>
                         <div class="file-upload-text">
@@ -765,7 +1054,6 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Fungsi Dinamis untuk Menampilkan Input Teks Tambahan Dropdown "Lainnya..."
         function toggleOtherInput(selectId, groupContainerId, inputId) {
             const selectElement = document.getElementById(selectId);
             const otherGroup = document.getElementById(groupContainerId);
@@ -781,7 +1069,6 @@
             }
         }
 
-        // Fungsi Menampilkan / Menyembunyikan Pemohon Kedua
         function togglePemohon2() {
             const checkBox = document.getElementById('checkPemohon2');
             const groupPemohon2 = document.getElementById('groupPemohon2');
@@ -789,17 +1076,13 @@
 
             if (checkBox.checked) {
                 groupPemohon2.style.display = 'block';
-                inputsPemohon2.forEach(input => {
-                    input.setAttribute('required', 'required');
-                });
+                inputsPemohon2.forEach(input => input.setAttribute('required', 'required'));
             } else {
                 groupPemohon2.style.display = 'none';
                 inputsPemohon2.forEach(input => {
                     input.removeAttribute('required');
                     input.value = '';
                 });
-                
-                // Sembunyikan input "Lainnya" jika sebelumnya terpilih di pemohon 2
                 const otherGroup2 = document.getElementById('otherInputGroup2');
                 const otherInput2 = document.getElementById('otherInput2');
                 if (otherGroup2 && otherInput2) {
@@ -809,25 +1092,21 @@
                 }
             }
         }
-            // Fungsi Menampilkan / Menyembunyikan Pemohon Ketiga
-            function togglePemohon3() {
+
+        function togglePemohon3() {
             const checkBox = document.getElementById('checkPemohon3');
             const groupPemohon3 = document.getElementById('groupPemohon3');
             const inputsPemohon3 = document.querySelectorAll('.input-pemohon-3');
 
             if (checkBox.checked) {
                 groupPemohon3.style.display = 'block';
-                inputsPemohon3.forEach(input => {
-                    input.setAttribute('required', 'required');
-                });
+                inputsPemohon3.forEach(input => input.setAttribute('required', 'required'));
             } else {
                 groupPemohon3.style.display = 'none';
                 inputsPemohon3.forEach(input => {
                     input.removeAttribute('required');
                     input.value = '';
                 });
-                
-                // Sembunyikan input "Lainnya" jika sebelumnya terpilih di pemohon 3
                 const otherGroup3 = document.getElementById('otherInputGroup3');
                 const otherInput3 = document.getElementById('otherInput3');
                 if (otherGroup3 && otherInput3) {
@@ -837,6 +1116,71 @@
                 }
             }
         }
+
+        function togglePemohon4() {
+            const checkBox = document.getElementById('checkPemohon4');
+            const groupPemohon4 = document.getElementById('groupPemohon4');
+            const inputsPemohon4 = document.querySelectorAll('.input-pemohon-4');
+
+            if (checkBox.checked) {
+                groupPemohon4.style.display = 'block';
+                inputsPemohon4.forEach(input => input.setAttribute('required', 'required'));
+            } else {
+                groupPemohon4.style.display = 'none';
+                inputsPemohon4.forEach(input => {
+                    input.removeAttribute('required');
+                    input.value = '';
+                });
+                const otherGroup4 = document.getElementById('otherInputGroup4');
+                const otherInput4 = document.getElementById('otherInput4');
+                if (otherGroup4 && otherInput4) {
+                    otherGroup4.style.display = 'none';
+                    otherInput4.removeAttribute('required');
+                    otherInput4.value = '';
+                }
+            }
+        }
+
+        function togglePemohon5() {
+            const checkBox = document.getElementById('checkPemohon5');
+            const groupPemohon5 = document.getElementById('groupPemohon5');
+            const inputsPemohon5 = document.querySelectorAll('.input-pemohon-5');
+
+            if (checkBox.checked) {
+                groupPemohon5.style.display = 'block';
+                inputsPemohon5.forEach(input => input.setAttribute('required', 'required'));
+            } else {
+                groupPemohon5.style.display = 'none';
+                inputsPemohon5.forEach(input => {
+                    input.removeAttribute('required');
+                    input.value = '';
+                });
+                const otherGroup5 = document.getElementById('otherInputGroup5');
+                const otherInput5 = document.getElementById('otherInput5');
+                if (otherGroup5 && otherInput5) {
+                    otherGroup5.style.display = 'none';
+                    otherInput5.removeAttribute('required');
+                    otherInput5.value = '';
+                }
+            }
+        }
+
+        // TEXTAREA
+        function autoResize(textarea) {
+        // Kembalikan tinggi ke 'auto' terlebih dahulu agar tinggi berkurang saat teks dihapus
+        textarea.style.height = 'auto'; 
+        // Setel tinggi sesuai dengan scrollHeight (tinggi isi konten sebenarnya)
+        textarea.style.height = textarea.scrollHeight + 'px';
+    }
+
+    // Mengisi input tanggal dengan hari ini secara otomatis
+    document.addEventListener('DOMContentLoaded', function() {
+        const inputTanggal = document.getElementById('tanggalSurat');
+        if (inputTanggal) {
+            const today = new Date().toISOString().split('T')[0];
+            inputTanggal.value = today;
+        }
+    });
     </script>
 </body>
 </html>
