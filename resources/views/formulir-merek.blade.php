@@ -901,7 +901,7 @@
                         <option value="suara">Suara</option>
                     </select>
                 </div>
-    </form>
+    
         <!-- Dokumen -->
         <div class="form-group">
             <label class="form-label">Unggah KTP Pemohon (Format File: KTP-NAMA) (PDF) <span class="required">*</span></label>
