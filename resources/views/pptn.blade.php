@@ -1,647 +1,282 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengertian Paten</title>
-    <!-- Google Font & FontAwesome untuk icon pencarian -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Slabo+27px&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+@extends('layouts.app')
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
+@section('title', 'Pengertian Paten')
 
-        body {
-            background-color: #ffffff;
-            color: #333333;
-        }
+@push('styles')
+<style>
+    /* CSS Khusus Halaman Paten */
+    .section-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #3B6B80;
+        margin-top: 30px;
+        margin-bottom: 12px;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 6px;
+    }
 
-        /* --- NAVBAR --- */
-        .navbar {
-            background-color: #3B6B80; /* Warna biru-abu khas Sentra HKI UNIDA */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 40px;
-            color: white;
-            position: relative;
-            z-index: 10;
-        }
+    .description {
+        font-size: 15px;
+        color: #475569;
+        line-height: 1.6;
+        text-align: justify;
+        margin-bottom: 12px;
+    }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
+    .custom-list {
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
 
-        .brand img {
-            height: 35px;
-        }
+    .custom-list li {
+        margin-bottom: 8px;
+        color: #475569;
+        line-height: 1.6;
+        font-size: 15px;
+    }
 
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            gap: 20px;
-        }
+    .patent-sub-card {
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
 
-        .nav-item {
-            position: relative;
-        }
+    .patent-sub-title {
+        font-size: 17px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 10px;
+    }
 
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 6px 10px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
+    /* Tabel Responsive */
+    .table-responsive {
+        overflow-x: auto;
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
 
-        .nav-link:hover {
-            opacity: 0.8;
-        }
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        text-align: left;
+        background-color: #ffffff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        border-radius: 6px;
+        overflow: hidden;
+    }
 
-        /* Dropdown Styling */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #3B6B80;
-            min-width: 180px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-            list-style: none;
-            padding: 8px 0;
-            border-radius: 0 0 4px 4px;
-        }
+    .custom-table th {
+        background-color: #3B6B80;
+        color: #ffffff;
+        padding: 12px 16px;
+        font-weight: 600;
+    }
 
-        .dropdown-menu li a {
-            color: white;
-            padding: 10px 16px;
-            display: block;
-            text-decoration: none;
-            font-size: 13px;
-        }
+    .custom-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #e5e7eb;
+        color: #4b5563;
+        vertical-align: top;
+    }
 
-        .dropdown-menu li a:hover {
-            background-color: #2e5566;
-        }
+    .custom-table tbody tr:nth-child(even) {
+        background-color: #f9fafb;
+    }
 
-        .nav-item:hover .dropdown-menu {
-            display: block;
-        }
+    .custom-table tbody tr:hover {
+        background-color: #f1f5f9;
+    }
+</style>
+@endpush
 
-        .search-icon {
-            cursor: pointer;
-            font-size: 15px;
-            margin-left: 10px;
-        }
+@section('content')
+    <h1 class="page-title">Paten</h1>
 
-        /* --- CONTENT SECTION --- */
-        .main-content {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+    <h2 class="section-title">1. Definisi Paten</h2>
+    <p class="description">
+        Berdasarkan <strong>UU No. 13 Tahun 2016</strong> tentang Paten, <strong>Paten adalah</strong> hak eksklusif yang diberikan oleh negara kepada penemu (Inventor) atas hasil invensinya di bidang teknologi untuk jangka waktu tertentu dalam melaksanakan sendiri invensinya tersebut atau memberikan persetujuan kepada pihak lain untuk melaksanakannya.
+    </p>
+    <p class="description">
+        <strong>Invensi</strong> adalah ide inventor yang dituangkan ke dalam suatu kegiatan pemecahan masalah yang spesifik di bidang teknologi, dapat berupa produk atau proses, atau penyempurnaan dan pengembangan produk atau proses.
+    </p>
 
-        .page-title {
-            font-family: 'Slabo 27px', serif;
-            font-size: 38px;
-            color: #3B6B80;
-            font-weight: 700;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
+    <h2 class="section-title">2. Landasan Hukum</h2>
+    <p class="description">
+        Penyelenggaraan, pendaftaran, dan pelindungan hukum invensi teknologi dosen di lingkungan Universitas Darussalam Gontor mengacu pada regulasi nasional berikut:
+    </p>
+    <ul class="custom-list">
+        <li><strong>Undang-Undang Nomor 13 Tahun 2016</strong> tentang Paten.</li>
+        <li><strong>Undang-Undang Nomor 6 Tahun 2023</strong> tentang Penetapan Peraturan Pemerintah Pengganti Undang-Undang Nomor 2 Tahun 2022 tentang Cipta Kerja Menjadi Undang-Undang.</li>
+        <li><strong>Undang-Undang Nomor 11 Tahun 2019</strong> tentang Sistem Nasional Ilmu Pengetahuan dan Teknologi.</li>
+    </ul>
 
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
+    <h2 class="section-title">3. Jangka Waktu & Perlindungan Paten</h2>
+    <p class="description">
+        Berbeda dengan Hak Cipta yang bersifat deklaratif, Paten menganut sistem <strong>First-to-File</strong> (siapa yang mendaftar pertama kali dan lolos pemeriksaan substantif, dia yang mendapat hak). Jangka waktu pelindungannya dihitung sejak <strong>Tanggal Penerimaan (Filing Date)</strong> dokumen:
+    </p>
+    <ul class="custom-list">
+        <li><strong>Paten Biasa:</strong> Diberikan untuk jangka waktu <strong>20 tahun dan tidak dapat diperpanjang.</strong> Biasanya untuk invensi besar yang melibatkan kebaruan mendasar dan langkah inventif tinggi.</li>
+        <li><strong>Paten Sederhana:</strong> Diberikan untuk jangka waktu <strong>10 tahun dan tidak dapat diperpanjang.</strong> Ditujukan untuk invensi berupa produk, alat, jalannya proses, atau komponen yang memiliki kegunaan praktis baru dari teknologi yang sudah ada.</li>
+    </ul>
 
-        .description {
-            font-size: 15px;
-            color: #555555;
-            line-height: 1.6;
-            text-align: justify;
-            margin-bottom: 10px;
-        }
+    <h2 class="section-title">4. Jenis Paten</h2>
+    <p class="description">Di Indonesia, berdasarkan UU No. 13 Tahun 2016, Paten dibagi menjadi 2 jenis:</p>
 
-                /* --- TABEL STYLING --- */
-        .table-responsive {
-            overflow-x: auto;
-            margin-top: 15px;
-            margin-bottom: 30px;
-        }
-
-        .custom-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-            text-align: left;
-            background-color: #ffffff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .custom-table th {
-            background-color: #3B6B80;
-            color: #ffffff;
-            padding: 12px 16px;
-            font-weight: 600;
-        }
-
-        .custom-table td {
-            padding: 12px 16px;
-            border-bottom: 1px solid #e5e7eb;
-            color: #4b5563;
-            vertical-align: top;
-        }
-
-        .custom-table tbody tr:nth-child(even) {
-            background-color: #f9fafb;
-        }
-
-        .custom-table tbody tr:hover {
-            background-color: #f1f5f9;
-        }
-
-        /* Styling List agar Rapi */
-        .main-content ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        .main-content li {
-            margin-bottom: 8px;
-        }
-
-        /* --- FOOTER STYLING --- */
-        .footer {
-            background-color: #2c5263;
-            color: #ffffff;
-            padding: 40px 0 20px 0;
-            margin-top: 60px;
-            font-size: 14px;
-        }
-
-        .footer-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 220px;
-        }
-
-        .footer-col h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #ffffff;
-            border-bottom: 2px solid #528ba3;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .footer-col p {
-            line-height: 1.6;
-            color: #d1d5db;
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-col ul li a:hover {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-links a {
-            color: #ffffff;
-            font-size: 18px;
-            transition: opacity 0.2s;
-        }
-
-        .social-links a:hover {
-            opacity: 0.8;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #9ca3af;
-            font-size: 13px;
-        }
-    </style>
-</head>
-<body>
-
-    <nav class="navbar">
-        <div class="brand">
-            <span>SENTRA HKI UNIDA</span>
-        </div>
-
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="/" class="nav-link">Home <i class="fa-solid fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/sejarah">Sejarah HKI UNIDA Gontor</a></li>
+    <div class="patent-sub-card">
+        <h3 class="patent-sub-title">A. Paten (Biasa)</h3>
+        <p class="description">
+            Diberikan untuk invensi yang benar-benar baru, memiliki lompatan teknologi besar, dan melalui proses pemeriksaan yang sangat ketat di tingkat nasional maupun internasional.
+        </p>
+        <ul class="custom-list">
+            <li>
+                <strong>Syarat Utama:</strong>
+                <ul style="margin-top: 5px;">
+                    <li><strong>Baru (Novelty):</strong> Belum pernah diumumkan di media mana pun di dunia sebelum tanggal pengajuan.</li>
+                    <li><strong>Langkah Inventif (Inventive Step):</strong> Tidak terduga bagi orang yang ahli di bidangnya.</li>
+                    <li><strong>Dapat Diterapkan dalam Industri:</strong> Dapat diproduksi massal secara konsisten.</li>
                 </ul>
             </li>
+            <li><strong>Karakteristik Dokumen:</strong> Dapat memuat banyak klaim (fitur teknologi yang dilindungi bisa sangat kompleks).</li>
+            <li><strong>Masa Perlindungan:</strong> 20 Tahun sejak filing date (tidak dapat diperpanjang).</li>
+            <li><strong>Contoh Akademik:</strong> Penemuan formula vaksin baru, penemuan cip semi-konduktor generasi terbaru, atau algoritma pengolahan sinyal digital mutakhir.</li>
+        </ul>
+    </div>
 
-            <li class="nav-item">
-                <a href="/pengertian" class="nav-link">Pengertian <i class="fa-solid fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/phc">Hak Cipta</a></li>
-                    <li><a href="/pptn">Paten</a></li>
-                    <li><a href="/pmrk">Merek</a></li> 
+    <div class="patent-sub-card">
+        <h3 class="patent-sub-title">B. Paten Sederhana</h3>
+        <p class="description">
+            Ditujukan untuk invensi berupa produk, alat, komponen, atau jalannya proses yang mengalami pengembangan atau modifikasi dari teknologi yang sudah ada. Cocok untuk proyek teknologi tepat guna di kampus.
+        </p>
+        <ul class="custom-list">
+            <li>
+                <strong>Syarat Utama:</strong>
+                <ul style="margin-top: 5px;">
+                    <li><strong>Baru (Novelty).</strong></li>
+                    <li><strong>Memiliki Kegunaan Praktis:</strong> Memiliki efisiensi atau fungsi baru dari alat terdahulu.</li>
+                    <li><strong>Pemeriksaan Lebih Cepat:</strong> Tidak membutuhkan langkah inventif yang terlalu rumit.</li>
                 </ul>
             </li>
-
-            <li class="nav-item">
-                <a href="/pendaftaran" class="nav-link">Pendaftaran <i class="fa-solid fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/pdffm">Form Pendaftaran</a></li>
-                    <li><a href="/pdftf">Template Forms</a></li>
-                </ul>
-            </li>
-
-            <li class="nav-item">
-                <a href="/sk" class="nav-link">Syarat & Ketentuan <i class="fa-solid fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/skhc">Hak Cipta</a></li>
-                    <li><a href="/skptn">Paten</a></li>
-                    <li><a href="/skmrk">Merek</a></li>
-                </ul>
-            </li>
+            <li><strong>Karakteristik Dokumen:</strong> Hanya boleh memuat <strong>1 klaim mandiri</strong>.</li>
+            <li><strong>Masa Perlindungan:</strong> 10 Tahun sejak filing date (tidak dapat diperpanjang).</li>
+            <li><strong>Contoh Akademik:</strong> Modifikasi alat pengering padi menjadi bertenaga surya portabel, penyempurnaan desain mata pisau pencacah plastik hemat energi.</li>
         </ul>
-    </nav>
+    </div>
 
-    <main class="main-content">
-        <h1 class="page-title">Paten</h1>
-        
-        <p class="section-title">1. Definisi Paten</p>
-        <p class="description">Berdasarkan <strong>UU No. 13 Tahun 2016</strong> tentang Paten, <strong>Paten adalah</strong> hak eksklusif yang diberikan oleh negara kepada penemu (Inventor) atas hasil invensinya di bidang teknologi untuk jangka waktu tertentu dalam melaksanakan sendiri invensinya tersebut atau memberikan persetujuan kepada pihak lain untuk melaksanakannya.</p>
-        <p class="description"><strong>Invensi</strong> sendiri adalah ide inventor yang dituangkan ke dalam suatu kegiatan pemecahan masalah yang spesifik di bidang teknologi, dapat berupa produk atau proses, atau penyempurnaan dan pengembangan produk atau proses.</p>
+    <h2 class="section-title">5. Alur & Estimasi Waktu Pendaftaran</h2>
+    <p class="description">
+        Lama proses pengajuan berkas awal di Sentra HKI UNIDA Gontor berkisar antara <strong>7 hingga 30 hari kerja</strong>, bergantung pada kelengkapan dokumen persyaratan:
+    </p>
+    <ul class="custom-list">
+        <li><strong>Tahap 1: Verifikasi Administratif (3–5 Hari Kerja):</strong> Pemeriksaan kelengkapan berkas fisik/digital oleh tim staf Sentra HKI.</li>
+        <li><strong>Tahap 2: Revisi & Kelengkapan Berkas:</strong> Perbaikan dokumen oleh pemohon/dosen jika terdapat kekurangan.</li>
+        <li><strong>Tahap 3: Pendaftaran ke DJKI (2–3 Hari Kerja):</strong> Pembayaran PNBP dan submit berkas resmi ke sistem DJKI Kemenkumham.</li>
+        <li><strong>Tahap 4: Pemeriksaan Substantif DJKI:</strong> Memasuki fase pengumuman dan pemeriksaan substantif teknis oleh DJKI Pusat (membutuhkan waktu bulanan hingga tahunan).</li>
+    </ul>
 
-        <p class="section-title">2. Landasan Hukum</p>
-        <p class="description">Penyelenggaraan, pendaftaran, dan pelindungan hukum invensi teknologi dosen di lingkungan Universitas Darussalam Gontor mengacu pada regulasi nasional berikut :</p>
-        <ul>
-            <li><p class="description"><strong>Undang-Undang Nomor 13 Tahun 2016</strong> tentang Paten.</p></li>
-            <li><p class="description"><strong>Undang-Undang Nomor 6 Tahun 2023</strong> tentang Penetapan Peraturan Pemerintah Pengganti Undang-Undang Nomor 2 Tahun 2022 tentang Cipta Kerja Menjadi Undang-Undang (yang merevisi beberapa pasal dalam UU Paten terkait kemudahan substantif dan royalti).</p></li>
-            <li><p class="description"><strong>Undang-Undang Nomor 11 Tahun 2019</strong> tentang Sistem Nasional Ilmu Pengetahuan dan Teknologi.</p></li>
-        </ul>
+    <h2 class="section-title">6. Persyaratan Pencatatan Paten</h2>
+    <p class="description">Dokumen dan data yang harus disiapkan oleh pemohon meliputi:</p>
+    <ul class="custom-list">
+        <li>Scan KTP Seluruh Inventor</li>
+        <li>Biodata Lengkap Seluruh Inventor</li>
+        <li>Judul Invensi (Bahasa Indonesia & Bahasa Inggris)</li>
+        <li>Abstrak Invensi (Bahasa Indonesia & Bahasa Inggris)</li>
+        <li>Deskripsi Lengkap Invensi (Bahasa Indonesia & Bahasa Inggris)</li>
+        <li>Dokumen Klaim Paten</li>
+        <li>Gambar Teknik Invensi (PDF/PNG)</li>
+        <li>Surat Pernyataan Kepemilikan (Bermeterai)</li>
+        <li>Surat Peralihan Hak atas Invensi (jika diajukan atas nama lembaga/universitas)</li>
+        <li>Surat Keterangan UMKM / Akta Pendirian Lembaga (jika ada)</li>
+        <li>Surat Kuasa (jika diajukan melalui konsultan HKI)</li>
+    </ul>
 
-        <p class="section-title">3. Jangka Waktu & Perlindungan Paten</p>
-        <p class="description">Berbeda dengan Hak Cipta yang bersifat deklaratif (otomatis), Paten menganut sistem <strong>First-to-File (siapa yang mendaftar pertama kali dan lolos pemeriksaan substantif, dia yang mendapat hak).</strong> Jangka waktu pelindungannya dihitung sejak <strong>Tanggal Penerimaan (Filing Date) dokumen</strong> :</p>
-        <ul>
-            <li><p class="description"><strong>Paten Biasa :</strong> Diberikan untuk jangka waktu <strong>20 tahun dan tidak dapat diperpanjang.</strong> Biasanya untuk invensi besar yang melibatkan kebaruan mendasar dan langkah inventif yang tinggi.</p></li>
-            <li><p class="description"><strong>Paten Sederhana :</strong> Diberikan untuk jangka waktu <strong>10 tahun dan tidak dapat diperpanjang.</strong> Ditujukan untuk invensi berupa produk, alat, jalannya proses, atau komponen yang memiliki kegunaan praktis baru dan pengembangan teknologi yang sudah ada.</p></li>
-        </ul>
-
-        <p class="section-title">4. Jenis Paten</p>
-        <p class="description">Di Indonesia, berdasarkan UU No. 13 Tahun 2016, Paten dibagi menjadi 2 jenis, yaitu <strong>Paten (Biasa)</strong> dan <strong>Paten Sederhana.</strong></p>
-
-        <!-- 4.A PATEN BIASA -->
-        <p class="description"><strong>A. Paten</strong></p>
-        <p class="description">Paten jenis ini diberikan untuk invensi yang benar-benar baru, memiliki lompatan teknologi yang besar, dan melalui proses pemeriksaan yang sangat ketat di tingkat nasional maupun internasional.</p>
-        <ul>
-            <li>
-                <p class="description"><strong>Syarat :</strong></p>
-                <ul>
-                    <li><p class="description"><strong>Baru (Novelty) :</strong> Belum pernah diumumkan di media mana pun di dunia sebelum tanggal pengajuan.</p></li>
-                    <li><p class="description"><strong>Langkah Inventif (Inventive Step) :</strong> Invensi tersebut tidak terduga bagi orang yang ahli di bidangnya (bukan hal yang remeh).</p></li>
-                    <li><p class="description"><strong>Dapat Diterapkan dalam Industri :</strong> Bisa diproduksi massal secara konsisten.</p></li>
-                </ul>
-            </li>
-            <li><p class="description"><strong>Karakteristik Dokumen :</strong> Dapat memuat banyak klaim (fitur teknologi yang dilindungi bisa sangat kompleks dan bercabang).</p></li>
-            <li><p class="description"><strong>Masa Perlindungan :</strong> 20 Tahun sejak tanggal penerimaan (tidak dapat diperpanjang).</p></li>
-            <li><p class="description"><strong>Contoh Akademik :</strong> Penemuan formula vaksin baru, penemuan cip semi-konduktor generasi terbaru, atau penemuan metode pengolahan sinyal digital mutakhir.</p></li>
-        </ul>
-
-        <!-- 4.B PATEN SEDERHANA -->
-        <p class="description"><strong>B. Paten Sederhana</strong></p>
-        <p class="description">Paten Sederhana ditujukan untuk invensi yang berupa produk, alat, komponen, atau jalannya proses yang mengalami pengembangan atau modifikasi dari teknologi yang sudah ada. Jenis ini sangat cocok untuk riset terapan praktis atau proyek teknologi tepat guna di kampus.</p>
-        <ul>
-            <li>
-                <p class="description"><strong>Syarat :</strong></p>
-                <ul>
-                    <li><p class="description"><strong>Baru (Novelty).</strong></p></li>
-                    <li><p class="description"><strong>Memiliki Kegunaan Praktis :</strong> Memiliki pengembangan yang memberikan fungsi, kemudahan, atau efisiensi baru dari alat terdahulu.</p></li>
-                    <li><p class="description"><strong>Pemeriksaan Lebih Cepat :</strong> Tidak membutuhkan "langkah inventif" yang terlalu rumit, sehingga proses kelulusannya jauh lebih cepat daripada Paten Biasa.</p></li>
-                </ul>
-            </li>
-            <li><p class="description"><strong>Karakteristik Dokumen :</strong> Hanya boleh memuat <strong>1 klaim mandiri</strong> (fokus melindungi satu alat/produk/proses yang dimodifikasi tersebut).</p></li>
-            <li><p class="description"><strong>Masa Perlindungan : 10 Tahun</strong> sejak tanggal penerimaan (tidak dapat diperpanjang).</p></li>
-            <li><p class="description"><strong>Contoh Akademik :</strong> Modifikasi alat pengering padi tradisional menjadi bertenaga surya portabel, penyempurnaan desain mata pisau mesin pencacah plastik agar lebih hemat energi, atau formulasi biskuit herbal penguat imun dengan teknik pencampuran baru.</p></li>
-        </ul>
-
-        <p class="section-title">5. Jangka Waktu Proses Pendaftaran & Perlindungan HKI</p>
-        <p class="description"><strong>A. Estimasi Jangka Waktu Proses Pendaftaran</strong></p>
-        <p class="description">Lama proses pengajuan berkas di Sentra HKI UNIDA Gontor berkisar antara <strong>7 hingga 30 hari kerja</strong>, yang sepenuhnya bergantung pada <strong>kelengkapan dokumen persyaratan dan kecepatan respons dari kontributor/dosen.</strong></p>
-        <p class="description">Berikut adalah tahapan alur waktunya :</p>
-        
-        <ul>
-            <li>
-                <p class="description"><strong>Tahap 1 : Verifikasi Administratif</strong> (3–5 Hari Kerja) Tim staf Sentra HKI akan memeriksa kelengkapan berkas fisik/digital yang Anda unggah melalui Google Form (seperti Surat Pernyataan Kepemilikan, Surat Pengalihan Hak, KTP, dan draf karya).</p>
-            </li>
-            <li>
-                <p class="description"><strong>Tahap 2 : Revisi & Kelengkapan Berkas</strong> (Tergantung Pemohon) Jika ada dokumen yang belum sesuai format atau kurang lengkap, admin akan menghubungi dosen. Kecepatan dosen dalam memperbaiki dokumen akan sangat menentukan kelanjutan proses.</p>
-            </li>
-            <li>
-                <p class="description"><strong>Tahap 3 : Pendaftaran ke Sistem DJKI Kemenkumham</strong> (2–3 Hari Kerja) Setelah berkas dinyatakan 100% lengkap dan valid, Sentra HKI akan melakukan pembayaran PNBP dan mendaftarkan karya tersebut ke sistem resmi Direktorat Jenderal Kekayaan Intelektual (DJKI).</p>
-            </li>
-            <li>
-                <p class="description"><strong>Tahap 4 : Penerbitan Sertifikat/Sertifikasi</strong></p>
-                <ul>
-                    <li>
-                        <p class="description"><strong>Hak Cipta : Terbit otomatis secara instan</strong> (dalam waktu 1–2 hari setelah didaftarkan ke sistem e-HakCipta DJKI).</p>
-                    </li>
-                    <li>
-                        <p class="description"><strong>Paten :</strong> Memasuki fase pengumuman dan pemeriksaan substantif oleh DJKI pusat (membutuhkan waktu bulanan hingga tahunan).</p>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <p class="section-title">B. Jangka Waktu Masa Perlindungan Produk HKI</p>
-        <p class="description">Setelah berhasil terdaftar dan mendapatkan sertifikat resmi, masing-masing jenis HKI memiliki masa berlaku perlindungan hukum yang berbeda sesuai dengan undang-undang yang berlaku:</p>
-        <p class="description"><strong>A. Paten Sederhana</strong></p>
-        <ul>
-            <li>
-                <p class="description"><strong>10 Tahun sejak Tanggal Penerimaan</strong> (Filing Date) dokumen pendaftaran oleh DJKI dan<strong> tidak dapat diperpanjang.</strong></p>
-            </li>
-        </ul>
-        <p class="description"><strong>B. Paten Biasa</strong></p>
-        <ul>
-            <li>
-                <p class="description"><strong>20 Tahun sejak Tanggal Penerimaan</strong> (Filing Date) dokumen pendaftaran oleh DJKI dan <strong>tidak dapat diperpanjang.</strong></p>
-            </li>
-        </ul>
-        <p class="section-title">6. Persyaratan Pencatatan</p>
-        <p class="description">	Adapun persyaratan yang harus disiapkan oleh pemohon dalam pencatatan Hak Cipta adalah sebagai berikut :</p>
-        <ul>
-            <li>
-                <p class="description">KTP Inventor</p>
-            </li>
-            <li>
-                <p class="description">Judul invensi dalam bahasa Indonesia</p>
-            </li>
-            <li>
-                <p class="description">Biodata Inventor</p>
-            </li>
-            <li>
-                <p class="description">Judul invensi dalam bahasa Inggris</p>
-            </li>
-            <li>
-                <p class="description">Klaim</p>
-            </li>
-            <li>
-                <p class="description">Abstrak dalam bahasa Indonesia</p>
-            </li>
-            <li>
-                <p class="description">Abstrak dalam bahasa Inggris</p>
-            </li>
-            <li>
-                <p class="description">Deskripsi invensi dalam bahasa Inggris</p>
-            </li>
-            <li>
-                <p class="description">Deskripsi invensi dalam bahasa Indonesia</p>
-            </li>
-            <li>
-                <p class="description">Gambar Invensi</p>
-            </li>
-            <li>
-                <p clss="description">Surat Pernyataan Kepemilikan</p>
-            </li>
-            <li>
-                <p class="description">Surat peralihan hak atas invensi (Jika diperlukan)</p?>
-            </li>
-            <li>
-                <p class="description">Surat keterangan UMKM atau akta pendirian lembaga berbadan hukum (Jika perlu)</p>
-            </li>
-            <li>
-                <p class="description">Surat kuasa (Jika diajukan melalui konsultan)</p>
-            </li>
-            <li>
-                <p class="description">Dokumen pendukung</p>
-            </li> 
-        </ul>
-        <p class="section-title">6. Biaya Pencatatan</p>
-        <p class="description">Berdasarkan regulasi resmi Peraturan Pemerintah (PP) RI Nomor 28 Tahun 2019 tentang Jenis dan Tarif atas Jenis Penerimaan Negara Bukan Pajak (PNBP) yang Berlaku pada Kementerian Hukum dan Hak Asasi Manusia adalah sebagai berikut :</p>
-        <p><strong>Paten Sederhana</strong></p>
-        <div class="table-responsive">
-            <table class="custom-table">
-                <thead>
-                    <tr>
-                        <th style="width: 5%;">No</th>
-                        <th style="width: 45%;">Rincian</th>
-                        <th style="width: 25%;">Lembaga Pendidikan, Penelitian, UMKM</th>
-                        <th style="width: 25%;">Umum</th> 
-                    </tr>
-                    <tr>
-                        <td>1.</td>
-                        <td>Pendaftaran Paten Sederhana</td>
-                        <td> Rp 350,000 </td>
-                        <td> Rp 950,000</td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Penelusuran Paten</td>
-                        <td>Rp 500,000</td>
-                        <td>Rp 500,000</td>
-                    </tr>
-                    <tr>
-                        <td>3.</td>
-                        <td>Penyusunan Draf Paten</td>
-                        <td>Rp 500,000</td>
-                        <td>Rp 1,000,000</td>
-                    </tr>
-                    <tr>
-                        <td>4.</td>
-                        <td>Pemeriksaan Substansif setelah 6 bulan pendaftaran</td>
-                        <td>Rp 500,000</td>
-                        <td>Rp 500,000</td>
-                    </tr>
-                    <tr>
-                        <td>5.</td>
-                        <td>Administrasi kepengurusan (Pendaftaran) awal</td>
-                        <td> Rp                                750,000 </td>
-                        <td> Rp      750,000 </td>
-                    </tr>
-                    <tr>
-                        <td>6.</td>
-                        <td>Biaya Per Klaim</td>
-                        <td> Rp                                  75,000 </td>
-                        <td> Rp        75,000 </td>
-                    </tr>
-                    <tr>
-                        <td>7.</td>
-                        <td>Penambahan deskripsi paten per lembar (Lebih dari 30 lembar)</td>
-                        <td> Rp                                  15,000 </td>
-                        <td> Rp        15,000 </td>
-                    </tr>
-                    <tr>
-                        <td>8.</td>
-                        <td>Tambahan waktu pendaftaran</td>
-                        <td> Rp                                400,000 </td>
-                        <td> Rp                                400,000</td>                        
-                    </tr>
-                    <tr>
-                        <td>9.</td>
-                        <td>Percepatan pemeriksaan subtatif</td>
-                        <td> Rp                                400,000</td>
-                        <td> Rp                                400,000 </td>                        
-                    </tr>
-                    <tr>
-                        <td>10.</td>
-                        <td>Pengajuan banding</td>
-                        <td> Rp                             3,000,000 </td>
-                        <td> Rp                             3,000,000 </td>
-                    </tr>
-                    <tr>
-                        <td>11.</td>
-                        <td>Pendaftaran perjanjian pencatatan lisensi</td>
-                        <td> Rp                             1,000,000 </td>
-                        <td> Rp   1,000,000 </td>
-                    </tr>
-                    <tr>
-                        <td>12.</td>
-                        <td>Pembatalan paten</td>
-                        <td> Rp                                500,000 </td>
-                        <td> Rp                                500,000 </td>
-                    </tr>
-                    <tr>
-                        <td>13.</td>
-                        <td>Biaya pemeliharaan tahun ke-1 - 4</td>
-                        <td>-</td>
-                        <td> Rp      3,200,000 </td>
-                    </tr>
-                    <tr>
-                        <td>14.</td>
-                        <td>Biaya pemeliharaan tahun ke-5</td>
-                        <td>-</td>
-                        <td> Rp      1,300,000 </td>
-                    </tr>
-                    <tr>
-                        <td>15.</td>
-                        <td>Biaya pemeliharaan tahun ke-6</td>
-                        <td> Rp                             1,700,000 </td>
-                        <td> Rp   1,750,000 </td>
-                    </tr>
-                    <tr>
-                        <td>16.</td>
-                        <td>Biaya pemeliharaan tahun ke-7</td>
-                        <td> Rp                             2,250,000 </td>
-                        <td> Rp   2,350,000 </td>
-                    </tr>
-                    <tr>
-                        <td>17.</td>
-                        <td>Biaya pemeliharaan tahun ke-8</td>
-                        <td> Rp                             2,800,000 </td>
-                        <td> Rp   2,850,000 </td>
-                    </tr>
-                    <tr>
-                        <td>18.</td>
-                        <td>Biaya pemeliharaan tahun ke-9</td>
-                        <td> Rp                             3,350,000 </td>
-                        <td> Rp   3,550,000 </td>
-                    </tr>
-                    <tr>
-                        <td>19.</td>
-                        <td>Biaya pemeliharaan tahun ke-10</td>
-                        <td> Rp                             3,900,000 </td>
-                        <td> Rp   4,050,000 </td>
-                    </tr>
-                    <tr>
-                        <td>20.</td>
-                        <td>Administrasi kepengurusan lanjutan</td>
-                        <td> Rp                                250,000 </td>
-                        <td> Rp                                250,000 </td>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>Sentra HKI UNIDA</h3>
-                <p>Lembaga Layanan Hak Kekayaan Intelektual Universitas Darussalam Gontor.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h3>Tautan Cepat</h3>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/pengertian">Pengertian HKI</a></li>
-                    <li><a href="/pendaftaran">Pendaftaran HKI</a></li>
-                    <li><a href="/sejarah">Sejarah UNIDA</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Kontak Kami</h3>
-                <p><i class="fa-solid fa-location-dot"></i> Jl. Raya Siman No. Km. 5, Dusun I, Demangan, Kec. Siman, Kabupaten Ponorogo, Jawa Timur 63471</p>
-                <p><i class="fa-solid fa-envelope"></i> hki@unida.gontor.ac.id</p>
-                <p><i class="fa-solid fa-phone"></i> 0857-0858-3094</p>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+    <h2 class="section-title">7. Biaya Pencatatan Paten (PP RI No. 28 Tahun 2019)</h2>
+    <div class="table-responsive">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th style="width: 5%;">No</th>
+                    <th style="width: 45%;">Rincian Layanan</th>
+                    <th style="width: 25%;">Lembaga Pendidikan, Penelitian, UMKM</th>
+                    <th style="width: 25%;">Umum</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Pendaftaran Paten Sederhana</td>
+                    <td>Rp 350.000</td>
+                    <td>Rp 950.000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Penelusuran Paten</td>
+                    <td>Rp 500.000</td>
+                    <td>Rp 500.000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Penyusunan Draf Paten</td>
+                    <td>Rp 500.000</td>
+                    <td>Rp 1.000.000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Pemeriksaan Substantif</td>
+                    <td>Rp 500.000</td>
+                    <td>Rp 500.000</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Administrasi Kepengurusan Awal</td>
+                    <td>Rp 750.000</td>
+                    <td>Rp 750.000</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Biaya Per Klaim</td>
+                    <td>Rp 75.000</td>
+                    <td>Rp 75.000</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Penambahan Deskripsi (per lembar diatas 30 hal)</td>
+                    <td>Rp 15.000</td>
+                    <td>Rp 15.000</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Percepatan Pemeriksaan Substantif</td>
+                    <td>Rp 400.000</td>
+                    <td>Rp 400.000</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Pengajuan Banding Paten</td>
+                    <td>Rp 3.000.000</td>
+                    <td>Rp 3.000.000</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Pencatatan Perjanjian Lisensi</td>
+                    <td>Rp 1.000.000</td>
+                    <td>Rp 1.000.000</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Biaya Pemeliharaan Tahun ke-6</td>
+                    <td>Rp 1.700.000</td>
+                    <td>Rp 1.750.000</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Biaya Pemeliharaan Tahun ke-10</td>
+                    <td>Rp 3.900.000</td>
+                    <td>Rp 4.050.000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+@endsection

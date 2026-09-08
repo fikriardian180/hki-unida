@@ -4,7 +4,6 @@
 
 @push('styles')
 <style>
-    /* CSS Khusus Formulir Hak Cipta */
     .form-container {
         max-width: 800px;
         margin: 0 auto;
@@ -89,7 +88,7 @@
         cursor: pointer;
     }
 
-    #groupPemohon3 {
+    #groupPemohon2, #groupPemohon3, #groupPemohon4, #groupPemohon5 {
         border: 1px dashed #3B6B80;
         padding: 20px;
         border-radius: 6px;
@@ -157,6 +156,24 @@
         transform: scale(0.99);
     }
 
+    .alert-success {
+        background-color: #d1e7dd;
+        color: #0f5132;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border: 1px solid #badbcc;
+    }
+
+    .alert-danger {
+        background-color: #f8d7da;
+        color: #842029;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        border: 1px solid #f5c2c7;
+    }
+
     @media (max-width: 600px) {
         .form-container {
             padding: 20px 15px;
@@ -179,38 +196,55 @@
             <p class="form-subtitle">Isi data di bawah ini dengan benar untuk mengajukan permohonan pendaftaran HKI.</p>
         </div>
 
+        @if(session('success'))
+            <div class="alert-success">
+                <i class="fa-solid fa-circle-check"></i> {{ session('success') }}
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert-danger">
+                <strong><i class="fa-solid fa-triangle-exclamation"></i> Terdapat kesalahan input:</strong>
+                <ul style="margin-top: 8px; margin-left: 20px;">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="{{ route('hakcipta.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             
             <!-- Email Pemohon -->
             <div class="form-group">
                 <label class="form-label">Email Penanggung Jawab <span class="required">*</span></label>
-                <input type="email" class="form-control" placeholder="Masukkan alamat email anda" required>
+                <input type="email" name="email_pj" class="form-control" placeholder="Masukkan alamat email anda" required value="{{ old('email_pj') }}">
             </div>
 
             <!-- Kategori Pemohon -->
             <div class="form-group">
                 <label class="form-label">Kategori Pemohon <span class="required">*</span></label>
-                <select class="form-control" required>
+                <select name="kategori_pemohon" class="form-control" required>
                     <option value="" disabled selected>-- Pilih Jenis Kategori --</option>
-                    <option value="umum">Umum</option>
-                    <option value="umkm">UMKM</option>
-                    <option value="lpd">Lembaga Pendidikan</option>
-                    <option value="lpi">Lembaga Penelitian</option>
+                    <option value="umum" {{ old('kategori_pemohon') == 'umum' ? 'selected' : '' }}>Umum</option>
+                    <option value="umkm" {{ old('kategori_pemohon') == 'umkm' ? 'selected' : '' }}>UMKM</option>
+                    <option value="lpd" {{ old('kategori_pemohon') == 'lpd' ? 'selected' : '' }}>Lembaga Pendidikan</option>
+                    <option value="lpi" {{ old('kategori_pemohon') == 'lpi' ? 'selected' : '' }}>Lembaga Penelitian</option>
                 </select>
             </div>
 
             <!-- Hasil Program -->
             <div class="form-group">
                 <label class="form-label">Hasil Program <span class="required">*</span></label>
-                <select class="form-control" required>
+                <select name="hasil_program" class="form-control" required>
                     <option value="" disabled selected>-- Pilih Jenis Hasil Program --</option>
-                    <option value="kkn">KKN</option>
-                    <option value="pkm">PKM</option>
-                    <option value="pengabdian">Pengabdian</option>
-                    <option value="ta">Tugas Akhir (Skripsi/Thesis/Sidang)</option>
-                    <option value="km">Karya Mandiri</option>
-                    <option value="pl">Penelitian Lainnya</option>
+                    <option value="kkn" {{ old('hasil_program') == 'kkn' ? 'selected' : '' }}>KKN</option>
+                    <option value="pkm" {{ old('hasil_program') == 'pkm' ? 'selected' : '' }}>PKM</option>
+                    <option value="pengabdian" {{ old('hasil_program') == 'pengabdian' ? 'selected' : '' }}>Pengabdian</option>
+                    <option value="ta" {{ old('hasil_program') == 'ta' ? 'selected' : '' }}>Tugas Akhir (Skripsi/Thesis/Sidang)</option>
+                    <option value="km" {{ old('hasil_program') == 'km' ? 'selected' : '' }}>Karya Mandiri</option>
+                    <option value="pl" {{ old('hasil_program') == 'pl' ? 'selected' : '' }}>Penelitian Lainnya</option>
                 </select>
             </div>
 
@@ -219,43 +253,43 @@
 
             <div class="form-group">
                 <label class="form-label">Nama Pemohon 1 <span class="required">*</span></label>
-                <input type="text" class="form-control" placeholder="Masukkan Nama Pemohon 1" required>
+                <input type="text" name="nama_pemohon_1" class="form-control" placeholder="Masukkan Nama Pemohon 1" required value="{{ old('nama_pemohon_1') }}">
             </div>
 
             <div class="form-group">
                 <label class="form-label">NIK Pemohon 1 <span class="required">*</span></label>
-                <input type="text" class="form-control" placeholder="Masukkan NIK Pemohon 1" required>
+                <input type="text" name="nik_pemohon_1" class="form-control" placeholder="Masukkan NIK Pemohon 1" required value="{{ old('nik_pemohon_1') }}">
             </div>
 
             <div class="form-group">
                 <label class="form-label">Alamat Pemohon 1 <span class="required">*</span></label>
-                <textarea class="form-control" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi" required oninput="autoResize(this)"></textarea>
+                <textarea name="alamat_pemohon_1" class="form-control" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi" required oninput="autoResize(this)">{{ old('alamat_pemohon_1') }}</textarea>
             </div>
 
             <div class="form-group two-cols">
                 <div class="form-control-wrap">
                     <label class="form-label">Kode Pos <span class="required">*</span></label>
-                    <input type="text" class="form-control" placeholder="Masukkan Kode Pos" required>
+                    <input type="text" name="kode_pos_1" class="form-control" placeholder="Masukkan Kode Pos" required value="{{ old('kode_pos_1') }}">
                 </div>
                 <div class="form-control-wrap">
                     <label class="form-label">Nomor Telepon / HP <span class="required">*</span></label>
-                    <input type="tel" class="form-control" placeholder="Masukkan No HP" required>
+                    <input type="tel" name="no_hp_1" class="form-control" placeholder="Masukkan No HP" required value="{{ old('no_hp_1') }}">
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="form-label">Email Pemohon 1 <span class="required">*</span></label>
-                <input type="email" class="form-control" placeholder="Masukkan Email Yang Aktif" required>
+                <input type="email" name="email_pemohon_1" class="form-control" placeholder="Masukkan Email Yang Aktif" required value="{{ old('email_pemohon_1') }}">
             </div>
 
             <div class="form-group">
                 <label class="form-label">Nomor NPWP Pemohon 1 <span class="required">*</span></label>
-                <input type="text" class="form-control" placeholder="Gunakan tanda - jika belum mempunyai NPWP" required>
+                <input type="text" name="npwp_pemohon_1" class="form-control" placeholder="Gunakan tanda - jika belum mempunyai NPWP" required value="{{ old('npwp_pemohon_1') }}">
             </div>
 
             <div class="form-group">
                 <label class="form-label">Prodi / Instansi Pemohon 1 <span class="required">*</span></label>
-                <select class="form-control" id="prodi1" onchange="toggleOtherInput('prodi1', 'otherInputGroup1', 'otherInput1')" required>
+                <select name="prodi_pemohon_1" class="form-control" id="prodi1" onchange="toggleOtherInput('prodi1', 'otherInputGroup1', 'otherInput1')" required>
                     <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
                     <option value="PAI">S1 PAI</option>
                     <option value="PBA">S1 PBA</option>
@@ -287,7 +321,7 @@
 
             <div class="form-group" id="otherInputGroup1" style="display: none;">
                 <label class="form-label">Sebutkan Prodi/Instansi Pemohon 1 <span class="required">*</span></label>
-                <input type="text" class="form-control" id="otherInput1" placeholder="Masukkan Prodi/instansi">
+                <input type="text" name="prodi_lainnya_1" class="form-control" id="otherInput1" placeholder="Masukkan Prodi/instansi" value="{{ old('prodi_lainnya_1') }}">
             </div>
 
             <!-- CHECKBOX PEMOHON KEDUA -->
@@ -304,43 +338,43 @@
 
                 <div class="form-group">
                     <label class="form-label">Nama Pemohon 2 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-2" placeholder="Masukkan Nama Pemohon 2">
+                    <input type="text" name="nama_pemohon_2" class="form-control input-pemohon-2" placeholder="Masukkan Nama Pemohon 2">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">NIK Pemohon 2 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-2" placeholder="Masukkan NIK Pemohon 2">
+                    <input type="text" name="nik_pemohon_2" class="form-control input-pemohon-2" placeholder="Masukkan NIK Pemohon 2">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Alamat Pemohon 2 <span class="required">*</span></label>
-                    <textarea class="form-control input-pemohon-2" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi" oninput="autoResize(this)"></textarea>
+                    <textarea name="alamat_pemohon_2" class="form-control input-pemohon-2" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi" oninput="autoResize(this)"></textarea>
                 </div>
 
                 <div class="form-group two-cols">
                     <div class="form-control-wrap">
                         <label class="form-label">Kode Pos <span class="required">*</span></label>
-                        <input type="text" class="form-control input-pemohon-2" placeholder="Masukkan Kode Pos">
+                        <input type="text" name="kode_pos_2" class="form-control input-pemohon-2" placeholder="Masukkan Kode Pos">
                     </div>
                     <div class="form-control-wrap">
                         <label class="form-label">Nomor Telepon / HP <span class="required">*</span></label>
-                        <input type="tel" class="form-control input-pemohon-2" placeholder="Masukkan No HP">
+                        <input type="tel" name="no_hp_2" class="form-control input-pemohon-2" placeholder="Masukkan No HP">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Email Pemohon 2 <span class="required">*</span></label>
-                    <input type="email" class="form-control input-pemohon-2" placeholder="Masukkan Email Yang Aktif">
+                    <input type="email" name="email_pemohon_2" class="form-control input-pemohon-2" placeholder="Masukkan Email Yang Aktif">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Nomor NPWP Pemohon 2 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-2" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
+                    <input type="text" name="npwp_pemohon_2" class="form-control input-pemohon-2" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Prodi / Instansi Pemohon 2 <span class="required">*</span></label>
-                    <select class="form-control input-pemohon-2" id="prodi2" onchange="toggleOtherInput('prodi2', 'otherInputGroup2', 'otherInput2')">
+                    <select name="prodi_pemohon_2" class="form-control input-pemohon-2" id="prodi2" onchange="toggleOtherInput('prodi2', 'otherInputGroup2', 'otherInput2')">
                         <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
                         <option value="PAI">S1 PAI</option>
                         <option value="PBA">S1 PBA</option>
@@ -372,7 +406,7 @@
 
                 <div class="form-group" id="otherInputGroup2" style="display: none;">
                     <label class="form-label">Sebutkan Prodi/Instansi Pemohon 2 <span class="required">*</span></label>
-                    <input type="text" class="form-control" id="otherInput2" placeholder="Masukkan Prodi/instansi">
+                    <input type="text" name="prodi_lainnya_2" class="form-control" id="otherInput2" placeholder="Masukkan Prodi/instansi">
                 </div>
             </div>
 
@@ -390,43 +424,43 @@
 
                 <div class="form-group">
                     <label class="form-label">Nama Pemohon 3 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-3" placeholder="Masukkan Nama Pemohon 3">
+                    <input type="text" name="nama_pemohon_3" class="form-control input-pemohon-3" placeholder="Masukkan Nama Pemohon 3">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">NIK Pemohon 3 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-3" placeholder="Masukkan NIK Pemohon 3">
+                    <input type="text" name="nik_pemohon_3" class="form-control input-pemohon-3" placeholder="Masukkan NIK Pemohon 3">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Alamat Pemohon 3 <span class="required">*</span></label>
-                    <textarea class="form-control input-pemohon-3" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi" oninput="autoResize(this)"></textarea>
+                    <textarea name="alamat_pemohon_3" class="form-control input-pemohon-3" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi" oninput="autoResize(this)"></textarea>
                 </div>
 
                 <div class="form-group two-cols">
                     <div class="form-control-wrap">
                         <label class="form-label">Kode Pos <span class="required">*</span></label>
-                        <input type="text" class="form-control input-pemohon-3" placeholder="Masukkan Kode Pos">
+                        <input type="text" name="kode_pos_3" class="form-control input-pemohon-3" placeholder="Masukkan Kode Pos">
                     </div>
                     <div class="form-control-wrap">
                         <label class="form-label">Nomor Telepon / HP <span class="required">*</span></label>
-                        <input type="tel" class="form-control input-pemohon-3" placeholder="Masukkan No HP">
+                        <input type="tel" name="no_hp_3" class="form-control input-pemohon-3" placeholder="Masukkan No HP">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Email Pemohon 3 <span class="required">*</span></label>
-                    <input type="email" class="form-control input-pemohon-3" placeholder="Masukkan Email Yang Aktif">
+                    <input type="email" name="email_pemohon_3" class="form-control input-pemohon-3" placeholder="Masukkan Email Yang Aktif">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Nomor NPWP Pemohon 3 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-3" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
+                    <input type="text" name="npwp_pemohon_3" class="form-control input-pemohon-3" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Prodi / Instansi Pemohon 3 <span class="required">*</span></label>
-                    <select class="form-control input-pemohon-3" id="prodi3" onchange="toggleOtherInput('prodi3', 'otherInputGroup3', 'otherInput3')">
+                    <select name="prodi_pemohon_3" class="form-control input-pemohon-3" id="prodi3" onchange="toggleOtherInput('prodi3', 'otherInputGroup3', 'otherInput3')">
                         <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
                         <option value="PAI">S1 PAI</option>
                         <option value="PBA">S1 PBA</option>
@@ -458,7 +492,7 @@
 
                 <div class="form-group" id="otherInputGroup3" style="display: none;">
                     <label class="form-label">Sebutkan Prodi/Instansi Pemohon 3 <span class="required">*</span></label>
-                    <input type="text" class="form-control" id="otherInput3" placeholder="Masukkan Prodi/instansi">
+                    <input type="text" name="prodi_lainnya_3" class="form-control" id="otherInput3" placeholder="Masukkan Prodi/instansi">
                 </div>
             </div>
 
@@ -476,43 +510,43 @@
 
                 <div class="form-group">
                     <label class="form-label">Nama Pemohon 4 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-4" placeholder="Masukkan Nama Pemohon 4">
+                    <input type="text" name="nama_pemohon_4" class="form-control input-pemohon-4" placeholder="Masukkan Nama Pemohon 4">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">NIK Pemohon 4 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-4" placeholder="Masukkan NIK Pemohon 4">
+                    <input type="text" name="nik_pemohon_4" class="form-control input-pemohon-4" placeholder="Masukkan NIK Pemohon 4">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Alamat Pemohon 4 <span class="required">*</span></label>
-                    <textarea class="form-control input-pemohon-4" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi" oninput="autoResize(this)"></textarea>
+                    <textarea name="alamat_pemohon_4" class="form-control input-pemohon-4" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi" oninput="autoResize(this)"></textarea>
                 </div>
 
                 <div class="form-group two-cols">
                     <div class="form-control-wrap">
                         <label class="form-label">Kode Pos <span class="required">*</span></label>
-                        <input type="text" class="form-control input-pemohon-4" placeholder="Masukkan Kode Pos">
+                        <input type="text" name="kode_pos_4" class="form-control input-pemohon-4" placeholder="Masukkan Kode Pos">
                     </div>
                     <div class="form-control-wrap">
                         <label class="form-label">Nomor Telepon / HP <span class="required">*</span></label>
-                        <input type="tel" class="form-control input-pemohon-4" placeholder="Masukkan No HP">
+                        <input type="tel" name="no_hp_4" class="form-control input-pemohon-4" placeholder="Masukkan No HP">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Email Pemohon 4 <span class="required">*</span></label>
-                    <input type="email" class="form-control input-pemohon-4" placeholder="Masukkan Email Yang Aktif">
+                    <input type="email" name="email_pemohon_4" class="form-control input-pemohon-4" placeholder="Masukkan Email Yang Aktif">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Nomor NPWP Pemohon 4 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-4" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
+                    <input type="text" name="npwp_pemohon_4" class="form-control input-pemohon-4" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Prodi / Instansi Pemohon 4 <span class="required">*</span></label>
-                    <select class="form-control input-pemohon-4" id="prodi4" onchange="toggleOtherInput('prodi4', 'otherInputGroup4', 'otherInput4')">
+                    <select name="prodi_pemohon_4" class="form-control input-pemohon-4" id="prodi4" onchange="toggleOtherInput('prodi4', 'otherInputGroup4', 'otherInput4')">
                         <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
                         <option value="PAI">S1 PAI</option>
                         <option value="PBA">S1 PBA</option>
@@ -544,7 +578,7 @@
 
                 <div class="form-group" id="otherInputGroup4" style="display: none;">
                     <label class="form-label">Sebutkan Prodi/Instansi Pemohon 4 <span class="required">*</span></label>
-                    <input type="text" class="form-control" id="otherInput4" placeholder="Masukkan Prodi/instansi">
+                    <input type="text" name="prodi_lainnya_4" class="form-control" id="otherInput4" placeholder="Masukkan Prodi/instansi">
                 </div>
             </div>
 
@@ -562,43 +596,43 @@
 
                 <div class="form-group">
                     <label class="form-label">Nama Pemohon 5 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-5" placeholder="Masukkan Nama Pemohon 5">
+                    <input type="text" name="nama_pemohon_5" class="form-control input-pemohon-5" placeholder="Masukkan Nama Pemohon 5">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">NIK Pemohon 5 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-5" placeholder="Masukkan NIK Pemohon 5">
+                    <input type="text" name="nik_pemohon_5" class="form-control input-pemohon-5" placeholder="Masukkan NIK Pemohon 5">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Alamat Pemohon 5 <span class="required">*</span></label>
-                    <textarea class="form-control input-pemohon-5" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi" oninput="autoResize(this)"></textarea>
+                    <textarea name="alamat_pemohon_5" class="form-control input-pemohon-5" placeholder="Cantumkan jalan, desa/kelurahan, kecamatan, kab/kota, provinsi" oninput="autoResize(this)"></textarea>
                 </div>
 
                 <div class="form-group two-cols">
                     <div class="form-control-wrap">
                         <label class="form-label">Kode Pos <span class="required">*</span></label>
-                        <input type="text" class="form-control input-pemohon-5" placeholder="Masukkan Kode Pos">
+                        <input type="text" name="kode_pos_5" class="form-control input-pemohon-5" placeholder="Masukkan Kode Pos">
                     </div>
                     <div class="form-control-wrap">
                         <label class="form-label">Nomor Telepon / HP <span class="required">*</span></label>
-                        <input type="tel" class="form-control input-pemohon-5" placeholder="Masukkan No HP">
+                        <input type="tel" name="no_hp_5" class="form-control input-pemohon-5" placeholder="Masukkan No HP">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Email Pemohon 5 <span class="required">*</span></label>
-                    <input type="email" class="form-control input-pemohon-5" placeholder="Masukkan Email Yang Aktif">
+                    <input type="email" name="email_pemohon_5" class="form-control input-pemohon-5" placeholder="Masukkan Email Yang Aktif">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Nomor NPWP Pemohon 5 <span class="required">*</span></label>
-                    <input type="text" class="form-control input-pemohon-5" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
+                    <input type="text" name="npwp_pemohon_5" class="form-control input-pemohon-5" placeholder="Gunakan tanda - jika belum mempunyai NPWP">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Prodi / Instansi Pemohon 5 <span class="required">*</span></label>
-                    <select class="form-control input-pemohon-5" id="prodi5" onchange="toggleOtherInput('prodi5', 'otherInputGroup5', 'otherInput5')">
+                    <select name="prodi_pemohon_5" class="form-control input-pemohon-5" id="prodi5" onchange="toggleOtherInput('prodi5', 'otherInputGroup5', 'otherInput5')">
                         <option value="" disabled selected>-- Pilih Jenis Prodi/Instansi --</option>
                         <option value="PAI">S1 PAI</option>
                         <option value="PBA">S1 PBA</option>
@@ -630,7 +664,7 @@
 
                 <div class="form-group" id="otherInputGroup5" style="display: none;">
                     <label class="form-label">Sebutkan Prodi/Instansi Pemohon 5 <span class="required">*</span></label>
-                    <input type="text" class="form-control" id="otherInput5" placeholder="Masukkan Prodi/instansi">
+                    <input type="text" name="prodi_lainnya_5" class="form-control" id="otherInput5" placeholder="Masukkan Prodi/instansi">
                 </div>
             </div>
 
@@ -638,7 +672,7 @@
             <div class="form-group" style="margin-top: 20px;">
                 <label class="form-label">Data Pencipta Lengkap (jika pencipta lebih dari 5 pemohon, harap mengirimkan data email, no HP, alamat, dan kode pos dalam bentuk .doc / format : Data Pencipta-Nama Pemohon)</label>
                 <div class="file-upload-wrap">
-                    <input type="file" accept=".doc,.docx">
+                    <input type="file" name="file_data_pencipta_lengkap" accept=".doc,.docx">
                     <div class="file-upload-text">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <span>Klik atau seret file Docs ke sini untuk mengunggah</span>
@@ -649,29 +683,29 @@
             <!-- DATA KARYA -->
             <div class="form-group">
                 <label class="form-label">Data Karya <span class="required">*</span></label>
-                <textarea class="form-control" placeholder="Masukkan deskripsi tentang karya anda" required oninput="autoResize(this)"></textarea>
+                <textarea name="deskripsi_karya" class="form-control" placeholder="Masukkan deskripsi tentang karya anda" required oninput="autoResize(this)">{{ old('deskripsi_karya') }}</textarea>
             </div>
 
             <div class="form-group">
                 <label class="form-label">Judul Karya <span class="required">*</span></label>
-                <textarea class="form-control" placeholder="Masukkan Judul Karya Anda" required oninput="autoResize(this)"></textarea>
+                <textarea name="judul_karya" class="form-control" placeholder="Masukkan Judul Karya Anda" required oninput="autoResize(this)">{{ old('judul_karya') }}</textarea>
             </div>
 
             <div class="form-group">
                 <label class="form-label">Jenis Hak Cipta <span class="required">*</span></label>
-                <textarea class="form-control" placeholder="Masukkan jenis Hak Cipta anda (contoh: Buku Ajar, Poster, Video, Program Komputer, Alat Peraga, Modul, Buku Panduan, Dll)" required oninput="autoResize(this)"></textarea>
+                <textarea name="jenis_hak_cipta" class="form-control" placeholder="Masukkan jenis Hak Cipta anda (contoh: Buku Ajar, Poster, Video, Program Komputer, Alat Peraga, Modul, Buku Panduan, Dll)" required oninput="autoResize(this)">{{ old('jenis_hak_cipta') }}</textarea>
             </div>
 
             <div class="form-group">
                 <label class="form-label">Tanggal Ciptaan Pertama Kali Diumumkan <span class="required">*</span></label>
-                <input type="date" class="form-control" id="tanggalSurat" required>
+                <input type="date" name="tanggal_diumumkan" class="form-control" id="tanggalSurat" required value="{{ old('tanggal_diumumkan') }}">
             </div>
 
             <!-- KTP -->
             <div class="form-group" style="margin-top: 20px;">
                 <label class="form-label">Unggah KTP Pencipta (Jika pemohon lebih dari satu orang dijadikan dalam satu file PDF) <span class="required">*</span></label>
                 <div class="file-upload-wrap">
-                    <input type="file" accept=".pdf" required>
+                    <input type="file" name="file_ktp" accept=".pdf" required>
                     <div class="file-upload-text">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
@@ -683,7 +717,7 @@
             <div class="form-group" style="margin-top: 20px;">
                 <label class="form-label">Unggah NPWP Pencipta/Pemohon <span class="required">*</span></label>
                 <div class="file-upload-wrap">
-                    <input type="file" accept=".pdf" required>
+                    <input type="file" name="file_npwp" accept=".pdf" required>
                     <div class="file-upload-text">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
@@ -691,11 +725,11 @@
                 </div>
             </div>
 
-            <!-- Deskripsi Karya -->
+            <!-- Deskripsi Karya PDF -->
             <div class="form-group" style="margin-top: 20px;">
                 <label class="form-label">Unggah Deskripsi Karya Anda (Minimal 1 Paragraf) <span class="required">*</span></label>
                 <div class="file-upload-wrap">
-                    <input type="file" accept=".pdf" required>
+                    <input type="file" name="file_deskripsi_karya" accept=".pdf" required>
                     <div class="file-upload-text">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
@@ -707,10 +741,10 @@
             <div class="form-group" style="margin-top: 20px;">
                 <label class="form-label">Unggah Karya Ciptaan <span class="required">*</span></label>
                 <div class="file-upload-wrap">
-                    <input type="file" accept=".pdf" required>
+                    <input type="file" name="file_karya_ciptaan" accept=".pdf,.zip,.rar" required>
                     <div class="file-upload-text">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
-                        <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
+                        <span>Klik atau seret file ke sini untuk mengunggah</span>
                     </div>
                 </div>
             </div>
@@ -719,7 +753,7 @@
             <div class="form-group" style="margin-top: 20px;">
                 <label class="form-label">Unggah Surat Pernyataan (Dengan Materai) <span class="required">*</span></label>
                 <div class="file-upload-wrap">
-                    <input type="file" accept=".pdf" required>
+                    <input type="file" name="file_surat_pernyataan" accept=".pdf" required>
                     <div class="file-upload-text">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
@@ -731,7 +765,7 @@
             <div class="form-group" style="margin-top: 20px;">
                 <label class="form-label">Unggah Surat Pengalihan Hak Cipta (Bermaterai) <span class="required">*</span></label>
                 <div class="file-upload-wrap">
-                    <input type="file" accept=".pdf" required>
+                    <input type="file" name="file_pengalihan_hak" accept=".pdf" required>
                     <div class="file-upload-text">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
@@ -743,7 +777,7 @@
             <div class="form-group" style="margin-top: 20px;">
                 <label class="form-label">Unggah Akte Pendirian Berbadan Hukum (Opsional)</label>
                 <div class="file-upload-wrap">
-                    <input type="file" accept=".pdf">
+                    <input type="file" name="file_akte_pendirian" accept=".pdf">
                     <div class="file-upload-text">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <span>Klik atau seret file PDF ke sini untuk mengunggah</span>
@@ -880,7 +914,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         const inputTanggal = document.getElementById('tanggalSurat');
-        if (inputTanggal) {
+        if (inputTanggal && !inputTanggal.value) {
             const today = new Date().toISOString().split('T')[0];
             inputTanggal.value = today;
         }

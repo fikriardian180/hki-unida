@@ -1,400 +1,153 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengertian Singkat</title>
-    <!-- Google Font & FontAwesome untuk icon pencarian -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Slabo+27px&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+@extends('layouts.app')
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
+@section('title', 'Mengenal Kekayaan Intelektual')
 
-        body {
-            background-color: #ffffff;
-            color: #333333;
-        }
+@push('styles')
+<style>
+    /* CSS Khusus Halaman Pengertian KI */
+    .lead-box {
+        background-color: #f8fafc;
+        border-left: 4px solid #3B6B80;
+        padding: 20px 25px;
+        border-radius: 0 8px 8px 0;
+        margin-bottom: 25px;
+    }
 
-        /* --- NAVBAR --- */
-        .navbar {
-            background-color: #3B6B80; /* Warna biru-abu khas Sentra HKI UNIDA */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 40px;
-            color: white;
-            position: relative;
-            z-index: 10;
-        }
+    .lead-text {
+        font-size: 16px;
+        color: #334155;
+        line-height: 1.7;
+    }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
+    .description-text {
+        font-size: 15px;
+        color: #475569;
+        line-height: 1.6;
+        text-align: justify;
+        margin-bottom: 25px;
+    }
 
-        .brand img {
-            height: 35px;
-        }
+    .regime-card {
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        transition: box-shadow 0.2s ease;
+    }
 
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            gap: 20px;
-        }
+    .regime-card:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
 
-        .nav-item {
-            position: relative;
-        }
+    .regime-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #f1f5f9;
+        padding-bottom: 10px;
+    }
 
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 6px 10px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
+    .regime-icon {
+        font-size: 22px;
+        color: #3B6B80;
+    }
 
-        .nav-link:hover {
-            opacity: 0.8;
-        }
+    .regime-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1e293b;
+    }
 
-        /* Dropdown Styling */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #3B6B80;
-            min-width: 180px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-            list-style: none;
-            padding: 8px 0;
-            border-radius: 0 0 4px 4px;
-        }
+    .info-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-        .dropdown-menu li a {
-            color: white;
-            padding: 10px 16px;
-            display: block;
-            text-decoration: none;
-            font-size: 13px;
-        }
+    .info-list li {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: #475569;
+        line-height: 1.6;
+    }
 
-        .dropdown-menu li a:hover {
-            background-color: #2e5566;
-        }
+    .info-list li:last-child {
+        margin-bottom: 0;
+    }
 
-        .nav-item:hover .dropdown-menu {
-            display: block;
-        }
+    .info-list li::before {
+        content: "•";
+        color: #3B6B80;
+        font-weight: bold;
+        font-size: 20px;
+        position: absolute;
+        left: 8px;
+        top: -3px;
+    }
 
-        .search-icon {
-            cursor: pointer;
-            font-size: 15px;
-            margin-left: 10px;
-        }
+    .info-list strong {
+        color: #1e293b;
+    }
+</style>
+@endpush
 
-        /* --- HERO BANNER SKew EFFECT --- */
-        .hero-banner {
-            position: relative;
-            height: 260px;
-            display: flex;
-            overflow: hidden;
-            background-color: #1a1a1a;
-        }
+@section('content')
+    <h1 class="page-title">Mengenal Kekayaan Intelektual (KI)</h1>
 
-        .banner-segment {
-            height: 100%;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
+    <div class="lead-box">
+        <p class="lead-text">
+            <strong>Kekayaan Intelektual (KI)</strong> adalah hak yang timbul dari hasil olah pikir otak manusia yang menghasilkan suatu produk atau proses yang berguna untuk manusia. Pada intinya, Kekayaan Intelektual adalah hak eksklusif yang diberikan oleh negara kepada kreator, pencipta, atau inventor atas hasil karya dan karsa kreativitasnya.
+        </p>
+    </div>
 
-        /* Segment Kiri (Gedung Utama + Logo HKI) */
-        .segment-1 {
-            width: 65%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2021/01/Gedung-Utama-UNIDA.jpg');
-            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-            z-index: 1;
-        }
+    <p class="description-text">
+        Kekayaan Intelektual merupakan aset tidak berwujud (<em>intangible asset</em>) yang memiliki nilai ekonomi tinggi. Di lingkungan perguruan tinggi seperti UNIDA Gontor, pelindungan KI menjadi bukti nyata dari orisinalitas riset sekaligus penghargaan atas reputasi akademik para dosen dan peneliti.
+    </p>
 
-        /* Segment Kanan (Gedung Samping/Asrama) */
-        .segment-2 {
-            width: 45%;
-            margin-left: -10%;
-            background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2020/09/UNIDA-Gontor-1.jpg');
-            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-        }
-
-        /* Overlay Logo HKI di tengah Banner */
-        .center-logo-overlay {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 4;
-            height: 140px;
-        }
-
-        /* --- CONTENT SECTION --- */
-        .main-content {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .page-title {
-            font-family: 'Slabo 27px', serif;
-            font-size: 38px;
-            color: #3B6B80;
-            font-weight: 700;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-
-        /* --- FOOTER STYLING --- */
-        .footer {
-            background-color: #2c5263; /* Warna sedikit lebih gelap dari navbar agar elegan */
-            color: #ffffff;
-            padding: 40px 0 20px 0;
-            margin-top: 60px;
-            font-size: 14px;
-        }
-
-        .footer-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 220px;
-        }
-
-        .footer-col h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #ffffff;
-            border-bottom: 2px solid #528ba3;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .footer-col p {
-            line-height: 1.6;
-            color: #d1d5db;
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-col ul li a:hover {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-links a {
-            color: #ffffff;
-            font-size: 18px;
-            transition: opacity 0.2s;
-        }
-
-        .social-links a:hover {
-            opacity: 0.8;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #9ca3af;
-            font-size: 13px;
-        }
-
-        .page-heading {
-            font-family: 'Slabo 18px', serif;
-            font-size: 28px;
-            color: #000; /* Added missing semicolon here */
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-
-        .description {
-            font-size: 15px;
-            color: #555555;
-            line-height: 1.6;
-            text-align: justify;
-        }
-    </style>
-</head>
-<body>
-
-    <nav class="navbar">
-        <div class="brand">
-            <!-- Tempatkan Logo HKI UNIDA jika ada -->
-            <span>SENTRA HKI UNIDA</span>
+    <!-- Rezim 1: Hak Cipta -->
+    <div class="regime-card">
+        <div class="regime-header">
+            <i class="fa-solid fa-copyright regime-icon"></i>
+            <h2 class="regime-title">1. Hak Cipta</h2>
         </div>
-
-        <!-- SEMUA MENU DIGABUNG DALAM 1 TAG UL -->
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="/" class="nav-link">Home <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/sejarah">Sejarah HKI UNIDA Gontor</a></li>
-                </ul>
-            </li>
-
-            <li class="nav-item">
-                <a href="/pengertian" class="nav-link">Pengertian <i class="fa-solid font-size-xs fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/phc">Hak Cipta</a></li>
-                    <li><a href="/pptn">Paten</a></li>
-                    <li><a href="/pmrk">Merek</a></li> 
-                </ul>
-            </li>
-
-            <li class="nav-item">
-                <a href="/pendaftaran" class="nav-link">Pendaftaran <i class="fa-solid fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/pdffm">Form Pendaftaran</a></li>
-                    <li><a href="/pdftf">Template Forms</a></li>
-                </ul>
-            </li>
-
-            <li class="nav-item">
-                <a href="/sk" class="nav-link">Syarat & Ketentuan <i class="fa-solid fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/skhc">Hak Cipta</a></li>
-                    <li><a href="/skptn">Paten</a></li>
-                    <li><a href="/skmrk">Merek</a></li>
-                </ul>
-            </li>
+        <ul class="info-list">
+            <li><strong>Pengertian:</strong> Hak eksklusif pencipta yang timbul secara otomatis berdasarkan prinsip deklaratif setelah suatu ciptaan diwujudkan dalam bentuk nyata tanpa mengurangi pembatasan sesuai ketentuan peraturan perundang-undangan.</li>
+            <li><strong>Objek Perlindungan:</strong> Melindungi karya di bidang ilmu pengetahuan, seni, dan sastra.</li>
+            <li><strong>Contoh di Kampus:</strong> Buku teks, jurnal ilmiah, monograf, modul perkuliahan, karya tulis, video pembelajaran (sinematografi), lagu/mars, seni kaligrafi, desain batik, hingga program komputer (software atau aplikasi).</li>
+            <li><strong>Prinsip Hukum:</strong> Deklaratif (Perlindungan langsung aktif begitu karya berwujud nyata dan dipublikasikan, namun pencatatan di DJKI memperkuat bukti hukum mutlak).</li>
         </ul>
-    </nav>
+    </div>
 
-    <main class="main-content">
-        <h1 class="page-title">Mengenal Kekayaan Intelektual (KI)</h1>
-        <h2 class="page-heading">Apa Itu Kekayaan Intelektual?</h2>
-        <p class="description"><strong>Kekayaan Intelektual (KI)</strong> adalah hak yang timbul dari hasil olah pikir otak manusia yang menghasilkan suatu produk atau proses yang berguna untuk manusia. Pada intinya, Kekayaan Intelektual adalah hak eksklusif yang diberikan oleh negara kepada kreator, pencipta, atau inventor atas hasil karya dan karsa kreativitasnya.</p>
-        <br>
-        <p class="description">Kekayaan Intelektual merupakan aset tidak berwujud (intangible asset) yang memiliki nilai ekonomi tinggi. Di lingkungan perguruan tinggi seperti UNIDA Gontor, pelindungan KI menjadi bukti nyata dari orisinalitas riset sekaligus penghargaan atas reputasi akademik para dosen dan peneliti.</p>
-        <br>
-        <p class="description">Kekayaan Intelektual secara garis besar dibagi menjadi beberapa rezim perlindungan, di antaranya yang paling sering diajukan dalam ranah akademik adalah Hak Cipta, Merek, dan Paten.</p>
-        <br>
-        <p><strong>1. Hak Cipta</strong></p>
-        <br>
-        <ul>
-            <li><p class="description"><strong>Pengertian :</strong> Hak Cipta adalah hak eksklusif pencipta yang timbul secara otomatis berdasarkan prinsip deklaratif setelah suatu ciptaan diwujudkan dalam bentuk nyata tanpa mengurangi pembatasan sesuai dengan ketentuan peraturan perundang-undangan.</p></li>
-            <li><p class="description"><strong>Objek perlindungan :</strong> Hak Cipta melindungi karya di bidang ilmu pengetahuan, seni, dan sastra.</p></li>
-            <li><p class="description"><strong>Contoh Di Kampus :</strong> Buku teks, jurnal ilmiah, monograf, modul perkuliahan, karya tulis, video pembelajaran (sinematografi), lagu/mars, seni kaligrafi, desain batik, hingga program komputer (software atau aplikasi buatan mahasiswa/dosen). Prinsip Hukum: Deklaratif (Perlindungan langsung aktif begitu karya berwujud nyata dan dipublikasikan, namun pencatatan di DJKI memperkuat bukti hukum mutlak).</p></li>
-            <li><p class="description"><strong>Prinsip Hukum :</strong> Deklaratif (Perlindungan langsung aktif begitu karya berwujud nyata dan dipublikasikan, namun pencatatan di DJKI memperkuat bukti hukum mutlak).</p></li>
-        </ul>
-        <br>
-        <p><strong>2. Merek (Trade Mark)</strong></p>
-        <br>
-        <ul>
-            <li><p class="description"><strong>Pengertian :</strong> Merek adalah tanda yang dapat ditampilkan secara grafis berupa gambar, logo, nama, kata, huruf, angka, atau susunan warna untuk membedakan barang dan/atau jasa yang diproduksi oleh orang atau badan hukum dalam kegiatan perdagangan.</p></li>
-            <li><p class="description"><strong>Objek Perlindungan :</strong> Melindungi identitas visual, nama, dan reputasi komersial dari sebuah produk atau jasa agar tidak ditiru oleh kompetitor.</p></li>
-            <li><p class="description"><strong>Contoh Di Kampus :</strong> Logo dan nama unit usaha pesantren/kampus (misalnya: Air Mineral UNIDA, produk herbal Laboratorium Farmasi, nama katering, roti buatan bakery kampus, atau nama jasa pelatihan bahasa).</p></li>
-            <li><p class="description"><strong>Prinsip Hukum :</strong> First-to-File (Siapa yang mendaftar pertama kali di negara tersebut, dialah pemilik sah merek tersebut).</p></li>
-        </ul>
-        <br>
-        <p><strong>3. Paten</strong></p>
-        <br>
-        <ul>
-            <li><p class="description"><strong>Pengertian :</strong> Paten adalah hak eksklusif yang diberikan oleh negara kepada inventor atas hasil invensinya di bidang teknologi, yang untuk selama waktu tertentu melaksanakan sendiri invensinya tersebut atau memberikan persetujuannya kepada pihak lain untuk melaksanakannya.</p></li>
-            <li><p class="description"><strong>Objek Perlindungan :</strong> Paten murni melindungi solusi teknologi (alat, mesin, formula, atau proses metode baru) yang memecahkan masalah praktis di masyarakat atau industri.</p></li>
-            <li><p class="description"><strong>Contoh Di Kampus :</strong> Mesin tepat guna pertanian hasil riset Teknik Pertanian, formula suplemen herbal baru hasil riset Farmasi/Gizi, atau algoritma IoT baru sistem keamanan buatan Teknik Informatika.</p></li>
-            <li><p class="description"><strong>Prinsip Hukum :</strong> Novelty (Invensi wajib benar-benar baru di dunia dan belum pernah dipublikasikan dalam bentuk jurnal atau prosiding sebelum tanggal pendaftaran paten dilakukan).</p></li>
-        </ul>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            
-            <!-- Kolom 1: Profil / Deskripsi -->
-            <div class="footer-col">
-                <h3>Sentra HKI UNIDA</h3>
-                <p>Lembaga Layanan Hak Kekayaan Intelektual Universitas Darussalam Gontor.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-
-            <!-- Kolom 2: Navigasi Cepat -->
-            <div class="footer-col">
-                <h3>Tautan Cepat</h3>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/pengertian">Pengertian HKI</a></li>
-                    <li><a href="/pendaftaran">Pendaftaran HKI</a></li>
-                    <li><a href="/sejarah">Sejarah UNIDA</a></li>
-                </ul>
-            </div>
-
-            <!-- Kolom 3: Kontak & Alamat -->
-            <div class="footer-col">
-                <h3>Kontak Kami</h3>
-                <p><i class="fa-solid fa-location-dot"></i> Jl. Raya Siman No. Km. 5, Dusun I, Demangan, Kec. Siman, Kabupaten Ponorogo, Jawa Timur 63471</p>
-                <p><i class="fa-solid fa-envelope"></i> hki@unida.gontor.ac.id</p>
-                <p><i class="fa-solid fa-phone"></i> 0857-0858-3094</p>
-            </div>
-
+    <!-- Rezim 2: Merek -->
+    <div class="regime-card">
+        <div class="regime-header">
+            <i class="fa-solid fa-registered regime-icon"></i>
+            <h2 class="regime-title">2. Merek (Trade Mark)</h2>
         </div>
+        <ul class="info-list">
+            <li><strong>Pengertian:</strong> Tanda yang dapat ditampilkan secara grafis berupa gambar, logo, nama, kata, huruf, angka, atau susunan warna untuk membedakan barang dan/atau jasa yang diproduksi oleh orang atau badan hukum dalam kegiatan perdagangan.</li>
+            <li><strong>Objek Perlindungan:</strong> Melindungi identitas visual, nama, dan reputasi komersial dari sebuah produk atau jasa agar tidak ditiru oleh kompetitor.</li>
+            <li><strong>Contoh di Kampus:</strong> Logo dan nama unit usaha pesantren/kampus (misalnya: Air Mineral UNIDA, produk herbal Laboratorium Farmasi, nama katering, roti buatan bakery kampus, atau jasa pelatihan bahasa).</li>
+            <li><strong>Prinsip Hukum:</strong> First-to-File (Siapa yang mendaftar pertama kali di negara tersebut, dialah pemilik sah merek tersebut).</li>
+        </ul>
+    </div>
 
-        <!-- Copyright -->
-        <div class="footer-bottom">
-            <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved.</p>
+    <!-- Rezim 3: Paten -->
+    <div class="regime-card">
+        <div class="regime-header">
+            <i class="fa-solid fa-lightbulb regime-icon"></i>
+            <h2 class="regime-title">3. Paten</h2>
         </div>
-    </footer>
-
-
-</body>
-</html>
+        <ul class="info-list">
+            <li><strong>Pengertian:</strong> Hak eksklusif yang diberikan oleh negara kepada inventor atas hasil invensinya di bidang teknologi, yang untuk selama waktu tertentu melaksanakan sendiri invensinya tersebut atau memberikan persetujuannya kepada pihak lain untuk melaksanakannya.</li>
+            <li><strong>Objek Perlindungan:</strong> Solusi teknologi (alat, mesin, formula, atau proses metode baru) yang memecahkan masalah praktis di masyarakat atau industri.</li>
+            <li><strong>Contoh di Kampus:</strong> Mesin tepat guna pertanian hasil riset Teknik Pertanian, formula suplemen herbal baru hasil riset Farmasi/Gizi, atau algoritma IoT baru sistem keamanan buatan Teknik Informatika.</li>
+            <li><strong>Prinsip Hukum:</strong> Novelty (Invensi wajib benar-benar baru di dunia dan belum pernah dipublikasikan dalam bentuk jurnal atau prosiding sebelum tanggal pendaftaran paten dilakukan).</li>
+        </ul>
+    </div>
+@endsection
