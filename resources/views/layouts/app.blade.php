@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Slabo+27px&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+
     <!-- CSS GLOBAL (NAVBAR, FOOTER, & LAYOUT UTAMA) -->
     <style>
         * {
@@ -29,7 +32,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 40px;
+            padding: 20px 40px;
             color: white;
             position: relative;
             z-index: 10;
@@ -38,8 +41,9 @@
         .brand {
             display: flex;
             align-items: center;
+            font-family: 'poppins', sans-serif;
             gap: 12px;
-            font-size: 20px;
+            font-size: 25px;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
@@ -265,7 +269,7 @@
                 <p>Lembaga Layanan Hak Kekayaan Intelektual Universitas Darussalam Gontor.</p>
                 <div class="social-links">
                     <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/hki_unida_gontor/"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
