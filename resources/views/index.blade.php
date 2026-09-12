@@ -7,46 +7,70 @@
     /* CSS Khusus Halaman Utama / Home */
     .hero-banner {
         position: relative;
-        height: 260px;
-        display: flex;
+        height: 320px;
+        width: 100%;
         overflow: hidden;
-        background-color: #1a1a1a;
+        background-color: #0f172a;
         border-radius: 8px;
         margin-bottom: 35px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .banner-segment {
+    .hero-banner img {
+        width: 100%;
         height: 100%;
-        position: relative;
-        background-size: cover;
-        background-position: center;
+        object-fit: cover;
+        object-position: center;
+        display: block;
     }
 
-    .segment-1 {
-        width: 65%;
-        background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2021/01/Gedung-Utama-UNIDA.jpg');
-        clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-        z-index: 1;
+    .hero-banner::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+        pointer-events: none;
     }
 
-    .segment-2 {
-        width: 45%;
-        margin-left: -10%;
-        background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2020/09/UNIDA-Gontor-1.jpg');
-        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-    }
-
+    /* Welcome Card Flexbox */
     .welcome-card {
         background-color: #f8fafc;
-        border-left: 4px solid #3B6B80;
+        border-left: 5px solid #3B6B80;
         padding: 25px;
         border-radius: 0 8px 8px 0;
         margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    /* WADAH LOGO HKI (Diperbaiki agar proporsional untuk Logo) */
+    .welcome-logo-wrap {
+        flex-shrink: 0;
+        width: 140px; /* Ukuran pas untuk logo vertikal/persegi */
+        text-align: center;
+    }
+
+    .welcome-logo-wrap img {
+        width: 100%;
+        height: auto;
+        max-height: 130px;   /* Tinggi maksimal logo */
+        object-fit: contain; /* Menjaga bentuk asli logo */
+        display: block;
+        margin: 0 auto;
+    }
+
+    .welcome-content-wrap {
+        flex: 1;
     }
 
     .page-heading {
         font-family: 'Slabo 27px', serif;
-        font-size: 26px;
+        font-size: 24px;
         color: #1e293b;
         margin-bottom: 12px;
         line-height: 1.3;
@@ -58,12 +82,14 @@
         line-height: 1.7;
         text-align: justify;
         margin-bottom: 18px;
+        word-wrap: break-word;
     }
 
-    .description:last-child {
+    .welcome-card .description {
         margin-bottom: 0;
     }
 
+    /* Grid Kartu Layanan */
     .feature-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -103,23 +129,61 @@
         color: #64748b;
         line-height: 1.5;
     }
+
+    /* Responsif untuk Tampilan HP/Tablet */
+    @media (max-width: 768px) {
+        .hero-banner {
+            height: 180px; /* Banner menyesuaikan lebih pendek di HP */
+            margin-bottom: 25px;
+        }
+
+        .welcome-card {
+            flex-direction: column;
+            text-align: center;
+            padding: 20px 15px;
+        }
+
+        .welcome-logo-wrap {
+            width: 100px; /* Ukuran logo di HP */
+        }
+
+        .page-heading {
+            font-size: 20px;
+        }
+
+        .description {
+            font-size: 14px;
+            text-align: left; /* Alignment kiri lebih rapi dibaca di HP */
+            line-height: 1.6;
+        }
+
+        .feature-grid {
+            grid-template-columns: 1fr; /* 1 Kolom penuh di HP */
+            gap: 15px;
+        }
+    }
 </style>
 @endpush
 
 @section('content')
-    <!-- Hero Banner Segment -->
+    <!-- Hero Banner Full Width -->
     <div class="hero-banner">
-        <div class="banner-segment segment-1"></div>
-        <div class="banner-segment segment-2"></div>
+        <img src="{{ asset('images/banner-1.png') }}" alt="Gedung UNIDA Gontor">
     </div>
 
     <h1 class="page-title">Sentra HKI UNIDA Gontor</h1>
 
+    <!-- Welcome Card Berisi Logo HKI & Teks Sambutan -->
     <div class="welcome-card">
-        <h2 class="page-heading">Selamat Datang di Sistem Informasi Resmi Sentra HKI Universitas Darussalam Gontor</h2>
-        <p class="description">
-            Sentra Kekayaan Intelektual (HKI) Universitas Darussalam Gontor merupakan unit strategis yang berkomitmen penuh dalam memfasilitasi, melindungi, serta mengelola seluruh aset intelektual hasil kreativitas, riset, dan inovasi dari segenap civitas akademika. Kami percaya bahwa setiap karya ilmiah, buku, jurnal, aplikasi, hingga invensi teknologi yang dilahirkan oleh para dosen dan peneliti merupakan aset berharga yang wajib mendapatkan kepastian hukum serta pelindungan hak cipta yang kuat.
-        </p>
+        <div class="welcome-logo-wrap">
+            <img src="{{ asset('images/logo-hki.png') }}" alt="Logo Sentra HKI UNIDA">
+        </div>
+        <div class="welcome-content-wrap">
+            <h2 class="page-heading">Selamat Datang di Sistem Informasi Resmi Sentra HKI Universitas Darussalam Gontor</h2>
+            <p class="description">
+                Sentra Kekayaan Intelektual (HKI) Universitas Darussalam Gontor merupakan unit strategis yang berkomitmen penuh dalam memfasilitasi, melindungi, serta mengelola seluruh aset intelektual hasil kreativitas, riset, dan inovasi dari segenap civitas akademika. Kami percaya bahwa setiap karya ilmiah, buku, jurnal, aplikasi, hingga invensi teknologi yang dilahirkan oleh para dosen dan peneliti merupakan aset berharga yang wajib mendapatkan kepastian hukum serta pelindungan hak cipta yang kuat.
+            </p>
+        </div>
     </div>
 
     <p class="description">

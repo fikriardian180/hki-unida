@@ -1,48 +1,38 @@
 @extends('layouts.app')
 
-@section('title', 'Sejarah HKI UNIDA Gontor')
+@section('title', 'Sejarah Sentra HKI UNIDA Gontor')
 
 @push('styles')
 <style>
-    /* Hero Banner Skew Effect */
+    /* Hero Banner Full Width */
     .hero-banner {
         position: relative;
-        height: 260px;
-        display: flex;
+        height: 300px;
+        width: 100%;
         overflow: hidden;
-        background-color: #1a1a1a;
+        background-color: #0f172a;
         border-radius: 8px;
-        margin-bottom: 30px;
+        margin-bottom: 35px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .banner-segment {
+    .hero-banner img {
+        width: 100%;
         height: 100%;
-        position: relative;
-        background-size: cover;
-        background-position: center;
+        object-fit: cover;
+        object-position: center;
+        display: block;
     }
 
-    .segment-1 {
-        width: 65%;
-        background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2021/01/Gedung-Utama-UNIDA.jpg');
-        clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-        z-index: 1;
-    }
-
-    .segment-2 {
-        width: 45%;
-        margin-left: -10%;
-        background-image: url('https://unida.gontor.ac.id/wp-content/uploads/2020/09/UNIDA-Gontor-1.jpg');
-        clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-    }
-
-    .center-logo-overlay {
+    .hero-banner::after {
+        content: '';
         position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 4;
-        height: 140px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+        pointer-events: none;
     }
 
     .description {
@@ -51,33 +41,114 @@
         line-height: 1.7;
         text-align: justify;
         margin-bottom: 20px;
+        word-wrap: break-word;
     }
 
     .highlight-card {
         background-color: #f8fafc;
-        border-left: 4px solid #3B6B80;
-        padding: 20px;
+        border-left: 5px solid #3B6B80;
+        padding: 22px 25px;
         border-radius: 0 8px 8px 0;
-        margin: 25px 0;
+        margin: 30px 0;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
 
     .highlight-card p {
         margin: 0;
-        color: #334155;
+        color: #1e293b;
         font-weight: 500;
+        font-size: 15px;
         line-height: 1.6;
+    }
+
+    /* WADAH FOTO BERSAMA TIM (FULL TANPA TERPOTONG) */
+    .team-photo-container {
+        margin: 35px 0;
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+    }
+
+    .team-photo-wrap {
+        width: 100%;
+        border-radius: 8px;
+        background-color: #f1f5f9;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .team-photo-wrap img {
+        width: 100%;
+        height: auto;
+        max-height: 550px;
+        object-fit: contain; /* Menampilkan foto utuh tanpa terpotong */
+        display: block;
+        border-radius: 6px;
+        margin: 0 auto;
+    }
+
+    .team-photo-caption {
+        text-align: center;
+        margin-top: 12px;
+        font-size: 14px;
+        color: #64748b;
+        font-style: italic;
+        line-height: 1.4;
+    }
+
+    .team-photo-caption i {
+        color: #3B6B80;
+        margin-right: 5px;
+    }
+
+    /* MEDIA QUERY RESPONSIF UNTUK MOBILITY (HP/TABLET) */
+    @media (max-width: 768px) {
+        .hero-banner {
+            height: 180px;
+            margin-bottom: 25px;
+        }
+
+        .description {
+            font-size: 14px;
+            text-align: left; /* Perataan kiri agar rapi dibaca di HP */
+            line-height: 1.6;
+        }
+
+        .highlight-card {
+            padding: 15px 18px;
+            margin: 20px 0;
+        }
+
+        .highlight-card p {
+            font-size: 14px;
+        }
+
+        .team-photo-container {
+            padding: 10px;
+            margin: 25px 0;
+        }
+
+        .team-photo-wrap img {
+            max-height: 280px;
+        }
+
+        .team-photo-caption {
+            font-size: 13px;
+        }
     }
 </style>
 @endpush
 
 @section('content')
-    <!-- Hero Banner -->
+    <!-- Hero Banner Utama -->
     <div class="hero-banner">
-        <div class="banner-segment segment-1"></div>
-        <div class="banner-segment segment-2"></div>
+        <img src="{{ asset('images/banner-2..png') }}" alt="Gedung UNIDA Gontor">
     </div>
 
-    <h1 class="page-title">Sejarah HKI UNIDA Gontor</h1>
+    <h1 class="page-title">Sejarah Sentra HKI UNIDA Gontor</h1>
 
     <p class="description">
         Universitas Darussalam Gontor adalah perguruan tinggi pesantren yang berdiri di bawah naungan Pondok Modern Darussalam Gontor sejak tahun 2014. Sejalan dengan perkembangan hasil riset dan pengabdian kepada masyarakat yang dilakukan oleh sivitas akademika, baik dosen maupun mahasiswa, dirasa perlu untuk dilakukan perlindungan demi menjaga inovasi-inovasi tersebut dari plagiarisme dan ‘pencurian’ kekayaan intelektual oleh pihak-pihak yang tidak bertanggung jawab, sehingga universitas mendirikan lembaga untuk melindungi hasil riset dan pengabdian masyarakat tersebut.
@@ -91,6 +162,16 @@
         <p>
             Universitas Darussalam Gontor secara resmi memutuskan untuk mendirikan dan mengembangkan lembaga tersebut menjadi <strong>Sentra Hak Kekayaan Intelektual (KI) pada tanggal 25 April 2018</strong> berdasarkan Surat Keputusan Rektor No. 1391 Tahun 2018.
         </p>
+    </div>
+
+    <!-- SHOWCASE FOTO BERSAMA TIM SENTRA HKI (FULL UTUH) -->
+    <div class="team-photo-container">
+        <div class="team-photo-wrap">
+            <img src="{{ asset('images/foto-bareng.jpg') }}" alt="Foto Tim Pengurus Sentra HKI UNIDA Gontor">
+        </div>
+        <div class="team-photo-caption">
+            <i class="fa-solid fa-users"></i> Tim Pengurus dan Pengelola Sentra Kekayaan Intelektual (HKI) Universitas Darussalam Gontor
+        </div>
     </div>
 
     <p class="description">

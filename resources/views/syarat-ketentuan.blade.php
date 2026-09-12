@@ -1,72 +1,138 @@
 @extends('layouts.app')
 
-@section('title', 'Syarat & Ketentuan')
+@section('title', 'Syarat & Ketentuan Umum - Sentra HKI UNIDA Gontor')
 
 @push('styles')
 <style>
     /* CSS Khusus Halaman Syarat & Ketentuan */
     .lead-description {
         font-size: 15px;
-        color: #475569;
+        color: #334155;
         line-height: 1.7;
         text-align: justify;
         margin-bottom: 25px;
         background-color: #f8fafc;
-        border-left: 4px solid #3B6B80;
-        padding: 15px 20px;
+        border-left: 5px solid #3B6B80;
+        padding: 18px 22px;
         border-radius: 0 8px 8px 0;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        word-wrap: break-word;
     }
 
     .terms-card {
         background-color: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 8px;
-        padding: 20px 25px;
+        padding: 22px 25px;
         margin-bottom: 20px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+        box-sizing: border-box;
+    }
+
+    .terms-card:hover {
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+        transform: translateY(-2px);
     }
 
     .terms-title {
-        font-size: 17px;
+        font-size: 18px;
         font-weight: 700;
         color: #1e293b;
         margin-bottom: 12px;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
+        line-height: 1.4;
     }
 
     .terms-title i {
         color: #3B6B80;
-        font-size: 18px;
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    .sub-intro {
+        font-size: 14.5px;
+        color: #475569;
+        margin-bottom: 10px;
+        line-height: 1.6;
     }
 
     .custom-list {
         margin-left: 20px;
+        padding-left: 5px;
         margin-bottom: 0;
     }
 
     .custom-list li {
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         color: #475569;
         line-height: 1.6;
-        font-size: 14px;
+        font-size: 14.5px;
     }
 
     .custom-list li:last-child {
         margin-bottom: 0;
     }
 
+    .custom-list strong {
+        color: #1e293b;
+    }
+
     .custom-ol {
         margin-left: 20px;
+        padding-left: 5px;
         margin-top: 8px;
+        margin-bottom: 0;
     }
 
     .custom-ol li {
-        margin-bottom: 6px;
+        margin-bottom: 8px;
         color: #475569;
         line-height: 1.6;
-        font-size: 14px;
+        font-size: 14.5px;
+    }
+
+    .custom-ol li:last-child {
+        margin-bottom: 0;
+    }
+
+    /* MEDIA QUERY RESPONSIF UNTUK MOBILITY (HP/TABLET) */
+    @media (max-width: 768px) {
+        .lead-description {
+            font-size: 14px;
+            text-align: left;
+            padding: 15px;
+        }
+
+        .terms-card {
+            padding: 18px 15px;
+            margin-bottom: 15px;
+        }
+
+        .terms-title {
+            font-size: 16px;
+            gap: 10px;
+        }
+
+        .terms-title i {
+            font-size: 18px;
+        }
+
+        .sub-intro {
+            font-size: 13.5px;
+        }
+
+        .custom-list, .custom-ol {
+            margin-left: 15px;
+            padding-left: 0;
+        }
+
+        .custom-list li, .custom-ol li {
+            font-size: 13.5px;
+            margin-bottom: 8px;
+        }
     }
 </style>
 @endpush
@@ -99,7 +165,7 @@
     <!-- Poin 3 -->
     <div class="terms-card">
         <h2 class="terms-title"><i class="fa-solid fa-file-circle-check"></i> 3. Validasi & Kelayakan Berkas</h2>
-        <p style="font-size: 14px; color: #475569; margin-bottom: 8px;">Sentra HKI berhak menolak atau mengembalikan berkas permohonan pendaftaran jika:</p>
+        <p class="sub-intro">Sentra HKI berhak menolak atau mengembalikan berkas permohonan pendaftaran jika:</p>
         <ol class="custom-ol">
             <li>Dokumen administrasi tidak lengkap atau tidak menggunakan template resmi bermeterai yang disediakan di Pusat Unduhan.</li>
             <li>Draf deskripsi paten tidak sesuai dengan standar penulisan teknis DJKI.</li>

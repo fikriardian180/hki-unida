@@ -62,7 +62,7 @@
         .nav-link {
             color: white;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 17px;
             font-weight: 500;
             padding: 6px 10px;
             display: flex;
@@ -231,26 +231,26 @@
             <li class="nav-item">
                 <a href="/pengertian" class="nav-link">Pengertian <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="/phc">Hak Cipta</a></li>
-                    <li><a href="/pptn">Paten</a></li>
-                    <li><a href="/pmrk">Merek</a></li> 
+                    <li><a href="/pengertian-hak-cipta">Hak Cipta</a></li>
+                    <li><a href="/pengertian-paten">Paten</a></li>
+                    <li><a href="/pengertian-merek">Merek</a></li> 
                 </ul>
             </li>
 
             <li class="nav-item">
                 <a href="/pendaftaran" class="nav-link">Pendaftaran <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="/pdffm">Form Pendaftaran</a></li>
-                    <li><a href="/pdftf">Template Forms</a></li>
+                    <li><a href="/formulir-pendaftaran">Form Pendaftaran</a></li>
+                    <li><a href="/template-formulir ">Template Forms</a></li>
                 </ul>
             </li>
 
             <li class="nav-item">
-                <a href="/sk" class="nav-link">Syarat & Ketentuan <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="/syarat-ketentuan" class="nav-link">Syarat & Ketentuan <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="/skhc">Hak Cipta</a></li>
-                    <li><a href="/skptn">Paten</a></li>
-                    <li><a href="/skmrk">Merek</a></li>
+                    <li><a href="/syarat-ketentuan-hak-cipta">Hak Cipta</a></li>
+                    <li><a href="/syarat-ketentuan-paten">Paten</a></li>
+                    <li><a href="/syarat-ketentuan-merek">Merek</a></li>
                 </ul>
             </li>
         </ul>

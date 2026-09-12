@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pengertian Merek')
+@section('title', 'Pengertian Merek - Sentra HKI UNIDA Gontor')
 
 @push('styles')
 <style>
@@ -18,13 +18,15 @@
     .description {
         font-size: 15px;
         color: #475569;
-        line-height: 1.6;
+        line-height: 1.7;
         text-align: justify;
         margin-bottom: 12px;
+        word-wrap: break-word;
     }
 
     .custom-list {
         margin-left: 20px;
+        padding-left: 5px;
         margin-bottom: 20px;
     }
 
@@ -37,6 +39,7 @@
 
     .custom-ol {
         margin-left: 20px;
+        padding-left: 5px;
         margin-bottom: 20px;
     }
 
@@ -47,11 +50,16 @@
         font-size: 15px;
     }
 
-    /* Tabel Responsive */
+    /* Tabel Responsive Container */
     .table-responsive {
+        width: 100%;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Scroll lancar di iOS */
         margin-top: 15px;
         margin-bottom: 30px;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
     .custom-table {
@@ -60,9 +68,7 @@
         font-size: 14px;
         text-align: left;
         background-color: #ffffff;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        border-radius: 6px;
-        overflow: hidden;
+        white-space: normal;
     }
 
     .custom-table th {
@@ -70,6 +76,7 @@
         color: #ffffff;
         padding: 12px 16px;
         font-weight: 600;
+        white-space: nowrap; /* Menjaga header tabel tetap sejajar */
     }
 
     .custom-table td {
@@ -77,6 +84,11 @@
         border-bottom: 1px solid #e5e7eb;
         color: #4b5563;
         vertical-align: top;
+        line-height: 1.5;
+    }
+
+    .custom-table tbody tr:last-child td {
+        border-bottom: none;
     }
 
     .custom-table tbody tr:nth-child(even) {
@@ -85,6 +97,35 @@
 
     .custom-table tbody tr:hover {
         background-color: #f1f5f9;
+    }
+
+    /* MEDIA QUERY RESPONSIF UNTUK LAYAR HP/TABLET */
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 18px;
+            margin-top: 25px;
+        }
+
+        .description {
+            font-size: 14px;
+            text-align: left; /* Alignment kiri lebih rapi dibaca di HP */
+            line-height: 1.6;
+        }
+
+        .custom-list, .custom-ol {
+            margin-left: 15px;
+            padding-left: 0;
+        }
+
+        .custom-list li, .custom-ol li {
+            font-size: 14px;
+        }
+
+        .custom-table th, 
+        .custom-table td {
+            padding: 10px 12px;
+            font-size: 13px;
+        }
     }
 </style>
 @endpush
@@ -148,69 +189,69 @@
         <table class="custom-table">
             <thead>
                 <tr>
-                    <th style="width: 5%;">No</th>
-                    <th style="width: 45%;">Rincian</th>
-                    <th style="width: 25%;">Lembaga Pendidikan, UMKM, dan Penelitian</th>
-                    <th style="width: 25%;">Umum</th>
+                    <th style="width: 50px; text-align: center;">No</th>
+                    <th style="min-width: 240px;">Rincian</th>
+                    <th style="min-width: 170px;">Lembaga Pendidikan, UMKM, dan Penelitian</th>
+                    <th style="min-width: 120px;">Umum</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
+                    <td style="text-align: center;">1</td>
                     <td>Pendaftaran Etiket Merek</td>
                     <td>Rp 650.000</td>
                     <td>Rp 1.950.000</td>
                 </tr>
                 <tr>
-                    <td>2</td>
+                    <td style="text-align: center;">2</td>
                     <td>Penelusuran Kelas Merek</td>
                     <td>Rp 250.000</td>
                     <td>Rp 250.000</td>
                 </tr>
                 <tr>
-                    <td>3</td>
+                    <td style="text-align: center;">3</td>
                     <td>Administrasi kepengurusan (Pendaftaran) awal</td>
                     <td>Rp 500.000</td>
                     <td>Rp 750.000</td>
                 </tr>
                 <tr>
-                    <td>4</td>
+                    <td style="text-align: center;">4</td>
                     <td>Perpanjangan sebelum berakhir masa perlindungan merek</td>
                     <td>Rp 1.000.000</td>
                     <td>Rp 2.250.000</td>
                 </tr>
                 <tr>
-                    <td>5</td>
+                    <td style="text-align: center;">5</td>
                     <td>Perpanjangan merek setelah berakhir masa perlindungan merek</td>
                     <td>Rp 2.000.000</td>
                     <td>Rp 4.500.000</td>
                 </tr>
                 <tr>
-                    <td>6</td>
+                    <td style="text-align: center;">6</td>
                     <td>Permohonan banding Merek</td>
                     <td>Rp 3.000.000</td>
                     <td>Rp 3.000.000</td>
                 </tr>
                 <tr>
-                    <td>7</td>
+                    <td style="text-align: center;">7</td>
                     <td>Pengalihan hak atas Merek</td>
                     <td>Rp 700.000</td>
                     <td>Rp 700.000</td>
                 </tr>
                 <tr>
-                    <td>8</td>
+                    <td style="text-align: center;">8</td>
                     <td>Penghapusan pendaftaran merek</td>
                     <td>Rp 200.000</td>
                     <td>Rp 200.000</td>
                 </tr>
                 <tr>
-                    <td>9</td>
+                    <td style="text-align: center;">9</td>
                     <td>Pengajuan keberatan atas merek</td>
                     <td>Rp 1.000.000</td>
                     <td>Rp 1.000.000</td>
                 </tr>
                 <tr>
-                    <td>10</td>
+                    <td style="text-align: center;">10</td>
                     <td>Administrasi kepengurusan lanjutan</td>
                     <td>Rp 250.000</td>
                     <td>Rp 250.000</td>

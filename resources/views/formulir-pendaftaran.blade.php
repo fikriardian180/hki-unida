@@ -7,40 +7,49 @@
     /* CSS Khusus Halaman Pendaftaran Utama */
     .description {
         font-size: 15px;
-        color: #555555;
-        line-height: 1.6;
+        color: #475569;
+        line-height: 1.7;
         text-align: justify;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+        word-wrap: break-word;
     }
 
-    /* Penomoran & List */
+    /* Penomoran & List Responsive */
     .custom-ol {
         margin-left: 20px;
-        margin-bottom: 20px;
+        padding-left: 5px;
+        margin-bottom: 25px;
     }
 
     .custom-ol li {
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         line-height: 1.6;
-        color: #555555;
+        color: #334155;
+        font-size: 15px;
     }
 
-    .main-content ul {
-        margin-left: 20px;
-        margin-bottom: 15px;
+    .custom-ol ul {
+        margin-left: 18px;
+        padding-left: 0;
+        margin-top: 6px;
+        margin-bottom: 12px;
     }
 
-    .main-content li {
-        margin-bottom: 8px;
+    .custom-ol ul li {
+        margin-bottom: 6px;
+        color: #475569;
+        font-size: 14px;
     }
 
-    /* Download Cards Container (3 Kolom) */
+    /* Container Cards (3 Kolom Flexbox) */
     .download-container {
         display: flex;
         justify-content: space-between;
-        gap: 25px;
+        gap: 20px;
+        width: 100%;
         max-width: 1100px;
-        margin: 40px auto 10px auto;
+        margin: 35px auto 10px auto;
+        box-sizing: border-box;
     }
 
     .download-card {
@@ -50,24 +59,26 @@
         align-items: center;
         justify-content: space-between;
         text-align: center;
-        padding: 25px 15px;
+        padding: 25px 18px;
         background-color: #ffffff;
         border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         border: 1px solid #e2e8f0;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-sizing: border-box;
     }
 
     .download-card:hover {
         transform: translateY(-4px);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-color: #cbd5e1;
     }
 
     .download-title {
         font-size: 18px;
-        font-weight: 600;
-        color: #2c3e50;
-        min-height: 40px;
+        font-weight: 700;
+        color: #1e293b;
+        min-height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -87,29 +98,65 @@
         color: #ffffff;
         text-decoration: none;
         font-size: 14px;
-        font-weight: 500;
-        padding: 10px 0;
-        border-radius: 5px;
+        font-weight: 600;
+        padding: 11px 0;
+        border-radius: 6px;
         text-align: center;
         transition: background-color 0.2s ease, transform 0.1s ease;
+        box-sizing: border-box;
     }
 
     .btn-download:hover {
         background-color: #2c5263;
+        color: #ffffff;
     }
 
     .btn-download:active {
         transform: scale(0.98);
     }
 
+    /* MEDIA QUERY RESPONSIF (UNTUK LAYAR HP / TABLET) */
     @media (max-width: 768px) {
+        .description {
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .custom-ol {
+            margin-left: 15px;
+            padding-left: 0;
+        }
+
+        .custom-ol li {
+            font-size: 14px;
+        }
+
+        .custom-ol ul {
+            margin-left: 15px;
+        }
+
         .download-container {
-            flex-direction: column;
-            gap: 20px;
+            flex-direction: column; /* Mengubah kartu berjajar menjadi menumpuk ke bawah di HP */
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .download-card {
+            padding: 20px 15px;
         }
 
         .download-title {
             min-height: auto;
+            margin-bottom: 10px;
+        }
+
+        .download-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .btn-download {
+            padding: 10px 0;
         }
     }
 </style>
@@ -118,10 +165,16 @@
 @section('content')
     <h1 class="page-title">Formulir Pendaftaran</h1>
     
-    <p class="description">Silakan isi formulir daring (online) di bawah ini dengan data yang sebenar-benarnya. Sebelum mengisi, pastikan Bapak/Ibu sudah mengunduh berkas template surat pernyataan di menu Pusat Unduhan dan telah menandatanganinya di atas meterai Rp 10.000.</p>
+    <p class="description">
+        Silakan isi formulir daring (online) di bawah ini dengan data yang sebenar-benarnya. Sebelum mengisi, pastikan Bapak/Ibu sudah mengunduh berkas template surat pernyataan di menu Pusat Unduhan dan telah menandatanganinya di atas meterai Rp 10.000.
+    </p>
     
-    <p class="description" style="margin-top: 20px;"><strong>Struktur Data yang Perlu Disiapkan (Panduan Pengisian Form)</strong></p>
-    <p class="description">Formulir pendaftaran di bawah ini akan meminta Anda untuk mengisi dan mengunggah beberapa informasi penting berikut:</p>
+    <p class="description" style="margin-top: 20px; font-weight: 700; color: #1e293b;">
+        Struktur Data yang Perlu Disiapkan (Panduan Pengisian Form)
+    </p>
+    <p class="description">
+        Formulir pendaftaran di bawah ini akan meminta Anda untuk mengisi dan mengunggah beberapa informasi penting berikut:
+    </p>
     
     <ol class="custom-ol">
         <li><strong>Data Pemohon (Koordinator):</strong></li>
@@ -156,28 +209,37 @@
 
     <!-- Kartu Navigasi ke Form Masing-Masing Jenis HKI -->
     <div class="download-container">
+        <!-- Card Hak Cipta -->
         <div class="download-card">
             <h3 class="download-title">Hak Cipta</h3>
             <div class="download-icon">
-                <i class="fa-solid fa-file-pen"></i>
+                <i class="fa-solid fa-copyright"></i>
             </div>
-            <a href="/formulir-hak-cipta" class="btn-download"><i class="fa-solid fa-paper-plane"></i> Isi Formulir</a>
+            <a href="{{ url('/formulir-hak-cipta') }}" class="btn-download">
+                <i class="fa-solid fa-paper-plane"></i> Isi Formulir
+            </a>
         </div>
 
+        <!-- Card Merek -->
         <div class="download-card">
             <h3 class="download-title">Merek</h3>
             <div class="download-icon">
-                <i class="fa-solid fa-file-pen"></i>
+                <i class="fa-solid fa-registered"></i>
             </div>
-            <a href="/formulir-merek" class="btn-download"><i class="fa-solid fa-paper-plane"></i> Isi Formulir</a>
+            <a href="{{ url('/formulir-merek') }}" class="btn-download">
+                <i class="fa-solid fa-paper-plane"></i> Isi Formulir
+            </a>
         </div>
 
+        <!-- Card Paten -->
         <div class="download-card">
             <h3 class="download-title">Paten</h3>
             <div class="download-icon">
-                <i class="fa-solid fa-file-pen"></i>
+                <i class="fa-solid fa-lightbulb"></i>
             </div>
-            <a href="/formulir-paten" class="btn-download"><i class="fa-solid fa-paper-plane"></i> Isi Formulir</a>
+            <a href="{{ url('/formulir-paten') }}" class="btn-download">
+                <i class="fa-solid fa-paper-plane"></i> Isi Formulir
+            </a>
         </div>
     </div>
 @endsection

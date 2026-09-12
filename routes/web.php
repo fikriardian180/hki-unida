@@ -21,33 +21,33 @@ Route::get('/pengertian', function () {
     return view('pengertian');
 });
 
-Route::get('/phc', function () {
-    return view('phc');
+Route::get('/pengertian-hak-cipta', function () {
+    return view('pengertian-hak-cipta');
 });
 
-Route::get('/pmrk', function () {
-    return view('pmrk');
+Route::get('/pengertian-merek', function () {
+    return view('pengertian-merek');
 });
 
-Route::get('/pptn', function () {
-    return view('pptn');
+Route::get('/pengertian-paten', function () {
+    return view('pengertian-paten');
 });
 
 // HALAMAN SYARAT & KETENTUAN
-Route::get('/sk', function () {
-    return view('sk');
+Route::get('/syarat-ketentuan', function () {
+    return view('syarat-ketentuan');
 });
 
-Route::get('/skhc', function () {
-    return view('skhc');
+Route::get('/syarat-ketentuan-hak-cipta', function () {
+    return view('syarat-ketentuan-hak-cipta');
 });
 
-Route::get('/skmrk', function () {
-    return view('skmrk');
+Route::get('/syarat-ketentuan-merek', function () {
+    return view('syarat-ketentuan-merek');
 });
 
-Route::get('/skptn', function () {
-    return view('skptn');
+Route::get('/syarat-ketentuan-paten', function () {
+    return view('syarat-ketentuan-paten');
 });
 
 // HALAMAN PENDAFTARAN & TEMPLATE
@@ -55,29 +55,29 @@ Route::get('/pendaftaran', function () {
     return view('pendaftaran');
 });
 
-Route::get('/pdffm', function () {
-    return view('pdffm');
+Route::get('/formulir-pendaftaran', function () {
+    return view('formulir-pendaftaran');
 });
 
-Route::get('/pdftf', function () {
-    return view('pdftf');
+Route::get('/template-formulir', function () { // Sudah dihapus spasi tambahannya
+    return view('template-formulir');
 });
 
-// ROUTE FORMULIR HAK CIPTA
+// ROUTE FORMULIR HAK CIPTA (Dengan Throttle Submit Form: Maks 3 per menit)
 Route::get('/formulir-hak-cipta', [HakCiptaController::class, 'create'])->name('hakcipta.create');
-Route::post('/formulir-hak-cipta', [HakCiptaController::class, 'store'])->name('hakcipta.store');
+Route::post('/formulir-hak-cipta', [HakCiptaController::class, 'store'])->middleware('throttle:3,1')->name('hakcipta.store');
 
-// ROUTE FORMULIR PATEN
+// ROUTE FORMULIR PATEN (Dengan Throttle Submit Form: Maks 3 per menit)
 Route::get('/formulir-paten', [PatenController::class, 'create'])->name('paten.create');
-Route::post('/formulir-paten', [PatenController::class, 'store'])->name('paten.store');
+Route::post('/formulir-paten', [PatenController::class, 'store'])->middleware('throttle:3,1')->name('paten.store');
 
-// ROUTE FORMULIR MEREK
+// ROUTE FORMULIR MEREK (Dengan Throttle Submit Form: Maks 3 per menit)
 Route::get('/formulir-merek', [MerekController::class, 'create'])->name('merek.create');
-Route::post('/formulir-merek', [MerekController::class, 'store'])->name('merek.store');
+Route::post('/formulir-merek', [MerekController::class, 'store'])->middleware('throttle:3,1')->name('merek.store');
 
-// ROUTE AUTENTIKASI ADMIN
+// ROUTE AUTENTIKASI ADMIN (Dengan Throttle Login: Maks 5 percobaan per menit)
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:5,1')->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // ROUTE DASHBOARD ADMIN

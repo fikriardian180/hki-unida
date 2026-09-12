@@ -4,7 +4,9 @@
 
 @push('styles')
 <style>
+    /* CSS Utama Responsive Form */
     .form-container {
+        width: 100%;
         max-width: 800px;
         margin: 0 auto;
         padding: 30px 40px;
@@ -12,6 +14,7 @@
         border-radius: 8px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         border-top: 5px solid #3B6B80;
+        box-sizing: border-box; /* Memastikan padding tidak membuat lebar meluber */
     }
 
     .form-header {
@@ -53,6 +56,7 @@
         font-weight: 600;
         color: #1a1a1a;
         margin-bottom: 8px;
+        line-height: 1.4;
     }
 
     .form-label .required {
@@ -69,6 +73,7 @@
         border-radius: 5px;
         transition: all 0.2s ease-in-out;
         outline: none;
+        box-sizing: border-box; /* PENTING agar input tidak melebar dari wadah */
     }
 
     .form-control:focus {
@@ -94,6 +99,7 @@
         border-radius: 6px;
         background-color: #f8fafc;
         margin-bottom: 25px;
+        box-sizing: border-box;
     }
 
     .file-upload-wrap {
@@ -105,6 +111,7 @@
         background-color: #f8fafc;
         cursor: pointer;
         transition: border-color 0.2s;
+        box-sizing: border-box;
     }
 
     .file-upload-wrap:hover {
@@ -125,6 +132,7 @@
     .file-upload-text {
         font-size: 13px;
         color: #64748b;
+        word-break: break-word; /* Mengantisipasi nama file panjang meluber */
     }
 
     .file-upload-text i {
@@ -156,6 +164,12 @@
         transform: scale(0.99);
     }
 
+    .btn-submit:disabled {
+        background-color: #94a3b8;
+        cursor: not-allowed;
+        transform: none;
+    }
+
     .alert-success {
         background-color: #d1e7dd;
         color: #0f5132;
@@ -174,14 +188,37 @@
         border: 1px solid #f5c2c7;
     }
 
-    @media (max-width: 600px) {
+    /* MEDIA QUERY RESPONSIVE UNTUK LAYAR MOBILE */
+    @media (max-width: 768px) {
         .form-container {
-            padding: 20px 15px;
+            padding: 20px 15px; /* Kurangi padding agar area ketik lebih luas */
+            border-radius: 6px;
+        }
+
+        .form-title {
+            font-size: 20px;
+        }
+
+        .form-subtitle {
+            font-size: 13px;
         }
 
         .form-group.two-cols {
-            flex-direction: column;
-            gap: 20px;
+            flex-direction: column; /* Ubah kolom 2 sejajar menjadi tumpuk atas-bawah */
+            gap: 15px;
+        }
+
+        #groupPemohon2, #groupPemohon3, #groupPemohon4, #groupPemohon5 {
+            padding: 15px 10px; /* Kurangi padding di dalam kotak tumpuk pemohon */
+        }
+
+        .file-upload-wrap {
+            padding: 15px 10px;
+        }
+
+        .btn-submit {
+            padding: 12px;
+            font-size: 15px;
         }
     }
 </style>
@@ -213,7 +250,7 @@
             </div>
         @endif
 
-        <form action="{{ route('hakcipta.store') }}" method="POST" enctype="multipart/form-data">
+        <form id="formHakCipta" action="{{ route('hakcipta.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             
             <!-- Email Pemohon -->
@@ -786,7 +823,7 @@
             </div>
 
             <!-- Tombol Kirim -->
-            <button type="submit" class="btn-submit">
+            <button type="submit" id="btnSubmit" class="btn-submit">
                 <i class="fa-solid fa-paper-plane"></i> Kirim Permohonan
             </button>
 
@@ -928,6 +965,18 @@
                 }
             });
         });
+
+        // Script Disabling Button saat Submit Form
+        const formHakCipta = document.getElementById('formHakCipta');
+        if (formHakCipta) {
+            formHakCipta.addEventListener('submit', function() {
+                const btnSubmit = document.getElementById('btnSubmit');
+                if (btnSubmit) {
+                    btnSubmit.disabled = true;
+                    btnSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim Permohonan...';
+                }
+            });
+        }
     });
 </script>
 @endpush

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pengertian Hak Cipta')
+@section('title', 'Pengertian Hak Cipta - Sentra HKI UNIDA Gontor')
 
 @push('styles')
 <style>
@@ -18,13 +18,15 @@
     .description {
         font-size: 15px;
         color: #475569;
-        line-height: 1.6;
+        line-height: 1.7;
         text-align: justify;
         margin-bottom: 12px;
+        word-wrap: break-word;
     }
 
     .custom-list {
         margin-left: 20px;
+        padding-left: 5px;
         margin-bottom: 20px;
     }
 
@@ -35,11 +37,16 @@
         font-size: 15px;
     }
 
-    /* Tabel Responsive */
+    /* Tabel Responsive Container */
     .table-responsive {
+        width: 100%;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Scroll lancar di iOS */
         margin-top: 15px;
         margin-bottom: 30px;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
     .custom-table {
@@ -48,9 +55,7 @@
         font-size: 14px;
         text-align: left;
         background-color: #ffffff;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        border-radius: 6px;
-        overflow: hidden;
+        white-space: normal;
     }
 
     .custom-table th {
@@ -58,6 +63,7 @@
         color: #ffffff;
         padding: 12px 16px;
         font-weight: 600;
+        white-space: nowrap; /* Menjaga header tabel tetap sejajar */
     }
 
     .custom-table td {
@@ -65,6 +71,11 @@
         border-bottom: 1px solid #e5e7eb;
         color: #4b5563;
         vertical-align: top;
+        line-height: 1.5;
+    }
+
+    .custom-table tbody tr:last-child td {
+        border-bottom: none;
     }
 
     .custom-table tbody tr:nth-child(even) {
@@ -73,6 +84,35 @@
 
     .custom-table tbody tr:hover {
         background-color: #f1f5f9;
+    }
+
+    /* MEDIA QUERY RESPONSIF UNTUK MOBILITY (HP/TABLET) */
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 18px;
+            margin-top: 25px;
+        }
+
+        .description {
+            font-size: 14px;
+            text-align: left; /* Alignment kiri lebih rapi dibaca di HP */
+            line-height: 1.6;
+        }
+
+        .custom-list {
+            margin-left: 15px;
+            padding-left: 0;
+        }
+
+        .custom-list li {
+            font-size: 14px;
+        }
+
+        .custom-table th, 
+        .custom-table td {
+            padding: 10px 12px;
+            font-size: 13px;
+        }
     }
 </style>
 @endpush
@@ -94,7 +134,7 @@
     </p>
     <ul class="custom-list">
         <li><strong>Undang-Undang Nomor 28 Tahun 2014</strong> tentang Hak Cipta.</li>
-        <li><strong>Peraturan Pemerintah Nomor 56 Tahun 2021</strong> tentang Pengelolaan Royalti Hak Cipta Lagu dan/atau Musik (serta peraturan turunan terkait pendaftaran digital).</li>
+        <li><strong>Peraturan Pemerintah Nomor 56 Tahun 2021</strong> tentang Pengelolaan Royalti Hak Cipta Lagu dan/atau Musik.</li>
         <li><strong>Undang-Undang Nomor 11 Tahun 2019</strong> tentang Sistem Nasional Ilmu Pengetahuan dan Teknologi (terkait kewajiban pelindungan KI hasil riset perguruan tinggi).</li>
     </ul>
 
@@ -115,49 +155,49 @@
         <table class="custom-table">
             <thead>
                 <tr>
-                    <th style="width: 5%;">No</th>
-                    <th style="width: 25%;">Kategori Ciptaan</th>
-                    <th style="width: 70%;">Jenis Ciptaan Yang Dapat Didaftarkan</th>
+                    <th style="width: 50px; text-align: center;">No</th>
+                    <th style="min-width: 160px;">Kategori Ciptaan</th>
+                    <th style="min-width: 280px;">Jenis Ciptaan Yang Dapat Didaftarkan</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
+                    <td style="text-align: center;">1</td>
                     <td><strong>Karya Tulis</strong></td>
                     <td>Buku, Monograf, Buku Panduan, Modul Ajar, Ringkasan/Resume, Artikel Ilmiah, Jurnal, Modul Praktikum, Karya Tulis Terjemahan.</td>
                 </tr>
                 <tr>
-                    <td>2</td>
+                    <td style="text-align: center;">2</td>
                     <td><strong>Karya Seni</strong></td>
                     <td>Alat Peraga Pendidikan, Peta, Desain Motif Batik, Kaligrafi, Lukisan, Ilustrasi, Karya Arsitektur.</td>
                 </tr>
                 <tr>
-                    <td>3</td>
+                    <td style="text-align: center;">3</td>
                     <td><strong>Karya Audio Visual</strong></td>
                     <td>Video Pembelajaran, Film Pendek Dokumenter, Rekaman Kuliah, Podcast Edukasi, Aransemen Musik/Lagu Kampus.</td>
                 </tr>
                 <tr>
-                    <td>4</td>
+                    <td style="text-align: center;">4</td>
                     <td><strong>Komposisi Musik</strong></td>
                     <td>Aransemen, Karya Rekaman Suara, Lagu (Musik Dengan Teks), Berbagai Jenis Musik, Musik Tanpa Teks, Musik Tradisional.</td>
                 </tr>
                 <tr>
-                    <td>5</td>
+                    <td style="text-align: center;">5</td>
                     <td><strong>Karya Fotografi</strong></td>
                     <td>Karya Fotografi, Potret.</td>
                 </tr>
                 <tr>
-                    <td>6</td>
+                    <td style="text-align: center;">6</td>
                     <td><strong>Karya Drama & Koreografi</strong></td>
                     <td>Drama/pertunjukan, Drama Musikal, Ketoprak, Pentas Musik, Pewayangan, Seni Pertunjukan, Sulap, Tari.</td>
                 </tr>
                 <tr>
-                    <td>7</td>
+                    <td style="text-align: center;">7</td>
                     <td><strong>Karya Rekaman / Cetak</strong></td>
                     <td>Komik, Koreografi, Booklet, Khutbah, Banner, Brosur, Buku, Modul, Diktat, Cerita Bergambar, Pantomim, Karya Siaran, Naskah Film, Novel.</td>
                 </tr>
                 <tr>
-                    <td>8</td>
+                    <td style="text-align: center;">8</td>
                     <td><strong>Karya Lainnya</strong></td>
                     <td>Kompilasi Ciptaan, Permainan Video, Program Komputer.</td>
                 </tr>
@@ -184,33 +224,33 @@
         <table class="custom-table">
             <thead>
                 <tr>
-                    <th style="width: 5%;">No</th>
-                    <th style="width: 45%;">Rincian</th>
-                    <th style="width: 25%;">Lembaga Pendidikan, Penelitian, UMKM</th>
-                    <th style="width: 25%;">Umum</th>
+                    <th style="width: 50px; text-align: center;">No</th>
+                    <th style="min-width: 220px;">Rincian</th>
+                    <th style="min-width: 160px;">Lembaga Pendidikan, Penelitian, UMKM</th>
+                    <th style="min-width: 120px;">Umum</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
+                    <td style="text-align: center;">1</td>
                     <td>Pendaftaran Hak Cipta (Karya Seni, Karya Tulis, Audio Visual, Musik, Fotografi, Drama, Rekaman)</td>
                     <td>Rp 300.000</td>
                     <td>Rp 500.000</td>
                 </tr>
                 <tr>
-                    <td>2</td>
+                    <td style="text-align: center;">2</td>
                     <td>Pendaftaran Hak Cipta berupa Aplikasi / Program Komputer</td>
                     <td>Rp 400.000</td>
                     <td>Rp 700.000</td>
                 </tr>
                 <tr>
-                    <td>3</td>
+                    <td style="text-align: center;">3</td>
                     <td>Administrasi Layanan</td>
                     <td>Rp 300.000</td>
                     <td>Rp 300.000</td>
                 </tr>
                 <tr>
-                    <td>4</td>
+                    <td style="text-align: center;">4</td>
                     <td>Pengalihan Hak</td>
                     <td>Rp 200.000</td>
                     <td>Rp 200.000</td>

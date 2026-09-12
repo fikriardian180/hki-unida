@@ -1,32 +1,64 @@
 @extends('layouts.app')
 
-@section('title', 'Mengenal Kekayaan Intelektual')
+@section('title', 'Mengenal Kekayaan Intelektual - Sentra HKI UNIDA Gontor')
 
 @push('styles')
 <style>
-    /* CSS Khusus Halaman Pengertian KI */
-    .lead-box {
-        background-color: #f8fafc;
-        border-left: 4px solid #3B6B80;
-        padding: 20px 25px;
-        border-radius: 0 8px 8px 0;
-        margin-bottom: 25px;
-    }
-
-    .lead-text {
-        font-size: 16px;
-        color: #334155;
-        line-height: 1.7;
-    }
-
+    /* CSS Khusus Halaman Mengenal KI */
     .description-text {
         font-size: 15px;
         color: #475569;
-        line-height: 1.6;
+        line-height: 1.7;
         text-align: justify;
         margin-bottom: 25px;
+        word-wrap: break-word;
     }
 
+    /* Welcome Card Flexbox */
+    .welcome-card {
+        background-color: #f8fafc;
+        border-left: 5px solid #3B6B80;
+        padding: 25px;
+        border-radius: 0 8px 8px 0;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .welcome-logo-wrap {
+        flex-shrink: 0;
+        width: 140px;
+        text-align: center;
+    }
+
+    .welcome-logo-wrap img {
+        width: 100%;
+        height: auto;
+        max-height: 130px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .welcome-content-wrap {
+        flex: 1;
+    }
+
+    .page-heading {
+        font-family: 'Slabo 27px', serif;
+        font-size: 24px;
+        color: #1e293b;
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+
+    .welcome-card .description-text {
+        margin-bottom: 0;
+    }
+
+    /* Cards Regime KI */
     .regime-card {
         background-color: #ffffff;
         border: 1px solid #e2e8f0;
@@ -34,11 +66,12 @@
         padding: 25px;
         margin-bottom: 25px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        transition: box-shadow 0.2s ease;
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
     }
 
     .regime-card:hover {
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
     }
 
     .regime-header {
@@ -51,7 +84,7 @@
     }
 
     .regime-icon {
-        font-size: 22px;
+        font-size: 24px;
         color: #3B6B80;
     }
 
@@ -69,7 +102,7 @@
 
     .info-list li {
         position: relative;
-        padding-left: 24px;
+        padding-left: 20px;
         margin-bottom: 12px;
         font-size: 14px;
         color: #475569;
@@ -84,14 +117,49 @@
         content: "•";
         color: #3B6B80;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 18px;
         position: absolute;
-        left: 8px;
-        top: -3px;
+        left: 4px;
+        top: -1px;
     }
 
     .info-list strong {
         color: #1e293b;
+    }
+
+    /* MEDIA QUERY RESPONSIF UNTUK MOBILITY (HP/TABLET) */
+    @media (max-width: 768px) {
+        .welcome-card {
+            flex-direction: column;
+            text-align: center;
+            padding: 20px 15px;
+        }
+
+        .welcome-logo-wrap {
+            width: 100px;
+        }
+
+        .page-heading {
+            font-size: 20px;
+        }
+
+        .description-text {
+            font-size: 14px;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .regime-card {
+            padding: 18px 15px;
+        }
+
+        .regime-title {
+            font-size: 18px;
+        }
+
+        .info-list li {
+            font-size: 13.5px;
+        }
     }
 </style>
 @endpush
@@ -99,10 +167,17 @@
 @section('content')
     <h1 class="page-title">Mengenal Kekayaan Intelektual (KI)</h1>
 
-    <div class="lead-box">
-        <p class="lead-text">
-            <strong>Kekayaan Intelektual (KI)</strong> adalah hak yang timbul dari hasil olah pikir otak manusia yang menghasilkan suatu produk atau proses yang berguna untuk manusia. Pada intinya, Kekayaan Intelektual adalah hak eksklusif yang diberikan oleh negara kepada kreator, pencipta, atau inventor atas hasil karya dan karsa kreativitasnya.
-        </p>
+    <!-- Welcome Card Header -->
+    <div class="welcome-card">
+        <div class="welcome-logo-wrap">
+            <img src="{{ asset('images/gambar-ki.png') }}" alt="Ilustrasi Kekayaan Intelektual">
+        </div>
+        <div class="welcome-content-wrap">
+            <h2 class="page-heading">Kekayaan Intelektual (KI)</h2>
+            <p class="description-text">
+                Kekayaan Intelektual (KI) adalah hak yang timbul dari hasil olah pikir otak manusia yang menghasilkan suatu produk atau proses yang berguna untuk manusia. Pada intinya, Kekayaan Intelektual adalah hak eksklusif yang diberikan oleh negara kepada kreator, pencipta, atau inventor atas hasil karya dan karsa kreativitasnya.
+            </p>
+        </div>
     </div>
 
     <p class="description-text">

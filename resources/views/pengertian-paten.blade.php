@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pengertian Paten')
+@section('title', 'Pengertian Paten - Sentra HKI UNIDA Gontor')
 
 @push('styles')
 <style>
@@ -18,13 +18,15 @@
     .description {
         font-size: 15px;
         color: #475569;
-        line-height: 1.6;
+        line-height: 1.7;
         text-align: justify;
         margin-bottom: 12px;
+        word-wrap: break-word;
     }
 
     .custom-list {
         margin-left: 20px;
+        padding-left: 5px;
         margin-bottom: 20px;
     }
 
@@ -41,6 +43,7 @@
         border-radius: 8px;
         padding: 20px;
         margin-bottom: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.03);
     }
 
     .patent-sub-title {
@@ -50,11 +53,16 @@
         margin-bottom: 10px;
     }
 
-    /* Tabel Responsive */
+    /* Tabel Responsive Container */
     .table-responsive {
+        width: 100%;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Scroll lancar di iOS */
         margin-top: 15px;
         margin-bottom: 30px;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
     .custom-table {
@@ -63,9 +71,7 @@
         font-size: 14px;
         text-align: left;
         background-color: #ffffff;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        border-radius: 6px;
-        overflow: hidden;
+        white-space: normal;
     }
 
     .custom-table th {
@@ -73,6 +79,7 @@
         color: #ffffff;
         padding: 12px 16px;
         font-weight: 600;
+        white-space: nowrap; /* Menjaga header tabel tetap sejajar */
     }
 
     .custom-table td {
@@ -80,6 +87,11 @@
         border-bottom: 1px solid #e5e7eb;
         color: #4b5563;
         vertical-align: top;
+        line-height: 1.5;
+    }
+
+    .custom-table tbody tr:last-child td {
+        border-bottom: none;
     }
 
     .custom-table tbody tr:nth-child(even) {
@@ -88,6 +100,43 @@
 
     .custom-table tbody tr:hover {
         background-color: #f1f5f9;
+    }
+
+    /* MEDIA QUERY RESPONSIF UNTUK LAYAR HP/TABLET */
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 18px;
+            margin-top: 25px;
+        }
+
+        .description {
+            font-size: 14px;
+            text-align: left; /* Alignment kiri lebih rapi dibaca di HP */
+            line-height: 1.6;
+        }
+
+        .custom-list {
+            margin-left: 15px;
+            padding-left: 0;
+        }
+
+        .custom-list li {
+            font-size: 14px;
+        }
+
+        .patent-sub-card {
+            padding: 15px;
+        }
+
+        .patent-sub-title {
+            font-size: 16px;
+        }
+
+        .custom-table th, 
+        .custom-table td {
+            padding: 10px 12px;
+            font-size: 13px;
+        }
     }
 </style>
 @endpush
@@ -133,7 +182,7 @@
         <ul class="custom-list">
             <li>
                 <strong>Syarat Utama:</strong>
-                <ul style="margin-top: 5px;">
+                <ul style="margin-top: 5px; margin-left: 15px;">
                     <li><strong>Baru (Novelty):</strong> Belum pernah diumumkan di media mana pun di dunia sebelum tanggal pengajuan.</li>
                     <li><strong>Langkah Inventif (Inventive Step):</strong> Tidak terduga bagi orang yang ahli di bidangnya.</li>
                     <li><strong>Dapat Diterapkan dalam Industri:</strong> Dapat diproduksi massal secara konsisten.</li>
@@ -153,7 +202,7 @@
         <ul class="custom-list">
             <li>
                 <strong>Syarat Utama:</strong>
-                <ul style="margin-top: 5px;">
+                <ul style="margin-top: 5px; margin-left: 15px;">
                     <li><strong>Baru (Novelty).</strong></li>
                     <li><strong>Memiliki Kegunaan Praktis:</strong> Memiliki efisiensi atau fungsi baru dari alat terdahulu.</li>
                     <li><strong>Pemeriksaan Lebih Cepat:</strong> Tidak membutuhkan langkah inventif yang terlalu rumit.</li>
@@ -197,81 +246,81 @@
         <table class="custom-table">
             <thead>
                 <tr>
-                    <th style="width: 5%;">No</th>
-                    <th style="width: 45%;">Rincian Layanan</th>
-                    <th style="width: 25%;">Lembaga Pendidikan, Penelitian, UMKM</th>
-                    <th style="width: 25%;">Umum</th>
+                    <th style="width: 50px; text-align: center;">No</th>
+                    <th style="min-width: 240px;">Rincian Layanan</th>
+                    <th style="min-width: 170px;">Lembaga Pendidikan, Penelitian, UMKM</th>
+                    <th style="min-width: 120px;">Umum</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
+                    <td style="text-align: center;">1</td>
                     <td>Pendaftaran Paten Sederhana</td>
                     <td>Rp 350.000</td>
                     <td>Rp 950.000</td>
                 </tr>
                 <tr>
-                    <td>2</td>
+                    <td style="text-align: center;">2</td>
                     <td>Penelusuran Paten</td>
                     <td>Rp 500.000</td>
                     <td>Rp 500.000</td>
                 </tr>
                 <tr>
-                    <td>3</td>
+                    <td style="text-align: center;">3</td>
                     <td>Penyusunan Draf Paten</td>
                     <td>Rp 500.000</td>
                     <td>Rp 1.000.000</td>
                 </tr>
                 <tr>
-                    <td>4</td>
+                    <td style="text-align: center;">4</td>
                     <td>Pemeriksaan Substantif</td>
                     <td>Rp 500.000</td>
                     <td>Rp 500.000</td>
                 </tr>
                 <tr>
-                    <td>5</td>
+                    <td style="text-align: center;">5</td>
                     <td>Administrasi Kepengurusan Awal</td>
                     <td>Rp 750.000</td>
                     <td>Rp 750.000</td>
                 </tr>
                 <tr>
-                    <td>6</td>
+                    <td style="text-align: center;">6</td>
                     <td>Biaya Per Klaim</td>
                     <td>Rp 75.000</td>
                     <td>Rp 75.000</td>
                 </tr>
                 <tr>
-                    <td>7</td>
+                    <td style="text-align: center;">7</td>
                     <td>Penambahan Deskripsi (per lembar diatas 30 hal)</td>
                     <td>Rp 15.000</td>
                     <td>Rp 15.000</td>
                 </tr>
                 <tr>
-                    <td>8</td>
+                    <td style="text-align: center;">8</td>
                     <td>Percepatan Pemeriksaan Substantif</td>
                     <td>Rp 400.000</td>
                     <td>Rp 400.000</td>
                 </tr>
                 <tr>
-                    <td>9</td>
+                    <td style="text-align: center;">9</td>
                     <td>Pengajuan Banding Paten</td>
                     <td>Rp 3.000.000</td>
                     <td>Rp 3.000.000</td>
                 </tr>
                 <tr>
-                    <td>10</td>
+                    <td style="text-align: center;">10</td>
                     <td>Pencatatan Perjanjian Lisensi</td>
                     <td>Rp 1.000.000</td>
                     <td>Rp 1.000.000</td>
                 </tr>
                 <tr>
-                    <td>11</td>
+                    <td style="text-align: center;">11</td>
                     <td>Biaya Pemeliharaan Tahun ke-6</td>
                     <td>Rp 1.700.000</td>
                     <td>Rp 1.750.000</td>
                 </tr>
                 <tr>
-                    <td>12</td>
+                    <td style="text-align: center;">12</td>
                     <td>Biaya Pemeliharaan Tahun ke-10</td>
                     <td>Rp 3.900.000</td>
                     <td>Rp 4.050.000</td>
