@@ -54,7 +54,7 @@ class HakCiptaController extends Controller
             'file_akte_pendirian' => 'nullable|file|mimes:pdf|max:10240',
         ]);
 
-        // 2. Simpan file yang diunggah
+        // 2. Simpan file yang diunggah ke folder privat
         $fileFields = [
             'file_data_pencipta_lengkap', 'file_ktp', 'file_npwp',
             'file_deskripsi_karya', 'file_karya_ciptaan', 'file_surat_pernyataan',
@@ -63,7 +63,8 @@ class HakCiptaController extends Controller
 
         foreach ($fileFields as $fileKey) {
             if ($request->hasFile($fileKey)) {
-                $validated[$fileKey] = $request->file($fileKey)->store('hak_cipta_files', 'public');
+                // Simpan ke storage privat tanpa argumen 'public'
+                $validated[$fileKey] = $request->file($fileKey)->store('private/hak-cipta');
             }
         }
 

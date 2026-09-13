@@ -25,7 +25,7 @@
 @section('content')
     <!-- Action Bar / Tombol Kembali -->
     <div style="margin-bottom: 20px; display: flex; justify-content: flex-end;">
-        <a href="{{ route('admin.hakcipta') }}" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar</a>
+        <a href="{{ route('admin.dashboard') }}" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard</a>
     </div>
 
     @if(session('success'))
@@ -105,24 +105,26 @@
         <div class="file-list">
             @php
                 $files = [
-                    'KTP Pemohon' => $data->file_ktp,
-                    'NPWP Pemohon' => $data->file_npwp,
-                    'Deskripsi Karya' => $data->file_deskripsi_karya,
-                    'File Karya Ciptaan' => $data->file_karya_ciptaan,
-                    'Surat Pernyataan' => $data->file_surat_pernyataan,
-                    'Surat Pengalihan Hak' => $data->file_pengalihan_hak,
-                    'Data Pencipta Lengkap' => $data->file_data_pencipta_lengkap,
-                    'Akte Pendirian' => $data->file_akte_pendirian,
+                    'KTP Pemohon' => 'file_ktp',
+                    'NPWP Pemohon' => 'file_npwp',
+                    'Deskripsi Karya' => 'file_deskripsi_karya',
+                    'File Karya Ciptaan' => 'file_karya_ciptaan',
+                    'Surat Pernyataan' => 'file_surat_pernyataan',
+                    'Surat Pengalihan Hak' => 'file_pengalihan_hak',
+                    'Data Pencipta Lengkap' => 'file_data_pencipta_lengkap',
+                    'Akte Pendirian' => 'file_akte_pendirian',
                 ];
             @endphp
 
-            @foreach($files as $label => $filePath)
-                @if($filePath)
-                    <div class="file-item">
-                        <span><i class="fa-solid fa-file-pdf" style="color: #e11d48; margin-right: 8px;"></i> {{ $label }}</span>
-                        <a href="{{ asset('storage/' . $filePath) }}" target="_blank" class="btn-download"><i class="fa-solid fa-eye"></i> Lihat / Unduh</a>
-                    </div>
-                @endif
+            @foreach($files as $label => $fieldKey)
+            @if(!empty($data->$fieldKey))
+                <div class="file-item">
+                    <span><i class="fa-solid fa-file-pdf" style="color: #e11d48; margin-right: 8px;"></i> {{ $label }}</span>
+                    <a href="{{ route('admin.hakcipta.file', ['id' => $data->id, 'field' => $fieldKey]) }}" target="_blank" class="btn-download">
+                        <i class="fa-solid fa-eye"></i> Lihat / Unduh
+                    </a>
+                </div>
+            @endif
             @endforeach
         </div>
     </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\PatenController;
 use App\Http\Controllers\MerekController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\DashboardController;
 
 // HALAMAN UTAMA & INFORMASI
 Route::get('/', function () {
@@ -82,23 +83,23 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // ROUTE DASHBOARD ADMIN
 Route::middleware(['auth'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     
     // Hak Cipta
-    Route::get('/hak-cipta', [AdminController::class, 'hakCipta'])->name('admin.hakcipta');
-    Route::get('/hak-cipta/export', [AdminController::class, 'exportHakCipta'])->name('admin.hakcipta.export');
-    Route::get('/hak-cipta/{id}', [AdminController::class, 'detailHakCipta'])->name('admin.hakcipta.detail');
-    Route::post('/hak-cipta/{id}/status', [AdminController::class, 'updateStatusHakCipta'])->name('admin.hakcipta.status');
+    Route::get('/hak-cipta', [DashboardController::class, 'index'])->name('admin.hakcipta');
+    Route::get('/hak-cipta/{id}', [DashboardController::class, 'showHakCipta'])->name('admin.hakcipta.detail');
+    Route::post('/hak-cipta/{id}/status', [DashboardController::class, 'updateStatusHakCipta'])->name('admin.hakcipta.status');
+    Route::get('/hak-cipta/file/{id}/{field}', [DashboardController::class, 'downloadFile'])->name('admin.hak-cipta.file');
 
-    // Paten
-    Route::get('/paten', [AdminController::class, 'paten'])->name('admin.paten');
-    Route::get('/paten/export', [AdminController::class, 'exportPaten'])->name('admin.paten.export');
-    Route::get('/paten/{id}', [AdminController::class, 'detailPaten'])->name('admin.paten.detail');
-    Route::post('/paten/{id}/status', [AdminController::class, 'updateStatusPaten'])->name('admin.paten.status');
+    // Paten (Aktifkan jika controller/method-nya sudah siap)
+    Route::get('/paten', [DashboardController::class, 'paten'])->name('admin.paten');
+    Route::get('/paten/{id}', [DashboardController::class, 'detailPaten'])->name('admin.paten.detail');
+    Route::post('/paten/{id}/status', [DashboardController::class, 'updateStatusPaten'])->name('admin.paten.status');
 
-    // Merek
-    Route::get('/merek', [AdminController::class, 'merek'])->name('admin.merek');
-    Route::get('/merek/export', [AdminController::class, 'exportMerek'])->name('admin.merek.export');
-    Route::get('/merek/{id}', [AdminController::class, 'detailMerek'])->name('admin.merek.detail');
-    Route::post('/merek/{id}/status', [AdminController::class, 'updateStatusMerek'])->name('admin.merek.status');
+    // Merek (Aktifkan jika controller/method-nya sudah siap)
+    Route::get('/merek', [DashboardController::class, 'merek'])->name('admin.merek');
+    Route::get('/merek/{id}', [DashboardController::class, 'detailMerek'])->name('admin.merek.detail');
+    Route::post('/merek/{id}/status', [DashboardController::class, 'updateStatusMerek'])->name('admin.merek.status');
 });
+// Download
+Route::get('/admin/hak-cipta/file/{id}/{field}', [DashboardController::class, 'downloadFile'])->name('admin.hakcipta.file');
