@@ -120,7 +120,7 @@
             @if(!empty($data->$fieldKey))
                 <div class="file-item">
                     <span><i class="fa-solid fa-file-pdf" style="color: #e11d48; margin-right: 8px;"></i> {{ $label }}</span>
-                    <a href="{{ route('admin.hakcipta.file', ['id' => $data->id, 'field' => $fieldKey]) }}" target="_blank" class="btn-download">
+                    <a href="{{ route('admin.hak-cipta.file', ['id' => $data->id, 'field' => $fieldKey]) }}" target="_blank" class="btn-download">
                         <i class="fa-solid fa-eye"></i> Lihat / Unduh
                     </a>
                 </div>

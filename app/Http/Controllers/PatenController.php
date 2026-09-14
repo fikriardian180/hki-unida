@@ -57,7 +57,7 @@ class PatenController extends Controller
 
         foreach ($fileFields as $fileKey) {
             if ($request->hasFile($fileKey)) {
-                $validated[$fileKey] = $request->file($fileKey)->store('paten_files', 'public');
+                $validated[$fileKey] = $request->file($fileKey)->store('private/paten');
             }
         }
 

@@ -49,15 +49,15 @@ class MerekController extends Controller
             'file_deskripsi_merek' => 'required|file|mimes:pdf|max:10240',
         ]);
 
-        $files = [
+        $fileField = [
             'file_ktp', 'file_akta_pendirian', 'file_pengalihan_hak',
             'file_surat_umkm', 'file_ttd_digital', 'file_bentuk_merek',
             'file_dokumen_pendukung', 'file_deskripsi_merek'
         ];
 
-        foreach ($files as $fileKey) {
+        foreach ($fileField as $fileKey) {
             if ($request->hasFile($fileKey)) {
-                $validated[$fileKey] = $request->file($fileKey)->store('merek_files', 'public');
+                $validated[$fileKey] = $request->file($fileKey)->store('private/merek');
             }
         }
 

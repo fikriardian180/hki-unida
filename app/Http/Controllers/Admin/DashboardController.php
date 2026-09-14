@@ -14,13 +14,15 @@ class DashboardController extends Controller
     public function index()
     {
         // 1. Hitung total kartu statistik
-        $totalHakCipta = HakCipta::count();
-        $totalPaten    = class_exists(Paten::class) ? Paten::count() : 0;
-        $totalMerek    = class_exists(Merek::class) ? Merek::count() : 0;
+        $totalHakCipta   = HakCipta::count();
+        $totalPaten      = Paten::count();
+        $totalMerek      = Merek::count();
         $totalPermohonan = $totalHakCipta + $totalPaten + $totalMerek;
 
         // 2. Ambil data daftar pengajuan Hak Cipta terbaru
         $hakCiptasList = HakCipta::orderBy('created_at', 'desc')->get();
+        $patenList = Paten::orderBy('created_at', 'desc')->get();
+        $merekList = Merek::orderBy('created_at', 'desc')->get();
 
         return view('admin.dashboard', compact(
             'totalPermohonan',
@@ -31,14 +33,16 @@ class DashboardController extends Controller
         ));
     }
 
-    // Method untuk melihat detail lengkap & berkas yang diunggah
+    // ==========================================
+    // 1. MODUL HAK CIPTA
+    // ==========================================
+
     public function showHakCipta($id)
     {
         $data = HakCipta::findOrFail($id);
-        return view('admin.detail-hak-cipta', compact('data'));
+        return view('admin.hakcipta.detail', compact('data'));
     }
 
-    // Method untuk update status permohonan (Pending, Diproses, Selesai, Ditolak)
     public function updateStatusHakCipta(Request $request, $id)
     {
         $request->validate([
@@ -50,26 +54,108 @@ class DashboardController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->back()->with('success', 'Status permohonan berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Status permohonan Hak Cipta berhasil diperbarui!');
     }
 
-        public function downloadFile($id, $field)
+    public function downloadFileHakCipta($id, $field)
     {
         $hakCipta = HakCipta::findOrFail($id);
-        
-        // Ambil path file dari database
         $filePath = $hakCipta->$field;
 
-        // Cek jika path ada di database dan filenya benar-benar eksis di Storage
         if ($filePath && Storage::exists($filePath)) {
             return Storage::response($filePath);
         }
 
-        // Cek fallback jika tersimpan di disk local/private secara langsung
         if ($filePath && Storage::disk('local')->exists($filePath)) {
             return Storage::disk('local')->response($filePath);
         }
 
-        abort(404, 'File dokumen tidak ditemukan di penyimpanan server.');
+        abort(404, 'File dokumen Hak Cipta tidak ditemukan di penyimpanan server.');
+    }
+
+    // Alias untuk kompatibilitas route lama
+    public function downloadFile($id, $field)
+    {
+        return $this->downloadFileHakCipta($id, $field);
+    }
+
+    // ==========================================
+    // 2. MODUL PATEN
+    // ==========================================
+
+    public function showPaten($id)
+    {
+        $data = Paten::findOrFail($id);
+        return view('admin.paten.detail', compact('data'));
+    }
+
+    public function updateStatusPaten(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|string',
+        ]);
+
+        $paten = Paten::findOrFail($id);
+        $paten->update([
+            'status' => $request->status,
+        ]);
+
+        return redirect()->back()->with('success', 'Status permohonan Paten berhasil diperbarui!');
+    }
+
+    public function downloadFilePaten($id, $field)
+    {
+        $paten = Paten::findOrFail($id);
+        $filePath = $paten->$field;
+
+        if ($filePath && Storage::exists($filePath)) {
+            return Storage::response($filePath);
+        }
+
+        if ($filePath && Storage::disk('local')->exists($filePath)) {
+            return Storage::disk('local')->response($filePath);
+        }
+
+        abort(404, 'File dokumen Paten tidak ditemukan di penyimpanan server.');
+    }
+
+    // ==========================================
+    // 3. MODUL MEREK
+    // ==========================================
+
+    public function showMerek($id)
+    {
+        $data = Merek::findOrFail($id);
+        return view('admin.merek.detail', compact('data'));
+    }
+
+    public function updateStatusMerek(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|string',
+        ]);
+
+        $merek = Merek::findOrFail($id);
+        $merek->update([
+            'status' => $request->status,
+        ]);
+
+        return redirect()->back()->with('success', 'Status permohonan Merek berhasil diperbarui!');
+    }
+
+    public function downloadFileMerek($id, $field)
+    {
+        $merek = Merek::findOrFail($id);
+        $filePath = $merek->$field;
+
+        if ($filePath && Storage::exists($filePath)) {
+            return Storage::response($filePath);
+        }
+
+        if ($filePath && Storage::disk('local')->exists($filePath)) {
+            return Storage::disk('local')->response($filePath);
+        }
+
+        abort(404, 'File dokumen Merek tidak ditemukan di penyimpanan server.');
     }
 }
