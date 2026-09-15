@@ -86,7 +86,7 @@
                             <span class="badge badge-{{ strtolower($status) }}">{{ $status }}</span>
                         </td>
                         <td>
-                            <a href="{{ route('admin.hakcipta.detail', $item->id) }}" class="btn-action"><i class="fa-solid fa-eye"></i> Detail</a>
+                            <a href="{{ route('admin.detail-hak-cipta', $item->id) }}" class="btn-action"><i class="fa-solid fa-eye"></i> Detail</a>
                         </td>
                     </tr>
                 @empty

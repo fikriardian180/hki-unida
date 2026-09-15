@@ -85,20 +85,23 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     
     // Hak Cipta
-    Route::get('/hak-cipta', [DashboardController::class, 'index'])->name('admin.hakcipta');
-    Route::get('/hak-cipta/{id}', [DashboardController::class, 'showHakCipta'])->name('admin.hakcipta.detail');
+    Route::get('/hak-cipta', [DashboardController::class, 'indexHakCipta'])->name('admin.hakcipta');
+    Route::get('/hak-cipta/export', [DashboardController::class, 'exportHakCipta'])->name('admin.hakcipta.export');
+    Route::get('/hak-cipta/{id}', [DashboardController::class, 'showHakCipta'])->name('admin.detail-hak-cipta');
     Route::post('/hak-cipta/{id}/status', [DashboardController::class, 'updateStatusHakCipta'])->name('admin.hakcipta.status');
     Route::get('/hak-cipta/file/{id}/{field}', [DashboardController::class, 'downloadFileHakCipta'])->name('admin.hak-cipta.file');
 
     // Paten
-    Route::get('/paten', [DashboardController::class, 'index'])->name('admin.paten');
-    Route::get('/paten/{id}', [DashboardController::class, 'showPaten'])->name('admin.paten.detail');
+    Route::get('/paten', [DashboardController::class, 'indexPaten'])->name('admin.paten');
+    Route::get('/paten/export', [DashboardController::class, 'exportPaten'])->name('admin.paten.export'); // Route ekspor paten
+    Route::get('/paten/{id}', [DashboardController::class, 'showPaten'])->name('admin.detail-paten');
     Route::post('/paten/{id}/status', [DashboardController::class, 'updateStatusPaten'])->name('admin.paten.status');
     Route::get('/paten/file/{id}/{field}', [DashboardController::class, 'downloadFilePaten'])->name('admin.paten.file');
 
     // Merek
-    Route::get('/merek', [DashboardController::class, 'index'])->name('admin.merek');
-    Route::get('/merek/{id}', [DashboardController::class, 'showMerek'])->name('admin.merek.detail');
+    Route::get('/merek', [DashboardController::class, 'indexMerek'])->name('admin.merek');
+    Route::get('/merek/export', [DashboardController::class, 'exportMerek'])->name('admin.merek.export');
+    Route::get('/merek/{id}', [DashboardController::class, 'showMerek'])->name('admin.detail-merek');
     Route::post('/merek/{id}/status', [DashboardController::class, 'updateStatusMerek'])->name('admin.merek.status');
     Route::get('/merek/file/{id}/{field}', [DashboardController::class, 'downloadFileMerek'])->name('admin.merek.file');
 });

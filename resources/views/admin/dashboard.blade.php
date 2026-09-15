@@ -136,7 +136,7 @@
                             </span>
                         </td>
                         <td style="padding: 10px;">
-                            <a href="{{ route('admin.paten.detail', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px;">
+                            <a href="{{ route('admin.detail-paten', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px;">
                                 Lihat Isi & Berkas
                             </a>
                         </td>
@@ -179,7 +179,7 @@
                             </span>
                         </td>
                         <td style="padding: 10px;">
-                            <a href="{{ route('admin.merek.detail', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px;">
+                            <a href="{{ route('admin.detail-merek', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px;">
                                 Lihat Isi & Berkas
                             </a>
                         </td>

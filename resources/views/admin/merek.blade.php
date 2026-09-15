@@ -61,9 +61,8 @@
                     <th>No</th>
                     <th>Tanggal Kirim</th>
                     <th>Pemohon Utama</th>
-                    <th>Judul Merek</th>
-                    <th>Kelas Merek</th>
-                    <th>Jenis Merek</th>
+                    <th>Judul / Nama Merek</th>
+                    <th>Tipe Merek</th>
                     <th>Status</th>
                     <th>Aksi</th>
                 </tr>
@@ -78,19 +77,18 @@
                             <small style="color: #64748b;">{{ $item->email_pj }}</small>
                         </td>
                         <td>{{ $item->judul_merek }}</td>
-                        <td>{{ $item->kelas_merek }}</td>
-                        <td><span style="text-transform: capitalize;">{{ str_replace('-', ' ', $item->jenis_merek) }}</span></td>
+                        <td><span style="text-transform: capitalize;">{{ $item->tipe_merek ?? '-' }}</span></td>
                         <td>
                             @php $status = $item->status ?? 'Pending'; @endphp
                             <span class="badge badge-{{ strtolower($status) }}">{{ $status }}</span>
                         </td>
                         <td>
-                            <a href="{{ route('admin.merek.detail', $item->id) }}" class="btn-action"><i class="fa-solid fa-eye"></i> Detail</a>
+                            <a href="{{ route('admin.detail-merek', $item->id) }}" class="btn-action"><i class="fa-solid fa-eye"></i> Detail</a>
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8" style="text-align: center; color: #64748b; padding: 20px;">
+                        <td colspan="7" style="text-align: center; color: #64748b; padding: 20px;">
                             @if(request('search') || request('status'))
                                 Data permohonan yang dicari tidak ditemukan.
                             @else

@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
+    // ==========================================
+    // HALAMAN UTAMA DASHBOARD
+    // ==========================================
     public function index()
     {
         // 1. Hitung total kartu statistik
@@ -19,17 +22,19 @@ class DashboardController extends Controller
         $totalMerek      = Merek::count();
         $totalPermohonan = $totalHakCipta + $totalPaten + $totalMerek;
 
-        // 2. Ambil data daftar pengajuan Hak Cipta terbaru
+        // 2. Ambil data daftar pengajuan terbaru
         $hakCiptasList = HakCipta::orderBy('created_at', 'desc')->get();
-        $patenList = Paten::orderBy('created_at', 'desc')->get();
-        $merekList = Merek::orderBy('created_at', 'desc')->get();
+        $patenList     = Paten::orderBy('created_at', 'desc')->get();
+        $merekList     = Merek::orderBy('created_at', 'desc')->get();
 
         return view('admin.dashboard', compact(
             'totalPermohonan',
             'totalHakCipta',
             'totalPaten',
             'totalMerek',
-            'hakCiptasList'
+            'hakCiptasList',
+            'patenList',
+            'merekList'
         ));
     }
 
@@ -37,10 +42,32 @@ class DashboardController extends Controller
     // 1. MODUL HAK CIPTA
     // ==========================================
 
+    public function indexHakCipta(Request $request)
+    {
+        $query = HakCipta::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('nama_pemohon_1', 'like', "%{$search}%")
+                  ->orWhere('judul_karya', 'like', "%{$search}%")
+                  ->orWhere('email_pj', 'like', "%{$search}%");
+            });
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $dataHakCipta = $query->orderBy('created_at', 'desc')->get();
+
+        return view('admin.hak-cipta', compact('dataHakCipta'));
+    }
+
     public function showHakCipta($id)
     {
         $data = HakCipta::findOrFail($id);
-        return view('admin.hakcipta.detail', compact('data'));
+        return view('admin.detail-hak-cipta', compact('data'));
     }
 
     public function updateStatusHakCipta(Request $request, $id)
@@ -83,10 +110,32 @@ class DashboardController extends Controller
     // 2. MODUL PATEN
     // ==========================================
 
+    public function indexPaten(Request $request)
+    {
+        $query = Paten::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('nama_pemohon_1', 'like', "%{$search}%")
+                  ->orWhere('judul_invensi_id', 'like', "%{$search}%")
+                  ->orWhere('email_pj', 'like', "%{$search}%");
+            });
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $dataPaten = $query->orderBy('created_at', 'desc')->get();
+
+        return view('admin.paten', compact('dataPaten'));
+    }
+
     public function showPaten($id)
     {
         $data = Paten::findOrFail($id);
-        return view('admin.paten.detail', compact('data'));
+        return view('admin.detail-paten', compact('data')); 
     }
 
     public function updateStatusPaten(Request $request, $id)
@@ -123,10 +172,32 @@ class DashboardController extends Controller
     // 3. MODUL MEREK
     // ==========================================
 
+    public function indexMerek(Request $request)
+    {
+        $query = Merek::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('nama_pemohon_1', 'like', "%{$search}%")
+                  ->orWhere('judul_merek', 'like', "%{$search}%")
+                  ->orWhere('email_pj', 'like', "%{$search}%");
+            });
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $dataMerek = $query->orderBy('created_at', 'desc')->get();
+
+        return view('admin.merek', compact('dataMerek'));
+    }
+
     public function showMerek($id)
     {
         $data = Merek::findOrFail($id);
-        return view('admin.merek.detail', compact('data'));
+        return view('admin.detail-merek', compact('data'));
     }
 
     public function updateStatusMerek(Request $request, $id)
