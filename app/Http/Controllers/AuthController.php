@@ -17,12 +17,14 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        // Validasi input diperketat (email wajib format email, password minimal 8 karakter)
         $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+            'email'    => 'required|email',
+            'password' => 'required|string|min:8',
         ]);
 
         if (Auth::attempt($credentials)) {
+            // Regenerasi session ID untuk cegah Session Fixation
             $request->session()->regenerate();
             return redirect()->intended(route('admin.dashboard'));
         }
