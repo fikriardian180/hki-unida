@@ -19,6 +19,22 @@
     .form-status { display: flex; gap: 12px; align-items: center; }
     .select-status { padding: 8px 12px; border-radius: 5px; border: 1px solid #cbd5e1; font-size: 14px; outline: none; }
     .btn-update { padding: 8px 16px; background: #10b981; color: white; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; }
+    /* Style Warna Dropdown Status */
+    .select-status {
+        padding: 8px 14px;
+        border-radius: 6px;
+        border: 1px solid #cbd5e1;
+        font-size: 14px;
+        font-weight: 600;
+        outline: none;
+        transition: all 0.2s ease;
+    }
+
+    /* Kustomisasi Warna Status */
+    .status-pending  { background-color: #fef3c7; color: #d97706; border-color: #fde68a; }
+    .status-diproses { background-color: #e0f2fe; color: #0284c7; border-color: #bae6fd; }
+    .status-selesai  { background-color: #d1fae5; color: #059669; border-color: #a7f3d0; }
+    .status-ditolak  { background-color: #fee2e2; color: #dc2626; border-color: #fca5a5; }
 </style>
 @endpush
 
@@ -34,17 +50,21 @@
         </div>
     @endif
 
+    <!-- Ubah Status -->
     <!-- Status Permohonan -->
     <div class="card-detail">
         <div class="card-title">Status Permohonan</div>
         <form action="{{ route('admin.merek.status', $data->id) }}" method="POST" class="form-status">
             @csrf
-            <select name="status" class="select-status">
+            @php $currentStatus = strtolower($data->status ?? 'pending'); @endphp
+            
+            <select name="status" id="statusSelect" class="select-status status-{{ $currentStatus }}">
                 <option value="Pending" {{ ($data->status ?? '') == 'Pending' ? 'selected' : '' }}>Pending</option>
                 <option value="Diproses" {{ ($data->status ?? '') == 'Diproses' ? 'selected' : '' }}>Diproses</option>
                 <option value="Selesai" {{ ($data->status ?? '') == 'Selesai' ? 'selected' : '' }}>Selesai</option>
                 <option value="Ditolak" {{ ($data->status ?? '') == 'Ditolak' ? 'selected' : '' }}>Ditolak</option>
             </select>
+            
             <button type="submit" class="btn-update"><i class="fa-solid fa-floppy-disk"></i> Simpan Status</button>
         </form>
     </div>
@@ -103,32 +123,54 @@
         <div class="file-list">
             @php
                 $files = [
-                    'KTP Pemohon' => $data->file_ktp,
-                    'Akta Pendirian' => $data->file_akta_pendirian,
-                    'Surat Pengalihan Hak' => $data->file_pengalihan_hak,
-                    'Surat Keterangan UMKM' => $data->file_surat_umkm,
-                    'Tanda Tangan Digital' => $data->file_ttd_digital,
-                    'Bentuk / Label Merek' => $data->file_bentuk_merek,
-                    'Dokumen Pendukung' => $data->file_dokumen_pendukung,
-                    'Deskripsi Merek' => $data->file_deskripsi_merek,
+                    'KTP Pemohon' =>'file_ktp',
+                    'Akta Pendirian' => 'file_akta_pendirian',
+                    'Surat Pengalihan Hak' => 'file_pengalihan_hak',
+                    'Surat Keterangan UMKM' => 'file_surat_umkm',
+                    'Tanda Tangan Digital' => 'file_ttd_digital',
+                    'Bentuk / Label Merek' => 'file_bentuk_merek',
+                    'Dokumen Pendukung' => 'file_dokumen_pendukung',
+                    'Deskripsi Merek' => 'file_deskripsi_merek',
                 ];
             @endphp
 
-            @foreach($files as $label => $filePath)
-                @if($filePath)
+            @foreach($files as $label => $field)
+                {{-- Ambil nama file dari properti model $data --}}
+                @php $pathInDatabase = $data->$field; @endphp
+
+                @if(!empty($pathInDatabase))
                     <div class="file-item">
                         <span>
-                            @if(Str::endsWith($filePath, ['.png', '.jpg', '.jpeg']))
+                            @if(Str::endsWith($pathInDatabase, ['.png', '.jpg', '.jpeg']))
                                 <i class="fa-solid fa-file-image" style="color: #0284c7; margin-right: 8px;"></i>
                             @else
                                 <i class="fa-solid fa-file-pdf" style="color: #e11d48; margin-right: 8px;"></i>
                             @endif
                             {{ $label }}
                         </span>
-                        <a href="{{ asset('storage/' . $filePath) }}" target="_blank" class="btn-download"><i class="fa-solid fa-eye"></i> Lihat / Unduh</a>
+                        {{-- Gunakan Route Controller untuk file privat --}}
+                        <a href="{{ route('admin.merek.file', ['id' => $data->id, 'field' => $field]) }}" target="_blank" class="btn-download">
+                            <i class="fa-solid fa-eye"></i> Lihat / Unduh
+                        </a>
                     </div>
                 @endif
             @endforeach
         </div>
     </div>
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectEl = document.getElementById('statusSelect');
+        if (selectEl) {
+            selectEl.addEventListener('change', function() {
+                // Hapus kelas warna status lama
+                this.classList.remove('status-pending', 'status-diproses', 'status-selesai', 'status-ditolak');
+                // Tambahkan kelas warna status baru sesuai pilihan
+                this.classList.add('status-' + this.value.toLowerCase());
+            });
+        }
+    });
+</script>
+@endpush
 @endsection

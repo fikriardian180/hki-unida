@@ -41,11 +41,21 @@
         .brand {
             display: flex;
             align-items: center;
-            font-family: 'poppins', sans-serif;
+            font-family: 'Poppins', sans-serif;
             gap: 12px;
-            font-size: 25px;
+            font-size: 24px;
             font-weight: 700;
             letter-spacing: 0.5px;
+        }
+
+        /* Toggle Button Mobile (Hamburger) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
         }
 
         .nav-menu {
@@ -62,12 +72,12 @@
         .nav-link {
             color: white;
             text-decoration: none;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 500;
             padding: 6px 10px;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             cursor: pointer;
             transition: opacity 0.2s;
         }
@@ -102,8 +112,11 @@
             background-color: #2e5566;
         }
 
-        .nav-item:hover .dropdown-menu {
-            display: block;
+        /* Hover di Desktop */
+        @media (min-width: 769px) {
+            .nav-item:hover .dropdown-menu {
+                display: block;
+            }
         }
 
         /* --- MAIN CONTENT LAYOUT --- */
@@ -111,6 +124,7 @@
             max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
+            min-height: 60vh;
         }
 
         .page-title {
@@ -207,6 +221,65 @@
             color: #9ca3af;
             font-size: 13px;
         }
+
+        /* --- MEDIA QUERIES (TAMPILAN MOBILE / HP) --- */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+            }
+
+            .menu-toggle {
+                display: block; /* Munculkan tombol ☰ */
+            }
+
+            .nav-menu {
+                display: none; /* Sembunyikan menu bawaan */
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+                margin-top: 15px;
+                background-color: #2c5263;
+                border-radius: 6px;
+                overflow: hidden;
+            }
+
+            .nav-menu.active {
+                display: flex; /* Muncul saat tombol ☰ diklik */
+            }
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-link {
+                padding: 12px 16px;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background-color: #244351;
+                border-radius: 0;
+                padding: 0;
+            }
+
+            .dropdown-menu.show {
+                display: block;
+            }
+
+            .dropdown-menu li a {
+                padding: 10px 24px;
+            }
+
+            .hero-banner {
+                width: 100%;
+                height: auto;
+            }
+        }
     </style>
 
     <!-- Tempat CSS Khusus per Halaman -->
@@ -220,16 +293,22 @@
             <span>SENTRA HKI UNIDA</span>
         </div>
 
-        <ul class="nav-menu">
+        <!-- Tombol Hamburger Mobile -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
             <li class="nav-item">
-                <a href="/" class="nav-link">Home <i class="fa-solid fa-chevron-down"></i></a>
+                <a class="nav-link dropdown-toggle" href="/">Home <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
+                    <li><a href="/">Beranda Utama</a></li>
                     <li><a href="/sejarah">Sejarah HKI UNIDA Gontor</a></li>
                 </ul>
             </li>
 
             <li class="nav-item">
-                <a href="/pengertian" class="nav-link">Pengertian <i class="fa-solid fa-chevron-down"></i></a>
+                <a class="nav-link dropdown-toggle" href="/pengertian">Pengertian <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="/pengertian-hak-cipta">Hak Cipta</a></li>
                     <li><a href="/pengertian-paten">Paten</a></li>
@@ -238,15 +317,15 @@
             </li>
 
             <li class="nav-item">
-                <a href="/pendaftaran" class="nav-link">Pendaftaran <i class="fa-solid fa-chevron-down"></i></a>
+                <a class="nav-link dropdown-toggle" href="/pendaftaran">Pendaftaran <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="/formulir-pendaftaran">Form Pendaftaran</a></li>
-                    <li><a href="/template-formulir ">Template Forms</a></li>
+                    <li><a href="/template-formulir">Template Forms</a></li>
                 </ul>
             </li>
 
             <li class="nav-item">
-                <a href="/syarat-ketentuan" class="nav-link">Syarat & Ketentuan <i class="fa-solid fa-chevron-down"></i></a>
+                <a class="nav-link dropdown-toggle" href="/syarat-ketentuan">Syarat & Ketentuan <i class="fa-solid fa-chevron-down"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="/syarat-ketentuan-hak-cipta">Hak Cipta</a></li>
                     <li><a href="/syarat-ketentuan-paten">Paten</a></li>
@@ -278,15 +357,15 @@
                 <h3>Tautan Cepat</h3>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/pengertian">Pengertian HKI</a></li>
-                    <li><a href="/pendaftaran">Pendaftaran HKI</a></li>
+                    <li><a href="/pengertian-hak-cipta">Pengertian HKI</a></li>
+                    <li><a href="/formulir-pendaftaran">Pendaftaran HKI</a></li>
                     <li><a href="/sejarah">Sejarah UNIDA</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h3>Kontak Kami</h3>
-                <p><i class="fa-solid fa-location-dot"></i> Jl. Raya Siman No. Km. 5, Dusun I, Demangan, Kec. Siman, Kabupaten Ponorogo, Jawa Timur 63471</p>
+                <p><i class="fa-solid fa-location-dot"></i> Jl. Raya Siman No. Km. 5, Siman, Ponorogo, Jawa Timur 63471</p>
                 <p><i class="fa-solid fa-envelope"></i> hki@unida.gontor.ac.id</p>
                 <p><i class="fa-solid fa-phone"></i> 0857-0858-3094</p>
             </div>
@@ -296,6 +375,31 @@
             <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- SCRIPT JAVASCRIPT NAVBAR MOBILE -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+            // Toggle Hamburger Menu di HP
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+
+            // Toggle Submenu Dropdown di HP
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const dropdown = this.nextElementSibling;
+                        dropdown.classList.toggle('show');
+                    }
+                });
+            });
+        });
+    </script>
 
     <!-- Tempat Script JS Khusus per Halaman -->
     @stack('scripts')

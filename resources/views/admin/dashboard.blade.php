@@ -34,12 +34,26 @@
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.04);
         margin-bottom: 30px;
+        overflow-x: auto;
     }
     .table-container h3 {
         font-size: 16px;
         color: #1e293b;
         margin-bottom: 15px;
     }
+
+    /* Style Class Badge Warna Dinamis */
+    .badge-status {
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        display: inline-block;
+    }
+    .badge-pending  { background-color: #fef3c7; color: #d97706; }
+    .badge-diproses { background-color: #e0f2fe; color: #0284c7; }
+    .badge-selesai  { background-color: #d1fae5; color: #059669; }
+    .badge-ditolak  { background-color: #fee2e2; color: #dc2626; }
 </style>
 @endpush
 
@@ -81,6 +95,7 @@
             </thead>
             <tbody>
                 @forelse($hakCiptasList as $index => $item)
+                    @php $status = $item->status ?? 'Pending'; @endphp
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                         <td style="padding: 10px;">{{ $index + 1 }}</td>
                         <td style="padding: 10px;">{{ $item->email_pj }}</td>
@@ -88,12 +103,12 @@
                         <td style="padding: 10px;">{{ $item->judul_karya }}</td>
                         <td style="padding: 10px;">{{ $item->created_at ? $item->created_at->format('d M Y') : '-' }}</td>
                         <td style="padding: 10px;">
-                            <span style="background: #fef3c7; color: #d97706; padding: 4px 8px; border-radius: 4px; font-weight: 600; font-size: 12px;">
-                                {{ $item->status ?? 'Pending' }}
+                            <span class="badge-status badge-{{ strtolower($status) }}">
+                                {{ $status }}
                             </span>
                         </td>
                         <td style="padding: 10px;">
-                            <a href="{{ route('admin.hakcipta.detail', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px;">
+                            <a href="{{ route('admin.detail-hak-cipta', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600;">
                                 Lihat Isi & Berkas
                             </a>
                         </td>
@@ -124,6 +139,7 @@
             </thead>
             <tbody>
                 @forelse($patenList ?? [] as $index => $item)
+                    @php $status = $item->status ?? 'Pending'; @endphp
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                         <td style="padding: 10px;">{{ $index + 1 }}</td>
                         <td style="padding: 10px;">{{ $item->email_pj }}</td>
@@ -131,12 +147,12 @@
                         <td style="padding: 10px;">{{ $item->judul_invensi_id }}</td>
                         <td style="padding: 10px;">{{ $item->created_at ? $item->created_at->format('d M Y') : '-' }}</td>
                         <td style="padding: 10px;">
-                            <span style="background: #fef3c7; color: #d97706; padding: 4px 8px; border-radius: 4px; font-weight: 600; font-size: 12px;">
-                                {{ $item->status ?? 'Pending' }}
+                            <span class="badge-status badge-{{ strtolower($status) }}">
+                                {{ $status }}
                             </span>
                         </td>
                         <td style="padding: 10px;">
-                            <a href="{{ route('admin.detail-paten', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px;">
+                            <a href="{{ route('admin.detail-paten', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600;">
                                 Lihat Isi & Berkas
                             </a>
                         </td>
@@ -167,6 +183,7 @@
             </thead>
             <tbody>
                 @forelse($merekList ?? [] as $index => $item)
+                    @php $status = $item->status ?? 'Pending'; @endphp
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                         <td style="padding: 10px;">{{ $index + 1 }}</td>
                         <td style="padding: 10px;">{{ $item->email_pj }}</td>
@@ -174,12 +191,12 @@
                         <td style="padding: 10px;">{{ $item->judul_merek }}</td>
                         <td style="padding: 10px;">{{ $item->created_at ? $item->created_at->format('d M Y') : '-' }}</td>
                         <td style="padding: 10px;">
-                            <span style="background: #fef3c7; color: #d97706; padding: 4px 8px; border-radius: 4px; font-weight: 600; font-size: 12px;">
-                                {{ $item->status ?? 'Pending' }}
+                            <span class="badge-status badge-{{ strtolower($status) }}">
+                                {{ $status }}
                             </span>
                         </td>
                         <td style="padding: 10px;">
-                            <a href="{{ route('admin.detail-merek', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px;">
+                            <a href="{{ route('admin.detail-merek', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600;">
                                 Lihat Isi & Berkas
                             </a>
                         </td>
