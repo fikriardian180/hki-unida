@@ -384,17 +384,25 @@
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
             // Toggle Hamburger Menu di HP
-            menuToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-            });
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
 
-            // Toggle Submenu Dropdown di HP
+            // Toggle Submenu Dropdown via Icon Chevron di HP
             dropdownToggles.forEach(toggle => {
                 toggle.addEventListener('click', function(e) {
                     if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        const dropdown = this.nextElementSibling;
-                        dropdown.classList.toggle('show');
+                        // Jika yang diklik adalah ikon panah (i.fa-chevron-down)
+                        if (e.target.classList.contains('fa-chevron-down')) {
+                            e.preventDefault(); // Tahan navigasi, hanya buka dropdown
+                            const dropdown = this.nextElementSibling;
+                            if (dropdown) {
+                                dropdown.classList.toggle('show');
+                            }
+                        }
+                        // Jika teks induk diklik (Home, Pengertian, dll), browser akan langsung berpindah halaman secara normal!
                     }
                 });
             });

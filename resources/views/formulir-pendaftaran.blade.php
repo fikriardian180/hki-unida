@@ -166,7 +166,7 @@
     <h1 class="page-title">Formulir Pendaftaran</h1>
     
     <p class="description">
-        Silakan isi formulir daring (online) di bawah ini dengan data yang sebenar-benarnya. Sebelum mengisi, pastikan Bapak/Ibu sudah mengunduh berkas template surat pernyataan di menu Pusat Unduhan dan telah menandatanganinya di atas meterai Rp 10.000.
+        Silakan isi formulir daring (online) di bawah ini dengan data yang sebenar-benarnya. Sebelum mengisi, pastikan Bapak/Ibu sudah mengunduh berkas template surat pernyataan di menu Pusat Unduhan atau dengan mengklik tautan ini <a href="{{ url('/template-formulir') }}" target="_blank">Pusat Unduhan</a> dan telah menandatanganinya di atas meterai Rp 10.000.
     </p>
     
     <p class="description" style="margin-top: 20px; font-weight: 700; color: #1e293b;">

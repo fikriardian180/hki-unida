@@ -72,6 +72,6 @@ class HakCiptaController extends Controller
         HakCipta::create($validated);
 
         // 4. Redirect kembali dengan pesan sukses
-        return redirect()->back()->with('success', 'Permohonan Pendaftaran Hak Cipta Berhasil Dikirim!');
+        return redirect()->back()->with('success', 'Permohonan Pendaftaran Hak Cipta Berhasil Dikirim!. Tim Kami akan segera menghubungi Anda.');
     }
 }

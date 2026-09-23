@@ -184,7 +184,7 @@
         <li><strong>Syarat Komersialisasi Hasil Riset:</strong> Memudahkan produk hasil hilirisasi riset dosen untuk masuk ke pasar industri, pengujian BPOM, maupun sertifikasi Halal secara resmi.</li>
     </ul>
 
-    <h2 class="section-title">7. Biaya Pendaftaran dan Perpanjangan</h2>
+    <h2 class="section-title">7. Biaya Percatatan Merek</h2>
     <div class="table-responsive">
         <table class="custom-table">
             <thead>
@@ -198,65 +198,18 @@
             <tbody>
                 <tr>
                     <td style="text-align: center;">1</td>
-                    <td>Pendaftaran Etiket Merek</td>
-                    <td>Rp 650.000</td>
-                    <td>Rp 1.950.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">2</td>
-                    <td>Penelusuran Kelas Merek</td>
-                    <td>Rp 250.000</td>
-                    <td>Rp 250.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">3</td>
-                    <td>Administrasi kepengurusan (Pendaftaran) awal</td>
-                    <td>Rp 500.000</td>
-                    <td>Rp 750.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">4</td>
-                    <td>Perpanjangan sebelum berakhir masa perlindungan merek</td>
-                    <td>Rp 1.000.000</td>
-                    <td>Rp 2.250.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">5</td>
-                    <td>Perpanjangan merek setelah berakhir masa perlindungan merek</td>
-                    <td>Rp 2.000.000</td>
-                    <td>Rp 4.500.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">6</td>
-                    <td>Permohonan banding Merek</td>
-                    <td>Rp 3.000.000</td>
-                    <td>Rp 3.000.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">7</td>
-                    <td>Pengalihan hak atas Merek</td>
-                    <td>Rp 700.000</td>
-                    <td>Rp 700.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">8</td>
-                    <td>Penghapusan pendaftaran merek</td>
-                    <td>Rp 200.000</td>
-                    <td>Rp 200.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">9</td>
-                    <td>Pengajuan keberatan atas merek</td>
-                    <td>Rp 1.000.000</td>
-                    <td>Rp 1.000.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">10</td>
-                    <td>Administrasi kepengurusan lanjutan</td>
-                    <td>Rp 250.000</td>
-                    <td>Rp 250.000</td>
+                    <td>Pendaftaran & Pencatatan Merek</td>
+                    <td>Rp 1.500.000</td>
+                    <td>Rp 3.500.000</td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <p class="description"><strong>*Update 1 Agustus 2026</strong></p>
+    <ul class="custom-list">
+        <li>Catatan: Biaya di atas <strong>dapat berubah sewaktu-waktu mengikuti ketentuan pemerintah.</strong></li>
+        <li>Pembayaran dilakukan setelah melengkapi semua Persyaratan yang diperlukan dan Mengunggahnya di Formulir pendaftaran.</li>
+        <li>Pembayaran dapat dilakukan melalui transfer bank atau tunai.</li>
+        <li>Subsidi akan diberikan sesuai dengan syarat dan ketentuan yang berlaku.</li>
+    </ul>
 @endsection

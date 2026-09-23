@@ -63,6 +63,6 @@ class PatenController extends Controller
 
         Paten::create($validated);
 
-        return redirect()->back()->with('success', 'Permohonan Pendaftaran Paten Berhasil Dikirim!');
+        return redirect()->back()->with('success',   'Permohonan Pendaftaran Paten Berhasil Dikirim!. Tim Kami akan segera menghubungi Anda.');
     }
 }

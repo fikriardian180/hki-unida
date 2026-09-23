@@ -233,29 +233,18 @@
             <tbody>
                 <tr>
                     <td style="text-align: center;">1</td>
-                    <td>Pendaftaran Hak Cipta (Karya Seni, Karya Tulis, Audio Visual, Musik, Fotografi, Drama, Rekaman)</td>
-                    <td>Rp 300.000</td>
-                    <td>Rp 500.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">2</td>
-                    <td>Pendaftaran Hak Cipta berupa Aplikasi / Program Komputer</td>
+                    <td>Biaya Pendaftaran % Administrasi Hak Cipta</td>
                     <td>Rp 400.000</td>
-                    <td>Rp 700.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">3</td>
-                    <td>Administrasi Layanan</td>
-                    <td>Rp 300.000</td>
-                    <td>Rp 300.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">4</td>
-                    <td>Pengalihan Hak</td>
-                    <td>Rp 200.000</td>
-                    <td>Rp 200.000</td>
+                    <td>Rp 500.000</td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <p class="description"><strong>*Update 1 Agustus 2026</strong></p>
+    <ul class="custom-list">
+        <li>Catatan: Biaya di atas <strong>dapat berubah sewaktu-waktu mengikuti ketentuan pemerintah.</strong></li>
+        <li>Pembayaran dilakukan setelah melengkapi semua Persyaratan yang diperlukan dan Mengunggahnya di Formulir pendaftaran.</li>
+        <li>Pembayaran dapat dilakukan melalui transfer bank atau tunai.</li>
+        <li>Subsidi akan diberikan sesuai dengan syarat dan ketentuan yang berlaku.</li>
+    </ul>
 @endsection

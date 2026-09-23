@@ -50,6 +50,26 @@
         font-weight: 600;
         display: inline-block;
     }
+
+    /* Perbaikan tombol Aksi */
+    .btn-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #3B6B80;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: background-color 0.2s;
+    }
+    .btn-action:hover {
+        background: #2e5566;
+    }
+
     .badge-pending  { background-color: #fef3c7; color: #d97706; }
     .badge-diproses { background-color: #e0f2fe; color: #0284c7; }
     .badge-selesai  { background-color: #d1fae5; color: #059669; }
@@ -108,8 +128,9 @@
                             </span>
                         </td>
                         <td style="padding: 10px;">
-                            <a href="{{ route('admin.detail-hak-cipta', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600;">
-                                Lihat Isi & Berkas
+                            <a href="{{ route('admin.detail-hak-cipta', $item->id) }}" class="btn-action">
+                                <i class="fa-solid fa-eye"></i>
+                                <span>Lihat Isi & Berkas</span>
                             </a>
                         </td>
                     </tr>
@@ -152,8 +173,9 @@
                             </span>
                         </td>
                         <td style="padding: 10px;">
-                            <a href="{{ route('admin.detail-paten', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600;">
-                                Lihat Isi & Berkas
+                            <a href="{{ route('admin.detail-paten', $item->id) }}" class="btn-action">
+                                <i class="fa-solid fa-eye"></i>
+                                <span>Lihat Isi & Berkas</span>
                             </a>
                         </td>
                     </tr>
@@ -196,8 +218,9 @@
                             </span>
                         </td>
                         <td style="padding: 10px;">
-                            <a href="{{ route('admin.detail-merek', $item->id) }}" style="background: #3B6B80; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 600;">
-                                Lihat Isi & Berkas
+                            <a href="{{ route('admin.detail-merek', $item->id) }}" class="btn-action">
+                                <i class="fa-solid fa-eye"></i>
+                                <span>Lihat Isi & Berkas</span>
                             </a>
                         </td>
                     </tr>

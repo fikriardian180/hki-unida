@@ -241,7 +241,7 @@
         <li>Surat Kuasa (jika diajukan melalui konsultan HKI)</li>
     </ul>
 
-    <h2 class="section-title">7. Biaya Pencatatan Paten (PP RI No. 28 Tahun 2019)</h2>
+    <h2 class="section-title">7. Biaya Pencatatan Paten</h2>
     <div class="table-responsive">
         <table class="custom-table">
             <thead>
@@ -256,76 +256,23 @@
                 <tr>
                     <td style="text-align: center;">1</td>
                     <td>Pendaftaran Paten Sederhana</td>
-                    <td>Rp 350.000</td>
-                    <td>Rp 950.000</td>
+                    <td>Rp 1.500.000</td>
+                    <td>Rp 2.750.000</td>
                 </tr>
                 <tr>
                     <td style="text-align: center;">2</td>
-                    <td>Penelusuran Paten</td>
-                    <td>Rp 500.000</td>
-                    <td>Rp 500.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">3</td>
-                    <td>Penyusunan Draf Paten</td>
-                    <td>Rp 500.000</td>
-                    <td>Rp 1.000.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">4</td>
-                    <td>Pemeriksaan Substantif</td>
-                    <td>Rp 500.000</td>
-                    <td>Rp 500.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">5</td>
-                    <td>Administrasi Kepengurusan Awal</td>
-                    <td>Rp 750.000</td>
-                    <td>Rp 750.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">6</td>
-                    <td>Biaya Per Klaim</td>
-                    <td>Rp 75.000</td>
-                    <td>Rp 75.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">7</td>
-                    <td>Penambahan Deskripsi (per lembar diatas 30 hal)</td>
-                    <td>Rp 15.000</td>
-                    <td>Rp 15.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">8</td>
-                    <td>Percepatan Pemeriksaan Substantif</td>
-                    <td>Rp 400.000</td>
-                    <td>Rp 400.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">9</td>
-                    <td>Pengajuan Banding Paten</td>
-                    <td>Rp 3.000.000</td>
-                    <td>Rp 3.000.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">10</td>
-                    <td>Pencatatan Perjanjian Lisensi</td>
-                    <td>Rp 1.000.000</td>
-                    <td>Rp 1.000.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">11</td>
-                    <td>Biaya Pemeliharaan Tahun ke-6</td>
-                    <td>Rp 1.700.000</td>
-                    <td>Rp 1.750.000</td>
-                </tr>
-                <tr>
-                    <td style="text-align: center;">12</td>
-                    <td>Biaya Pemeliharaan Tahun ke-10</td>
-                    <td>Rp 3.900.000</td>
-                    <td>Rp 4.050.000</td>
+                    <td>Pendaftaran Paten</td>
+                    <td>Rp 6.450.000</td>
+                    <td>Rp 7.450.000</td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <p class="description"><strong>*Update 1 Agustus 2026</strong></p>
+    <ul class="custom-list">
+        <li>Catatan: Biaya di atas <strong>dapat berubah sewaktu-waktu mengikuti ketentuan pemerintah.</strong></li>
+        <li>Pembayaran dilakukan setelah melengkapi semua Persyaratan yang diperlukan dan Mengunggahnya di Formulir pendaftaran.</li>
+        <li>Pembayaran dapat dilakukan melalui transfer bank atau tunai.</li>
+        <li>Subsidi akan diberikan sesuai dengan syarat dan ketentuan yang berlaku.</li>
+    </ul>
 @endsection

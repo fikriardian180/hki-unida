@@ -63,6 +63,6 @@ class MerekController extends Controller
 
         Merek::create($validated);
 
-        return redirect()->back()->with('success', 'Permohonan Pendaftaran Merek Berhasil Dikirim!');
+        return redirect()->back()->with('success', 'Permohonan Pendaftaran Merek Berhasil Dikirim!. Tim Kami akan segera menghubungi Anda.');
     }
 }
