@@ -145,7 +145,7 @@
 @section('content')
     <!-- Hero Banner Utama -->
     <div class="hero-banner">
-        <img src="{{ asset('images/banner-2..png') }}" alt="Gedung UNIDA Gontor">
+        <img src="{{ asset('images/banner2fix.jpeg') }}" alt="Gedung UNIDA Gontor">
     </div>
 
     <h1 class="page-title">Sejarah Sentra HKI UNIDA Gontor</h1>

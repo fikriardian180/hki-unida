@@ -290,7 +290,8 @@
     <!-- NAVBAR GLOBAL -->
     <nav class="navbar">
         <div class="brand">
-            <span>SENTRA HKI UNIDA</span>
+            <img onclick="window.location.href='/'" src="{{ asset('images/logo-hki.png') }}" alt="Logo Sentra HKI UNIDA" style="height: 45px; width: auto;">
+            <span onclick="window.location.href='/'" style="cursor: pointer; font-size: 25px; font-weight: 600; color: white;">Sentra HKI UNIDA</span>
         </div>
 
         <!-- Tombol Hamburger Mobile -->

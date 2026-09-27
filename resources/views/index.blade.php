@@ -168,7 +168,7 @@
 @section('content')
     <!-- Hero Banner Full Width -->
     <div class="hero-banner">
-        <img src="{{ asset('images/banner-1.png') }}" alt="Gedung UNIDA Gontor">
+        <img src="{{ asset('images/banner1fix.jpeg') }}" alt="Gedung UNIDA Gontor">
     </div>
 
     <h1 class="page-title">Sentra HKI UNIDA Gontor</h1>
