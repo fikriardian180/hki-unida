@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Mengambil email dari .env (default ke admin@unida.gontor.ac.id jika tidak diset di .env)
+        // Mengambil email dari .env 
         $adminEmail = env('ADMIN_EMAIL', 'admin@unida.gontor.ac.id');
-        $adminPassword = env('ADMIN_PASSWORD', 'admin123');
+        $adminPassword = env('ADMIN_PASSWORD', 'change-this-password');
         $adminName = env('ADMIN_NAME', 'Admin Sentra HKI');
 
         // Buat atau perbarui akun admin menggunakan variabel lingkungan (.env)
