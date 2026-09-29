@@ -8,6 +8,7 @@ services:
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
+      - ./local.ini:/usr/local/etc/php/conf.d/zz-custom.ini
     networks:
       - hki_network
 

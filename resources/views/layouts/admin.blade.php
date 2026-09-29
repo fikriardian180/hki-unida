@@ -50,7 +50,7 @@
             padding: 30px; 
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Menyorongkan elemen terakhir ke dasar */
+            justify-content: space-between;
             min-height: 100vh;
             overflow-y: auto; 
         }
@@ -60,6 +60,23 @@
         }
 
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; background: white; padding: 20px 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+
+        /* General Table & Card Styling */
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.04); margin-top: 15px; }
+        .btn-primary { background-color: #164e63; color: white; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block; border: none; cursor: pointer; }
+        .btn-primary:hover { background-color: #2c5263; }
+        .btn-danger { background-color: #ef4444; color: white; padding: 6px 12px; border-radius: 4px; border: none; cursor: pointer; font-weight: 600; }
+        .btn-secondary { background-color: #64748b; color: white; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block; }
+        .alert-success { background-color: #dcfce7; color: #166534; padding: 12px 16px; border-radius: 6px; margin-bottom: 15px; }
+        
+        .table-custom { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .table-custom th, .table-custom td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        .table-custom th { background-color: #f1f5f9; color: #334155; font-weight: 600; }
+
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: #334155; }
+        .form-control { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; }
+        .form-control:focus { outline: none; border-color: #164e63; }
 
         /* Copyright Footer Style */
         .footer-bottom {
@@ -88,8 +105,18 @@
                 <li><a href="{{ route('admin.hakcipta') }}" class="{{ request()->routeIs('admin.hakcipta*') ? 'active' : '' }}"><i class="fa-solid fa-copyright"></i> Hak Cipta</a></li>
                 <li><a href="{{ route('admin.paten') }}" class="{{ request()->routeIs('admin.paten*') ? 'active' : '' }}"><i class="fa-solid fa-lightbulb"></i> Paten</a></li>
                 <li><a href="{{ route('admin.merek') }}" class="{{ request()->routeIs('admin.merek*') ? 'active' : '' }}"><i class="fa-solid fa-trademark"></i> Merek</a></li>
+                
+                <!-- Menu Kelola Staff (Hanya Tampil untuk Super Admin) -->
+                @if(auth()->user()->email === env('ADMIN_EMAIL', 'admin@unida.gontor.ac.id'))
+                    <li>
+                        <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users*') ? 'active' : '' }}">
+                            <i class="fa-solid fa-users"></i> Kelola Staff
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
+
         <form action="{{ route('logout') }}" method="POST">
             @csrf
             <button type="submit" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Keluar (Logout)</button>
@@ -108,7 +135,7 @@
             @yield('content')
         </div>
 
-        <!-- Copyright diletakkan di luar header, pada bagian dasar main-content -->
+        <!-- Copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved.</p>
         </div>
