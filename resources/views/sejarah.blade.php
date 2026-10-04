@@ -167,7 +167,7 @@
     <!-- SHOWCASE FOTO BERSAMA TIM SENTRA HKI (FULL UTUH) -->
     <div class="team-photo-container">
         <div class="team-photo-wrap">
-            <img src="{{ asset('images/foto-bareng.jpg') }}" alt="Foto Tim Pengurus Sentra HKI UNIDA Gontor">
+            <img src="{{ asset('images/foto-bareng.JPG') }}" alt="Foto Tim Pengurus Sentra HKI UNIDA Gontor">
         </div>
         <div class="team-photo-caption">
             <i class="fa-solid fa-users"></i> Tim Pengurus dan Pengelola Sentra Kekayaan Intelektual (HKI) Universitas Darussalam Gontor
