@@ -125,7 +125,7 @@
     <h1 class="page-title">Syarat & Ketentuan Paten</h1>
 
     <div class="lead-description">
-        Setiap pemohon (Pencipta/Inventor) yang mengajukan permohonan fasilitasi pendaftaran Paten melalui Sentra HKI Universitas Darussalam Gontor <strong>wajib memahami dan menyetujui ketentuan khusus di bawah ini:</strong>
+        Setiap pemohon (Pencipta/Inventor) yang akan mengajukan permohonan fasilitasi pendaftaran Paten melalui Sentra HKI Universitas Darussalam Gontor <strong>wajib memahami dan menyetujui ketentuan khusus di bawah ini:</strong>
     </div>
 
     <!-- Poin 1 -->

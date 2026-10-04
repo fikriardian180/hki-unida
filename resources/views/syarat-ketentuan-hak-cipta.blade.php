@@ -123,7 +123,7 @@
     <h1 class="page-title">Syarat & Ketentuan Hak Cipta</h1>
 
     <div class="lead-description">
-        Setiap pemohon (Pencipta) yang mengajukan permohonan fasilitasi pendaftaran Hak Cipta melalui Sentra HKI Universitas Darussalam Gontor <strong>wajib memahami dan menyetujui ketentuan khusus di bawah ini:</strong>
+        Setiap pemohon (Pencipta) yang akan mengajukan permohonan fasilitasi pendaftaran Hak Cipta melalui Sentra HKI Universitas Darussalam Gontor <strong>wajib memahami dan menyetujui ketentuan khusus di bawah ini:</strong>
     </div>
 
     <!-- Poin 1 -->
