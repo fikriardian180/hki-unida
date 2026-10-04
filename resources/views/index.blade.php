@@ -181,7 +181,7 @@
         <div class="welcome-content-wrap">
             <h2 class="page-heading">Selamat Datang di Sistem Informasi Resmi Sentra HKI Universitas Darussalam Gontor</h2>
             <p class="description">
-                Sentra Kekayaan Intelektual (HKI) Universitas Darussalam Gontor merupakan unit strategis yang berkomitmen penuh dalam memfasilitasi, melindungi, serta mengelola seluruh aset intelektual hasil kreativitas, riset, dan inovasi dari segenap civitas akademika. Kami percaya bahwa setiap karya ilmiah, buku, jurnal, aplikasi, hingga invensi teknologi yang dilahirkan oleh para dosen dan peneliti merupakan aset berharga yang wajib mendapatkan kepastian hukum serta pelindungan hak cipta yang kuat.
+                Sentra Kekayaan Intelektual (HKI) Universitas Darussalam Gontor merupakan unit strategis yang berkomitmen penuh dalam memfasilitasi, melindungi, serta mengelola seluruh aset intelektual hasil kreativitas, riset, dan inovasi dari segenap civitas akademika. Kami percaya bahwa setiap karya ilmiah, buku, jurnal, aplikasi, hingga invensi teknologi yang dilahirkan oleh para dosen dan peneliti merupakan aset berharga yang wajib mendapatkan kepastian hukum serta pelindungan hak cipta yang aman dan kuat.
             </p>
         </div>
     </div>
