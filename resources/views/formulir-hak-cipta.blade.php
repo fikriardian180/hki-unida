@@ -250,6 +250,12 @@
             </div>
         @endif
 
+    @if ($errors->has('r2_error'))
+    <div style="background-color: #f8d7da; color: #721c24; padding: 12px; border-radius: 5px; margin-bottom: 20px;">
+        <strong>Sistem Error:</strong> {{ $errors->first('r2_error') }}
+    </div>
+    @endif
+
         <form id="formHakCipta" action="{{ route('hakcipta.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             

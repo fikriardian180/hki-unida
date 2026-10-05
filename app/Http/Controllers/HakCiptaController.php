@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\HakCipta;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+use Throwable; // Menangkap semua jenis Exception / Error PHP
 
 class HakCiptaController extends Controller
 {
@@ -32,7 +34,7 @@ class HakCiptaController extends Controller
             'prodi_pemohon_1' => 'required|string',
             'prodi_lainnya_1' => 'nullable|string',
 
-            // Pemohon 2-5 (Opsional)
+            // Pemohon 2-5
             'nama_pemohon_2' => 'nullable|string', 'nik_pemohon_2' => 'nullable|string', 'alamat_pemohon_2' => 'nullable|string', 'kode_pos_2' => 'nullable|string', 'no_hp_2' => 'nullable|string', 'email_pemohon_2' => 'nullable|email', 'npwp_pemohon_2' => 'nullable|string', 'prodi_pemohon_2' => 'nullable|string', 'prodi_lainnya_2' => 'nullable|string',
             'nama_pemohon_3' => 'nullable|string', 'nik_pemohon_3' => 'nullable|string', 'alamat_pemohon_3' => 'nullable|string', 'kode_pos_3' => 'nullable|string', 'no_hp_3' => 'nullable|string', 'email_pemohon_3' => 'nullable|email', 'npwp_pemohon_3' => 'nullable|string', 'prodi_pemohon_3' => 'nullable|string', 'prodi_lainnya_3' => 'nullable|string',
             'nama_pemohon_4' => 'nullable|string', 'nik_pemohon_4' => 'nullable|string', 'alamat_pemohon_4' => 'nullable|string', 'kode_pos_4' => 'nullable|string', 'no_hp_4' => 'nullable|string', 'email_pemohon_4' => 'nullable|email', 'npwp_pemohon_4' => 'nullable|string', 'prodi_pemohon_4' => 'nullable|string', 'prodi_lainnya_4' => 'nullable|string',
@@ -55,42 +57,61 @@ class HakCiptaController extends Controller
             'file_akte_pendirian' => 'nullable|file|mimes:pdf|max:10240',
         ]);
 
-        // 2. Simpan file yang diunggah ke folder privat
         $fileFields = [
             'file_data_pencipta_lengkap', 'file_ktp', 'file_npwp',
             'file_deskripsi_karya', 'file_karya_ciptaan', 'file_surat_pernyataan',
             'file_pengalihan_hak', 'file_akte_pendirian'
         ];
 
-        foreach ($fileFields as $fileKey) {
-            if ($request->hasFile($fileKey)) {
-                // Simpan ke storage privat tanpa argumen 'public'
-                $validated[$fileKey] = $request->file($fileKey)->store('private/hak-cipta', 's3');
+        // 2. Wrap upload dan database creation dalam try-catch
+        try {
+            foreach ($fileFields as $fileKey) {
+                if ($request->hasFile($fileKey)) {
+                    // Upload ke S3/R2
+                    $validated[$fileKey] = $request->file($fileKey)->store('private/hak-cipta', 's3');
+                }
             }
+
+            // 3. Simpan data ke Database
+            HakCipta::create($validated);
+
+            return redirect()->back()->with('success', 'Permohonan Pendaftaran Hak Cipta Berhasil Dikirim!. Tim Kami akan segera menghubungi Anda.');
+
+        } catch (Throwable $e) {
+            // Catat log detail di storage/logs/laravel.log
+            Log::error('Gagal Upload R2 Hak Cipta: ' . $e->getMessage(), [
+                'exception' => $e,
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+            ]);
+
+            // Kembalikan error ke UI form tanpa crash HTTP 500
+            return redirect()->back()
+                ->withInput()
+                ->withErrors(['r2_error' => 'Gagal mengunggah berkas ke R2 Storage: ' . $e->getMessage()]);
         }
-
-        // 3. Simpan data ke Database
-        HakCipta::create($validated);
-
-        // 4. Redirect kembali dengan pesan sukses
-        return redirect()->back()->with('success', 'Permohonan Pendaftaran Hak Cipta Berhasil Dikirim!. Tim Kami akan segera menghubungi Anda.');
     }
+
     public function showFile($id, $field)
     {
-        $hakCipta = HakCipta::findOrFail($id);
-        $filePath = $hakCipta->{$field};
+        try {
+            $hakCipta = HakCipta::findOrFail($id);
+            $filePath = $hakCipta->{$field};
 
-        if (!$filePath || !Storage::disk('s3')->exists($filePath)) {
-            abort(404, 'File tidak ditemukan di S3/R2.');
+            if (!$filePath || !Storage::disk('s3')->exists($filePath)) {
+                abort(404, 'File tidak ditemukan di S3/R2.');
+            }
+
+            $fileContent = Storage::disk('s3')->get($filePath);
+            $mimeType = Storage::disk('s3')->mimeType($filePath);
+
+            return response($fileContent, 200, [
+                'Content-Type' => $mimeType,
+                'Content-Disposition' => 'inline; filename="' . basename($filePath) . '"',
+            ]);
+        } catch (Throwable $e) {
+            Log::error('Error download file R2: ' . $e->getMessage());
+            abort(500, 'Gagal mengambil file dari R2: ' . $e->getMessage());
         }
-
-        // Ambil isi file dari S3/R2 dan kembalikan response stream ke browser
-        $fileContent = Storage::disk('s3')->get($filePath);
-        $mimeType = Storage::disk('s3')->mimeType($filePath);
-
-        return response($fileContent, 200, [
-            'Content-Type' => $mimeType,
-            'Content-Disposition' => 'inline; filename="' . basename($filePath) . '"',
-        ]);
     }
 }
