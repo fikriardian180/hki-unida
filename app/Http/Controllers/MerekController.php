@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Merek;
+use Illuminate\Support\Facades\Storage;
 
 class MerekController extends Controller
 {
@@ -57,12 +58,30 @@ class MerekController extends Controller
 
         foreach ($fileField as $fileKey) {
             if ($request->hasFile($fileKey)) {
-                $validated[$fileKey] = $request->file($fileKey)->store('private/merek');
+                $validated[$fileKey] = $request->file($fileKey)->store('private/merek', 's3');
             }
         }
 
         Merek::create($validated);
 
         return redirect()->back()->with('success', 'Permohonan Pendaftaran Merek Berhasil Dikirim!. Tim Kami akan segera menghubungi Anda.');
+    }
+    public function showFile($id, $field)
+    {
+        $merek = Merek::findOrFail($id);
+        $filePath = $merek->{$field};
+
+        if (!$filePath || !Storage::disk('s3')->exists($filePath)) {
+            abort(404, 'File tidak ditemukan di S3/R2.');
+        }
+
+        // Ambil isi file dari S3/R2 dan kembalikan response stream ke browser
+        $fileContent = Storage::disk('s3')->get($filePath);
+        $mimeType = Storage::disk('s3')->mimeType($filePath);
+
+        return response($fileContent, 200, [
+            'Content-Type' => $mimeType,
+            'Content-Disposition' => 'inline; filename="' . basename($filePath) . '"',
+        ]);
     }
 }

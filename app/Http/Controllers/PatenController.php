@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Paten;
+use Illuminate\Support\Facades\Storage;
 
 class PatenController extends Controller
 {
@@ -57,12 +58,30 @@ class PatenController extends Controller
 
         foreach ($fileFields as $fileKey) {
             if ($request->hasFile($fileKey)) {
-                $validated[$fileKey] = $request->file($fileKey)->store('private/paten');
+                $validated[$fileKey] = $request->file($fileKey)->store('private/paten', 's3');
             }
         }
 
         Paten::create($validated);
 
         return redirect()->back()->with('success',   'Permohonan Pendaftaran Paten Berhasil Dikirim!. Tim Kami akan segera menghubungi Anda.');
+    }
+    public function showFile($id, $field)
+    {
+        $paten = Paten::findOrFail($id);
+        $filePath = $paten->{$field};
+
+        if (!$filePath || !Storage::disk('s3')->exists($filePath)) {
+            abort(404, 'File tidak ditemukan di S3/R2.');
+        }
+
+        // Ambil isi file dari S3/R2 dan kembalikan response stream ke browser
+        $fileContent = Storage::disk('s3')->get($filePath);
+        $mimeType = Storage::disk('s3')->mimeType($filePath);
+
+        return response($fileContent, 200, [
+            'Content-Type' => $mimeType,
+            'Content-Disposition' => 'inline; filename="' . basename($filePath) . '"',
+        ]);
     }
 }

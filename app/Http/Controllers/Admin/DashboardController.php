@@ -122,12 +122,23 @@ class DashboardController extends Controller
     }
 
     public function downloadFileHakCipta($id, $field)
-    {
-        $hakCipta = HakCipta::findOrFail($id);
-        $filePath = $hakCipta->$field;
+{
+    $hakCipta = HakCipta::findOrFail($id);
+    $filePath = $hakCipta->{$field};
 
-        return $this->processFileDownload($filePath, 'Hak Cipta');
+    if (!$filePath || !Storage::disk('s3')->exists($filePath)) {
+        abort(404, 'File tidak ditemukan di Cloudflare R2.');
     }
+
+    // Mengambil isi file dari Cloudflare R2 dan menampilkannya di browser
+    $fileContent = Storage::disk('s3')->get($filePath);
+    $mimeType = Storage::disk('s3')->mimeType($filePath);
+
+    return response($fileContent, 200, [
+        'Content-Type' => $mimeType,
+        'Content-Disposition' => 'inline; filename="' . basename($filePath) . '"',
+    ]);
+}
 
     // ==========================================
     // 2. MODUL PATEN
@@ -217,7 +228,18 @@ class DashboardController extends Controller
         $paten = Paten::findOrFail($id);
         $filePath = $paten->$field;
 
-        return $this->processFileDownload($filePath, 'Paten');
+        if (!$filePath || !Storage::disk('s3')->exists($filePath)) {
+            abort(404, 'File tidak ditemukan di Cloudflare R2.');
+        }
+
+        // Mengambil isi file dari Cloudflare R2 dan menampilkannya di browser
+        $fileContent = Storage::disk('s3')->get($filePath);
+        $mimeType = Storage::disk('s3')->mimeType($filePath);
+
+        return response($fileContent, 200, [
+            'Content-Type' => $mimeType,
+            'Content-Disposition' => 'inline; filename="' . basename($filePath) . '"',
+        ]);
     }
 
     // ==========================================
@@ -308,7 +330,18 @@ class DashboardController extends Controller
         $merek = Merek::findOrFail($id);
         $filePath = $merek->$field;
 
-        return $this->processFileDownload($filePath, 'Merek');
+        if (!$filePath || !Storage::disk('s3')->exists($filePath)) {
+            abort(404, 'File tidak ditemukan di Cloudflare R2.');
+        }
+
+        // Mengambil isi file dari Cloudflare R2 dan menampilkannya di browser
+        $fileContent = Storage::disk('s3')->get($filePath);
+        $mimeType = Storage::disk('s3')->mimeType($filePath);
+
+        return response($fileContent, 200, [
+            'Content-Type' => $mimeType,
+            'Content-Disposition' => 'inline; filename="' . basename($filePath) . '"',
+        ]);
     }
 
     // ==========================================
