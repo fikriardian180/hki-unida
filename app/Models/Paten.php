@@ -43,6 +43,9 @@ class Paten extends Model
         'file_abstrak_id',
         'file_abstrak_en',
         'file_deskripsi_paten',
+
+        'nomor_registrasi',
+        
         'status',
     ];
 }

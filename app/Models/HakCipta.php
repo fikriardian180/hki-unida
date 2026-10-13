@@ -49,6 +49,8 @@ class HakCipta extends Model
         'file_pengalihan_hak',
         'file_akte_pendirian',
 
+        'nomor_registrasi',
+
         'status',
     ];
 }

@@ -62,6 +62,17 @@ class PatenController extends Controller
             }
         }
 
+        // Tambahkan di method store(), tepat sebelum Paten::create($validated);
+
+        $today = date('Ym');
+        $random = strtoupper(substr(uniqid(), -4));
+        $validated['nomor_registrasi'] = 'HC-PTN-' . $today . '-' . $random;
+        $validated['status'] = 'pending';
+
+        $paten = Paten::create($validated);
+
+        return redirect()->back()->with('success', 'Permohonan Pendaftaran Paten Berhasil Dikirim! Nomor Registrasi Anda: ' . $paten->nomor_registrasi);
+
         Paten::create($validated);
 
         return redirect()->back()->with('success',   'Permohonan Pendaftaran Paten Berhasil Dikirim!. Tim Kami akan segera menghubungi Anda.');

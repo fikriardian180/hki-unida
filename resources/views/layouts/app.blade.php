@@ -322,6 +322,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="/formulir-pendaftaran">Form Pendaftaran</a></li>
                     <li><a href="/template-formulir">Template Forms</a></li>
+                    <li><a href="/cek-status">Cek Status Pendaftaran</a></li>
                 </ul>
             </li>
 

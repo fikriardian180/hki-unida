@@ -20,7 +20,7 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('totalHakCipta', 'totalPaten', 'totalMerek', 'totalPermohonan'));
     }
 
-    // Kelola Data Hak Cipta (dengan Filter & Search)
+    // Kelola Data Hak Cipta (dengan Filter & Search termasuk Nomor Registrasi)
     public function hakCipta(Request $request)
     {
         $query = HakCipta::query();
@@ -28,7 +28,8 @@ class AdminController extends Controller
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where(function($q) use ($search) {
-                $q->where('nama_pemohon_1', 'like', "%{$search}%")
+                $q->where('nomor_registrasi', 'like', "%{$search}%")
+                  ->orWhere('nama_pemohon_1', 'like', "%{$search}%")
                   ->orWhere('judul_karya', 'like', "%{$search}%")
                   ->orWhere('email_pj', 'like', "%{$search}%");
             });
@@ -42,7 +43,7 @@ class AdminController extends Controller
         return view('admin.hak-cipta', compact('dataHakCipta'));
     }
 
-    // Kelola Data Paten (dengan Filter & Search)
+    // Kelola Data Paten (dengan Filter & Search termasuk Nomor Registrasi)
     public function paten(Request $request)
     {
         $query = Paten::query();
@@ -50,7 +51,8 @@ class AdminController extends Controller
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where(function($q) use ($search) {
-                $q->where('nama_pemohon_1', 'like', "%{$search}%")
+                $q->where('nomor_registrasi', 'like', "%{$search}%")
+                  ->orWhere('nama_pemohon_1', 'like', "%{$search}%")
                   ->orWhere('judul_invensi_id', 'like', "%{$search}%")
                   ->orWhere('email_pj', 'like', "%{$search}%");
             });
@@ -64,7 +66,7 @@ class AdminController extends Controller
         return view('admin.paten', compact('dataPaten'));
     }
 
-    // Kelola Data Merek (dengan Filter & Search)
+    // Kelola Data Merek (dengan Filter & Search termasuk Nomor Registrasi)
     public function merek(Request $request)
     {
         $query = Merek::query();
@@ -72,7 +74,8 @@ class AdminController extends Controller
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where(function($q) use ($search) {
-                $q->where('nama_pemohon_1', 'like', "%{$search}%")
+                $q->where('nomor_registrasi', 'like', "%{$search}%")
+                  ->orWhere('nama_pemohon_1', 'like', "%{$search}%")
                   ->orWhere('judul_merek', 'like', "%{$search}%")
                   ->orWhere('email_pj', 'like', "%{$search}%");
             });
@@ -136,6 +139,7 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Status permohonan berhasil diperbarui!');
     }
+
     // Ekspor Data Hak Cipta ke CSV
     public function exportHakCipta()
     {
@@ -150,7 +154,7 @@ class AdminController extends Controller
             "Expires"             => "0"
         ];
 
-        $columns = ['No', 'Tanggal Kirim', 'Pemohon Utama', 'Email PJ', 'Judul Karya', 'Jenis Hak Cipta', 'Status'];
+        $columns = ['No', 'Nomor Registrasi', 'Tanggal Kirim', 'Pemohon Utama', 'Email PJ', 'Judul Karya', 'Jenis Hak Cipta', 'Status'];
 
         $callback = function() use($data, $columns) {
             $file = fopen('php://output', 'w');
@@ -160,12 +164,13 @@ class AdminController extends Controller
             foreach ($data as $index => $row) {
                 fputcsv($file, [
                     $index + 1,
+                    $row->nomor_registrasi ?? '-',
                     $row->created_at->format('Y-m-d H:i'),
                     $row->nama_pemohon_1,
                     $row->email_pj,
                     $row->judul_karya,
                     $row->jenis_hak_cipta,
-                    $row->status ?? 'Pending'
+                    $row->status ?? 'pending'
                 ]);
             }
 
@@ -189,7 +194,7 @@ class AdminController extends Controller
             "Expires"             => "0"
         ];
 
-        $columns = ['No', 'Tanggal Kirim', 'Pemohon Utama', 'Email PJ', 'Judul Invensi', 'Jenis Paten', 'Status'];
+        $columns = ['No', 'Nomor Registrasi', 'Tanggal Kirim', 'Pemohon Utama', 'Email PJ', 'Judul Invensi', 'Jenis Paten', 'Status'];
 
         $callback = function() use($data, $columns) {
             $file = fopen('php://output', 'w');
@@ -199,12 +204,13 @@ class AdminController extends Controller
             foreach ($data as $index => $row) {
                 fputcsv($file, [
                     $index + 1,
+                    $row->nomor_registrasi ?? '-',
                     $row->created_at->format('Y-m-d H:i'),
                     $row->nama_pemohon_1,
                     $row->email_pj,
                     $row->judul_invensi_id,
                     $row->jenis_paten,
-                    $row->status ?? 'Pending'
+                    $row->status ?? 'pending'
                 ]);
             }
 
@@ -228,7 +234,7 @@ class AdminController extends Controller
             "Expires"             => "0"
         ];
 
-        $columns = ['No', 'Tanggal Kirim', 'Pemohon Utama', 'Email PJ', 'Judul Merek', 'Kelas Merek', 'Jenis Merek', 'Status'];
+        $columns = ['No', 'Nomor Registrasi', 'Tanggal Kirim', 'Pemohon Utama', 'Email PJ', 'Judul Merek', 'Kelas Merek', 'Jenis Merek', 'Status'];
 
         $callback = function() use($data, $columns) {
             $file = fopen('php://output', 'w');
@@ -238,13 +244,14 @@ class AdminController extends Controller
             foreach ($data as $index => $row) {
                 fputcsv($file, [
                     $index + 1,
+                    $row->nomor_registrasi ?? '-',
                     $row->created_at->format('Y-m-d H:i'),
                     $row->nama_pemohon_1,
                     $row->email_pj,
                     $row->judul_merek,
                     $row->kelas_merek,
                     $row->jenis_merek,
-                    $row->status ?? 'Pending'
+                    $row->status ?? 'pending'
                 ]);
             }
 

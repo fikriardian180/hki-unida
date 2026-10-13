@@ -78,6 +78,32 @@
         .form-control { width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; }
         .form-control:focus { outline: none; border-color: #164e63; }
 
+        /* Status Badge Styling untuk Tabel Admin */
+        .badge-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .badge-pending { background-color: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+        .badge-verifikasi { background-color: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+        .badge-djki { background-color: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+        .badge-sertifikat { background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+        .badge-ditolak { background-color: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+
+        .select-status {
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #cbd5e1;
+            cursor: pointer;
+            background-color: #ffffff;
+        }
+
         /* Copyright Footer Style */
         .footer-bottom {
             text-align: center;

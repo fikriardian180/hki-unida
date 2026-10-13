@@ -64,6 +64,9 @@ Route::get('/template-formulir', function () {
     return view('template-formulir');
 });
 
+// Route Tracking Status
+Route::get('/cek-status', [HakCiptaController::class, 'track'])->name('tracking.index');
+
 // ROUTE FORMULIR HAK CIPTA (Dengan Throttle Submit Form: Maks 3 per menit)
 Route::get('/formulir-hak-cipta', [HakCiptaController::class, 'create'])->name('hakcipta.create');
 Route::post('/formulir-hak-cipta', [HakCiptaController::class, 'store'])->middleware('throttle:3,1')->name('hakcipta.store');
@@ -112,4 +115,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     // 4. Modul Kelola Staff / Users
     Route::resource('users', UserController::class)->names('admin.users')->except(['show', 'edit', 'update']);
+
+    // 5. Route untuk Update Status (PATCH)
+    Route::patch('/admin/update-status/{type}/{id}', [AdminController::class, 'updateStatus'])->name('admin.update-status');
 });

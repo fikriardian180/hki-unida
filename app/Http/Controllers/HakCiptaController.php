@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\HakCipta;
+use App\Models\Merek;
+use App\Models\Paten; 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
-use Throwable; // Menangkap semua jenis Exception / Error PHP
+use Throwable;
 
 class HakCiptaController extends Controller
 {
@@ -72,10 +74,16 @@ class HakCiptaController extends Controller
                 }
             }
 
-            // 3. Simpan data ke Database
-            HakCipta::create($validated);
+            // Generate Nomor Registrasi & Status
+            $today = date('Ym');
+            $random = strtoupper(substr(uniqid(), -4));
+            $validated['nomor_registrasi'] = 'HKI-HC' . $today . '-' . $random;
+            $validated['status'] = 'pending';
 
-            return redirect()->back()->with('success', 'Permohonan Pendaftaran Hak Cipta Berhasil Dikirim!. Tim Kami akan segera menghubungi Anda.');
+            // Simpan Data ke Database
+            $hakCipta = HakCipta::create($validated);
+
+            return redirect()->back()->with('success', 'Permohonan Pendaftaran Hak Cipta Berhasil Dikirim! Nomor Registrasi Anda: ' . $hakCipta->nomor_registrasi);
 
         } catch (Throwable $e) {
             // Catat log detail di storage/logs/laravel.log
@@ -113,5 +121,36 @@ class HakCiptaController extends Controller
             Log::error('Error download file R2: ' . $e->getMessage());
             abort(500, 'Gagal mengambil file dari R2: ' . $e->getMessage());
         }
+    }
+
+    public function track(Request $request)
+    {
+        $keyword = trim($request->input('keyword'));
+
+        $hasil = collect();
+        if ($keyword) {
+            // Cari data Hak Cipta
+            $hakCipta = HakCipta::where('nomor_registrasi', $keyword)
+                ->orWhere('email_pj', $keyword)
+                ->latest()
+                ->get();
+
+            // Cari data Merek
+            $merek = Merek::where('nomor_registrasi', $keyword)
+                ->orWhere('email_pj', $keyword)
+                ->latest()
+                ->get();
+
+            // Cari data Paten
+            $paten = Paten::where('nomor_registrasi', $keyword)
+                ->orWhere('email_pj', $keyword)
+                ->latest()
+                ->get();
+
+            // Gabungkan seluruh hasil pencarian
+            $hasil = $hakCipta->concat($merek)->concat($paten)->sortByDesc('created_at');
+        }
+
+        return view('tracking', compact('hasil', 'keyword'));
     }
 }

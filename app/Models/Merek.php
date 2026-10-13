@@ -43,6 +43,9 @@ class Merek extends Model
         'file_bentuk_merek',
         'file_dokumen_pendukung',
         'file_deskripsi_merek',
+
+        'nomor_registrasi',
+        
         'status',
     ];
 }

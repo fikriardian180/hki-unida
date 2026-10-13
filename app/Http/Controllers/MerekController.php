@@ -62,6 +62,17 @@ class MerekController extends Controller
             }
         }
 
+        //Nomor RESI
+
+        $today = date('Ym');
+        $random = strtoupper(substr(uniqid(), -4));
+        $validated['nomor_registrasi'] = 'HKI-MRK-' . $today . '-' . $random;
+        $validated['status'] = 'pending';
+
+        $merek = Merek::create($validated);
+
+        return redirect()->back()->with('success', 'Permohonan Pendaftaran Merek Berhasil Dikirim! Nomor Registrasi Anda: ' . $merek->nomor_registrasi);
+
         Merek::create($validated);
 
         return redirect()->back()->with('success', 'Permohonan Pendaftaran Merek Berhasil Dikirim!. Tim Kami akan segera menghubungi Anda.');
