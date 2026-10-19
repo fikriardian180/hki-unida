@@ -153,7 +153,7 @@
     <div class="main-content">
         <div class="content-body">
             <div class="header">
-                <h2>@yield('header_title', 'Ringkasan Sistem Informasi HKI')</h2>
+                <h2>@yield('header_title', 'Sistem Informasi HKI')</h2>
                 <span>Halo, <strong>{{ Auth::user()->name }}</strong></span>
             </div>
 
@@ -163,7 +163,7 @@
 
         <!-- Copyright -->
         <div class="footer-bottom">
-            <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved.</p>
+            <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved. <strong>v1.1.2</strong></p>
         </div>
     </div>
 

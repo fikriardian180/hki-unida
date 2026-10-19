@@ -95,4 +95,13 @@ class MerekController extends Controller
             'Content-Disposition' => 'inline; filename="' . basename($filePath) . '"',
         ]);
     }
+
+    // Hapus Data Merek
+    public function destroyMerek($id)
+    {
+        $data = Merek::findOrFail($id);
+        $data->delete();
+
+        return redirect()->back()->with('success', 'Data Merek berhasil dihapus!');
+    }
 }

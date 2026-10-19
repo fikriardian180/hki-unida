@@ -153,4 +153,13 @@ class HakCiptaController extends Controller
 
         return view('tracking', compact('hasil', 'keyword'));
     }
+
+    // Hapus Data Hak Cipta
+    public function destroyHakCipta($id)
+    {
+        $data = HakCipta::findOrFail($id);
+        $data->delete();
+
+        return redirect()->back()->with('success', 'Data Hak Cipta berhasil dihapus!');
+    }
 }

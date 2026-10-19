@@ -87,6 +87,7 @@
                     <th>Jenis Hak Cipta</th>
                     <th>Status Pengajuan</th>
                     <th>Aksi</th>
+                    <th>Hapus</th>
                 </tr>
             </thead>
             <tbody>
@@ -128,6 +129,15 @@
                                 <i class="fa-solid fa-eye"></i>
                                 <span>Detail</span>
                             </a>
+                        </td>
+                        <td>
+                            <form action="{{ route('hakcipta.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus permohonan ini?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" style="padding: 6px 10px; background-color: #ef4444; color: white; border: none; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer;">
+                                    <i class="fa-solid fa-trash"></i> Hapus
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @empty

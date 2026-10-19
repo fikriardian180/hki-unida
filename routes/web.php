@@ -113,6 +113,12 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::post('/merek/{id}/status', [DashboardController::class, 'updateStatusMerek'])->name('admin.merek.status');
     Route::get('/admin/merek/file/{id}/{field}', [MerekController::class, 'showFile'])->name('admin.merek.file');
 
+    // Route Hapus Permohonan
+    Route::delete('/hak-cipta/{id}', [HakCiptaController::class, 'destroyHakCipta'])->name('hakcipta.destroy');
+    Route::delete('/merek/{id}', [MerekController::class, 'destroyMerek'])->name('merek.destroy');
+    Route::delete('/paten/{id}', [PatenController::class, 'destroyPaten'])->name('paten.destroy');
+
+
     // 4. Modul Kelola Staff / Users
     Route::resource('users', UserController::class)->names('admin.users')->except(['show', 'edit', 'update']);
 

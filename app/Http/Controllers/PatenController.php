@@ -95,4 +95,12 @@ class PatenController extends Controller
             'Content-Disposition' => 'inline; filename="' . basename($filePath) . '"',
         ]);
     }
+    // Hapus Data Paten
+    public function destroyPaten($id)
+    {
+        $data = Paten::findOrFail($id);
+        $data->delete();
+
+        return redirect()->back()->with('success', 'Data Paten berhasil dihapus!');
+    }
 }
