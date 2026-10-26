@@ -374,7 +374,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved. <strong>v1.1.2</strong></p>
+            <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved. <strong>v1.2.2</strong></p>
         </div>
     </footer>
 

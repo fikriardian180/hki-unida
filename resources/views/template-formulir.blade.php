@@ -17,18 +17,22 @@
     /* Container utama 3 kolom download */
     .download-container {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start; /* Menggunakan flex-start agar baris terakhir yang berisi < 3 item tidak renggang berlebihan */
         gap: 20px;
         width: 100%;
         max-width: 1100px;
         margin: 30px auto 40px auto;
         padding: 0;
         box-sizing: border-box;
+        flex-direction: row;
+        flex-wrap: wrap; 
+        /* flex: 0 0 ... DIHAPUS DARI SINI */
     }
 
     /* Kartu per elemen */
     .download-card {
-        flex: 1;
+        /* MENGGUNAKAN RUMUS KANAN: (Total Lebar - Total Gap) / 3 */
+        flex: 0 0 calc((100% - 40px) / 3); 
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -156,11 +160,33 @@
 
         <!-- Kartu 2: Download Template Dokumen -->
         <div class="download-card">
-            <h3 class="download-title">Download Template Dokumen</h3>
+            <h3 class="download-title">Download Template Dokumen Hak Cipta</h3>
             <div class="download-icon">
                 <i class="fa-solid fa-file-word"></i>
             </div>
-            <a href="https://drive.google.com/drive/folders/1HL-j-V00K6AgSrmm2Gd191fsG1Rq1swQ" target="_blank" rel="noopener noreferrer" class="btn-download">
+            <a href="https://drive.google.com/drive/folders/1nrATNy_zzAgk_jE5HfmQf9Lv8IA-RWAw?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-download">
+                <span>Buka Folder Drive</span>
+                <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 12px;"></i>
+            </a>
+        </div>
+
+        <div class="download-card">
+            <h3 class="download-title">Download Template Dokumen Merek</h3>
+            <div class="download-icon">
+                <i class="fa-solid fa-file-word"></i>
+            </div>
+            <a href="https://drive.google.com/drive/folders/1rQFt6nHwGefL1z34sPlMJ_633yMSy03Q?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-download">
+                <span>Buka Folder Drive</span>
+                <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 12px;"></i>
+            </a>
+        </div>
+
+        <div class="download-card">
+            <h3 class="download-title">Download Template Dokumen Paten</h3>
+            <div class="download-icon">
+                <i class="fa-solid fa-file-word"></i>
+            </div>
+            <a href="https://drive.google.com/drive/folders/1Sv9WZRD7GcgRFWP4fj-9EASzmBOhm9uc?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-download">
                 <span>Buka Folder Drive</span>
                 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 12px;"></i>
             </a>
@@ -174,6 +200,17 @@
             </div>
             <a href="https://drive.google.com/drive/folders/1pDh44PED2HKpFqiBCAJDhuX3KMhPtaXu" target="_blank" rel="noopener noreferrer" class="btn-download">
                 <span>Buka Folder Drive</span>
+                <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 12px;"></i>
+            </a>
+        </div>
+
+        <div class="download-card">
+            <h3 class="download-title">Pusat Bantuan</h3>
+            <div class="download-icon">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <a href="https://wa.me/6285708530094" target="_blank" rel="noopener noreferrer" class="btn-download">
+                <span>Hubungi Pusat Bantuan</span>
                 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 12px;"></i>
             </a>
         </div>
