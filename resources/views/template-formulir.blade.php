@@ -209,7 +209,7 @@
             <div class="download-icon">
                 <i class="fa-brands fa-whatsapp"></i>
             </div>
-            <a href="https://wa.me/6285708530094" target="_blank" rel="noopener noreferrer" class="btn-download">
+            <a href="https://wa.me/6285708583094" target="_blank" rel="noopener noreferrer" class="btn-download">
                 <span>Hubungi Pusat Bantuan</span>
                 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 12px;"></i>
             </a>
