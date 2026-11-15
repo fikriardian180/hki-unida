@@ -59,10 +59,10 @@
             @php $currentStatus = strtolower($data->status ?? 'pending'); @endphp
             
             <select name="status" id="statusSelect" class="select-status status-{{ $currentStatus }}">
-                <option value="Pending" {{ ($data->status ?? '') == 'Pending' ? 'selected' : '' }}>Pending</option>
-                <option value="Diproses" {{ ($data->status ?? '') == 'Diproses' ? 'selected' : '' }}>Diproses</option>
-                <option value="Selesai" {{ ($data->status ?? '') == 'Selesai' ? 'selected' : '' }}>Selesai</option>
-                <option value="Ditolak" {{ ($data->status ?? '') == 'Ditolak' ? 'selected' : '' }}>Ditolak</option>
+                <option value="pending" {{ ($data->status ?? '') == 'pending' ? 'selected' : '' }}>Pending</option>
+                <option value="diproses" {{ ($data->status ?? '') == 'diproses' ? 'selected' : '' }}>Diproses</option>
+                <option value="selesai" {{ ($data->status ?? '') == 'selesai' ? 'selected' : '' }}>Selesai</option>
+                <option value="ditolak" {{ ($data->status ?? '') == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
             </select>
             
             <button type="submit" class="btn-update"><i class="fa-solid fa-floppy-disk"></i> Simpan Status</button>

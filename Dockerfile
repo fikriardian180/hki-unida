@@ -50,7 +50,8 @@ RUN apk add --no-cache \
         pcntl \
         bcmath \
         gd \
-        zip
+        zip \
+        opcache
 
 # Copy biner Composer dari image resmi composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

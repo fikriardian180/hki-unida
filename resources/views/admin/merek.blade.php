@@ -21,11 +21,10 @@
         cursor: pointer;
         outline: none;
     }
-    .status-pending { background-color: #fef3c7; color: #92400e; border-color: #fde68a; }
-    .status-verifikasi { background-color: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
-    .status-djki { background-color: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
-    .status-sertifikat { background-color: #d1fae5; color: #065f46; border-color: #a7f3d0; }
-    .status-ditolak { background-color: #fee2e2; color: #991b1b; border-color: #fecaca; }
+    .status-pending  { background-color: #fef3c7; color: #d97706; border-color: #fde68a; }
+    .status-diproses { background-color: #e0f2fe; color: #0284c7; border-color: #bae6fd; }
+    .status-selesai  { background-color: #d1fae5; color: #059669; border-color: #a7f3d0; }
+    .status-ditolak  { background-color: #fee2e2; color: #dc2626; border-color: #fca5a5; }
 
     .btn-action { padding: 6px 12px; background-color: #3B6B80; color: white; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600; }
     .btn-action:hover { background-color: #2c5263; }
@@ -58,10 +57,9 @@
             <select name="status" class="filter-select">
                 <option value="">-- Semua Status --</option>
                 <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Diterima (Pending)</option>
-                <option value="verifikasi_berkas" {{ request('status') == 'verifikasi_berkas' ? 'selected' : '' }}>Verifikasi Berkas</option>
-                <option value="diajukan_djki" {{ request('status') == 'diajukan_djki' ? 'selected' : '' }}>Diajukan ke DJKI</option>
-                <option value="sertifikat_terbit" {{ request('status') == 'sertifikat_terbit' ? 'selected' : '' }}>Sertifikat Terbit</option>
-                <option value="ditolak" {{ request('status') == 'ditolak' ? 'selected' : '' }}>Ditolak / Revisi</option>
+                <option value="diproses" {{ request('status') == 'diproses' ? 'selected' : '' }}>Diproses</option>
+                <option value="selesai" {{ request('status') == 'selesai' ? 'selected' : '' }}>Selesai</option>
+                <option value="ditolak" {{ request('status') == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
             </select>
             <button type="submit" class="btn-filter"><i class="fa-solid fa-magnifying-glass"></i> Cari</button>
             @if(request('search') || request('status'))
@@ -114,10 +112,9 @@
                                     {{ $currentStatus == 'sertifikat_terbit' ? 'status-sertifikat' : '' }}
                                     {{ $currentStatus == 'ditolak' ? 'status-ditolak' : '' }}">
                                     <option value="pending" {{ $currentStatus == 'pending' ? 'selected' : '' }}>Diterima (Pending)</option>
-                                    <option value="verifikasi_berkas" {{ $currentStatus == 'verifikasi_berkas' ? 'selected' : '' }}>Verifikasi Berkas</option>
-                                    <option value="diajukan_djki" {{ $currentStatus == 'diajukan_djki' ? 'selected' : '' }}>Diajukan ke DJKI</option>
-                                    <option value="sertifikat_terbit" {{ $currentStatus == 'sertifikat_terbit' ? 'selected' : '' }}>Sertifikat Terbit</option>
-                                    <option value="ditolak" {{ $currentStatus == 'ditolak' ? 'selected' : '' }}>Ditolak / Revisi</option>
+                                    <option value="diproses" {{ $currentStatus == 'diproses' ? 'selected' : '' }}>Diproses</option>
+                                    <option value="selesai" {{ $currentStatus == 'selesai' ? 'selected' : '' }}>Selesai</option>
+                                    <option value="ditolak" {{ $currentStatus == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
                                 </select>
                             </form>
                         </td>
@@ -157,6 +154,18 @@
 <script>
     document.querySelector('.filter-select').addEventListener('change', function() {
         this.form.submit();
+    });
+    // Warna Status Dropdown diubah secara dinamis saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+        const statusSelects = document.querySelectorAll('.status-select');
+        statusSelects.forEach(select => {
+            const currentStatus = select.value.toLowerCase();
+            select.classList.remove('status-pending', 'status-diproses', 'status-selesai', 'status-ditolak');
+            if (currentStatus === 'pending') select.classList.add('status-pending');
+            else if (currentStatus === 'diproses') select.classList.add('status-diproses');
+            else if (currentStatus === 'selesai') select.classList.add('status-selesai');
+            else if (currentStatus === 'ditolak') select.classList.add('status-ditolak');
+        });
     });
 </script>
 @endpush
