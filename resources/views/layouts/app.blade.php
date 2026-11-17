@@ -5,280 +5,323 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Sentra HKI UNIDA')</title>
 
-    <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Slabo+27px&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Favicon icon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
-    <!-- CSS GLOBAL (NAVBAR, FOOTER, & LAYOUT UTAMA) -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5, Bootstrap Icons & FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+        :root {
+            --clr-primary: #3B6B80;       /* Warna Teal Utama Sentra HKI UNIDA */
+            --clr-primary-dark: #2c5263;
+            --clr-accent: #F59E0B;        /* Emas Aksen */
+            --clr-bg: #F8FAFC;
+            --clr-dark: #0B1220;
+            --clr-text: #1E293B;
+            --clr-muted: #64748B;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --shadow-soft: 0 12px 32px rgba(15, 23, 42, 0.06);
         }
 
         body {
-            background-color: #ffffff;
-            color: #333333;
-        }
-
-        /* --- NAVBAR --- */
-        .navbar {
-            background-color: #3B6B80;
+            font-family: 'Inter', sans-serif;
+            color: var(--clr-text);
+            background-color: var(--clr-bg);
+            overflow-x: hidden;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            color: white;
-            position: relative;
-            z-index: 10;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            font-family: 'Poppins', sans-serif;
-            gap: 12px;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+        main { flex: 1; }
+
+        h1, h2, h3, h4, h5, h6, .font-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        /* Toggle Button Mobile (Hamburger) */
-        .menu-toggle {
-            display: none;
-            background: none;
+        /* --- NAVBAR MODERN --- */
+        .navbar-hw {
+            padding: 1.15rem 0;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(59, 107, 128, 0.08);
+        }
+        .navbar-hw.scrolled {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(59, 107, 128, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            padding: 0.7rem 0;
+        }
+        .hw-logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.30rem;
+            color: var(--clr-primary-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hw-logo img {
+            height: 60px;
+            width: auto;
+        }
+        .hw-logo .dot { color: var(--clr-accent); }
+
+        .nav-hw .nav-link {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.94rem;
+            color: var(--clr-text);
+            padding: 0.5rem 0.95rem !important;
+            transition: color 0.2s;
+        }
+        .nav-hw .nav-link:hover,
+        .nav-hw .nav-link:focus {
+            color: var(--clr-primary);
+        }
+
+        /* Dropdown Bootstrap Styled */
+        .nav-hw .dropdown-menu {
             border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+            padding: 0.5rem;
+            margin-top: 0.5rem;
         }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
+        .nav-hw .dropdown-item {
+            font-size: 0.9rem;
             font-weight: 500;
-            padding: 6px 10px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            transition: opacity 0.2s;
+            color: var(--clr-text);
+            border-radius: 8px;
+            padding: 0.55rem 1rem;
+            transition: all 0.2s;
+        }
+        .nav-hw .dropdown-item:hover {
+            background-color: rgba(59, 107, 128, 0.1);
+            color: var(--clr-primary);
         }
 
-        .nav-link:hover {
-            opacity: 0.8;
-        }
-
-        /* Dropdown Styling */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #3B6B80;
-            min-width: 180px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-            list-style: none;
-            padding: 8px 0;
-            border-radius: 0 0 4px 4px;
-        }
-
-        .dropdown-menu li a {
-            color: white;
-            padding: 10px 16px;
-            display: block;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .dropdown-menu li a:hover {
-            background-color: #2e5566;
-        }
-
-        /* Hover di Desktop */
-        @media (min-width: 769px) {
-            .nav-item:hover .dropdown-menu {
+        /* Hover dropdown otomatis di Desktop */
+        @media (min-width: 992px) {
+            .nav-hw .dropdown:hover .dropdown-menu {
                 display: block;
+                margin-top: 0;
             }
         }
 
-        /* --- MAIN CONTENT LAYOUT --- */
+        /* Perbaikan Tampilan Navbar di HP / Tablet */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: #ffffff;
+                margin-top: 0.75rem;
+                padding: 1rem;
+                border-radius: 16px;
+                box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+                border: 1px solid #E2E8F0;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            .nav-hw .nav-item {
+                border-bottom: 1px solid #F1F5F9;
+            }
+            .nav-hw .nav-item:last-child {
+                border-bottom: none;
+            }
+            .nav-hw .nav-link {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.75rem 0.5rem !important;
+            }
+            .dropdown-arrow {
+                padding: 6px 12px;
+                background: #F1F5F9;
+                border-radius: 8px;
+                transition: transform 0.25s ease;
+            }
+            .dropdown-arrow.rotated {
+                transform: rotate(180deg);
+                background: rgba(59, 107, 128, 0.15);
+                color: var(--clr-primary);
+            }
+            .nav-hw .dropdown-menu {
+                box-shadow: none;
+                background: #F8FAFC;
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+                padding: 0.35rem;
+            }
+        }
+
+        /* --- BUTTONS --- */
+        .btn-hw-primary {
+            background: var(--clr-primary);
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 0.65rem 1.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 20px rgba(59, 107, 128, 0.25);
+        }
+        .btn-hw-primary:hover {
+            background: var(--clr-primary-dark);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .btn-hw-outline {
+            background: #fff;
+            color: var(--clr-text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 0.65rem 1.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #CBD5E1;
+            transition: all 0.25s ease;
+        }
+        .btn-hw-outline:hover {
+            border-color: var(--clr-primary);
+            color: var(--clr-primary);
+        }
+
+        /* --- SHARED COMPONENTS & SUB-PAGES --- */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(59, 107, 128, 0.12);
+            color: var(--clr-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 50px;
+        }
+        .section-pad { padding: 80px 0; }
+        .section-title { font-weight: 800; color: var(--clr-dark); }
+        .section-sub { color: var(--clr-muted); line-height: 1.7; }
+
+        /* Kompatibilitas Halaman Sub-Konten Lama (.main-content & .page-title) */
         .main-content {
-            max-width: 1100px;
-            margin: 40px auto;
+            max-width: 1140px;
+            margin: 110px auto 50px;
             padding: 0 20px;
             min-height: 60vh;
         }
-
         .page-title {
-            font-family: 'Slabo 27px', serif;
-            font-size: 38px;
-            color: #3B6B80;
-            font-weight: 700;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            line-height: 1.2;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(1.75rem, 3vw, 2.35rem);
+            color: var(--clr-primary);
+            font-weight: 800;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 14px;
+            margin-bottom: 24px;
+            line-height: 1.25;
         }
 
-        /* --- FOOTER --- */
-        .footer {
-            background-color: #2c5263;
-            color: #ffffff;
-            padding: 40px 0 20px 0;
-            margin-top: 60px;
-            font-size: 14px;
+        .card-hw {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            border: 1px solid #F1F5F9;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            height: 100%;
         }
-
-        .footer-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .card-hw:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.09);
+        }
+        .icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(59, 107, 128, 0.12);
+            color: var(--clr-primary);
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
         }
 
-        .footer-col {
-            flex: 1;
-            min-width: 220px;
+        /* --- FOOTER MODERN --- */
+        .footer-hw {
+            background: var(--clr-dark);
+            color: #94A3B8;
+            padding: 4.5rem 0 2rem;
+            margin-top: auto;
         }
-
-        .footer-col h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #ffffff;
-            border-bottom: 2px solid #528ba3;
-            display: inline-block;
-            padding-bottom: 5px;
+        .footer-hw h6 {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 8px;
         }
-
-        .footer-col p {
-            line-height: 1.6;
-            color: #d1d5db;
-            margin-bottom: 10px;
+        .footer-hw h6::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 32px;
+            height: 2px;
+            background: var(--clr-accent);
         }
-
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: #d1d5db;
+        .footer-hw ul { list-style: none; padding: 0; }
+        .footer-hw ul li { margin-bottom: 0.65rem; }
+        .footer-link {
+            color: #94A3B8;
             text-decoration: none;
             transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
-
-        .footer-col ul li a:hover {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-
-        .social-links {
+        .footer-link:hover { color: #fff; }
+        .footer-social {
             display: flex;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 1.25rem;
         }
-
-        .social-links a {
-            color: #ffffff;
-            font-size: 18px;
-            transition: opacity 0.2s;
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s;
         }
-
-        .social-links a:hover {
-            opacity: 0.8;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #9ca3af;
-            font-size: 13px;
-        }
-
-        /* --- MEDIA QUERIES (TAMPILAN MOBILE / HP) --- */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 15px 20px;
-                flex-wrap: wrap;
-            }
-
-            .menu-toggle {
-                display: block; /* Munculkan tombol ☰ */
-            }
-
-            .nav-menu {
-                display: none; /* Sembunyikan menu bawaan */
-                flex-direction: column;
-                width: 100%;
-                gap: 0;
-                margin-top: 15px;
-                background-color: #2c5263;
-                border-radius: 6px;
-                overflow: hidden;
-            }
-
-            .nav-menu.active {
-                display: flex; /* Muncul saat tombol ☰ diklik */
-            }
-
-            .nav-item {
-                width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .nav-link {
-                padding: 12px 16px;
-                justify-content: space-between;
-                width: 100%;
-            }
-
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
-                background-color: #244351;
-                border-radius: 0;
-                padding: 0;
-            }
-
-            .dropdown-menu.show {
-                display: block;
-            }
-
-            .dropdown-menu li a {
-                padding: 10px 24px;
-            }
-
-            .hero-banner {
-                width: 100%;
-                height: auto;
-            }
+        .footer-social a:hover {
+            background: var(--clr-primary);
+            transform: translateY(-2px);
         }
     </style>
 
@@ -288,125 +331,195 @@
 <body>
 
     <!-- NAVBAR GLOBAL -->
-    <nav class="navbar">
-        <div class="brand">
-            <img onclick="window.location.href='/'" src="{{ asset('images/logo-hki.png') }}" alt="Logo Sentra HKI UNIDA" style="height: 45px; width: auto;">
-            <span onclick="window.location.href='/'" style="cursor: pointer; font-size: 25px; font-weight: 600; color: white;">Sentra HKI UNIDA</span>
+    <nav class="navbar navbar-expand-lg navbar-hw fixed-top" id="mainNav">
+        <div class="container">
+            <a class="hw-logo" href="{{ url('/') }}">
+                <img src="{{ asset('images/logo-hki.png') }}" alt="Logo Sentra HKI UNIDA">
+                <span>Sentra HKI <span class="dot">UNIDA</span></span>
+            </a>
+
+            <!-- Tombol Hamburger Murni Bootstrap 5 -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle Menu">
+                <i class="bi bi-list fs-1 text-dark"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav nav-hw mx-auto mt-2 mt-lg-0">
+                    <!-- Home Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{{ url('/') }}">
+                            <span>Home</span>
+                            <i class="bi bi-chevron-down small dropdown-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url('/') }}">Beranda Utama</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/sejarah') }}">Sejarah HKI UNIDA Gontor</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Pengertian Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{{ url('/pengertian') }}">
+                            <span>Pengertian</span>
+                            <i class="bi bi-chevron-down small dropdown-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url('/pengertian-hak-cipta') }}">Hak Cipta</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/pengertian-paten') }}">Paten</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/pengertian-merek') }}">Merek</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Pendaftaran Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{{ url('/pendaftaran') }}">
+                            <span>Pendaftaran</span>
+                            <i class="bi bi-chevron-down small dropdown-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url('/formulir-pendaftaran') }}">Form Pendaftaran</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/template-formulir') }}">Template Forms</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/cek-status') }}">Cek Status Pendaftaran</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Syarat & Ketentuan Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{{ url('/syarat-ketentuan') }}">
+                            <span>Syarat &amp; Ketentuan</span>
+                            <i class="bi bi-chevron-down small dropdown-arrow"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url('/syarat-ketentuan-hak-cipta') }}">Hak Cipta</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/syarat-ketentuan-paten') }}">Paten</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/syarat-ketentuan-merek') }}">Merek</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Tombol Aksi Kanan -->
+                <div class="d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0">
+                    <a href="{{ url('/cek-status') }}" class="btn-hw-outline justify-content-center">Cek Status</a>
+                    <a href="{{ url('/formulir-pendaftaran') }}" class="btn-hw-primary justify-content-center">Ajukan HKI <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
-
-        <!-- Tombol Hamburger Mobile -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
-        <ul class="nav-menu" id="navMenu">
-            <li class="nav-item">
-                <a class="nav-link dropdown-toggle" href="/">Home <i class="fa-solid fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/">Beranda Utama</a></li>
-                    <li><a href="/sejarah">Sejarah HKI UNIDA Gontor</a></li>
-                </ul>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link dropdown-toggle" href="/pengertian">Pengertian <i class="fa-solid fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/pengertian-hak-cipta">Hak Cipta</a></li>
-                    <li><a href="/pengertian-paten">Paten</a></li>
-                    <li><a href="/pengertian-merek">Merek</a></li> 
-                </ul>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link dropdown-toggle" href="/pendaftaran">Pendaftaran <i class="fa-solid fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/formulir-pendaftaran">Form Pendaftaran</a></li>
-                    <li><a href="/template-formulir">Template Forms</a></li>
-                    <li><a href="/cek-status">Cek Status Pendaftaran</a></li>
-                </ul>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link dropdown-toggle" href="/syarat-ketentuan">Syarat & Ketentuan <i class="fa-solid fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/syarat-ketentuan-hak-cipta">Hak Cipta</a></li>
-                    <li><a href="/syarat-ketentuan-paten">Paten</a></li>
-                    <li><a href="/syarat-ketentuan-merek">Merek</a></li>
-                </ul>
-            </li>
-        </ul>
     </nav>
 
     <!-- KONTEN HALAMAN -->
-    <main class="main-content">
-        @yield('content')
-    </main>
+    @hasSection('fullwidth_content')
+        <main>
+            @yield('fullwidth_content')
+        </main>
+    @else
+        <main class="main-content">
+            @yield('content')
+        </main>
+    @endif
 
     <!-- FOOTER GLOBAL -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>Sentra HKI UNIDA</h3>
-                <p>Lembaga Layanan Hak Kekayaan Intelektual Universitas Darussalam Gontor.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/hki_unida_gontor/"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+    <footer class="footer-hw">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <a class="hw-logo text-white" href="{{ url('/') }}">
+                        <img src="{{ asset('images/logo-hki.png') }}" alt="Logo Sentra HKI UNIDA">
+                        <span>Sentra HKI <span class="dot">UNIDA</span></span>
+                    </a>
+                    <p class="mt-3 small lh-lg">
+                        Lembaga Layanan Hak Kekayaan Intelektual Universitas Darussalam Gontor. Memfasilitasi pendaftaran Hak Cipta, Paten, dan Merek civitas akademika.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.tiktok.com/@hkiunidagontor" target="_blank" rel="noopener" aria-label="Tiktok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/hki_unida_gontor/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <h6>Tautan Cepat</h6>
+                    <ul class="small">
+                        <li><a class="footer-link" href="{{ url('/') }}"><i class="bi bi-chevron-right"></i> Home</a></li>
+                        <li><a class="footer-link" href="{{ url('/pengertian-hak-cipta') }}"><i class="bi bi-chevron-right"></i> Pengertian HKI</a></li>
+                        <li><a class="footer-link" href="{{ url('/formulir-pendaftaran') }}"><i class="bi bi-chevron-right"></i> Pendaftaran HKI</a></li>
+                        <li><a class="footer-link" href="{{ url('/sejarah') }}"><i class="bi bi-chevron-right"></i> Sejarah UNIDA</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <h6>Layanan</h6>
+                    <ul class="small">
+                        <li><a class="footer-link" href="{{ url('/syarat-ketentuan-hak-cipta') }}"><i class="bi bi-chevron-right"></i> Hak Cipta</a></li>
+                        <li><a class="footer-link" href="{{ url('/syarat-ketentuan-paten') }}"><i class="bi bi-chevron-right"></i> Paten</a></li>
+                        <li><a class="footer-link" href="{{ url('/syarat-ketentuan-merek') }}"><i class="bi bi-chevron-right"></i> Merek</a></li>
+                        <li><a class="footer-link" href="{{ url('/template-formulir') }}"><i class="bi bi-chevron-right"></i> Template Forms</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h6>Kontak Kami</h6>
+                    <p class="small mb-2 d-flex gap-2">
+                        <i class="fa-solid fa-location-dot mt-1 text-warning"></i>
+                        <span>Jl. Raya Siman No. Km. 5, Siman, Ponorogo, Jawa Timur 63471</span>
+                    </p>
+                    <p class="small mb-2 d-flex gap-2">
+                        <i class="fa-solid fa-envelope mt-1 text-warning"></i>
+                        <span>hki@unida.gontor.ac.id</span>
+                    </p>
+                    <p class="small mb-0 d-flex gap-2">
+                        <i class="fa-solid fa-phone mt-1 text-warning"></i>
+                        <span>0857-0858-3094</span>
+                    </p>
                 </div>
             </div>
 
-            <div class="footer-col">
-                <h3>Tautan Cepat</h3>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/pengertian-hak-cipta">Pengertian HKI</a></li>
-                    <li><a href="/formulir-pendaftaran">Pendaftaran HKI</a></li>
-                    <li><a href="/sejarah">Sejarah UNIDA</a></li>
-                </ul>
+            <hr class="border-secondary my-4">
+            <div class="text-center small">
+                &copy; {{ date('Y') }} Sentra HKI UNIDA Gontor. All Rights Reserved. <strong>v1.2.4</strong>
             </div>
-
-            <div class="footer-col">
-                <h3>Kontak Kami</h3>
-                <p><i class="fa-solid fa-location-dot"></i> Jl. Raya Siman No. Km. 5, Siman, Ponorogo, Jawa Timur 63471</p>
-                <p><i class="fa-solid fa-envelope"></i> hki@unida.gontor.ac.id</p>
-                <p><i class="fa-solid fa-phone"></i> 0857-0858-3094</p>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved. <strong>v1.2.3</strong></p>
         </div>
     </footer>
 
-    <!-- SCRIPT JAVASCRIPT NAVBAR MOBILE -->
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menuToggle');
-            const navMenu = document.getElementById('navMenu');
-            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true });
 
-            // Toggle Hamburger Menu di HP
-            if (menuToggle) {
-                menuToggle.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                });
-            }
+        // Efek Navbar Scroll
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
 
-            // Toggle Submenu Dropdown via Icon Chevron di HP
-            dropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        // Jika yang diklik adalah ikon panah (i.fa-chevron-down)
-                        if (e.target.classList.contains('fa-chevron-down')) {
-                            e.preventDefault(); // Tahan navigasi, hanya buka dropdown
-                            const dropdown = this.nextElementSibling;
-                            if (dropdown) {
-                                dropdown.classList.toggle('show');
-                            }
-                        }
-                        // Jika teks induk diklik (Home, Pengertian, dll), browser akan langsung berpindah halaman secara normal!
+        // Hover Dropdown di Desktop (>= 992px)
+        document.querySelectorAll('.nav-hw .dropdown').forEach(dropdown => {
+            dropdown.addEventListener('mouseenter', () => {
+                if (window.innerWidth >= 992) {
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    if (menu) menu.classList.add('show');
+                }
+            });
+            dropdown.addEventListener('mouseleave', () => {
+                if (window.innerWidth >= 992) {
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    if (menu) menu.classList.remove('show');
+                }
+            });
+        });
+
+        // Klik Ikon Panah (.dropdown-arrow) di HP (< 992px) untuk buka/tutup submenu tanpa memblokir link
+        document.querySelectorAll('.dropdown-arrow').forEach(arrow => {
+            arrow.addEventListener('click', function(e) {
+                if (window.innerWidth < 992) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const menu = this.closest('.dropdown').querySelector('.dropdown-menu');
+                    if (menu) {
+                        menu.classList.toggle('show');
+                        this.classList.toggle('rotated');
                     }
-                });
+                }
             });
         });
     </script>
