@@ -474,7 +474,7 @@
 
             <hr class="border-secondary my-4">
             <div class="text-center small">
-                &copy; {{ date('Y') }} Sentra HKI UNIDA Gontor. All Rights Reserved. <strong>v1.2.5.1</strong>
+                &copy; {{ date('Y') }} Sentra HKI UNIDA Gontor. All Rights Reserved. <strong>v1.2.5</strong>
             </div>
         </div>
     </footer>
