@@ -163,7 +163,7 @@
 
         <!-- Copyright -->
         <div class="footer-bottom">
-            <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved. <strong>v1.2.5</strong></p>
+            <p>&copy; 2026 Sentra HKI UNIDA Gontor. All Rights Reserved. <strong>v1.2.5.1</strong></p>
         </div>
     </div>
 
