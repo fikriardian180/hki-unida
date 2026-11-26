@@ -395,9 +395,8 @@ body {
                                 $currentStatus = $item->status ?? 'pending';
                                 $steps = [
                                     'pending' => ['label' => 'Diterima', 'icon' => 'fa-inbox'],
-                                    'verifikasi_berkas' => ['label' => 'Verifikasi Berkas', 'icon' => 'fa-file-signature'],
-                                    'diajukan_djki' => ['label' => 'Diajukan ke DJKI', 'icon' => 'fa-building-columns'],
-                                    'sertifikat_terbit' => ['label' => 'Sertifikat Terbit', 'icon' => 'fa-certificate'],
+                                    'diproses' => ['label' => 'Verifikasi Berkas', 'icon' => 'fa-file-signature'],
+                                    'selesai' => ['label' => 'Sertifikat Terbit', 'icon' => 'fa-certificate'],
                                 ];
 
                                 $statusKeys = array_keys($steps);
@@ -408,7 +407,7 @@ body {
                             @if($currentStatus == 'ditolak')
                                 <div style="background:#fef2f2; border-left:4px solid #ef4444; padding:1rem; border-radius:8px; margin-top:1rem; color:#991b1b;">
                                     <strong>Pengajuan Perlu Revisi / Ditolak</strong>
-                                    <p style="margin:0.25rem 0 0; font-size:0.875rem;">Silakan hubungi Sekretariat Sentra HKI UNIDA untuk informasi perbaikan berkas.</p>
+                                    <p style="margin:0.25rem 0 0; font-size:0.875rem;">Silakan hubungi Sekretariat Sentra HKI UNIDA melalui pusat bantuan untuk informasi perbaikan berkas.</p>
                                 </div>
                             @else
                                 <div class="stepper-grid">

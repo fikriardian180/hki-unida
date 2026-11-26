@@ -29,3 +29,6 @@ storage/framework/cache/*
 storage/framework/sessions/*
 storage/framework/views/*
 docker-compose.override.yml
+GEMINI.md
+.dockerignore
+.gemini/

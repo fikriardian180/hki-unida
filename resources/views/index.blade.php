@@ -547,7 +547,7 @@
                 <p class="mb-4 opacity-90">Hubungi Kami atau langsung ajukan permohonan HKI secara daring sekarang.</p>
                 <div class="d-flex flex-wrap justify-content-center gap-3">
                     <a href="{{ url('/formulir-pendaftaran') }}" class="btn-cta"><i class="bi bi-send-fill"></i> Form Pendaftaran</a>
-                    <a href="{{ url('/https://wa.me/6285708583094') }}" class="btn-hw-outline"><i class="fa-brands fa-whatsapp"></i> Pusat bantuan</a>
+                    <a href="https://wa.me/6285708583094" class="btn-hw-outline"><i class="fa-brands fa-whatsapp"></i> Pusat bantuan</a>
                 </div>
             </div>
         </div>
